@@ -60,8 +60,10 @@ const dataProvider = fakeDataProvider({
   ],
   Abzeichen: [
     {
-      AbzeichenID: '#1',
-      Bild: '/app/components/Media/1.png'
+      AbzeichenID: '#1',/* 
+      Url: '/app/components/Media/1.png', */
+      Url: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
+      Beschreibung: 'test'
     }
   ]
 });

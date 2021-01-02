@@ -17,7 +17,8 @@ export const AbzeichenList = (props) => (
   <List {...props} >
     <Datagrid /* rowClick='edit' */>
       <TextField source='AbzeichenID' label='ID' />
-      <ImageField source='Bild' />
+      <TextField source='Beschreibung' />
+      <ImageField source="Url" />
       <EditButton basePath='./app/components/Abzeichen.js' />
     </Datagrid>
   </List>
@@ -27,7 +28,11 @@ export const AbzeichenEdit = (props) => (
     <Edit title='Verändere Verknüpfung'{...props}>
       <SimpleForm>
         <TextInput disabled source='AbzeichenID' />
-        <ImageInput source='Bild' />
+        <TextInput source='Beschreibung' />
+        <ImageInput source="Abzeichen" accept="image/*">
+            <ImageField source="src" title="title" />
+        </ImageInput>
+
       </SimpleForm>
     </Edit>
   );
@@ -36,7 +41,10 @@ export const AbzeichenCreate = (props) => (
     <Create title='Lade Abzeichen hoch'{...props}>
       <SimpleForm>
         <TextInput disabled source='AbzeichenID' />
-        <ImageInput source='Bild' />
+        <TextInput source='Beschreibung' />
+        <ImageInput source="Abzeichen" accept="image/*">
+            <ImageField source="src" title="title" />
+        </ImageInput>
       </SimpleForm>
     </Create>
   );
