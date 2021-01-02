@@ -1,19 +1,24 @@
 import React from 'react';
 import {
   List,
+  Filter,
   Datagrid,
   TextField,
   EditButton,
-  UrlField,
   Edit,
   SimpleForm,
   TextInput,
   Create,
 } from 'react-admin';
 
-// -- snip --
+const ExponateFilter = (props) => (
+  <Filter {...props}>
+     <TextInput label="Suche" source="q" alwaysOn />
+  </Filter>
+);
+
 export const ExponateList = (props) => (
-  <List {...props}>
+  <List {...props}filters={<ExponateFilter />}>
     <Datagrid /* rowClick='edit' */>
       <TextField source='ObjektID' label='ID' />
       <TextField source='Kategorie' />

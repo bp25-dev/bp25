@@ -18,6 +18,11 @@ import {
   UserCreate,
   CodeCreate,
 } from './app/components/Admin.js';
+import {
+  AbzeichenList,
+  AbzeichenEdit,
+  AbzeichenCreate,
+} from './app/components/Abzeichen.js';
 
 const dataProvider = fakeDataProvider({
   Exponate: [
@@ -52,6 +57,12 @@ const dataProvider = fakeDataProvider({
       Passwort: 'abc123',
       Code: 'x74jss53'
     }
+  ],
+  Abzeichen: [
+    {
+      AbzeichenID: '#1',
+      Bild: '/app/components/Media/1.png'
+    }
   ]
 });
 
@@ -79,6 +90,13 @@ export default function App() {
             list={UserList}
             edit={PasswordEdit}
             create={UserCreate}
+            create_code={CodeCreate}
+          />
+          <Resource
+            name='Abzeichen'
+            list={AbzeichenList}
+            edit={AbzeichenEdit}
+            create={AbzeichenCreate}
           />
         </Admin>     
     </div>

@@ -5,6 +5,8 @@ import {
   TextField,
   EmailField,
   PasswordInput,
+  SelectInput,
+  ReferenceInput,
   EditButton,
   Edit,
   SimpleForm,
@@ -28,7 +30,7 @@ export const PasswordEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source='Email' />
       <PasswordInput source='Passwort' />
-      <TextInput disabled source='Code' />
+      {/* <TextInput disabled source='Code' /> */}
     </SimpleForm>
   </Edit>
 );
@@ -36,9 +38,14 @@ export const PasswordEdit = (props) => (
 export const UserCreate = (props) => (
   <Create title='Erstelle Admin' {...props}>
     <SimpleForm>
-      <TextInput source='Email' />
-      <PasswordInput source='Passwort' />
-      <TextInput source='Code' />
+       {/*  <ReferenceInput 
+            source="Code"
+            reference="Codes"
+            allowEmpty>
+            <SelectInput optionText="Code" />
+        </ReferenceInput> */}
+        <TextInput source='Email' />
+        <PasswordInput source='Passwort' />
     </SimpleForm>
   </Create>
 );
@@ -46,7 +53,6 @@ export const UserCreate = (props) => (
 export const CodeCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      =
       <TextInput source='Code' />
     </SimpleForm>
   </Create>
@@ -55,7 +61,7 @@ export const CodeCreate = (props) => (
 // export const DeleteUser = props => (
 //   <Create {...props}>
 //     <SimpleForm>
-//       <EmailField source="Email" />
+//       <TextInput source="Email" />
 //     </SimpleForm>
 //   </Create>
 // );
@@ -63,7 +69,7 @@ export const CodeCreate = (props) => (
 // export const DowngradeUser = props => (
 //   <Create {...props}>
 //     <SimpleForm>
-//       <EmailField source="Email" />
+//       <TextInput source="Email" />
 //     </SimpleForm>
 //   </Create>
 // );

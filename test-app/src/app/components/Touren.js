@@ -1,19 +1,25 @@
 import React from 'react';
 import {
   List,
+  Filter,
   Datagrid,
   TextField,
   EditButton,
-  UrlField,
   Edit,
   SimpleForm,
   TextInput,
   Create,
 } from 'react-admin';
 
-// -- snip --
+const TourenFilter = (props) => (
+    <Filter {...props}>
+       <TextInput label="Suche" source="q" alwaysOn />
+       <TextInput label="Status" source="featured" defaultValue="featured" />
+    </Filter>
+);
+
 export const TourenList = (props) => (
-  <List {...props}>
+  <List {...props}filters={<TourenFilter />}>
     <Datagrid>
       <TextField source='ID' />
       <TextField source='Name' />
