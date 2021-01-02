@@ -7,6 +7,18 @@ import {
   ExponateEdit,
   ExponateCreate,
 } from './app/components/Exponate.js';
+import {
+  TourenList,
+  TourenEdit,
+  TourenCreate,
+} from './app/components/Touren.js';
+import {
+  UserList,
+  PasswordEdit,
+  UserCreate,
+  CodeCreate,
+} from './app/components/Admin.js';
+
 const dataProvider = fakeDataProvider({
   Exponate: [
     {
@@ -25,13 +37,20 @@ const dataProvider = fakeDataProvider({
       Interdisziplinärkontext: '',
     },
   ],
-  Rundgang: [
+  Touren: [
     {
-      id: '#1',
-      name: 'Museum erkunden',
-      Title: 'Ein Blick in die Geschichte',
-      description: '',
-      status: 'featured'
+      ID: '#1',
+      Name: 'Museum erkunden',
+      Titel: 'Ein Blick in die Geschichte',
+      Beschreibung: '',
+      Status: 'featured'
+    }
+  ],
+  User: [
+    {
+      Email: 'abc@gmail.com',
+      Passwort: 'abc123',
+      Code: 'x74jss53'
     }
   ]
 });
@@ -48,6 +67,18 @@ export default function App() {
             list={ExponateList}
             edit={ExponateEdit}
             create={ExponateCreate}
+          />
+          <Resource
+            name='Touren'
+            list={TourenList}
+            edit={TourenEdit}
+            create={TourenCreate}
+          />
+          <Resource
+            name='User'
+            list={UserList}
+            edit={PasswordEdit}
+            create={UserCreate}
           />
         </Admin>     
     </div>

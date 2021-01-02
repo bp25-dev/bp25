@@ -4,7 +4,6 @@ import {
   Datagrid,
   TextField,
   EditButton,
-  EmailField,
   UrlField,
   Edit,
   SimpleForm,
