@@ -143,7 +143,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Hessisches Landesmuseum Darmstadt
+            Hessisches Landesmuseum Daicon={ItemIcon}rmstadt
           </Typography>
           <div className={classes.toolbarButtons}>
               <IconButton><LogoutStyle/></IconButton>
@@ -172,7 +172,7 @@ export default function MiniDrawer() {
 
         <Divider />
         <List>
-            <Link to="/" className={classes.link}>
+            <Link to="/Touren" className={classes.link}>
               <ListItem button key={'Touren'}>
                 <ListItemIcon> 
                  <NavigationIcon />
@@ -181,7 +181,7 @@ export default function MiniDrawer() {
              </ListItem>
             </Link>
 
-            <Link to="/exponate" className={classes.link}>
+            <Link to="/Exponate" className={classes.link}>
               <ListItem button key={'Exponate'}>
                 <ListItemIcon> 
                  <AccountBalanceIcon />
@@ -191,7 +191,7 @@ export default function MiniDrawer() {
              </ListItem>
             </Link>
      
-            <Link to="/admins" className={classes.link}>
+            <Link to="/User" className={classes.link}>
               <ListItem button key={'Admins'}>
                 <ListItemIcon> 
                  <SupervisorAccountIcon />

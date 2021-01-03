@@ -3,7 +3,7 @@ import { BrowserRouter as Router,
     Route, Switch, Link } from "react-router-dom";
 import Admins from './Admins';
 import Exponate from './Exponate';
-import Tours from './Tours';
+import Touren from './Touren';
 
 
 
@@ -13,15 +13,15 @@ export default class Routes extends React.Component {
         return(
             <div>
             <Switch>
-           <Route exact path="/" render={() => (
-               <Tours></Tours>
+           <Route exact path="/Touren" render={() => (
+               <Touren></Touren>
            )}/>
               
          
-          <Route exact path="/exponate">
+          <Route exact path="/Exponate">
                <Exponate></Exponate>
           </Route>
-          <Route exact path="/admins">
+          <Route exact path="/User">
                 <Admins></Admins>
             </Route>
         </Switch>
