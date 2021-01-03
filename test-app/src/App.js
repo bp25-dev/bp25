@@ -2,7 +2,7 @@ import React from 'react';
 import { Admin, Resource } from 'react-admin';
 import fakeDataProvider from 'ra-data-fakerest';
 import {theme} from './app/components/Style/Theme.js';
-// side components
+// site components
 import {
   ExponateList,
   ExponateEdit,
@@ -32,7 +32,7 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import PhotoFilterIcon from '@material-ui/icons/PhotoFilter';
 
 
-
+// fake data base for testing 
 const dataProvider = fakeDataProvider({
   Exponate: [
     {
@@ -83,17 +83,23 @@ export default function App() {
   return (
     <div>
       <Admin
+        //can be replaced with the real data provider 
         dataProvider={dataProvider}
-        dashboard = {Dashboard}
-        theme = {theme}
-        title = "Hessisches Landesmuseum"
-        // can be enabled if we have designed a custom LoginPage 
+        // todo: User authentification 
+        // authProdiver={authProvider}
+        // can be enabled/replaced if we have designed a custom LoginPage 
         // loginPage={LoginPage}
+        // custom dashboard page  
+        dashboard = {Dashboard}
+        // custom theme 
+        theme = {theme}
         // if enabled, the routes are enbedded in the design we actually want to override 
         // customRoutes={customRoutes}
+        // if enabled, old layout is shown (attention: not compatible with react admin)
         // layout = {MiniDrawer}
       >
         <Resource
+        // todo: replace the default name: remove 's' on the ending 
           name='Exponate'
           list={ExponateList}
           edit={ExponateEdit}

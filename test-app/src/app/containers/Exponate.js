@@ -12,12 +12,14 @@ import {
     Create,
   } from 'react-admin';
   
+  // filter function for Exponate (search for text)
   const ExponateFilter = (props) => (
     <Filter {...props}>
        <TextInput label="Suche" source="q" alwaysOn />
     </Filter>
   );
   
+  // list the exhibits
   export const ExponateList = (props) => (
     <List {...props}filters={<ExponateFilter />}>
       <Datagrid /* rowClick='edit' */>
@@ -39,6 +41,7 @@ import {
     </List>
   );
   
+  // edit an exhibit
   export const ExponateEdit = (props) => (
     <Edit title='Bearbeite Exponate'{...props}>
       <SimpleForm>
@@ -59,6 +62,8 @@ import {
     </Edit>
   );
   
+  // create a new exhibit 
+  // todo: ID should not be created manually but automacially (distinct id)
   export const ExponateCreate = (props) => (
     <Create title='Erstelle Exponate'{...props}>
       <SimpleForm>
@@ -79,7 +84,7 @@ import {
   ); 
 
 
-
+// todo: embed text on the side -> move to resource in App.js? 
 export default class Exponate extends React.Component {
     render() {
         return(

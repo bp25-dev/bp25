@@ -12,7 +12,7 @@ import {
   Create,
 } from 'react-admin';
 
-
+// list existing badges 
 export const AbzeichenList = (props) => (
   <List {...props} >
     <Datagrid /* rowClick='edit' */>
@@ -24,6 +24,7 @@ export const AbzeichenList = (props) => (
   </List>
 );
 
+// edit badges 
 export const AbzeichenEdit = (props) => (
     <Edit title='Verändere Verknüpfung'{...props}>
       <SimpleForm>
@@ -37,6 +38,7 @@ export const AbzeichenEdit = (props) => (
     </Edit>
   );
 
+  // create a new badge 
 export const AbzeichenCreate = (props) => (
     <Create title='Lade Abzeichen hoch'{...props}>
       <SimpleForm>

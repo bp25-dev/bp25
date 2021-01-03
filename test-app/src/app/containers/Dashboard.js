@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 
 import { Title } from 'react-admin';
 
+// style for the cards
 const useStyles = makeStyles(() => ({
    card: {
     maxWidth: 500,
@@ -39,6 +40,7 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+// style for the gird
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   gridContainer: {
     paddingLeft: '40px',
@@ -46,6 +48,7 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
   },
 }));
 
+// card components for different links
 const CustomCard = ({ classes, image, title, subtitle }) => {
   const cardStyles = useStyles();
   return (
@@ -64,6 +67,7 @@ const CustomCard = ({ classes, image, title, subtitle }) => {
   );
 };
 
+// place the card on a grid
 export default function Dashboard() {
   const cardStyles = useStyles();
   const gridStyles = useGridStyles();

@@ -12,6 +12,8 @@ import {
     Create,
   } from 'react-admin';
   
+  // filter the tours (search for text)
+  // filter for featured tours (todo, not working yet)
   const TourenFilter = (props) => (
       <Filter {...props}>
          <TextInput label="Suche" source="q" alwaysOn />
@@ -19,6 +21,7 @@ import {
       </Filter>
   );
   
+  // list existing tours 
   export const TourenList = (props) => (
     <List {...props}filters={<TourenFilter />}>
       <Datagrid>
@@ -32,6 +35,7 @@ import {
     </List>
   );
   
+  // edit a tour
   export const TourenEdit = (props) => (
     <Edit title='Bearbeite Touren' {...props}>
       <SimpleForm>
@@ -44,6 +48,8 @@ import {
     </Edit>
   );
   
+  // create a new tour 
+  // todo: ID should not be created manually but automatically (distinct id)
   export const TourenCreate = (props) => (
     <Create title='Erstelle Touren' {...props}>
       <SimpleForm>
@@ -56,7 +62,7 @@ import {
     </Create>
   );
   
-
+// todo: embed text on the side -> move to resource in App.js? 
 export default class Touren extends React.Component {
     render() {
         return(

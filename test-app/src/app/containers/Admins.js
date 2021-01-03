@@ -5,18 +5,16 @@ import {
     TextField,
     EmailField,
     PasswordInput,
-    SelectInput,
-    ReferenceInput,
     EditButton,
     Edit,
     SimpleForm,
     TextInput,
     Create,
   } from 'react-admin';
-import MiniDrawer from './Drawer';
 import AddAdmin from '../components/Admin/AddAdmin';
 import CreateCode from '../components/Admin/CreateCode';
 
+// show eixsting users 
 export const UserList = (props) => (
     <List {...props}>
       <Datagrid>
@@ -28,6 +26,7 @@ export const UserList = (props) => (
     </List>
   );
   
+  // edit paasword 
   export const PasswordEdit = (props) => (
     <Edit title='Passwort ändern' {...props}>
       <SimpleForm>
@@ -38,21 +37,18 @@ export const UserList = (props) => (
     </Edit>
   );
   
+  // create a new user 
   export const UserCreate = (props) => (
     <Create title='Erstelle Admin' {...props}>
       <SimpleForm>
-         {/*  <ReferenceInput 
-              source="Code"
-              reference="Codes"
-              allowEmpty>
-              <SelectInput optionText="Code" />
-          </ReferenceInput> */}
           <TextInput source='Email' />
           <PasswordInput source='Passwort' />
       </SimpleForm>
     </Create>
   );
   
+  // to do: missing functions are to be embedded on the site 
+  // look up how to show different tables/ resources on one single page 
   export const CodeCreate = (props) => (
     <Create {...props}>
       <SimpleForm>
@@ -61,22 +57,23 @@ export const UserList = (props) => (
     </Create>
   );
   
-  // export const DeleteUser = props => (
-  //   <Create {...props}>
-  //     <SimpleForm>
-  //       <TextInput source="Email" />
-  //     </SimpleForm>
-  //   </Create>
-  // );<h3>Hier sollen Admins hinzugefügt werden</h3>
+  export const DeleteUser = props => (
+    <Create {...props}>
+      <SimpleForm>
+        <TextInput source="Email" />
+      </SimpleForm>
+    </Create>
+  );<h3>Hier sollen Admins hinzugefügt werden</h3>
   
-  // export const DowngradeUser = props => (
-  //   <Create {...props}>
-  //     <SimpleForm>
-  //       <TextInput source="Email" />
-  //     </SimpleForm>
-  //   </Create>
-  // );
-  
+  export const DowngradeUser = props => (
+    <Create {...props}>
+      <SimpleForm>
+        <TextInput source="Email" />
+      </SimpleForm>
+    </Create>
+  );
+ 
+// todo: embed text on the side -> move to resource in App.js? 
 export default class Admins extends React.Component {
     render() {
         return(
