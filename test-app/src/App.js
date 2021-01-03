@@ -1,8 +1,8 @@
 import React from 'react';
-import MiniDrawer from './app/containers/Drawer';
-import MyLayout from './app/containers/MyLayout';
 import { Admin, Resource } from 'react-admin';
 import fakeDataProvider from 'ra-data-fakerest';
+import {theme} from './app/components/Style/Theme.js';
+// side components
 import {
   ExponateList,
   ExponateEdit,
@@ -24,19 +24,13 @@ import {
   AbzeichenEdit,
   AbzeichenCreate,
 } from './app/components/Abzeichen.js';
-import Routes from './app/containers/Routes';
 import Dashboard from './app/containers/Dashboard';
-import {theme} from './app/components/Style/Theme.js';
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import PhotoFilterIcon from '@material-ui/icons/PhotoFilter';
 
-
-const customRoutes = [
-  <Routes></Routes>
-];
 
 
 const dataProvider = fakeDataProvider({
@@ -84,10 +78,10 @@ const dataProvider = fakeDataProvider({
 });
 
 
+
 export default function App() {
   return (
     <div>
-      {/* <MiniDrawer></MiniDrawer>  */}
       <Admin
         dataProvider={dataProvider}
         dashboard = {Dashboard}
