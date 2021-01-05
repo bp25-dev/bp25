@@ -10,6 +10,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
+import { Title } from 'react-admin';
+
+import { Link } from 'react-router-dom'
+
 // style for the cards
 const useStyles = makeStyles(() => ({
   card: {
@@ -47,9 +51,9 @@ const useStyles = makeStyles(() => ({
 // style for the gird
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   gridContainer: {
-    paddingLeft: '50px',
-    paddingRight: '50px',
-    paddingTop: '50px',
+    paddingLeft: '40px',
+    paddingRight: '40px',
+    paddingTop: '20px'
   },
 }));
 
@@ -67,7 +71,9 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
       </CardContent>
       <CardActions>
         <Link to={path}>
-          <Button renderAs='button'>Klicke hier</Button>
+          <Button renderAs="button">
+            KLicke hier
+          </Button>
         </Link>
       </CardActions>
     </Card>
@@ -95,7 +101,7 @@ export default function Dashboard() {
           image={
             'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/01_1180x0.png'
           }
-          path='/Benutzer'
+          path = "/User"
         />
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
