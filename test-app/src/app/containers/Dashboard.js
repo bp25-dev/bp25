@@ -14,6 +14,7 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles(() => ({
   card: {
     maxWidth: 400,
+
     margin: 'auto',
     transition: '0.3s',
     boxShadow: '0 8px 40px -12px rgba(0,0,0,0.3)',
@@ -66,7 +67,7 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
       </CardContent>
       <CardActions>
         <Link to={path}>
-          <Button renderAs='button'>KLicke hier</Button>
+          <Button renderAs='button'>Klicke hier</Button>
         </Link>
       </CardActions>
     </Card>
@@ -83,6 +84,7 @@ export default function Dashboard() {
       spacing={2}
       className={gridStyles.gridContainer}
       justify='center'
+      
     >
       <Title title='Hessisches Landesmusuem' />
       <Grid item xs={12} sm={6} md={4}>
