@@ -72,7 +72,7 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
       <CardActions>
         <Link to={path}>
           <Button renderAs="button">
-            KLicke hier
+            Klicke hier
           </Button>
         </Link>
       </CardActions>
@@ -90,6 +90,7 @@ export default function Dashboard() {
       spacing={2}
       className={gridStyles.gridContainer}
       justify='center'
+     
       
     >
       <Title title='Hessisches Landesmusuem' />
@@ -109,7 +110,7 @@ export default function Dashboard() {
           classes={cardStyles}
           title={'Touren'}
           subtitle={'Erstelle Touren'}
-          image={
+          image={ 
             'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/02_376x376.png'
           }
           path='/Touren'

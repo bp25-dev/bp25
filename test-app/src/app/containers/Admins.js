@@ -11,6 +11,8 @@ import {
     BooleanField,
     PasswordInput,
     TextInput,
+    Create,
+    BooleanField,
     BooleanInput
   } from 'react-admin';
 import AddAdmin from '../components/Admin/AddAdmin';
@@ -34,12 +36,16 @@ const SideCard = () => (
   </Card>
 );
 
+//icons
+import DoneIcon from '@material-ui/icons/Done';
+import ClearIcon from '@material-ui/icons/Clear';
+
 // show eixsting users 
 export const UserList = (props) => (
     <List {...props} title='Benutzer'
     aside={<SideCard/>}>
       <Datagrid>
-      <TextField source='Name' />
+        <TextField source='Name' />
         <EmailField source='Email' />
         <TextField source='Passwort' />
         <TextField source='Code' />
@@ -49,7 +55,7 @@ export const UserList = (props) => (
     </List>
   );
   
-  // edit paasword 
+  // edit password and code
   export const AccountEdit = (props) => (
     <Edit title='Accountdaten ändern' {...props}>
       <SimpleForm>

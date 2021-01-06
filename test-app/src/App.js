@@ -1,7 +1,8 @@
 import React from 'react';
 import { Admin, Resource, AppBar, Layout } from 'react-admin';
 import fakeDataProvider from 'ra-data-fakerest';
-import { theme } from './app/components/Style/Theme.js';
+import {theme} from './app/components/Style/Theme.js';
+
 // site components
 import {
   ExponateList,
@@ -25,6 +26,7 @@ import {
   AbzeichenCreate,
 } from './app/components/Abzeichen.js';
 import Dashboard from './app/containers/Dashboard';
+
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
@@ -116,6 +118,7 @@ export default function App() {
         <Resource
           // todo: replace the default name: remove 's' on the ending
           name='Exponate'
+          options= {{label: 'Exponate'}}
           list={ExponateList}
           edit={ExponateEdit}
           create={ExponateCreate}
@@ -131,7 +134,8 @@ export default function App() {
           options={{ label: 'Touren' }}
         />
         <Resource
-          name='Benutzer'
+          //name='Admins'
+          name='User'
           list={UserList}
           edit={AccountEdit}
           create={UserCreate}
