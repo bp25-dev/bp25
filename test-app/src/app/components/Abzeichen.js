@@ -1,4 +1,5 @@
 import React from 'react';
+import { Fragment } from 'react';
 import {
   List,
   Datagrid,
@@ -9,7 +10,7 @@ import {
   Edit,
   SimpleForm,
   TextInput,
-  Create,
+  Create
 } from 'react-admin';
 
 // list existing badges 
@@ -18,7 +19,7 @@ export const AbzeichenList = (props) => (
     <Datagrid /* rowClick='edit' */>
       <TextField source='AbzeichenID' label='ID' />
       <TextField source='Beschreibung' />
-      <ImageField source="Url" />
+      <ImageField source="Bild" />
       <EditButton basePath='./app/components/Abzeichen.js' />
     </Datagrid>
   </List>

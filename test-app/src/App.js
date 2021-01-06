@@ -30,6 +30,7 @@ import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import PhotoFilterIcon from '@material-ui/icons/PhotoFilter';
+//import TreeMenu from '@bb-tech/ra-treemenu';
 
 
 // fake data base for testing 
@@ -56,11 +57,11 @@ const dataProvider = fakeDataProvider({
       ID: '#1',
       Name: 'Museum erkunden',
       Titel: 'Ein Blick in die Geschichte',
-      Beschreibung: '',
-      Status: 'featured',
+      Beschreibung: '...',
+      Status: 'freigegeben',
     },
   ],
-  User: [
+  Benutzer: [
     {
       Email: 'abc@gmail.com',
       Passwort: 'abc123',
@@ -71,7 +72,7 @@ const dataProvider = fakeDataProvider({
     {
       AbzeichenID: '#1' /* 
       Url: '/app/components/Media/1.png', */,
-      Url: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
+      Bild: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
       Beschreibung: 'test',
     },
   ],
@@ -105,6 +106,7 @@ export default function App() {
           edit={ExponateEdit}
           create={ExponateCreate}
           icon={AccountBalanceIcon}
+          options={{ "label": "Exponate"}}
         />
         <Resource
           name='Touren'
@@ -112,14 +114,15 @@ export default function App() {
           edit={TourenEdit}
           create={TourenCreate}
           icon={NavigationIcon}
+          options={{ "label": "Touren"}}
         />
         <Resource
-          name='User'
+          name='Benutzer'
           list={UserList}
           edit={PasswordEdit}
           create={UserCreate}
-          create_code={CodeCreate}
           icon={SupervisorAccountIcon}
+          options={{ "label": "Benutzer"}}
         />
         <Resource
           name='Abzeichen'
@@ -127,6 +130,7 @@ export default function App() {
           edit={AbzeichenEdit}
           create={AbzeichenCreate}
           icon={PhotoFilterIcon}
+          options={{ "label": "Abzeichen"}}
         />
       </Admin>
     </div>

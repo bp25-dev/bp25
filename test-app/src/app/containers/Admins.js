@@ -13,10 +13,25 @@ import {
   } from 'react-admin';
 import AddAdmin from '../components/Admin/AddAdmin';
 import CreateCode from '../components/Admin/CreateCode';
+import { Card, CardContent } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+
+
+// create other cards 
+const SideCard = () => (
+  <Card>
+    <CardContent>
+    <Typography variant="h5" component="h2">
+          this is content
+        </Typography>
+    </CardContent>
+  </Card>
+);
 
 // show eixsting users 
 export const UserList = (props) => (
-    <List {...props}>
+    <List {...props}
+    aside={<SideCard/>}>
       <Datagrid>
         <EmailField source='Email' />
         <TextField source='Passwort' />
