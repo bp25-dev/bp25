@@ -30,7 +30,7 @@ const SideCard = () => (
 
 // show eixsting users 
 export const UserList = (props) => (
-    <List {...props}
+    <List {...props} title='Benutzer'
     aside={<SideCard/>}>
       <Datagrid>
         <EmailField source='Email' />

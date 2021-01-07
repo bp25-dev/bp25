@@ -6,10 +6,11 @@ import merge from "lodash/merge";
 export const theme = createMuiTheme(
   merge({}, defaultTheme, {
     palette: {
-      // Your theme goes here
-      // Write the following code to have an orange app bar. We'll explain it later in this article.
+      // adding a dark type theme 
+      // type: 'dark',
+      // Write the following code to have an blue navigation bar
       secondary: {
-        main: "#093966", // official colour code from hlmd
+        main: "#003473", // official colour code blue from hlmd
       },
     }
   })

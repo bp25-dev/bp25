@@ -1,7 +1,7 @@
 import React from 'react';
-import { Admin, Resource } from 'react-admin';
+import { Admin, Resource, AppBar, Layout } from 'react-admin';
 import fakeDataProvider from 'ra-data-fakerest';
-import {theme} from './app/components/Style/Theme.js';
+import { theme } from './app/components/Style/Theme.js';
 // site components
 import {
   ExponateList,
@@ -32,8 +32,11 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import PhotoFilterIcon from '@material-ui/icons/PhotoFilter';
 //import TreeMenu from '@bb-tech/ra-treemenu';
 
+//todo: import login page
+//import LoginPage from 'path'; 
 
-// fake data base for testing 
+
+// fake data base for testing
 const dataProvider = fakeDataProvider({
   Exponate: [
     {
@@ -48,8 +51,9 @@ const dataProvider = fakeDataProvider({
       Material: 'Oil on poplar panel',
       Größe: '77 x 53cm',
       Ort: 'Louvre, Paris',
-      Beschreibung: '',
-      Interdisziplinärkontext: '',
+      Beschreibung: '...',
+      Interdisziplinärkontext: '...',
+      Bildverknüpfung: 'vorhanden',
     },
   ],
   Touren: [
@@ -72,41 +76,37 @@ const dataProvider = fakeDataProvider({
     {
       AbzeichenID: '#1' /* 
       Url: '/app/components/Media/1.png', */,
-      Bild: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
+      Bild:
+        'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
       Beschreibung: 'test',
     },
   ],
 });
 
-
-
 export default function App() {
   return (
     <div>
       <Admin
-        //can be replaced with the real data provider 
+        title='Hessisches Landesmuseum'
+        //can be replaced with the real data provider
         dataProvider={dataProvider}
-        // todo: User authentification 
+        // todo: User authentification
         // authProdiver={authProvider}
-        // can be enabled/replaced if we have designed a custom LoginPage 
+        // can be enabled/replaced if we have designed a custom LoginPage
         // loginPage={LoginPage}
-        // custom dashboard page  
-        dashboard = {Dashboard}
-        // custom theme 
-        theme = {theme}
-        // if enabled, the routes are enbedded in the design we actually want to override 
-        // customRoutes={customRoutes}
-        // if enabled, old layout is shown (attention: not compatible with react admin)
-        // layout = {MiniDrawer}
+        // custom dashboard page
+        dashboard={Dashboard}
+        // custom theme
+        theme={theme}
       >
         <Resource
-        // todo: replace the default name: remove 's' on the ending 
+          // todo: replace the default name: remove 's' on the ending
           name='Exponate'
           list={ExponateList}
           edit={ExponateEdit}
           create={ExponateCreate}
           icon={AccountBalanceIcon}
-          options={{ "label": "Exponate"}}
+          options={{ label: 'Exponate' }}
         />
         <Resource
           name='Touren'
@@ -114,7 +114,7 @@ export default function App() {
           edit={TourenEdit}
           create={TourenCreate}
           icon={NavigationIcon}
-          options={{ "label": "Touren"}}
+          options={{ label: 'Touren' }}
         />
         <Resource
           name='Benutzer'
@@ -122,7 +122,7 @@ export default function App() {
           edit={PasswordEdit}
           create={UserCreate}
           icon={SupervisorAccountIcon}
-          options={{ "label": "Benutzer"}}
+          options={{ label: 'Benutzer' }}
         />
         <Resource
           name='Abzeichen'
@@ -130,7 +130,7 @@ export default function App() {
           edit={AbzeichenEdit}
           create={AbzeichenCreate}
           icon={PhotoFilterIcon}
-          options={{ "label": "Abzeichen"}}
+          options={{ label: 'Abzeichen' }}
         />
       </Admin>
     </div>

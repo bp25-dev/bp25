@@ -9,9 +9,14 @@ import {
   Edit,
   SimpleForm,
   SelectInput,
+  SimpleFormIterator,
+  ArrayInput,
+  BooleanInput,
   ChipField,
   TextInput,
   Create,
+  ArrayField,
+  BooleanField
 } from 'react-admin';
 
 // filter the tours (search for text)
@@ -20,26 +25,32 @@ const TourenFilter = (props) => (
   <Filter {...props}>
     <TextInput label='Suche' source='q' alwaysOn />
     <SelectInput
-        source='Status'
-        choices={[
-          { id: 'freigegeben', name: 'freigegeben' },
-          { id: 'ausstehend', name: 'ausstehend' },
-          { id: 'privat', name: 'privat' },
-        ]}
-        alwaysOn
-      />
+      source='Status'
+      choices={[
+        { id: 'freigegeben', name: 'freigegeben' },
+        { id: 'ausstehend', name: 'ausstehend' },
+        { id: 'privat', name: 'privat' },
+      ]}
+      alwaysOn
+    />
   </Filter>
 );
 
 // list existing tours
 export const TourenList = (props) => (
-  <List {...props} filters={<TourenFilter />}>
+  <List {...props} title='Touren' filters={<TourenFilter />}>
     <Datagrid>
       <TextField source='ID' />
       <TextField source='Name' />
       <TextField source='Titel' />
       <TextField source='Beschreibung' />
       <ChipField source='Status' />
+      <ArrayField source='Fragen'>
+        <Datagrid>
+          <TextField source='Frage'/>
+          <BooleanField source='Auswahl' />
+        </Datagrid>
+      </ArrayField>
       <EditButton basePath='./app/components/Touren.js' />
     </Datagrid>
   </List>
@@ -61,6 +72,12 @@ export const TourenEdit = (props) => (
           { id: 'privat', name: 'privat' },
         ]}
       />
+      <ArrayInput source='Fragen'>
+        <SimpleFormIterator>
+          <TextInput source='Frage' />
+          <BooleanInput source='Auswahl' />
+        </SimpleFormIterator>
+      </ArrayInput>
     </SimpleForm>
   </Edit>
 );
@@ -82,6 +99,12 @@ export const TourenCreate = (props) => (
           { id: 'privat', name: 'privat' },
         ]}
       />
+      <ArrayInput source='Fragen'>
+        <SimpleFormIterator>
+          <TextInput source='Frage' />
+          <BooleanInput source='Auswahl' />
+        </SimpleFormIterator>
+      </ArrayInput>
     </SimpleForm>
   </Create>
 );

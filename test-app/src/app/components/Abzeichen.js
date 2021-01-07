@@ -15,7 +15,7 @@ import {
 
 // list existing badges 
 export const AbzeichenList = (props) => (
-  <List {...props} >
+  <List {...props} title='Abzeichen' >
     <Datagrid /* rowClick='edit' */>
       <TextField source='AbzeichenID' label='ID' />
       <TextField source='Beschreibung' />
