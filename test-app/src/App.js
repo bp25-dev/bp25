@@ -134,8 +134,7 @@ export default function App() {
           options={{ label: 'Touren' }}
         />
         <Resource
-          //name='Admins'
-          name='User'
+          name='Benutzer'
           list={UserList}
           edit={AccountEdit}
           create={UserCreate}

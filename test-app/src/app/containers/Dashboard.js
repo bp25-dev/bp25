@@ -98,7 +98,7 @@ export default function Dashboard() {
           image={
             'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/01_1180x0.png'
           }
-          path = "/User"
+          path = "/Benutzer"
         />
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
