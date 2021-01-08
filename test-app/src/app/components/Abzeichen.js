@@ -4,22 +4,38 @@ import {
   List,
   Datagrid,
   TextField,
+  UrlField,
   ImageField,
   ImageInput,
   EditButton,
   Edit,
   SimpleForm,
   TextInput,
-  Create
+  Create,
+  SimpleShowLayout,
+  Show
 } from 'react-admin';
+
+// edit expand component
+const ImageShow = props => (
+  <Show
+      {...props}
+      /* disable the app title change when shown */
+      title=" "
+  >
+      <SimpleShowLayout>
+      <ImageField source="Bild"/>
+      <UrlField source='Bild' label='Url' />
+      </SimpleShowLayout>
+  </Show>
+);
 
 // list existing badges 
 export const AbzeichenList = (props) => (
   <List {...props} title='Abzeichen' >
-    <Datagrid /* rowClick='edit' */>
+    <Datagrid expand={<ImageShow />}>
       <TextField source='AbzeichenID' label='ID' />
       <TextField source='Beschreibung' />
-      <ImageField source="Bild" />
       <EditButton basePath='./app/components/Abzeichen.js' />
     </Datagrid>
   </List>

@@ -15,7 +15,7 @@ import {
 } from './app/containers/Touren.js';
 import {
   UserList,
-  PasswordEdit,
+  AccountEdit,
   UserCreate,
   CodeCreate,
 } from './app/containers/Admins.js';
@@ -58,20 +58,34 @@ const dataProvider = fakeDataProvider({
   ],
   Touren: [
     {
-      ID: '#1',
+      ID: '0',
       Name: 'Museum erkunden',
       Titel: 'Ein Blick in die Geschichte',
       Beschreibung: '...',
       Status: 'freigegeben',
+      Fragen: [
+        {Frage: 'Frage 1', Option_1: 'true', Option_2: 'false', Option_3:'true'},
+        {Frage: 'Frage 2', Option_1: 'false', Option_2: 'true', Option_3:'false'},
+      ]
     },
   ],
   Benutzer: [
     {
+      Name: 'Jane Doe',
       Email: 'abc@gmail.com',
       Passwort: 'abc123',
       Code: 'x74jss53',
+      Adminrechte: 'true',
+    },
+    {
+      Name: 'Max Mustermann',
+      Email: 'hallowelt@gmail.com',
+      Passwort: 'einszweidrei',
+      Code: 'xfd34d',
+      Adminrechte: 'false',
     },
   ],
+
   Abzeichen: [
     {
       AbzeichenID: '#1' /* 
@@ -119,7 +133,7 @@ export default function App() {
         <Resource
           name='Benutzer'
           list={UserList}
-          edit={PasswordEdit}
+          edit={AccountEdit}
           create={UserCreate}
           icon={SupervisorAccountIcon}
           options={{ label: 'Benutzer' }}

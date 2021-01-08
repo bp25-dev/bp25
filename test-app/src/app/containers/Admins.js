@@ -1,20 +1,26 @@
 import React from 'react';
 import {
     List,
+    Edit,
+    Create,
     Datagrid,
+    SimpleForm,
+    EditButton,
     TextField,
     EmailField,
+    BooleanField,
     PasswordInput,
-    EditButton,
-    Edit,
-    SimpleForm,
     TextInput,
-    Create,
+    BooleanInput
   } from 'react-admin';
 import AddAdmin from '../components/Admin/AddAdmin';
 import CreateCode from '../components/Admin/CreateCode';
+// material UI imports
 import { Card, CardContent } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import DoneIcon from '@material-ui/icons/Done';
+import ClearIcon from '@material-ui/icons/Clear';
+
 
 
 // create other cards 
@@ -33,20 +39,23 @@ export const UserList = (props) => (
     <List {...props} title='Benutzer'
     aside={<SideCard/>}>
       <Datagrid>
+      <TextField source='Name' />
         <EmailField source='Email' />
         <TextField source='Passwort' />
         <TextField source='Code' />
-        <EditButton basePath='./app/components/Admin.js' />
+        <BooleanField source='Adminrechte' label='Adminrechte' TrueIcon={DoneIcon} FalseIcon={ClearIcon} />
+        <EditButton /* basePath='./app/components/Admin.js' */ />
       </Datagrid>
     </List>
   );
   
   // edit paasword 
-  export const PasswordEdit = (props) => (
-    <Edit title='Passwort ändern' {...props}>
+  export const AccountEdit = (props) => (
+    <Edit title='Accountdaten ändern' {...props}>
       <SimpleForm>
         <TextInput disabled source='Email' />
         <PasswordInput source='Passwort' />
+        <BooleanInput source='Adminrechte' label="Adminrechte erlauben?" />
         {/* <TextInput disabled source='Code' /> */}
       </SimpleForm>
     </Edit>
@@ -78,7 +87,7 @@ export const UserList = (props) => (
         <TextInput source="Email" />
       </SimpleForm>
     </Create>
-  );<h3>Hier sollen Admins hinzugefügt werden</h3>
+  );
   
   export const DowngradeUser = props => (
     <Create {...props}>

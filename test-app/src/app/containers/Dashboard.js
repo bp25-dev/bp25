@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom'
+import { Title } from 'react-admin';
+//material UI imports
 import Card from '@material-ui/core/Card';
 import { Grid, Paper, Typography } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,21 +10,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
-import { Title } from 'react-admin';
-
 // style for the cards
 const useStyles = makeStyles(() => ({
-   card: {
-    maxWidth: 500,
+  card: {
+    maxWidth: 400,
     margin: 'auto',
     transition: '0.3s',
     boxShadow: '0 8px 40px -12px rgba(0,0,0,0.3)',
     '&:hover': {
       boxShadow: '0 16px 70px -12.125px rgba(0,0,0,0.3)',
     },
-  }, 
+  },
   media: {
-    paddingTop: '56.25%',
+    height: 0,
+    paddingTop: '100%', // länge/breite * 100%
+    marginTop: '30',
   },
   content: {
     textAlign: 'left',
@@ -33,23 +36,24 @@ const useStyles = makeStyles(() => ({
     lineHeight: 1.8,
   },
   root: {
-    minWidth: 200
+    minWidth: 200,
   },
   pos: {
-    marginBottom: 12
-  }
+    marginBottom: 12,
+  },
 }));
 
 // style for the gird
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   gridContainer: {
-    paddingLeft: '40px',
-    paddingRight: '40px',
+    paddingLeft: '50px',
+    paddingRight: '50px',
+    paddingTop: '50px',
   },
 }));
 
 // card components for different links
-const CustomCard = ({ classes, image, title, subtitle }) => {
+const CustomCard = ({ classes, image, title, subtitle, path }) => {
   const cardStyles = useStyles();
   return (
     <Card className={classes.card}>
@@ -61,7 +65,9 @@ const CustomCard = ({ classes, image, title, subtitle }) => {
         <Typography className={classes.subtitle}>{subtitle}</Typography>
       </CardContent>
       <CardActions>
-        <Button size='small'>Klicke hier</Button>
+        <Link to={path}>
+          <Button renderAs='button'>KLicke hier</Button>
+        </Link>
       </CardActions>
     </Card>
   );
@@ -74,7 +80,7 @@ export default function Dashboard() {
   return (
     <Grid
       container
-      spacing={4}
+      spacing={2}
       className={gridStyles.gridContainer}
       justify='center'
     >
@@ -83,10 +89,11 @@ export default function Dashboard() {
         <CustomCard
           classes={cardStyles}
           title={'Admins'}
-          subtitle={'Erstelle Administratoren'}
+          subtitle={'Verwalte Administrator*innen'}
           image={
             'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/01_1180x0.png'
           }
+          path='/Benutzer'
         />
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
@@ -97,6 +104,7 @@ export default function Dashboard() {
           image={
             'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/02_376x376.png'
           }
+          path='/Touren'
         />
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
@@ -107,6 +115,7 @@ export default function Dashboard() {
           image={
             'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/05_versionKlein_376x376.png'
           }
+          path='/Exponate'
         />
       </Grid>
       <Grid item xs={12} sm={6} md={4}>
@@ -117,6 +126,7 @@ export default function Dashboard() {
           image={
             'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/03_376x376.png'
           }
+          path='/Abzeichen'
         />
       </Grid>
     </Grid>

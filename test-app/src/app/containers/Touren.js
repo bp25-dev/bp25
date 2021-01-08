@@ -2,21 +2,26 @@ import React from 'react';
 import TourEdit from '../components/Touren/TourEdit';
 import {
   List,
-  Filter,
-  Datagrid,
-  TextField,
-  EditButton,
   Edit,
+  Create,
+  Datagrid,
   SimpleForm,
-  SelectInput,
+  //options
   SimpleFormIterator,
+  Filter,
+  EditButton,
+  Show,
+  SimpleShowLayout,
+  //fields
+  TextField,
+  ChipField,
+  ArrayField,
+  BooleanField,
+  //inputs
+  SelectInput,
   ArrayInput,
   BooleanInput,
-  ChipField,
   TextInput,
-  Create,
-  ArrayField,
-  BooleanField
 } from 'react-admin';
 
 // filter the tours (search for text)
@@ -36,21 +41,34 @@ const TourenFilter = (props) => (
   </Filter>
 );
 
+//edit expand component
+// edit expand component
+const QuestionShow = (props) => (
+  <Show
+    {...props}
+    /* disable the app title change when shown */
+    title=' '
+  >
+    <SimpleShowLayout>
+      <ArrayField source='Fragen'>
+        <Datagrid>
+          <TextField source='Frage' />
+          <BooleanField source='Optionen'/>
+        </Datagrid>
+      </ArrayField>
+    </SimpleShowLayout>
+  </Show>
+);
+
 // list existing tours
 export const TourenList = (props) => (
   <List {...props} title='Touren' filters={<TourenFilter />}>
-    <Datagrid>
+    <Datagrid expand={<QuestionShow />}>
       <TextField source='ID' />
       <TextField source='Name' />
       <TextField source='Titel' />
       <TextField source='Beschreibung' />
       <ChipField source='Status' />
-      <ArrayField source='Fragen'>
-        <Datagrid>
-          <TextField source='Frage'/>
-          <BooleanField source='Auswahl' />
-        </Datagrid>
-      </ArrayField>
       <EditButton basePath='./app/components/Touren.js' />
     </Datagrid>
   </List>
@@ -75,7 +93,9 @@ export const TourenEdit = (props) => (
       <ArrayInput source='Fragen'>
         <SimpleFormIterator>
           <TextInput source='Frage' />
-          <BooleanInput source='Auswahl' />
+          <BooleanInput source='Option_1' />
+          <BooleanInput source='Option_2' />
+          <BooleanInput source='Option_3' />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>
@@ -102,7 +122,9 @@ export const TourenCreate = (props) => (
       <ArrayInput source='Fragen'>
         <SimpleFormIterator>
           <TextInput source='Frage' />
-          <BooleanInput source='Auswahl' />
+          <BooleanInput source='Option_1' />
+          <BooleanInput source='Option_2' />
+          <BooleanInput source='Option_3' />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>
