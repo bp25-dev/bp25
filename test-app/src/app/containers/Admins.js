@@ -2,7 +2,7 @@ import React from 'react';
 import {
     List,
     Edit,
-    Create,
+    Create, 
     Datagrid,
     SimpleForm,
     EditButton,
@@ -11,8 +11,6 @@ import {
     BooleanField,
     PasswordInput,
     TextInput,
-    Create,
-    BooleanField,
     BooleanInput
   } from 'react-admin';
 import AddAdmin from '../components/Admin/AddAdmin';
@@ -20,9 +18,11 @@ import CreateCode from '../components/Admin/CreateCode';
 // material UI imports
 import { Card, CardContent } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+
+
+//icons
 import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
-
 
 
 // create other cards 
@@ -36,9 +36,6 @@ const SideCard = () => (
   </Card>
 );
 
-//icons
-import DoneIcon from '@material-ui/icons/Done';
-import ClearIcon from '@material-ui/icons/Clear';
 
 // show eixsting users 
 export const UserList = (props) => (
