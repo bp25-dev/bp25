@@ -13,43 +13,50 @@ import Button from '@material-ui/core/Button';
 // style for the cards
 const useStyles = makeStyles(() => ({
   card: {
-    maxWidth: 400,
-
+    maxWidth: "100%",
     margin: 'auto',
     transition: '0.3s',
-    boxShadow: '0 8px 40px -12px rgba(0,0,0,0.3)',
-    '&:hover': {
-      boxShadow: '0 16px 70px -12.125px rgba(0,0,0,0.3)',
-    },
+    color: '#000',
+    backgroundColor: 'transparent',
+    boxShadow: 'none',
   },
   media: {
     height: 0,
-    paddingTop: '100%', // länge/breite * 100%
+    backgroundSize: 250,
+    paddingTop: "56.25%", // 16:9
     marginTop: '30',
+    display: 'flex',
+    objectFit: 'contain',
+    alignItems: 'center',
   },
   content: {
     textAlign: 'left',
+    position: 'relative',
   },
   heading: {
     fontWeight: 'bold',
+    position: 'absolute',
   },
   subheading: {
     lineHeight: 1.8,
   },
   root: {
-    minWidth: 200,
+    position: 'absolute',
+    minWidth: "50%",
   },
   pos: {
     marginBottom: 12,
   },
 }));
 
-// style for the gird
+// style for the grid
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   gridContainer: {
+    maxWidth: "100%",
     paddingLeft: '40px',
     paddingRight: '40px',
-    paddingTop: '20px'
+    paddingTop: '0px',
+    position: 'center',
   },
 }));
 
@@ -58,9 +65,9 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
   const cardStyles = useStyles();
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.media} image={image} />
       <CardContent className={classes.content}>
-        <Typography className={classes.title} variant={'h2'}>
+      <CardMedia className={classes.media} image={image} />
+        <Typography className={classes.title} variant={'h4'} component={'h4'}>
           {title}
         </Typography>
         <Typography className={classes.subtitle}>{subtitle}</Typography>
@@ -80,17 +87,19 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
 export default function Dashboard() {
   const cardStyles = useStyles();
   const gridStyles = useGridStyles();
+
   return (
     <Grid
       container
-      spacing={2}
+    //  direction="row"
+      spacing={0}
       className={gridStyles.gridContainer}
       justify='center'
      
       
     >
       <Title title='Hessisches Landesmusuem' />
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item md>
         <CustomCard
           classes={cardStyles}
           title={'Admins'}
@@ -100,8 +109,6 @@ export default function Dashboard() {
           }
           path = "/Benutzer"
         />
-      </Grid>
-      <Grid item xs={12} sm={6} md={4}>
         <CustomCard
           classes={cardStyles}
           title={'Touren'}
@@ -112,7 +119,7 @@ export default function Dashboard() {
           path='/Touren'
         />
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item md>
         <CustomCard
           classes={cardStyles}
           title={'Exponate'}
@@ -122,8 +129,6 @@ export default function Dashboard() {
           }
           path='/Exponate'
         />
-      </Grid>
-      <Grid item xs={12} sm={6} md={4}>
         <CustomCard
           classes={cardStyles}
           title={'Abzeichen'}
