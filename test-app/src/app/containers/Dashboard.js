@@ -18,31 +18,29 @@ const useStyles = makeStyles(() => ({
     transition: '0.3s',
     color: '#000',
     backgroundColor: 'transparent',
-    boxShadow: 'none',
+ //   boxShadow: 'none',
   },
   media: {
     height: 0,
-    backgroundSize: 250,
     paddingTop: "56.25%", // 16:9
-    marginTop: '30',
+    marginLeft: "50%",
+    margin: 'auto',
     display: 'flex',
     objectFit: 'contain',
-    alignItems: 'center',
+    right: 0,
+    bottom: 0,
   },
   content: {
     textAlign: 'left',
-    position: 'relative',
   },
   heading: {
     fontWeight: 'bold',
-    position: 'absolute',
   },
   subheading: {
     lineHeight: 1.8,
   },
   root: {
-    position: 'absolute',
-    minWidth: "50%",
+    minWidth: "90%",
   },
   pos: {
     marginBottom: 12,
@@ -53,10 +51,11 @@ const useStyles = makeStyles(() => ({
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   gridContainer: {
     maxWidth: "100%",
-    paddingLeft: '40px',
-    paddingRight: '40px',
-    paddingTop: '0px',
-    position: 'center',
+ //   paddingLeft: '40px',
+ //   paddingRight: '40px',
+  //  paddingTop: '0px',
+    margin: 'auto',
+    position: 'relative',
   },
 }));
 
@@ -65,20 +64,42 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
   const cardStyles = useStyles();
   return (
     <Card className={classes.card}>
-      <CardContent className={classes.content}>
-      <CardMedia className={classes.media} image={image} />
-        <Typography className={classes.title} variant={'h4'} component={'h4'}>
-          {title}
-        </Typography>
-        <Typography className={classes.subtitle}>{subtitle}</Typography>
-      </CardContent>
-      <CardActions>
-        <Link to={path}>
-          <Button renderAs="button">
-            Klicke hier
-          </Button>
-        </Link>
-      </CardActions>
+      <div className={classes.con}>
+        <CardContent className={classes.content}>
+          <div style={{
+            position:'relative',
+            }}>
+            <CardMedia
+              className={classes.media} 
+              image={image} 
+            />
+            <div style={{
+              position:'absolute',
+              top: 0,
+              left: 0,
+            //  transform: 'translateX(25%)'
+            }}>
+              <Typography 
+                  className={classes.title} 
+                  variant={'h4'} 
+                  component={'h4'}>
+                   {title}
+              </Typography>
+              <Typography 
+                  className={classes.subtitle}>
+                      {subtitle}
+              </Typography>
+              <CardActions>
+              <Link to={path}>
+                <Button renderAs="button">
+                  Klicke hier
+                </Button>
+              </Link>
+            </CardActions>
+            </div>
+            </div>
+        </CardContent>
+      </div>
     </Card>
   );
 };
