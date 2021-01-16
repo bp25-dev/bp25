@@ -14,11 +14,16 @@ import {
   SimpleShowLayout,
   //fields
   TextField,
+  ReferenceField,
+  DateField,
+  NumberField,
   ChipField,
   ArrayField,
   BooleanField,
+  UrlField,
   //inputs
   SelectInput,
+  ImageInput,
   ArrayInput,
   BooleanInput,
   TextInput,
@@ -32,9 +37,9 @@ const TourenFilter = (props) => (
     <SelectInput
       source='Status'
       choices={[
-        { id: 'freigegeben', name: 'freigegeben' },
-        { id: 'ausstehend', name: 'ausstehend' },
-        { id: 'privat', name: 'privat' },
+        { id: 'featured', name: 'freigegeben' },
+        { id: 'pending', name: 'ausstehend' },
+        { id: 'private', name: 'privat' },
       ]}
       alwaysOn
     />
@@ -43,17 +48,28 @@ const TourenFilter = (props) => (
 
 //edit expand component
 // edit expand component
-const QuestionShow = (props) => (
+const StationShow = (props) => (
   <Show
     {...props}
     /* disable the app title change when shown */
     title=' '
   >
     <SimpleShowLayout>
-      <ArrayField source='Fragen'>
+      <ArrayField source='Stationen'>
         <Datagrid>
-          <TextField source='Frage' />
-          <BooleanField source='Optionen'/>
+          {/*  if no object is there it is an individual slide and foto, text, details should be deactivated */}
+          <TextField source='Objekt' />
+          <TextField source='Foto' />
+          <TextField source='Text' />
+          <TextField source='Details' />
+          <TextField source='Textfeld' />
+          <ArrayField source='Fragen'>
+            <Datagrid>
+              <TextField source='Antwort' />
+              <BooleanField source='Antwort' />
+            </Datagrid>
+          </ArrayField>
+          <UrlField source='Bild' />
         </Datagrid>
       </ArrayField>
     </SimpleShowLayout>
@@ -63,13 +79,26 @@ const QuestionShow = (props) => (
 // list existing tours
 export const TourenList = (props) => (
   <List {...props} title='Touren' filters={<TourenFilter />}>
-    <Datagrid expand={<QuestionShow />}>
+    <Datagrid expand={<StationShow />}>
       <TextField source='ID' />
-      <TextField source='Name' />
-      <TextField source='Titel' />
-      <TextField source='Beschreibung' />
-      <ChipField source='Status' />
-      <EditButton basePath='./app/components/Touren.js' />
+      <TextField source='name' label='Titel' />
+      <TextField source='description' label='Beschreibung' />
+      <ReferenceField label='Besitzer' source='username' reference='Admins'>
+        <TextField source='username' />
+      </ReferenceField>
+      <ArrayField source='users' label='Benutzer'>
+        <Datagrid>
+          <ReferenceField label='Benutzer' source='username' reference='Admins'>
+            <TextField source='username' />
+          </ReferenceField>
+        </Datagrid>
+      </ArrayField>
+      <TextField source='search_id' label='Such ID' />
+      <TextField source='session_id' label='Session ID' />
+      <DateField source='lastEdit' label='letzte Bearbeitung' />
+      <NumberField source='difficulty' label='Schwierigkeitsgrad' />
+      <ChipField source='status' label='Status' />
+      <EditButton />
     </Datagrid>
   </List>
 );
@@ -78,7 +107,7 @@ export const TourenList = (props) => (
 export const TourenEdit = (props) => (
   <Edit title='Bearbeite Touren' {...props}>
     <SimpleForm>
-      <TextInput source='ID' />
+      <TextInput disabled source='ID' />
       <TextInput source='Name' />
       <TextInput source='Titel' />
       <TextInput source='Beschreibung' />
@@ -90,12 +119,20 @@ export const TourenEdit = (props) => (
           { id: 'privat', name: 'privat' },
         ]}
       />
-      <ArrayInput source='Fragen'>
+      <ArrayInput source='Stationen'>
         <SimpleFormIterator>
-          <TextInput source='Frage' />
-          <BooleanInput source='Option_1' />
-          <BooleanInput source='Option_2' />
-          <BooleanInput source='Option_3' />
+          <TextField source='Objekt' />
+          <BooleanInput source='Foto' />
+          <BooleanInput source='Text' />
+          <BooleanInput source='Details' />
+          <TextInput source='Textfeld' />
+          <ArrayInput source='Fragen'>
+            <SimpleFormIterator>
+              <TextInput source='Antwort' />
+              <BooleanInput source='Antwort' />
+            </SimpleFormIterator>
+          </ArrayInput>
+          <ImageInput source='Bild' />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>
@@ -119,12 +156,20 @@ export const TourenCreate = (props) => (
           { id: 'privat', name: 'privat' },
         ]}
       />
-      <ArrayInput source='Fragen'>
+      <ArrayInput source='Stationen'>
         <SimpleFormIterator>
-          <TextInput source='Frage' />
-          <BooleanInput source='Option_1' />
-          <BooleanInput source='Option_2' />
-          <BooleanInput source='Option_3' />
+          <TextField source='Objekt' />
+          <BooleanInput source='Foto' />
+          <BooleanInput source='Text' />
+          <BooleanInput source='Details' />
+          <TextInput source='Textfeld' />
+          <ArrayInput source='Fragen'>
+            <SimpleFormIterator>
+              <TextInput source='Antwort' />
+              <BooleanInput source='Antwort' />
+            </SimpleFormIterator>
+          </ArrayInput>
+          <ImageInput source='Bild' />
         </SimpleFormIterator>
       </ArrayInput>
     </SimpleForm>

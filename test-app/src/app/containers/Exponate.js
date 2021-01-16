@@ -4,46 +4,43 @@ import {
   List,
   Datagrid,
   TextField,
-  BooleanField,
+  ImageField,
   EditButton,
   Edit,
   SimpleForm,
   TextInput,
-  BooleanInput,
+  ImageInput,
   Create,
   Filter,
   FilterList,
   FilterListItem,
-  FilterLiveSearch
+  FilterLiveSearch,
+  SimpleShowLayout,
+  Show,
+  UrlField,
 } from 'react-admin';
 //icons
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import { Card as MuiCard, CardContent, withStyles } from '@material-ui/core';
 
 
 const HasImageFilter = () => (
   <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
-    <FilterListItem label='vorhanden' value={{ Bildverknüpfung: 'vorhanden' }} />
-    <FilterListItem label='nicht vorhanden' value={{ Bildverknüpfung: 'nicht vorhanden' }} />
+    <FilterListItem label='vorhanden' value={{ Bildverknüpfung: true }} />
+    <FilterListItem label='nicht vorhanden' value={{ Bildverknüpfung: null }} />
   </FilterList>
 );
 
 const KategorieFilter = () => (
-  <FilterList
-      label="Kategorie"
-      icon={<ClassIcon />}
-  >
-    <FilterListItem label='Art' value={{ Kategorie: 'Art' }} />
-     {/* {Kategorie.map(Kategorie => (
+  <FilterList label='Kategorie' icon={<ClassIcon />}>
+   {/*  {Kategorie.map(Kategorie => (
           <FilterListItem
               label={Kategorie.name}
               key={Kategorie.id}
               value={{ groups: Kategorie.id }}
           />
-      ))}  */}
+      )) } */}
   </FilterList>
 );
 
@@ -66,34 +63,50 @@ const Card = withStyles((theme) => ({
 const FilterSidebar = () => (
   <Card>
     <CardContent>
-      <FilterLiveSearch source="full_name" />
+      <FilterLiveSearch source='full_name' />
       <HasImageFilter />
-      <KategorieFilter/>
+      <KategorieFilter />
     </CardContent>
   </Card>
+);
+
+// edit expand component
+const ImageShow = (props) => (
+  <Show
+    {...props}
+    /* disable the app title change when shown */
+    title=' '
+  >
+    <SimpleShowLayout>
+      <TextField source='art_type' label='Kunsttyp' />
+      <TextField source='description' label='Beschreibung' />
+      <TextField source='additionfal_inf' label='Weitere Informationen' />
+      {/* <ImageField source='picture' />
+      <UrlField source='picture' label='Bildverknupfung' /> */}
+      {/* add new table with images and reference them here
+      <ReferenceField label="Bilderverknüpfung" source="image_url" reference="Bilderverknüpfung"/> */}
+      <TextField source='year' label='Jahr' />
+      <TextField source='material' label='Material' />
+      <TextField source='size_' label='Größe' />
+      <TextField source='location' label='Ort' />
+    </SimpleShowLayout>
+  </Show>
 );
 
 // list the exhibits
 export const ExponateList = (props) => (
   <List {...props} title='Exponate' aside={<FilterSidebar />}>
-    <Datagrid  rowClick='edit' >
-      <TextField source='ObjektID' label='ID' />
-      <TextField source='Kategorie' />
-      <TextField source='Subkategorie' />
-      <TextField source='Titel' />
-      <TextField source='Jahr' />
-      <TextField source='Bild' />
-      <TextField source='Kunsttyp' />
-      <TextField source='Ersteller' />
-      <TextField source='Material' />
-      <TextField source='Größe' />
-      <TextField source='Ort' />
-      <TextField source='Beschreibung' />
-      <TextField source='Interdisziplinärkontext' />
-      <BooleanField source="Bildverknüpfung" TrueIcon={CheckCircleOutlineIcon} FalseIcon={HighlightOffIcon}/>
-      {/* add new table with images and reference them here
-      <ReferenceField label="Bilderverknüpfung" source="image_url" reference="Bilderverknüpfung"/> */}
-      <EditButton basePath='./app/components/Exponate.js' />
+    <Datagrid expand={<ImageShow />}>
+      <TextField source='_id' label='ObjektID' />
+      <TextField source='title' label='Titel' />
+      <TextField source='creator' label='Ersteller' />
+      <TextField source='category' label='Kategorie' />
+      <TextField source='sub_category' label='Subkategorie' />
+      <TextField
+        source='interdisciplinary_context'
+        label='Interdisziplinärkontext'
+      />
+      <EditButton />
     </Datagrid>
   </List>
 );
@@ -102,22 +115,24 @@ export const ExponateList = (props) => (
 export const ExponateEdit = (props) => (
   <Edit title='Bearbeite Exponate' {...props}>
     <SimpleForm>
-      <TextInput disabled source='ObjektID' />
-      <TextInput source='Kategorie' />
-      <TextInput source='Subkategorie' />
-      <TextInput source='Titel' />
-      <TextInput source='Jahr' />
-      <TextInput source='Bild' />
-      <TextInput source='Kunsttyp' />
-      <TextInput source='Ersteller' />
-      <TextInput source='Material' />
-      <TextInput source='Größe' />
-      <TextInput source='Ort' />
-      <TextInput source='Beschreibung' />
-      <TextInput source='Interdisziplinärkontext' />
-      <BooleanInput source="Bildverknüpfung" 
-      falseLabel="nicht vorhanden"
-      trueLabel="vorhanden" />
+      <TextInput source='_id' label='ObjektID' />
+      <TextInput source='title' label='Titel' />
+      <TextInput source='description' label='Beschreibung' />
+      <TextInput source='additionfal_inf' label='Weitere Informationen' />
+      <TextInput source='category' label='Kategorie' />
+      <TextInput source='sub_category' label='Subkategorie' />
+      <TextInput
+        source='interdisciplinary_context'
+        label='Interdisziplinärkontext'
+      />
+      <TextInput source='year' label='Jahr' />
+      <TextInput source='picture' label='Bild' />
+      <TextInput source='art_type' label='Kunsttyp' />
+      <TextInput source='creator' label='Ersteller' />
+      <TextInput source='material' label='Material' />
+      <TextInput source='size_' label='Größe' />
+      <TextInput source='location' label='Ort' />
+      <ImageInput source='picture' />
     </SimpleForm>
   </Edit>
 );
@@ -127,21 +142,24 @@ export const ExponateEdit = (props) => (
 export const ExponateCreate = (props) => (
   <Create title='Erstelle Exponate' {...props}>
     <SimpleForm>
-      <TextInput source='Kategorie' />
-      <TextInput source='Subkategorie' />
-      <TextInput source='Titel' />
-      <TextInput source='Jahr' />
-      <TextInput source='Bild' />
-      <TextInput source='Kunsttyp' />
-      <TextInput source='Ersteller' />
-      <TextInput source='Material' />
-      <TextInput source='Größe' />
-      <TextInput source='Ort' />
-      <TextInput source='Beschreibung' />
-      <TextInput source='Interdisziplinärkontext' />
-      <BooleanInput source="Bildverknüpfung"
-      falseLabel="nicht vorhanden"
-      trueLabel="vorhanden" />
+      <TextInput source='_id' label='ObjektID' />
+      <TextInput source='title' label='Titel' />
+      <TextInput source='description' label='Beschreibung' />
+      <TextInput source='additionfal_inf' label='Weitere Informationen' />
+      <TextInput source='category' label='Kategorie' />
+      <TextInput source='sub_category' label='Subkategorie' />
+      <TextInput
+        source='interdisciplinary_context'
+        label='Interdisziplinärkontext'
+      />
+      <TextInput source='year' label='Jahr' />
+      <TextInput source='picture' label='Bild' />
+      <TextInput source='art_type' label='Kunsttyp' />
+      <TextInput source='creator' label='Ersteller' />
+      <TextInput source='material' label='Material' />
+      <TextInput source='size_' label='Größe' />
+      <TextInput source='location' label='Ort' />
+      <ImageInput source='picture' />
     </SimpleForm>
   </Create>
 );
