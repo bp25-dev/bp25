@@ -5,6 +5,7 @@ import {
   Create,
   Datagrid,
   SimpleForm,
+  SingleFieldList,
   //options
   SimpleFormIterator,
   Filter,
@@ -30,6 +31,7 @@ import {
   SelectInput,
   ImageInput,
   SearchInput,
+  ReferenceInput,
   NumberInput,
   ArrayInput,
   BooleanInput,
@@ -148,22 +150,25 @@ export const TourenList = (props) => {
       classes={{ main: classes.main }}
     >
       <Datagrid expand={<StationShow />}>
+        {/* TODO: Whats the primaery key? replace Titel for pk or use built in  */}
         <TextField source='ID' />
         <TextField source='name' label='Titel' />
         <TextField source='description' label='Beschreibung' />
-        <ReferenceField label='Besitzer' source='username' reference='Admins'>
+        {/* refField: source=field in this table, reference=Name of reference Table  */}
+        <ReferenceField label='Besitzer' source='owner' reference='Benutzer'>
+          {/* source = wanted field from ref table */}
           <TextField source='username' />
         </ReferenceField>
-        <ArrayField source='users' label='Benutzer'>
-          <Datagrid>
+        <ArrayField source='user'>
+          <SingleFieldList>
             <ReferenceField
               label='Benutzer'
               source='username'
-              reference='Admins'
+              reference='Benutzer'
             >
-              <TextField source='username' />
+              <ChipField source='username' />
             </ReferenceField>
-          </Datagrid>
+          </SingleFieldList>
         </ArrayField>
         <TextField source='search_id' label='Such ID' />
         <TextField source='session_id' label='Session ID' />
@@ -187,7 +192,25 @@ export const TourenEdit = (props) => (
       <TextInput disabled source='ID' />
       <TextInput source='name' label='Titel' />
       <TextInput source='description' label='Beschreibung' />
-      {/*  TODO: reference to Besitzer and attending users of the tour  */}
+      {/*  TODO: functionality to reference to Besitzer and attending users of the tour  */}
+      {/* reference to owner of the tour  */}
+      <ReferenceInput label='Besitzer' source='owner' reference='Benutzer'>
+        {/*  TODO: get list of existing usernames to select from: idea: map choices */}
+        <SelectInput source='username' />
+      </ReferenceInput>
+      {/* reference to attending users of the tour  */}
+      <ArrayInput source='user'>
+        <SimpleFormIterator>
+          <ReferenceInput
+            label='Benutzer'
+            source='username'
+            reference='Benutzer'
+          >
+            {/*  TODO: get list of existing usernames to select from */}
+            <SelectInput source='username' />
+          </ReferenceInput>
+        </SimpleFormIterator>
+      </ArrayInput>
       <TextInput source='search_id' label='Such ID' />
       <TextInput source='session_id' label='Session ID' />
       <DateInput
@@ -233,7 +256,24 @@ export const TourenCreate = (props) => (
       <TextInput disabled source='ID' />
       <TextInput source='name' label='Titel' />
       <TextInput source='description' label='Beschreibung' />
-      {/*  TODO: reference to Besitzer and attending users of the tour  */}
+      {/*  TODO: functionality to reference to Besitzer and attending users of the tour  */}
+      {/* reference to owner of the tour  */}
+      <ReferenceInput label='Besitzer' source='owner' reference='Benutzer'>
+        <SelectInput source='username' />
+      </ReferenceInput>
+      {/* reference to attending users of the tour  */}
+      <ArrayInput source='user'>
+        <SimpleFormIterator>
+          <ReferenceInput
+            label='Benutzer'
+            source='username'
+            reference='Benutzer'
+          >
+            {/*  TODO: get list of existing usernames to select from */}
+            <SelectInput source='username' />
+          </ReferenceInput>
+        </SimpleFormIterator>
+      </ArrayInput>
       <TextInput source='search_id' label='Such ID' />
       <TextInput source='session_id' label='Session ID' />
       <DateInput

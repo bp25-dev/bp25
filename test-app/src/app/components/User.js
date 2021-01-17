@@ -27,6 +27,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 export const UserList = (props) => (
   <List {...props} title='Benutzer'>
     <Datagrid>
+     {/*  TODO: get real primary key of user ID (username?) */}
       <TextField source='id' label='ID' />
       <TextField source='username' label='Benutzername' />
       <FunctionField

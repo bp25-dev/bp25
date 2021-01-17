@@ -50,7 +50,7 @@ const dataProvider = fakeDataProvider({
         },
       ],
       difficulty: 10,
-      statuts: 'private',
+      status: 'private',
       lastEdit: '2020-01-01',
     },
   ],

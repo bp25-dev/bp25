@@ -10,7 +10,6 @@ import {
   TextInput,
   ImageInput,
   Create,
-  Filter,
   FilterList,
   FilterListItem,
   FilterLiveSearch,
@@ -23,13 +22,15 @@ import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';
 import { Card as MuiCard, CardContent, withStyles } from '@material-ui/core';
 
+// check if picture object is not empty (create boolean)
 const HasImageFilter = () => (
   <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
-    <FilterListItem label='vorhanden' value={{ Bildverknüpfung: true }} />
-    <FilterListItem label='nicht vorhanden' value={{ Bildverknüpfung: null }} />
+    <FilterListItem label='vorhanden' value={{ picture: true }} />
+    <FilterListItem label='nicht vorhanden' value={{ picture: null }} />
   </FilterList>
 );
 
+// TODO: map each existing category into a Filter List Item Label
 const KategorieFilter = () => (
   <FilterList label='Kategorie' icon={<ClassIcon />}>
     {/*  {Kategorie.map(Kategorie => (
@@ -42,8 +43,7 @@ const KategorieFilter = () => (
   </FilterList>
 );
 
-// the filter sidebar
-// sidebar styling
+// filter sidebar styling
 const Card = withStyles((theme) => ({
   root: {
     [theme.breakpoints.up('sm')]: {
@@ -95,6 +95,8 @@ const ImageShow = (props) => (
 export const ExponateList = (props) => (
   <List {...props} title='Exponate' aside={<FilterSidebar />}>
     <Datagrid expand={<ImageShow />}>
+      {/* todo: use ObjectID as primary key 
+      instead of <TextField source='ID' /> */}
       <TextField source='_id' label='ObjektID' />
       <TextField source='title' label='Titel' />
       <TextField source='creator' label='Ersteller' />
@@ -113,6 +115,7 @@ export const ExponateList = (props) => (
 export const ExponateEdit = (props) => (
   <Edit title='Bearbeite Exponate' {...props}>
     <SimpleForm>
+      {/* <TextInput disabled source='ID' /> */}
       <TextInput source='_id' label='ObjektID' />
       <TextInput source='title' label='Titel' />
       <TextInput source='description' label='Beschreibung' />
