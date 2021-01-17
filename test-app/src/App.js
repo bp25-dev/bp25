@@ -6,18 +6,18 @@ import {
   ExponateList,
   ExponateEdit,
   ExponateCreate,
-} from './app/containers/Exponate.js';
+} from './app/components/Exponate.js';
 import {
   TourenList,
   TourenEdit,
   TourenCreate,
-} from './app/containers/Touren.js';
+} from './app/components/Touren.js';
 import {
   UserList,
   AccountEdit,
   UserCreate,
   CodeCreate,
-} from './app/containers/User.js';
+} from './app/components/User.js';
 import {
   AbzeichenList,
   AbzeichenEdit,

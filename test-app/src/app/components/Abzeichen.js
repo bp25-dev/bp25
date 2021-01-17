@@ -1,5 +1,4 @@
 import React from 'react';
-import { Fragment } from 'react';
 import {
   List,
   Datagrid,
@@ -11,6 +10,7 @@ import {
   ImageInput,
   NumberInput,
   ReferenceInput,
+  SelectInput,
   EditButton,
   Edit,
   SimpleForm,
@@ -28,8 +28,18 @@ const ImageShow = (props) => (
     title=' '
   >
     <SimpleShowLayout>
-      <ImageField source='picture' />
+      {/* TODO: Show URL & image of related picture*/}
+      <ImageField source='picture' label='Bild' />
       <UrlField source='picture' label='Url' />
+      {/* TODO: Link to actual picture table to display connectes profile pictures 
+      show as a list, if there is more than one profile picture for one badge?*/}
+      <ReferenceField
+        label='freigeschaltete Profilbilder'
+        source='unlocked_picture'
+        reference='Profilbild'
+      >
+        <ImageField source='picture' />
+      </ReferenceField>
     </SimpleShowLayout>
   </Show>
 );
@@ -41,13 +51,6 @@ export const AbzeichenList = (props) => (
       <TextField source='id' label='ID' />
       <TextField source='name' label='Name' />
       <TextField source='picture' />
-      <ReferenceField
-        label='freigeschaltet'
-        source='unlocked_picture'
-        reference='Profilbild'
-      >
-        <ImageField source='picture' />
-      </ReferenceField>
       <NumberField source='cost' label='Kosten' />
       <EditButton />
     </Datagrid>
@@ -60,15 +63,18 @@ export const AbzeichenEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source='id' />
       <TextInput source='name' label='Name' />
+      {/* Select a new picture for the badge*/}
       <ImageInput source='Badge' accept='image/*'>
         <ImageField source='picture' />
       </ImageInput>
+      {/* TODO: Link to connected profile pictures and select by existing name/picture
+       (new profile pictures have to be added in the ProfilePicture database)*/}
       <ReferenceInput
-        label='freigeschaltet'
+        label='freigeschaltete Profilbilder'
         source='unlocked_picture'
         reference='ProfilePicture'
       >
-        <ImageInput source='picture' />
+        <SelectInput source='picture' />
       </ReferenceInput>
       <NumberInput source='cost' label='Kosten' />
     </SimpleForm>
@@ -84,12 +90,14 @@ export const AbzeichenCreate = (props) => (
       <ImageInput source='Badge' accept='image/*'>
         <ImageField source='picture' />
       </ImageInput>
+      {/* TODO: Link to connected profile pictures and select by existing name/picture
+       (new profile pictures have to be added in the ProfilePicture database)*/}
       <ReferenceInput
-        label='freigeschaltet'
+        label='freigeschaltete Profilbilder'
         source='unlocked_picture'
         reference='ProfilePicture'
       >
-        <ImageInput source='picture' />
+        <SelectInput source='picture' />
       </ReferenceInput>
       <NumberInput source='cost' label='Kosten' />
     </SimpleForm>

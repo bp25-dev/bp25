@@ -116,9 +116,9 @@ const dataProvider = fakeDataProvider({
   Pictures: [
     {
       _id: {
-        $oid: '5ff9889f4028d9e0ea9cc52d',
+        $oid: '5ff98892ccd2776f571d6c1a',
       },
-      picture: '38-image0.jpg',
+      picture: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
       locked: false,
     },
   ],

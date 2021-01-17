@@ -1,5 +1,4 @@
 import React from 'react';
-import AddExponate from '../components/Exponate/AddExponate';
 import {
   List,
   Datagrid,
@@ -16,14 +15,13 @@ import {
   FilterListItem,
   FilterLiveSearch,
   SimpleShowLayout,
+  ReferenceField,
   Show,
-  UrlField,
 } from 'react-admin';
 //icons
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';
 import { Card as MuiCard, CardContent, withStyles } from '@material-ui/core';
-
 
 const HasImageFilter = () => (
   <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
@@ -34,7 +32,7 @@ const HasImageFilter = () => (
 
 const KategorieFilter = () => (
   <FilterList label='Kategorie' icon={<ClassIcon />}>
-   {/*  {Kategorie.map(Kategorie => (
+    {/*  {Kategorie.map(Kategorie => (
           <FilterListItem
               label={Kategorie.name}
               key={Kategorie.id}
@@ -81,10 +79,10 @@ const ImageShow = (props) => (
       <TextField source='art_type' label='Kunsttyp' />
       <TextField source='description' label='Beschreibung' />
       <TextField source='additionfal_inf' label='Weitere Informationen' />
-      {/* <ImageField source='picture' />
-      <UrlField source='picture' label='Bildverknupfung' /> */}
-      {/* add new table with images and reference them here
-      <ReferenceField label="Bilderverknüpfung" source="image_url" reference="Bilderverknüpfung"/> */}
+      {/* add new table with images and reference them here*/}
+      <ReferenceField label='Bildverknüpfung' source='' reference='Pictures'>
+        <ImageField source='picture' />
+      </ReferenceField>
       <TextField source='year' label='Jahr' />
       <TextField source='material' label='Material' />
       <TextField source='size_' label='Größe' />
@@ -163,15 +161,3 @@ export const ExponateCreate = (props) => (
     </SimpleForm>
   </Create>
 );
-
-// todo: embed text on the side -> move to resource in App.js?
-export default class Exponate extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Exponaten-Seite</h1>
-        <AddExponate></AddExponate>
-      </div>
-    );
-  }
-}
