@@ -1,5 +1,5 @@
 import React from 'react';
-import { Admin, Resource, AppBar, Layout } from 'react-admin';
+import { Admin, Resource, Layout } from 'react-admin';
 import { theme } from './app/components/Style/Theme.js';
 // site components
 import {
@@ -29,11 +29,13 @@ import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import PhotoFilterIcon from '@material-ui/icons/PhotoFilter';
-//import TreeMenu from '@bb-tech/ra-treemenu';
+import ListIcon from '@material-ui/icons/List';
+import CreateIcon from '@material-ui/icons/Create';
+
+import TreeMenu from '@bb-tech/ra-treemenu';
 //todo: import login page
 //import LoginPage from 'path';
 import dataProvider from './app/containers/dataProvider.js';
-
 
 export default function App() {
   return (
@@ -51,9 +53,10 @@ export default function App() {
         dashboard={Dashboard}
         // custom theme
         theme={theme}
+        // TODO: add a tree menu to show all resources
+        /* layout={(props) => <Layout {...props} menu={TreeMenu} />} */
       >
         <Resource
-          // todo: replace the default name: remove 's' on the ending
           name='Exponate'
           list={ExponateList}
           edit={ExponateEdit}
@@ -69,14 +72,31 @@ export default function App() {
           icon={NavigationIcon}
           options={{ label: 'Touren' }}
         />
+        {/* <Resource
+          name='Benutzer_overview'
+          icon={SupervisorAccountIcon}
+          options={{ label: 'Benutzer', "isMenuParent": true }}
+        /> */}
+
         <Resource
           name='Benutzer'
           list={UserList}
           edit={AccountEdit}
           create={UserCreate}
           icon={SupervisorAccountIcon}
+          /* icon={ListIcon} */
           options={{ label: 'Benutzer' }}
+          /* options={{ label: 'Übersicht', "menuParent": "Benutzer_overview" }}*/
         />
+        {/* <Resource
+          name='Codes'
+          list={CodeList}
+          create={CodeCreate}
+          icon={CreateIcon}
+          options={{
+            label: 'Code Erstellen' , "menuParent": "Benutzer_overview" 
+          }}
+        /> */}
         <Resource
           name='Abzeichen'
           list={AbzeichenList}

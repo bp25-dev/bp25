@@ -4,6 +4,7 @@ import {
   Datagrid,
   TextField,
   ImageField,
+  BooleanField,
   EditButton,
   Edit,
   SimpleForm,
@@ -25,7 +26,7 @@ import { Card as MuiCard, CardContent, withStyles } from '@material-ui/core';
 // check if picture object is not empty (create boolean)
 const HasImageFilter = () => (
   <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
-    <FilterListItem label='vorhanden' value={{ picture: true }} />
+    <FilterListItem label='vorhanden' value={{picture: true }} />
     <FilterListItem label='nicht vorhanden' value={{ picture: null }} />
   </FilterList>
 );
@@ -42,6 +43,8 @@ const KategorieFilter = () => (
       )) } */}
   </FilterList>
 );
+
+//TODO: more filters.. Subkategorie Mapping, Timeframes, Material, ...? 
 
 // filter sidebar styling
 const Card = withStyles((theme) => ({
@@ -106,6 +109,10 @@ export const ExponateList = (props) => (
         source='interdisciplinary_context'
         label='Interdisziplinärkontext'
       />
+      {/* should be true if there is an linked picture */}
+      <ReferenceField label='Bildverknüpfung' source='' reference='Pictures'>
+        <BooleanField source='picture' />
+      </ReferenceField>
       <EditButton />
     </Datagrid>
   </List>
