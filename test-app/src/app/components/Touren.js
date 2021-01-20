@@ -166,7 +166,7 @@ export const TourenList = (props) => {
     >
       <Datagrid expand={<StationShow />}>
         {/* TODO: Whats the primaery key? replace Titel for pk or use built in  */}
-        <TextField source='ID' />
+        <TextField source='_id' label='ID' />
         <TextField source='name' label='Titel' />
         <TextField source='description' label='Beschreibung' />
         {/* refField: source=field in this table, reference=Name of reference Table  */}
