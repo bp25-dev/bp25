@@ -203,7 +203,7 @@ export const TourenList = (props) => {
 // edit a tour
 export const TourenEdit = (props) => (
   <Edit title='Bearbeite Touren' {...props}>
-    <SimpleForm>
+    <SimpleForm warnWhenUnsavedChanges>
       <TextInput disabled source='ID' />
       <TextInput source='name' label='Titel' />
       <TextInput source='description' label='Beschreibung' />
@@ -267,7 +267,7 @@ export const TourenEdit = (props) => (
 // todo: ID should not be created manually but automatically (distinct id)
 export const TourenCreate = (props) => (
   <Create title='Erstelle Touren' {...props}>
-    <SimpleForm>
+    <SimpleForm warnWhenUnsavedChanges>
       <TextInput disabled source='ID' />
       <TextInput source='name' label='Titel' />
       <TextInput source='description' label='Beschreibung' />

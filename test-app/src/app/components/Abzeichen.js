@@ -29,17 +29,19 @@ const ImageShow = (props) => (
   >
     <SimpleShowLayout>
       {/* TODO: Show URL & image of related picture*/}
-      <ImageField source='picture' label='Bild' />
-      <UrlField source='picture' label='Url' />
+      <ImageField source='picture.url' label='Bild' />
+      <UrlField source='picture.url' label='Url' />
       {/* TODO: Link to actual picture table to display connectes profile pictures 
       show as a list, if there is more than one profile picture for one badge?*/}
-      <ReferenceField
+      {/*<ReferenceField
         label='freigeschaltete Profilbilder'
         source='unlocked_picture'
         reference='Profilbild'
       >
-        <ImageField source='picture' />
-      </ReferenceField>
+        <ImageField source='unlocked_picture.url' />
+      </ReferenceField>*/}
+      <ImageField label='freigeschaltetes Bild' source='unlocked_picture.url'/>
+      <UrlField source='unlocked_picture.url' label='Url' />
     </SimpleShowLayout>
   </Show>
 );
