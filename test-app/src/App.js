@@ -12,23 +12,25 @@ import {
   TourenEdit,
   TourenCreate,
 } from './app/components/Touren.js';
-import {
-  UserList,
-  AccountEdit,
-  UserCreate,
-  CodeCreate,
-} from './app/components/User.js';
+import { UserList, AccountEdit, UserCreate } from './app/components/User.js';
+import { CodeList, CodeCreate } from './app/components/Codes.js';
 import {
   AbzeichenList,
   AbzeichenEdit,
   AbzeichenCreate,
 } from './app/components/Abzeichen.js';
+import {
+  PictureList,
+  PictureEdit,
+  PictureCreate,
+} from './app/components/ProfilePicutre.js';
 import Dashboard from './app/containers/Dashboard';
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import PhotoFilterIcon from '@material-ui/icons/PhotoFilter';
+import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import ListIcon from '@material-ui/icons/List';
 import CreateIcon from '@material-ui/icons/Create';
 
@@ -54,7 +56,7 @@ export default function App() {
         // custom theme
         theme={theme}
         // TODO: add a tree menu to show all resources
-        /* layout={(props) => <Layout {...props} menu={TreeMenu} />} */
+        layout={(props) => <Layout {...props} menu={TreeMenu} />}
       >
         <Resource
           name='Exponate'
@@ -72,38 +74,49 @@ export default function App() {
           icon={NavigationIcon}
           options={{ label: 'Touren' }}
         />
-        {/* <Resource
+        <Resource
           name='Benutzer_overview'
           icon={SupervisorAccountIcon}
-          options={{ label: 'Benutzer', "isMenuParent": true }}
-        /> */}
-
+          options={{ label: 'Benutzer', isMenuParent: true }}
+        />
         <Resource
           name='Benutzer'
           list={UserList}
           edit={AccountEdit}
           create={UserCreate}
-          icon={SupervisorAccountIcon}
-          /* icon={ListIcon} */
-          options={{ label: 'Benutzer' }}
-          /* options={{ label: 'Übersicht', "menuParent": "Benutzer_overview" }}*/
+          icon={ListIcon}
+          options={{ label: 'Übersicht', menuParent: 'Benutzer_overview' }}
         />
-        {/* <Resource
+        <Resource
           name='Codes'
           list={CodeList}
           create={CodeCreate}
           icon={CreateIcon}
           options={{
-            label: 'Code Erstellen' , "menuParent": "Benutzer_overview" 
+            label: 'Code Erstellen',
+            menuParent: 'Benutzer_overview',
           }}
-        /> */}
+        />
+        <Resource
+          name='Bilder_overview'
+          icon={AddPhotoAlternateIcon}
+          options={{ label: 'Bildverknüpfungen', isMenuParent: true }}
+        />
         <Resource
           name='Abzeichen'
           list={AbzeichenList}
           edit={AbzeichenEdit}
           create={AbzeichenCreate}
           icon={PhotoFilterIcon}
-          options={{ label: 'Abzeichen' }}
+          options={{ label: 'Abzeichen', menuParent: 'Bilder_overview' }}
+        />
+        <Resource
+          name='ProfilePicture'
+          list={PictureList}
+          edit={PictureEdit}
+          create={PictureCreate}
+          icon={AddPhotoAlternateIcon}
+          options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
         />
       </Admin>
     </div>

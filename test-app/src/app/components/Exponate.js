@@ -120,7 +120,7 @@ export const ExponateList = (props) => (
 
 // edit an exhibit
 export const ExponateEdit = (props) => (
-  <Edit title='Bearbeite Exponate' {...props}>
+  <Edit {...props} title='Bearbeite Exponate' >
     <SimpleForm>
       {/* <TextInput disabled source='ID' /> */}
       <TextInput source='_id' label='ObjektID' />

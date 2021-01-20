@@ -10,12 +10,11 @@ import {
   TextField,
   ChipField,
   ReferenceField,
-  ImageField,
+  EmailField,
   ArrayField,
   FunctionField,
   BooleanField,
   PasswordInput,
-  ReferenceInput,
   TextInput,
   BooleanInput,
 } from 'react-admin';
@@ -30,6 +29,7 @@ export const UserList = (props) => (
      {/*  TODO: get real primary key of user ID (username?) */}
       <TextField source='id' label='ID' />
       <TextField source='username' label='Benutzername' />
+      <EmailField source='email' label='Email' />
       <FunctionField
         source='password'
         label='Passwort'
@@ -47,14 +47,6 @@ export const UserList = (props) => (
         TrueIcon={DoneIcon}
         FalseIcon={ClearIcon}
       />
-      <ReferenceField
-        label='Profilbild'
-        source='profile_picture'
-        reference='Profilbild'
-      >
-        {/*  show current selected profile picture of the user  */}
-        <ImageField source='picture' />
-      </ReferenceField>
       <ArrayField source='badges' label='Abzeichen'>
         <SingleFieldList>
           <ReferenceField label='Abzeichen' source='_id' reference='Abzeichen'>
@@ -75,17 +67,10 @@ export const AccountEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source='id' label='ID' />
       <TextInput source='username' label='Benutzername' />
+      <TextInput source='email' label='Email' />
       <PasswordInput source='password' label='Passwort' />
       <BooleanInput source='producer' label='Ersteller Status erteilen?' />
       <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
-      {/* TODO: Only show profile pictures that are already unlocked (check via badges of the users) */}
-      {/*<ReferenceInput
-        label='Profilbild'
-        source='profile_picture'
-        reference='Profilbild'
-      >
-         <SelectInput source='_id' choices={Profilbild} optionText='Profilbild' />
-      </ReferenceInput> */}
     </SimpleForm>
   </Edit>
 );
@@ -95,27 +80,13 @@ export const UserCreate = (props) => (
   <Create title='Erstelle Admin' {...props}>
     <SimpleForm>
       <TextInput source='username' label='Benutzername' />
+      <TextInput source='email' label='Email' />
       <PasswordInput source='password' label='Passwort' />
       <BooleanInput source='producer' label='Ersteller Status erteilen?' />
       <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
-      {/* TODO: Only show profile pictures that are already unlocked (check via badges of the users) */}
-      {/* <ReferenceInput
-        label='Profilbild'
-        source='profile_picture'
-        reference='Profilbild'
-      >
-         <SelectInput source='_id' choices={Profilbild} optionText='Profilbild' /> 
-      </ReferenceInput>*/}
     </SimpleForm>
   </Create>
 );
 
 // to do: missing functions are to be embedded on the site
 // look up how to show different tables/ resources on one single page
-export const CodeCreate = (props) => (
-  <Create {...props}>
-    <SimpleForm>
-      <TextInput source='Code' />
-    </SimpleForm>
-  </Create>
-);

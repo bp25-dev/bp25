@@ -49,8 +49,8 @@ const dataProvider = fakeDataProvider({
           username: 'Cosima',
         },
       ],
-      difficulty: 10,
-      status: 'private',
+      difficulty: 5,
+      status: 'privat',
       lastEdit: '2020-01-01',
     },
   ],
@@ -102,7 +102,7 @@ const dataProvider = fakeDataProvider({
     //   Beschreibung: 'test',
     // },
   ],
-  Profilbild: [
+  ProfilePicture: [
     {
       _id: {
         $oid: '5ff9889f4028d9e0ea9cc52d',

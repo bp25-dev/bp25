@@ -12,6 +12,10 @@ import {
   EditButton,
   Show,
   SimpleShowLayout,
+  //validation
+  minValue,
+  maxValue,
+  number,
   //actions
   useListContext,
   TopToolbar,
@@ -44,6 +48,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles } from '@material-ui/core/styles';
 
 // filter the tours (search for text)
+// TODO: filter Ersteller der Tour
 // filter for featured tours (todo, not working yet)
 const FilterBar = (props) => (
   <div>
@@ -52,13 +57,20 @@ const FilterBar = (props) => (
       <SelectInput
         source='status'
         choices={[
-          { id: 'featured', name: 'freigegeben' },
-          { id: 'pending', name: 'ausstehend' },
-          { id: 'private', name: 'privat' },
+          { id: 'freigegeben', name: 'freigegeben' },
+          { id: 'ausstehend', name: 'ausstehend' },
+          { id: 'privat', name: 'privat' },
         ]}
         alwaysOn
       />
-      <NumberInput source='difficulty' label='Schwierigkeitsgrad' alwaysOn />
+      <SelectInput
+        source='owner' label='Ersteller'
+        choices={[
+          { id: 'username', name: 'Username' },
+        ]}
+        alwaysOn
+      />
+      <NumberInput source='difficulty' label='Schwierigkeitsgrad' validate={validateDifficulty} alwaysOn />
       <DateInput
         source='lastEdit'
         label='letzte Bearbeitung'
@@ -138,6 +150,9 @@ const useStyles = makeStyles({
   },
 });
 
+// create a range withing the Difficulty can be selected
+const validateDifficulty = [number(),minValue(1), maxValue(5)];
+
 // list existing tours
 export const TourenList = (props) => {
   const classes = useStyles(props);
@@ -155,7 +170,7 @@ export const TourenList = (props) => {
         <TextField source='name' label='Titel' />
         <TextField source='description' label='Beschreibung' />
         {/* refField: source=field in this table, reference=Name of reference Table  */}
-        <ReferenceField label='Besitzer' source='owner' reference='Benutzer'>
+        <ReferenceField label='Ersteller' source='owner' reference='Benutzer'>
           {/* source = wanted field from ref table */}
           <TextField source='username' />
         </ReferenceField>
@@ -170,8 +185,8 @@ export const TourenList = (props) => {
             </ReferenceField>
           </SingleFieldList>
         </ArrayField>
-        <TextField source='search_id' label='Such ID' />
-        <TextField source='session_id' label='Session ID' />
+        <TextField source='search_id' label='Touren Code' />
+        <TextField source='session_id' label='Passwort' />
         <DateField
           source='lastEdit'
           label='letzte Bearbeitung'
@@ -194,7 +209,7 @@ export const TourenEdit = (props) => (
       <TextInput source='description' label='Beschreibung' />
       {/*  TODO: functionality to reference to Besitzer and attending users of the tour  */}
       {/* reference to owner of the tour  */}
-      <ReferenceInput label='Besitzer' source='owner' reference='Benutzer'>
+      <ReferenceInput label='Ersteller' source='owner' reference='Benutzer'>
         {/*  TODO: get list of existing usernames to select from: idea: map choices */}
         <SelectInput source='username' />
       </ReferenceInput>
@@ -211,14 +226,14 @@ export const TourenEdit = (props) => (
           </ReferenceInput>
         </SimpleFormIterator>
       </ArrayInput>
-      <TextInput source='search_id' label='Such ID' />
-      <TextInput source='session_id' label='Session ID' />
+      <TextInput source='search_id' label='Touren Code' />
+        <TextInput source='session_id' label='Passwort' />
       <DateInput
         source='lastEdit'
         label='letzte Bearbeitung'
         options={{ format: 'DD/MM/YYYY' }}
       />
-      <NumberInput source='difficulty' label='Schwierigkeitsgrad' />
+      <NumberInput source='difficulty' label='Schwierigkeitsgrad' validate={validateDifficulty} />
       <SelectInput
         source='Status'
         choices={[
@@ -258,7 +273,7 @@ export const TourenCreate = (props) => (
       <TextInput source='description' label='Beschreibung' />
       {/*  TODO: functionality to reference to Besitzer and attending users of the tour  */}
       {/* reference to owner of the tour  */}
-      <ReferenceInput label='Besitzer' source='owner' reference='Benutzer'>
+      <ReferenceInput label='Ersteller' source='owner' reference='Benutzer'>
         <SelectInput source='username' />
       </ReferenceInput>
       {/* reference to attending users of the tour  */}
@@ -274,14 +289,14 @@ export const TourenCreate = (props) => (
           </ReferenceInput>
         </SimpleFormIterator>
       </ArrayInput>
-      <TextInput source='search_id' label='Such ID' />
-      <TextInput source='session_id' label='Session ID' />
+      <TextInput source='search_id' label='Touren Code' />
+        <TextInput source='session_id' label='Passwort' />
       <DateInput
         source='lastEdit'
         label='letzte Bearbeitung'
         options={{ format: 'DD/MM/YYYY' }}
       />
-      <NumberInput source='difficulty' label='Schwierigkeitsgrad' />
+      <NumberInput source='difficulty' label='Schwierigkeitsgrad' validate={validateDifficulty} />
       <SelectInput
         source='Status'
         choices={[
