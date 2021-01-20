@@ -58,7 +58,7 @@ export const UserList = (props) => (
 
 const optionRenderer = (choice) => `${choice.picture}`;
 
-// edit paasword with user rights first try
+// edit password with user rights first try
 /* export const AccountEdit = ({ permissions, ...props }) => (
   <Edit title='Accountdaten ändern' {...props}>
     <TabbedForm initialValues={{ role: 'user' }}>

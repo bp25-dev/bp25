@@ -66,12 +66,9 @@ const FilterBar = (props) => (
         ]}
         alwaysOn
       />
-      <SelectInput
-        source='owner'
-        label='Ersteller'
-        choices={[{ id: 'username', name: 'Username' }]}
-        alwaysOn
-      />
+      <ReferenceInput source='user' reference='Benutzer' label='Ersteller' alwaysOn>
+        <SelectInput optionText='username' />
+      </ReferenceInput>
       <NumberInput
         source='difficulty'
         label='Schwierigkeitsgrad'
@@ -177,10 +174,9 @@ export const TourenList = (props) => {
         <TextField source='name' label='Titel' />
         <TextField source='description' label='Beschreibung' />
         {/* refField: source=field in this table, reference=Name of reference Table  */}
-        <ReferenceField label='Ersteller' source='owner' reference='Benutzer'>
-          {/* source = wanted field from ref table */}
-          <TextField source='username' />
-        </ReferenceField>
+       <ReferenceField source='owner' reference='Benutzer' label='Ersteller'>
+        <TextField source='username' />
+      </ReferenceField>
         <ReferenceArrayField
           label='Benutzer'
           reference='Benutzer'
@@ -212,13 +208,9 @@ export const TourenEdit = (props) => (
       <TextInput disabled source='ID' />
       <TextInput source='name' label='Titel' />
       <TextInput source='description' label='Beschreibung' />
-      {/*  TODO: functionality to reference to Besitzer and attending users of the tour  */}
-      {/* reference to owner of the tour  */}
-      <ReferenceInput label='Ersteller' source='owner' reference='Benutzer'>
-        {/*  TODO: get list of existing usernames to select from: idea: map choices */}
-        <SelectInput source='username' />
+      <ReferenceInput source='user' reference='Benutzer' label='Ersteller'>
+        <SelectInput optionText='username' />
       </ReferenceInput>
-      {/* reference to attending users of the tour  */}
       <ReferenceArrayInput source='user' reference='Benutzer'>
         <SelectArrayInput optionText='username' />
       </ReferenceArrayInput>
@@ -271,17 +263,12 @@ export const TourenCreate = (props) => (
       <TextInput disabled source='ID' />
       <TextInput source='name' label='Titel' />
       <TextInput source='description' label='Beschreibung' />
-      {/*  TODO: functionality to reference to Besitzer and attending users of the tour  */}
-      {/* reference to owner of the tour  */}
-      <ReferenceInput label='Ersteller' source='owner' reference='Benutzer'>
-        <SelectInput source='username' />
+      <ReferenceInput source='user' reference='Benutzer' label='Ersteller'>
+        <SelectInput optionText='username' />
       </ReferenceInput>
-      {/* reference to attending users of the tour  */}
-      <ReferenceArrayField label='Benutzer' reference='Benutzer' source='user'>
-        <SingleFieldList>
-          <ChipField source='username' />
-        </SingleFieldList>
-      </ReferenceArrayField>
+      <ReferenceArrayInput source='user' reference='Benutzer'>
+        <SelectArrayInput optionText='username' />
+      </ReferenceArrayInput>
       <TextInput source='search_id' label='Touren Code' />
       <TextInput source='session_id' label='Passwort' />
       <DateInput
