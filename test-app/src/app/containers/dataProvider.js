@@ -2,6 +2,8 @@ import simpleRestProvider from 'ra-data-simple-rest';
 import jsonServerProvider from 'ra-data-json-server';
 import fakeDataProvider from 'ra-data-fakerest';
 
+//dataProvider={jsonServerProvider('mongodb://127.0.0.1:27017')}
+
 // fake data base for testing
 const dataProvider = fakeDataProvider({
   Exponate: [

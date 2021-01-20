@@ -46,7 +46,6 @@ export default function App() {
         title='Hessisches Landesmuseum'
         //can be replaced with the real data provider
         dataProvider={dataProvider}
-        //dataProvider={jsonServerProvider('mongodb://127.0.0.1:27017')}
         // todo: User authentification
         // authProdiver={authProvider}
         // can be enabled/replaced if we have designed a custom LoginPage
@@ -54,7 +53,7 @@ export default function App() {
         // custom dashboard page
         dashboard={Dashboard}
         // custom theme
-        theme={theme}
+        theme={theme} 
         // TODO: add a tree menu to show all resources
         layout={(props) => <Layout {...props} menu={TreeMenu} />}
       >

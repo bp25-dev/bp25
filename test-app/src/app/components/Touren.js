@@ -25,6 +25,7 @@ import {
   //fields
   TextField,
   ReferenceField,
+  ReferenceArrayField,
   DateField,
   NumberField,
   ChipField,
@@ -34,6 +35,8 @@ import {
   //inputs
   SelectInput,
   ImageInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
   SearchInput,
   ReferenceInput,
   NumberInput,
@@ -64,13 +67,17 @@ const FilterBar = (props) => (
         alwaysOn
       />
       <SelectInput
-        source='owner' label='Ersteller'
-        choices={[
-          { id: 'username', name: 'Username' },
-        ]}
+        source='owner'
+        label='Ersteller'
+        choices={[{ id: 'username', name: 'Username' }]}
         alwaysOn
       />
-      <NumberInput source='difficulty' label='Schwierigkeitsgrad' validate={validateDifficulty} alwaysOn />
+      <NumberInput
+        source='difficulty'
+        label='Schwierigkeitsgrad'
+        validate={validateDifficulty}
+        alwaysOn
+      />
       <DateInput
         source='lastEdit'
         label='letzte Bearbeitung'
@@ -146,12 +153,12 @@ const StationShow = (props) => (
 // TODO: create border to devide the component from the filters (spacing)
 const useStyles = makeStyles({
   main: {
-    backgroundColor: '#ccc',
+    marginTop: 20,
   },
 });
 
 // create a range withing the Difficulty can be selected
-const validateDifficulty = [number(),minValue(1), maxValue(5)];
+const validateDifficulty = [number(), minValue(1), maxValue(5)];
 
 // list existing tours
 export const TourenList = (props) => {
@@ -174,17 +181,15 @@ export const TourenList = (props) => {
           {/* source = wanted field from ref table */}
           <TextField source='username' />
         </ReferenceField>
-        <ArrayField source='user'>
+        <ReferenceArrayField
+          label='Benutzer'
+          reference='Benutzer'
+          source='user'
+        >
           <SingleFieldList>
-            <ReferenceField
-              label='Benutzer'
-              source='username'
-              reference='Benutzer'
-            >
-              <ChipField source='username' />
-            </ReferenceField>
+            <ChipField source='username' />
           </SingleFieldList>
-        </ArrayField>
+        </ReferenceArrayField>
         <TextField source='search_id' label='Touren Code' />
         <TextField source='session_id' label='Passwort' />
         <DateField
@@ -214,26 +219,21 @@ export const TourenEdit = (props) => (
         <SelectInput source='username' />
       </ReferenceInput>
       {/* reference to attending users of the tour  */}
-      <ArrayInput source='user'>
-        <SimpleFormIterator>
-          <ReferenceInput
-            label='Benutzer'
-            source='username'
-            reference='Benutzer'
-          >
-            {/*  TODO: get list of existing usernames to select from */}
-            <SelectInput source='username' />
-          </ReferenceInput>
-        </SimpleFormIterator>
-      </ArrayInput>
+      <ReferenceArrayInput source='user' reference='Benutzer'>
+        <SelectArrayInput optionText='username' />
+      </ReferenceArrayInput>
       <TextInput source='search_id' label='Touren Code' />
-        <TextInput source='session_id' label='Passwort' />
+      <TextInput source='session_id' label='Passwort' />
       <DateInput
         source='lastEdit'
         label='letzte Bearbeitung'
         options={{ format: 'DD/MM/YYYY' }}
       />
-      <NumberInput source='difficulty' label='Schwierigkeitsgrad' validate={validateDifficulty} />
+      <NumberInput
+        source='difficulty'
+        label='Schwierigkeitsgrad'
+        validate={validateDifficulty}
+      />
       <SelectInput
         source='Status'
         choices={[
@@ -277,26 +277,23 @@ export const TourenCreate = (props) => (
         <SelectInput source='username' />
       </ReferenceInput>
       {/* reference to attending users of the tour  */}
-      <ArrayInput source='user'>
-        <SimpleFormIterator>
-          <ReferenceInput
-            label='Benutzer'
-            source='username'
-            reference='Benutzer'
-          >
-            {/*  TODO: get list of existing usernames to select from */}
-            <SelectInput source='username' />
-          </ReferenceInput>
-        </SimpleFormIterator>
-      </ArrayInput>
+      <ReferenceArrayField label='Benutzer' reference='Benutzer' source='user'>
+        <SingleFieldList>
+          <ChipField source='username' />
+        </SingleFieldList>
+      </ReferenceArrayField>
       <TextInput source='search_id' label='Touren Code' />
-        <TextInput source='session_id' label='Passwort' />
+      <TextInput source='session_id' label='Passwort' />
       <DateInput
         source='lastEdit'
         label='letzte Bearbeitung'
         options={{ format: 'DD/MM/YYYY' }}
       />
-      <NumberInput source='difficulty' label='Schwierigkeitsgrad' validate={validateDifficulty} />
+      <NumberInput
+        source='difficulty'
+        label='Schwierigkeitsgrad'
+        validate={validateDifficulty}
+      />
       <SelectInput
         source='Status'
         choices={[

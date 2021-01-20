@@ -4,14 +4,15 @@ import {
   Edit,
   Create,
   Datagrid,
+  TabbedForm,
+  FormTab,
   SingleFieldList,
   SimpleForm,
   EditButton,
   TextField,
   ChipField,
-  ReferenceField,
+  ReferenceArrayField,
   EmailField,
-  ArrayField,
   FunctionField,
   BooleanField,
   PasswordInput,
@@ -26,7 +27,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 export const UserList = (props) => (
   <List {...props} title='Benutzer'>
     <Datagrid>
-     {/*  TODO: get real primary key of user ID (username?) */}
+      {/*  TODO: get real primary key of user ID (username?) */}
       <TextField source='id' label='ID' />
       <TextField source='username' label='Benutzername' />
       <EmailField source='email' label='Email' />
@@ -36,24 +37,20 @@ export const UserList = (props) => (
         render={(record) => `**********`}
       />
       <BooleanField
-        source='producer'
-        label='Ersteller'
-        TrueIcon={DoneIcon}
-        FalseIcon={ClearIcon}
-      />
-      <BooleanField
         source='Adminrechte'
         label='Adminrechte'
         TrueIcon={DoneIcon}
         FalseIcon={ClearIcon}
       />
-      <ArrayField source='badges' label='Abzeichen'>
+      {/* <ReferenceArrayField
+        label='Erstellte Objekte'
+        reference='Exponate'
+        source='username'
+      >
         <SingleFieldList>
-          <ReferenceField label='Abzeichen' source='_id' reference='Abzeichen'>
-            <ChipField source='name' />
-          </ReferenceField>
+          <ChipField source='title' />
         </SingleFieldList>
-      </ArrayField>
+      </ReferenceArrayField> */}
       <EditButton />
     </Datagrid>
   </List>
@@ -61,7 +58,33 @@ export const UserList = (props) => (
 
 const optionRenderer = (choice) => `${choice.picture}`;
 
-// edit paasword
+// edit paasword with user rights first try
+/* export const AccountEdit = ({ permissions, ...props }) => (
+  <Edit title='Accountdaten ändern' {...props}>
+    <TabbedForm initialValues={{ role: 'user' }}>
+      <FormTab label='user.form.summary'>
+        {permissions === 'admin' && <TextInput disabled source='id' />}
+        <TextInput source='username' label='Username' validate={required()} />
+      </FormTab>
+      {permissions === 'admin' && (
+        <FormTab label='user.form.security'>
+          <TextInput source='email' label='Email' validate={required()} />
+          <PasswordInput
+            source='password'
+            label='Passwort'
+            validate={required()}
+          />
+          <BooleanInput
+            source='Adminrechte'
+            label='Adminrechte erlauben?'
+            validate={required()}
+          />
+        </FormTab>
+      )}
+    </TabbedForm>
+  </Edit>
+); */
+
 export const AccountEdit = (props) => (
   <Edit title='Accountdaten ändern' {...props}>
     <SimpleForm>
@@ -69,8 +92,7 @@ export const AccountEdit = (props) => (
       <TextInput source='username' label='Benutzername' />
       <TextInput source='email' label='Email' />
       <PasswordInput source='password' label='Passwort' />
-      <BooleanInput source='producer' label='Ersteller Status erteilen?' />
-      <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
+      <BooleanInput source='Adminrechte' label='Adminrechte erlauben?'/>
     </SimpleForm>
   </Edit>
 );

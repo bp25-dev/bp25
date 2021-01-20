@@ -16,6 +16,10 @@ import {
   FilterLiveSearch,
   SimpleShowLayout,
   ReferenceField,
+  ReferenceArrayField,
+  ReferenceArrayInput,
+  ReferenceInput,
+  SingleFieldList,
   Show,
 } from 'react-admin';
 //icons
@@ -26,7 +30,7 @@ import { Card as MuiCard, CardContent, withStyles } from '@material-ui/core';
 // check if picture object is not empty (create boolean)
 const HasImageFilter = () => (
   <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
-    <FilterListItem label='vorhanden' value={{picture: true }} />
+    <FilterListItem label='vorhanden' value={{ picture: true }} />
     <FilterListItem label='nicht vorhanden' value={{ picture: null }} />
   </FilterList>
 );
@@ -44,7 +48,7 @@ const KategorieFilter = () => (
   </FilterList>
 );
 
-//TODO: more filters.. Subkategorie Mapping, Timeframes, Material, ...? 
+//TODO: more filters.. Subkategorie Mapping, Timeframes, Material, ...?
 
 // filter sidebar styling
 const Card = withStyles((theme) => ({
@@ -83,9 +87,15 @@ const ImageShow = (props) => (
       <TextField source='description' label='Beschreibung' />
       <TextField source='additionfal_inf' label='Weitere Informationen' />
       {/* add new table with images and reference them here*/}
-      <ReferenceField label='Bildverknüpfung' source='' reference='Pictures'>
-        <ImageField source='picture' />
-      </ReferenceField>
+      <ReferenceArrayField
+        label='Bildverknüpfungen'
+        reference='Pictures'
+        source='picture'
+      >
+        <SingleFieldList>
+          <ImageField source='picture' />
+        </SingleFieldList>
+      </ReferenceArrayField>
       <TextField source='year' label='Jahr' />
       <TextField source='material' label='Material' />
       <TextField source='size_' label='Größe' />
@@ -110,7 +120,11 @@ export const ExponateList = (props) => (
         label='Interdisziplinärkontext'
       />
       {/* should be true if there is an linked picture */}
-      <ReferenceField label='Bildverknüpfung' source='' reference='Pictures'>
+      <ReferenceField
+        label='Bildverknüpfung'
+        source='picture'
+        reference='Pictures'
+      >
         <BooleanField source='picture' />
       </ReferenceField>
       <EditButton />
@@ -120,7 +134,7 @@ export const ExponateList = (props) => (
 
 // edit an exhibit
 export const ExponateEdit = (props) => (
-  <Edit {...props} title='Bearbeite Exponate' >
+  <Edit {...props} title='Bearbeite Exponate'>
     <SimpleForm>
       {/* <TextInput disabled source='ID' /> */}
       <TextInput source='_id' label='ObjektID' />
@@ -134,13 +148,14 @@ export const ExponateEdit = (props) => (
         label='Interdisziplinärkontext'
       />
       <TextInput source='year' label='Jahr' />
-      <TextInput source='picture' label='Bild' />
       <TextInput source='art_type' label='Kunsttyp' />
       <TextInput source='creator' label='Ersteller' />
       <TextInput source='material' label='Material' />
       <TextInput source='size_' label='Größe' />
       <TextInput source='location' label='Ort' />
-      <ImageInput source='picture' />
+      <ReferenceInput source='pictures' reference='Pictures'>
+        <ImageInput source='picture' />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );
@@ -161,13 +176,14 @@ export const ExponateCreate = (props) => (
         label='Interdisziplinärkontext'
       />
       <TextInput source='year' label='Jahr' />
-      <TextInput source='picture' label='Bild' />
       <TextInput source='art_type' label='Kunsttyp' />
       <TextInput source='creator' label='Ersteller' />
       <TextInput source='material' label='Material' />
       <TextInput source='size_' label='Größe' />
       <TextInput source='location' label='Ort' />
-      <ImageInput source='picture' />
+      <ReferenceInput source='pictures' reference='Pictures'>
+        <ImageInput source='picture' />
+      </ReferenceInput>
     </SimpleForm>
   </Create>
 );
