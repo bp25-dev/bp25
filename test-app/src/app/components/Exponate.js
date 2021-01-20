@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  TabbedForm,
+  FormTab,
   List,
   Datagrid,
   TextField,
@@ -17,34 +19,24 @@ import {
   SimpleShowLayout,
   ReferenceField,
   Show,
+  Filter,
+  SearchInput,
+  SelectInput,
+  BooleanInput,
+
 } from 'react-admin';
+import RichTextInput from 'ra-input-rich-text';
+import { makeStyles } from '@material-ui/core/styles';
 //icons
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';
 import { Card as MuiCard, CardContent, withStyles } from '@material-ui/core';
+import PersonIcon from '@material-ui/icons/Person';
+import { Category } from '@material-ui/icons';
 
-// check if picture object is not empty (create boolean)
-const HasImageFilter = () => (
-  <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
-    <FilterListItem label='vorhanden' value={{picture: true }} />
-    <FilterListItem label='nicht vorhanden' value={{ picture: null }} />
-  </FilterList>
-);
-
-// TODO: map each existing category into a Filter List Item Label
-const KategorieFilter = () => (
-  <FilterList label='Kategorie' icon={<ClassIcon />}>
-    {/*  {Kategorie.map(Kategorie => (
-          <FilterListItem
-              label={Kategorie.name}
-              key={Kategorie.id}
-              value={{ groups: Kategorie.id }}
-          />
-      )) } */}
-  </FilterList>
-);
-
-//TODO: more filters.. Subkategorie Mapping, Timeframes, Material, ...? 
+const useStyles = makeStyles({
+  inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
+});
 
 // filter sidebar styling
 const Card = withStyles((theme) => ({
@@ -60,11 +52,35 @@ const Card = withStyles((theme) => ({
   },
 }))(MuiCard);
 
+// check if picture object is not empty (create boolean)
+const HasImageFilter = () => (
+  <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
+    <FilterListItem label='vorhanden' value={{picture: true }} />
+    <FilterListItem label='nicht vorhanden' value={{ picture: null }} />
+  </FilterList>
+);
+
+
+// TODO: map each existing category into a Filter List Item Label
+const KategorieFilter = () => (
+  <FilterList label='Kategorie' icon={<ClassIcon />}>
+   {/* {  {category.map(category => (
+          <FilterListItem
+              label={category.name}
+              key={category.name}
+          />
+   )) } }*/}
+  </FilterList>
+);
+
+
+//TODO: more filters.. Subkategorie Mapping, Timeframes, Material, ...? 
+
 // sidebar functionality
 const FilterSidebar = () => (
   <Card>
     <CardContent>
-      <FilterLiveSearch source='full_name' />
+      <FilterLiveSearch />
       <HasImageFilter />
       <KategorieFilter />
     </CardContent>
@@ -94,6 +110,8 @@ const ImageShow = (props) => (
   </Show>
 );
 
+
+
 // list the exhibits
 export const ExponateList = (props) => (
   <List {...props} title='Exponate' aside={<FilterSidebar />}>
@@ -119,55 +137,73 @@ export const ExponateList = (props) => (
 );
 
 // edit an exhibit
-export const ExponateEdit = (props) => (
+export const ExponateEdit = props => {
+  const classes = useStyles();
+  return(
   <Edit {...props} title='Bearbeite Exponate' >
-    <SimpleForm>
+    <TabbedForm warnWhenUnsavedChanges>
+      <FormTab label="Übersicht">
+        <TextInput source='_id' label='ObjektID' fullWidth/>
+        <TextInput source='title' label='Titel' fullWidth/>
+        <RichTextInput source='description' label='Beschreibung' fullWidth/>
+        <TextInput source='additionfal_inf' label='Weitere Informationen' fullWidth/>
+        <TextInput source='category' label='Kategorie' fullWidth/>
+        <TextInput source='sub_category' label='Subkategorie' fullWidth/>
+        <TextInput
+          source='interdisciplinary_context'
+          label='Interdisziplinärkontext'
+          fullWidth
+        />
+      </FormTab>
       {/* <TextInput disabled source='ID' /> */}
-      <TextInput source='_id' label='ObjektID' />
-      <TextInput source='title' label='Titel' />
-      <TextInput source='description' label='Beschreibung' />
-      <TextInput source='additionfal_inf' label='Weitere Informationen' />
-      <TextInput source='category' label='Kategorie' />
-      <TextInput source='sub_category' label='Subkategorie' />
-      <TextInput
-        source='interdisciplinary_context'
-        label='Interdisziplinärkontext'
-      />
-      <TextInput source='year' label='Jahr' />
-      <TextInput source='picture' label='Bild' />
-      <TextInput source='art_type' label='Kunsttyp' />
-      <TextInput source='creator' label='Ersteller' />
-      <TextInput source='material' label='Material' />
-      <TextInput source='size_' label='Größe' />
-      <TextInput source='location' label='Ort' />
-      <ImageInput source='picture' />
-    </SimpleForm>
+     <FormTab label = "Eckdaten">
+        <TextInput source='year' label='Jahr' fullWidth/>
+        <TextInput source='picture' label='Bild' fullWidth/>
+        <TextInput source='art_type' label='Kunsttyp' fullWidth/>
+        <TextInput source='creator' label='Ersteller' fullWidth/>
+        <TextInput source='material' label='Material' fullWidth/>
+        <TextInput source='size_' label='Größe' formClassName={classes.inlineBlock}/>
+        <TextInput source='location' label='Ort'  formClassName={classes.inlineBlock}/>
+        <ImageInput source='picture' fullWidth/>
+     </FormTab>
+    </TabbedForm>
   </Edit>
-);
+  )
+};
 
 // create a new exhibit
 // todo: ID should not be created manually but automacially (distinct id)
-export const ExponateCreate = (props) => (
+export const ExponateCreate = props => {
+  const classes = useStyles();
+  return(
   <Create title='Erstelle Exponate' {...props}>
-    <SimpleForm>
-      <TextInput source='_id' label='ObjektID' />
-      <TextInput source='title' label='Titel' />
-      <TextInput source='description' label='Beschreibung' />
-      <TextInput source='additionfal_inf' label='Weitere Informationen' />
-      <TextInput source='category' label='Kategorie' />
-      <TextInput source='sub_category' label='Subkategorie' />
-      <TextInput
-        source='interdisciplinary_context'
-        label='Interdisziplinärkontext'
-      />
-      <TextInput source='year' label='Jahr' />
-      <TextInput source='picture' label='Bild' />
-      <TextInput source='art_type' label='Kunsttyp' />
-      <TextInput source='creator' label='Ersteller' />
-      <TextInput source='material' label='Material' />
-      <TextInput source='size_' label='Größe' />
-      <TextInput source='location' label='Ort' />
-      <ImageInput source='picture' />
-    </SimpleForm>
+    <TabbedForm warnWhenUnsavedChanges>
+      <FormTab label="Übersicht">
+        <TextInput source='_id' label='ObjektID' fullWidth/>
+        <TextInput source='title' label='Titel' fullWidth/>
+        <RichTextInput source='description' label='Beschreibung' fullWidth/>
+        <TextInput source='additionfal_inf' label='Weitere Informationen' fullWidth/>
+        <TextInput source='category' label='Kategorie' fullWidth/>
+        <TextInput source='sub_category' label='Subkategorie' fullWidth/>
+        <TextInput
+          source='interdisciplinary_context'
+          label='Interdisziplinärkontext'
+          fullWidth
+        />
+      </FormTab>
+        <FormTab label = "Eckdaten">
+        <TextInput source='year' label='Jahr' fullWidth/>
+        <TextInput source='picture' label='Bild' fullWidth/>
+        <TextInput source='art_type' label='Kunsttyp' fullWidth/>
+        <TextInput source='creator' label='Ersteller' fullWidth/>
+        <TextInput source='material' label='Material' fullWidth/>
+        <TextInput source='size_' label='Größe' formClassName={classes.inlineBlock}/>
+        <TextInput source='location' label='Ort' formClassName={classes.inlineBlock} />
+        <ImageInput source='picture' fullWidth/>
+      </FormTab>
+    </TabbedForm>
   </Create>
-);
+  )
+  };
+
+  
