@@ -11,6 +11,12 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import { ContactMail } from '@material-ui/icons';
 
+import badges from './images/Badges.png'
+import exponate from './images/Exponate.png'
+import tours from './images/Tours.png'
+import user from './images/User.png'
+
+
 // style for the cards
 const useStyles = makeStyles(() => ({
   card: {
@@ -138,20 +144,16 @@ export default function Dashboard() {
       <Grid item md>
         <CustomCard
           classes={cardStyles}
-          title={'Benutzer'}
+          title={'Benutzer*innen'}
           subtitle={'Verwalte Benutzer*innen'}
-          image={
-            'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/01_1180x0.png'
-          }
+          image={user}
           path='/Benutzer'
         />
         <CustomCard
           classes={cardStyles}
           title={'Touren'}
           subtitle={'Erstelle Touren'}
-          image={
-            'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/02_376x376.png'
-          }
+          image={tours}
           path='/Touren'
         />
       </Grid>
@@ -160,18 +162,14 @@ export default function Dashboard() {
           classes={cardStyles}
           title={'Exponate'}
           subtitle={'Bearbeite Exponate'}
-          image={
-            'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/05_versionKlein_376x376.png'
-          }
+          image={exponate}
           path='/Exponate'
         />
         <CustomCard
           classes={cardStyles}
           title={'Abzeichen'}
           subtitle={'Füge neue Abzeichen hinzu'}
-          image={
-            'https://www.geschichte.tu-darmstadt.de/media/geschichte/ifg/didaktik/geschichtsdidaktik_bilder/03_376x376.png'
-          }
+          image={badges}
           path='/Abzeichen'
         />
       </Grid>
