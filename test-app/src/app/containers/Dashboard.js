@@ -3,12 +3,31 @@ import { Link } from 'react-router-dom';
 import { Title } from 'react-admin';
 //material UI imports
 import Card from '@material-ui/core/Card';
-import { Grid, Paper, Typography } from '@material-ui/core';
+import { Container, Grid, Paper, Typography } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
+import { ContactMail } from '@material-ui/icons';
+
+//Copyright
+function Copyright() {
+  return (
+    <Typography
+      variant="body2"
+      color="textSecondary"
+      align="center"
+    >
+      {"Copyright © "}
+      <Link color="inherit" >
+      Projekt Geschichte vernetzt
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
+  );
+}
 
 // style for the cards
 const useStyles = makeStyles(() => ({
@@ -107,6 +126,7 @@ export default function Dashboard() {
   const gridStyles = useGridStyles();
 
   return (
+    <Container> 
     <Grid
       container
       //  direction="row"
@@ -156,5 +176,7 @@ export default function Dashboard() {
         />
       </Grid>
     </Grid>
+     <Copyright/>
+     </Container> 
   );
 }

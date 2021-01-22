@@ -60,16 +60,32 @@ const dataProvider = fakeDataProvider({
     {
       username: 'Anna',
       password: '***',
-      producer: true,
-      badges: [{
-        _id: 'Erstellte_Rundgaenge_silber',
-      },
-      {
-        _id: 'Betrachtete_Artefakte_bronze',
-      },]
-      /* profile_picture: {
-        _id: 'Bild',
-      }, */
+      email: '',
+      Adminrechte: true,
+    },
+    {
+      username: 'Vilja',
+      password: '***',
+      email: '',
+      Adminrechte: true,
+    },
+    {
+      username: 'Cosi',
+      password: '***',
+      email: '',
+      Adminrechte: true,
+    },
+    {
+      username: 'Xenia',
+      password: '***',
+      email: '',
+      Adminrechte: false,
+    },
+    {
+      username: 'Fenja',
+      password: '***',
+      email: '',
+      Adminrechte: false,
     },
   ],
 
@@ -122,6 +138,11 @@ const dataProvider = fakeDataProvider({
       },
       picture: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
       locked: false,
+    },
+  ],
+  Codes: [
+    {
+      code: 'abc'
     },
   ],
 });

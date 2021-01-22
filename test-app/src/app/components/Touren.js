@@ -66,7 +66,12 @@ const FilterBar = (props) => (
         ]}
         alwaysOn
       />
-      <ReferenceInput source='user' reference='Benutzer' label='Ersteller' alwaysOn>
+      <ReferenceInput
+        source='user'
+        reference='Benutzer'
+        label='Ersteller'
+        alwaysOn
+      >
         <SelectInput optionText='username' />
       </ReferenceInput>
       <NumberInput
@@ -170,13 +175,13 @@ export const TourenList = (props) => {
     >
       <Datagrid expand={<StationShow />}>
         {/* TODO: Whats the primaery key? replace Titel for pk or use built in  */}
-        <TextField source='ID' />
+        <TextField source='_id' label='ID' />
         <TextField source='name' label='Titel' />
         <TextField source='description' label='Beschreibung' />
         {/* refField: source=field in this table, reference=Name of reference Table  */}
-       <ReferenceField source='owner' reference='Benutzer' label='Ersteller'>
-        <TextField source='username' />
-      </ReferenceField>
+        <ReferenceField source='owner' reference='Benutzer' label='Ersteller'>
+          <ChipField source='username' />
+        </ReferenceField>
         <ReferenceArrayField
           label='Benutzer'
           reference='Benutzer'
@@ -204,7 +209,7 @@ export const TourenList = (props) => {
 // edit a tour
 export const TourenEdit = (props) => (
   <Edit title='Bearbeite Touren' {...props}>
-    <SimpleForm>
+    <SimpleForm warnWhenUnsavedChanges>
       <TextInput disabled source='ID' />
       <TextInput source='name' label='Titel' />
       <TextInput source='description' label='Beschreibung' />
@@ -259,7 +264,7 @@ export const TourenEdit = (props) => (
 // todo: ID should not be created manually but automatically (distinct id)
 export const TourenCreate = (props) => (
   <Create title='Erstelle Touren' {...props}>
-    <SimpleForm>
+    <SimpleForm warnWhenUnsavedChanges>
       <TextInput disabled source='ID' />
       <TextInput source='name' label='Titel' />
       <TextInput source='description' label='Beschreibung' />

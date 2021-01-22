@@ -18,6 +18,10 @@ import {
   Create,
   SimpleShowLayout,
   Show,
+  ArrayField,
+  SingleFieldList,
+  ReferenceArrayInput,
+  SelectArrayInput,
 } from 'react-admin';
 
 // edit expand component
@@ -29,17 +33,15 @@ const ImageShow = (props) => (
   >
     <SimpleShowLayout>
       {/* TODO: Show URL & image of related picture*/}
-      <ImageField source='picture' label='Bild' />
-      <UrlField source='picture' label='Url' />
-      {/* TODO: Link to actual picture table to display connectes profile pictures 
-      show as a list, if there is more than one profile picture for one badge?*/}
-      <ReferenceField
-        label='freigeschaltete Profilbilder'
+      <ImageField source='picture' label='Abzeichen Bild' />
+      <ImageField
         source='unlocked_picture'
-        reference='Profilbild'
-      >
-        <ImageField source='picture' />
-      </ReferenceField>
+        label='freigeschaltete Profilbilder'
+      />
+      {/* TODO: Link to actual picture table to display connectes profile pictures 
+      show as a list, if there is more than one profile picture for one badge?
+      <UrlField source='picture' label='Url' />
+      */}
     </SimpleShowLayout>
   </Show>
 );
@@ -64,15 +66,15 @@ export const AbzeichenEdit = (props) => (
       <TextInput disabled source='id' />
       <TextInput source='name' label='Name' />
       {/* Select a new picture for the badge*/}
-      <ImageInput source='Badge' accept='image/*'>
+      <ImageInput source='Abzeichen' accept='image/*'>
         <ImageField source='picture' />
       </ImageInput>
       {/* TODO: Link to connected profile pictures and select by existing name/picture
        (new profile pictures have to be added in the ProfilePicture database)*/}
       <ReferenceInput
-        label='freigeschaltete Profilbilder'
         source='unlocked_picture'
         reference='ProfilePicture'
+        label='freigeschaltete Profilbilder'
       >
         <SelectInput source='picture' />
       </ReferenceInput>
@@ -93,11 +95,11 @@ export const AbzeichenCreate = (props) => (
       {/* TODO: Link to connected profile pictures and select by existing name/picture
        (new profile pictures have to be added in the ProfilePicture database)*/}
       <ReferenceInput
-        label='freigeschaltete Profilbilder'
         source='unlocked_picture'
         reference='ProfilePicture'
+        label='freigeschaltete Profilbilder'
       >
-        <SelectInput source='picture' />
+        <SelectInput source='$oid' />
       </ReferenceInput>
       <NumberInput source='cost' label='Kosten' />
     </SimpleForm>

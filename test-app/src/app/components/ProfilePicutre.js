@@ -14,6 +14,8 @@ import {
   Create,
   SimpleShowLayout,
   Show,
+  TextField,
+  TextInput,
 } from 'react-admin';
 
 // edit expand component
@@ -34,6 +36,7 @@ const ImageShow = (props) => (
 export const PictureList = (props) => (
   <List {...props} title='Abzeichen'>
     <Datagrid expand={<ImageShow />}>
+      <TextField source='name' label='Name' />
       <BooleanField source='locked' label='gesperrt' />
       <EditButton />
     </Datagrid>
@@ -44,6 +47,7 @@ export const PictureList = (props) => (
 export const PictureEdit = (props) => (
   <Edit title='Verändere Profilbilder' {...props}>
     <SimpleForm>
+      <TextInput source='name' label='Name' fullWidth />
       <ImageInput source='ProfilePicture' accept='image/*'>
         <ImageField source='picture' />
       </ImageInput>
@@ -56,6 +60,7 @@ export const PictureEdit = (props) => (
 export const PictureCreate = (props) => (
   <Create title='Lade Profilbilder hoch' {...props}>
     <SimpleForm>
+      <TextInput source='name' label='Name' fullWidth />
       <ImageInput source='ProfilePicture' accept='image/*'>
         <ImageField source='picture' />
       </ImageInput>

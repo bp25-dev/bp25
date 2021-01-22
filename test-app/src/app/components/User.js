@@ -18,6 +18,7 @@ import {
   PasswordInput,
   TextInput,
   BooleanInput,
+  ReferenceManyField,
 } from 'react-admin';
 // material UI imports
 import DoneIcon from '@material-ui/icons/Done';
@@ -42,15 +43,15 @@ export const UserList = (props) => (
         TrueIcon={DoneIcon}
         FalseIcon={ClearIcon}
       />
-      {/* <ReferenceArrayField
-        label='Erstellte Objekte'
-        reference='Exponate'
-        source='username'
+      {/* <ReferenceManyField
+        label='Erstellte Touren'
+        reference='Touren'
+        target='owner'
       >
         <SingleFieldList>
-          <ChipField source='title' />
+          <ChipField source='name' />
         </SingleFieldList>
-      </ReferenceArrayField> */}
+      </ReferenceManyField> */}
       <EditButton />
     </Datagrid>
   </List>
@@ -92,7 +93,7 @@ export const AccountEdit = (props) => (
       <TextInput source='username' label='Benutzername' />
       <TextInput source='email' label='Email' />
       <PasswordInput source='password' label='Passwort' />
-      <BooleanInput source='Adminrechte' label='Adminrechte erlauben?'/>
+      <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
     </SimpleForm>
   </Edit>
 );
