@@ -26,4 +26,4 @@ pages:
     paths:
     - public
   only:
-    - cosi_dev
+    - master
