@@ -21,8 +21,11 @@
   "homepage": "https://bp25.gitlab.io/admin-webapp",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b cosi_dev -d build",
-    "start": "react-scripts start"
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
