@@ -10,6 +10,7 @@ cache:
 before_script:
   - npm install
   - npm install --save gh-pages
+  - rm -rf build
 
 test:
   stage: test
