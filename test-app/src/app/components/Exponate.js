@@ -19,6 +19,8 @@ import {
   //Fields
   TextField,
   ImageField,
+  ChipField,
+  ArrayField,
   BooleanField,
   ReferenceField,
   ReferenceArrayField,
@@ -38,7 +40,6 @@ import {
 //icons
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';
-
 
 
 const Card = withStyles((theme) => ({
@@ -65,12 +66,12 @@ const HasImageFilter = () => (
 // TODO: map each existing category into a Filter List Item Label
 const KategorieFilter = () => (
   <FilterList label='Kategorie' icon={<ClassIcon />}>
-    {/* {  {category.map(category => (
+    {/*  {category.map(category => (
           <FilterListItem
                label={category.name}
               key={category.name}
           />
-      )) } */}
+      )) }  */}
   </FilterList>
 );
 

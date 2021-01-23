@@ -139,13 +139,37 @@ const StationShow = (props) => (
           <TextField source='Text' />
           <TextField source='Details' />
           <TextField source='Textfeld' />
-          <ArrayField source='Fragen'>
+          <UrlField source='Bild' />
+          {/*  model a question */}
+          <ArrayField source='???' label='Fragen'>
             <Datagrid>
-              <TextField source='Antwort' />
-              <BooleanField source='Antwort' />
+              <TextField source='question' label='Frage' />
+              <ReferenceArrayField
+                label='verlinkte Objekte'
+                reference='Exponate'
+                source='linked_objects'
+              >
+                <SingleFieldList>
+                  <ChipField source='title' label='Name' />
+                </SingleFieldList>
+              </ReferenceArrayField>
             </Datagrid>
           </ArrayField>
-          <UrlField source='Bild' />
+          {/*  model an answer */}
+          <ArrayField source='???' label='Antworten'>
+            <Datagrid>
+              <TextField source='answer' label='Antwort' />
+              <ReferenceArrayField
+                label='verlinkte User'
+                reference='User'
+                source='user'
+              >
+                <SingleFieldList>
+                  <ChipField source='username' label='Benutzer' />
+                </SingleFieldList>
+              </ReferenceArrayField>
+            </Datagrid>
+          </ArrayField>
         </Datagrid>
       </ArrayField>
     </SimpleShowLayout>

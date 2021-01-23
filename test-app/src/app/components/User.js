@@ -105,7 +105,7 @@ export const UserCreate = (props) => (
       <TextInput source='username' label='Benutzername' />
       <TextInput source='email' label='Email' />
       <PasswordInput source='password' label='Passwort' />
-      <BooleanInput source='producer' label='Ersteller Status erteilen?' />
+     {/*  <BooleanInput source='producer' label='Ersteller Status erteilen?' /> */}
       <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
     </SimpleForm>
   </Create>

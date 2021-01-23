@@ -12,6 +12,9 @@ import {
   TourenEdit,
   TourenCreate,
 } from './app/components/Touren.js';
+import {
+  FeedbackShow,
+} from './app/components/Tour_Feedback.js';
 import { UserList, AccountEdit, UserCreate } from './app/components/User.js';
 import { CodeList, CodeCreate } from './app/components/Codes.js';
 import {
@@ -25,6 +28,7 @@ import {
   PictureCreate,
 } from './app/components/ProfilePicutre.js';
 import Dashboard from './app/containers/Dashboard';
+
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
@@ -33,6 +37,7 @@ import PhotoFilterIcon from '@material-ui/icons/PhotoFilter';
 import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import ListIcon from '@material-ui/icons/List';
 import CreateIcon from '@material-ui/icons/Create';
+import RateReviewIcon from '@material-ui/icons/RateReview';
 
 import TreeMenu from '@bb-tech/ra-treemenu';
 //todo: import login page
@@ -72,6 +77,12 @@ export default function App() {
           create={TourenCreate}
           icon={NavigationIcon}
           options={{ label: 'Touren' }}
+        />
+        <Resource
+          name='Feedback'
+          show={FeedbackShow}
+          icon={RateReviewIcon}
+          options={{ label: 'Feedback' }}
         />
         <Resource
           name='Benutzer_overview'
