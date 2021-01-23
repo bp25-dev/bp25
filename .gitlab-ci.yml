@@ -13,7 +13,7 @@ before_script:
 pages:
   stage: deploy
   script:
-    - npm start
+    - npm run build
     - cp public/index.html public/404.html
     - mv public _public
     - mv build public
