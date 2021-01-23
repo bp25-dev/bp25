@@ -10,7 +10,6 @@ cache:
 before_script:
   - npm install
   - npm install --save gh-pages
-  - rm -rf build
 
 test:
   stage: test
@@ -22,7 +21,7 @@ pages:
   script:
     - npm run deploy
     - cp public/index.html public/404.html
-    - rm -rf public
+    - mv public _public
     - mv build public
   artifacts:
     paths:
