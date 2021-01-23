@@ -18,7 +18,7 @@
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "https://geschichtevernetzt.de",
+  "homepage": "https://user.gitlab.io/admin-webapp",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -b cosi_dev -d build",
