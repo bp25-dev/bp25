@@ -1,18 +1,21 @@
 image: node:15.4.0
 
-pages:
-  cache:
-    paths:
-    - node_modules/
+
+variables:
+  PUBLIC_URL: admin-webapp
+cache:
+  paths:
+  - node_modules/
  
-  stage: deploy
-  script:
+stage: deploy
+script:
   - npm install
-  - npm run build
-  - rm -rf public
+  - npm run build --prod
+  - cp public/index.html public/404.html
+  - mv public _public
   - mv build public
-  artifacts:
-    paths:
-    - public # mandatory, other folder won't work
-  only:
+artifacts:
+  paths:
+  - public
+only:
   - cosi_dev
