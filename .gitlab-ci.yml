@@ -10,11 +10,6 @@ cache:
 before_script:
   - npm install
 
-test:
-  stage: test
-  script:
-    - npm test
-
 pages:
   stage: deploy
   script:
