@@ -19,6 +19,7 @@ import {
   TextInput,
   BooleanInput,
   ReferenceManyField,
+  ReferenceField,
 } from 'react-admin';
 // material UI imports
 import DoneIcon from '@material-ui/icons/Done';
@@ -43,15 +44,19 @@ export const UserList = (props) => (
         TrueIcon={DoneIcon}
         FalseIcon={ClearIcon}
       />
-      {/* <ReferenceManyField
+      <ReferenceManyField
         label='Erstellte Touren'
         reference='Touren'
-        target='owner'
+        // match user.username with Touren.owner.username
+        source='username'
+        target='owner.username'
       >
         <SingleFieldList>
-          <ChipField source='name' />
+          <ChipField 
+          // display the name of the tour
+          source='name' />
         </SingleFieldList>
-      </ReferenceManyField> */}
+      </ReferenceManyField> 
       <EditButton />
     </Datagrid>
   </List>
@@ -105,11 +110,7 @@ export const UserCreate = (props) => (
       <TextInput source='username' label='Benutzername' />
       <TextInput source='email' label='Email' />
       <PasswordInput source='password' label='Passwort' />
-     {/*  <BooleanInput source='producer' label='Ersteller Status erteilen?' /> */}
       <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
     </SimpleForm>
   </Create>
 );
-
-// to do: missing functions are to be embedded on the site
-// look up how to show different tables/ resources on one single page

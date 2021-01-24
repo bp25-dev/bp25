@@ -40,7 +40,7 @@ const dataProvider = fakeDataProvider({
       search_id: 'xxxxx',
       description: 'This is such an awesome tour',
       session_id: 420,
-      /* owner: {
+      owner: {
         username: 'Anna',
       },
       user: [
@@ -50,7 +50,7 @@ const dataProvider = fakeDataProvider({
         {
           username: 'Cosima',
         },
-      ], */
+      ], 
       difficulty: 5,
       status: 'privat',
       lastEdit: '2020-01-01',
