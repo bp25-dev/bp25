@@ -4,23 +4,17 @@ import {
   Edit,
   Create,
   Datagrid,
-  useListContext,
-  TabbedForm,
-  FormTab,
   SingleFieldList,
   SimpleForm,
   EditButton,
   TextField,
   ChipField,
-  ReferenceArrayField,
-  EmailField,
   FunctionField,
   BooleanField,
   PasswordInput,
   TextInput,
   BooleanInput,
   ReferenceManyField,
-  ReferenceField,
 } from 'react-admin';
 // material UI imports
 import DoneIcon from '@material-ui/icons/Done';
@@ -33,7 +27,6 @@ export const UserList = (props) => (
       {/*  TODO: get real primary key of user ID (username?) */}
       <TextField source='id' label='ID' />
       <TextField source='username' label='Benutzername' />
-      <EmailField source='email' label='Email' />
       <FunctionField
         source='password'
         label='Passwort'
@@ -97,7 +90,6 @@ export const AccountEdit = (props) => (
     <SimpleForm>
       <TextInput disabled source='id' label='ID' />
       <TextInput source='username' label='Benutzername' />
-      <TextInput source='email' label='Email' />
       <PasswordInput source='password' label='Passwort' />
       <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
     </SimpleForm>
@@ -109,7 +101,6 @@ export const UserCreate = (props) => (
   <Create title='Erstelle Admin' {...props}>
     <SimpleForm>
       <TextInput source='username' label='Benutzername' />
-      <TextInput source='email' label='Email' />
       <PasswordInput source='password' label='Passwort' />
       <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
     </SimpleForm>
