@@ -13,7 +13,7 @@ import {
   TourenCreate,
 } from './app/components/Touren.js';
 import {
-  FeedbackShow,
+  FeedbackList
 } from './app/components/Tour_Feedback.js';
 import { UserList, AccountEdit, UserCreate } from './app/components/User.js';
 import { CodeList, CodeCreate } from './app/components/Codes.js';
@@ -79,12 +79,6 @@ export default function App() {
           options={{ label: 'Touren' }}
         />
         <Resource
-          name='Feedback'
-          show={FeedbackShow}
-          icon={RateReviewIcon}
-          options={{ label: 'Feedback' }}
-        />
-        <Resource
           name='Benutzer_overview'
           icon={SupervisorAccountIcon}
           options={{ label: 'Benutzer', isMenuParent: true }}
@@ -127,6 +121,12 @@ export default function App() {
           create={PictureCreate}
           icon={AddPhotoAlternateIcon}
           options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
+        />
+        <Resource
+          name='Feedback'
+          list={FeedbackList}
+          icon={RateReviewIcon}
+          options={{ label: 'Feedback' }}
         />
       </Admin>
     </div>

@@ -145,5 +145,15 @@ const dataProvider = fakeDataProvider({
       code: 'abc'
     },
   ],
+  Feedback: [
+    {
+      _id: 0,
+      tour: {
+        $oid: '600024333c43791d7831f306',
+      },
+      rating: 4,
+      review: 'bad tour',
+    },
+  ],
 });
 export default dataProvider;
