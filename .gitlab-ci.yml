@@ -1,22 +1,10 @@
-image: node:15.4.0
-
-variables:
-  PUBLIC_URL: admin-webapp
-
-cache:
-  paths:
-    - node_modules/
-
-before_script:
-  - npm install
 
 pages:
   stage: deploy
   script:
-    - npm run build
-    - cp public/index.html public/404.html
-    - mv public _public
-    - mv build public
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
   artifacts:
     paths:
     - public
