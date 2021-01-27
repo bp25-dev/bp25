@@ -8,8 +8,8 @@ cache:
     - node_modules/
 
 before_script:
+  - npm cache clean --force
   - npm install
-  - npm install --save gh-pages
 
 test:
   stage: test
