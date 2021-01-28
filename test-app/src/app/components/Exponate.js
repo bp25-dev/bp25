@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-  TabbedForm,
-  FormTab,
   List,
   SingleFieldList,
   Edit,

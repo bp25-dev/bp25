@@ -11,23 +11,6 @@ import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import { ContactMail } from '@material-ui/icons';
 
-//Copyright
-function Copyright() {
-  return (
-    <Typography
-      variant="body2"
-      color="textSecondary"
-      align="center"
-    >
-      {"Copyright © "}
-      <Link color="inherit" >
-      Projekt Geschichte vernetzt
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
 import badges from './images/Badges.png'
 import exponate from './images/Exponate.png'
 import tours from './images/Tours.png'
