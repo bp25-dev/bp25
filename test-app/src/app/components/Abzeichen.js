@@ -42,6 +42,21 @@ const ImageShow = (props) => (
       show as a list, if there is more than one profile picture for one badge?
       <UrlField source='picture' label='Url' />
       */}
+
+      {/*viljas change*/}
+      {/*<ImageField source='picture.url' label='Bild' />
+      <UrlField source='picture.url' label='Url' />
+       TODO: Link to actual picture table to display connectes profile pictures 
+      show as a list, if there is more than one profile picture for one badge?
+      <ReferenceField
+        label='freigeschaltete Profilbilder'
+        source='unlocked_picture'
+        reference='Profilbild'
+      >
+        <ImageField source='unlocked_picture.url' />
+      </ReferenceField>
+      <ImageField label='freigeschaltetes Bild' source='unlocked_picture.url'/>
+    <UrlField source='unlocked_picture.url' label='Url' />*/}
     </SimpleShowLayout>
   </Show>
 );

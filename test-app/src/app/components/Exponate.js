@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  TabbedForm,
+  FormTab,
   List,
   SingleFieldList,
   Edit,
@@ -63,6 +65,7 @@ const HasImageFilter = () => (
   </FilterList>
 );
 
+
 // TODO: map each existing category into a Filter List Item Label
 const KategorieFilter = () => (
   <FilterList label='Kategorie' icon={<ClassIcon />}>
@@ -86,7 +89,7 @@ const useStyles = makeStyles({
 const FilterSidebar = () => (
   <Card>
     <CardContent>
-      <FilterLiveSearch source='full_name' />
+      <FilterLiveSearch />
       <HasImageFilter />
       <KategorieFilter />
     </CardContent>
@@ -121,6 +124,8 @@ const ImageShow = (props) => (
     </SimpleShowLayout>
   </Show>
 );
+
+
 
 // list the exhibits
 export const ExponateList = (props) => (
