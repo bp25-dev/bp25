@@ -1,30 +1,32 @@
 import React from 'react';
-import { Admin, Resource, AppBar, Layout } from 'react-admin';
-import fakeDataProvider from 'ra-data-fakerest';
-import {theme} from './app/components/Style/Theme.js';
-
+import { Admin, Resource, Layout } from 'react-admin';
+import { theme } from './app/components/Style/Theme.js';
 // site components
 import {
   ExponateList,
   ExponateEdit,
   ExponateCreate,
-} from './app/containers/Exponate.js';
+} from './app/components/Exponate.js';
 import {
   TourenList,
   TourenEdit,
   TourenCreate,
-} from './app/containers/Touren.js';
+} from './app/components/Touren.js';
 import {
-  UserList,
-  AccountEdit,
-  UserCreate,
-  CodeCreate,
-} from './app/containers/Admins.js';
+  FeedbackList
+} from './app/components/Tour_Feedback.js';
+import { UserList, AccountEdit, UserCreate } from './app/components/User.js';
+import { CodeList, CodeCreate } from './app/components/Codes.js';
 import {
   AbzeichenList,
   AbzeichenEdit,
   AbzeichenCreate,
 } from './app/components/Abzeichen.js';
+import {
+  PictureList,
+  PictureEdit,
+  PictureCreate,
+} from './app/components/ProfilePicutre.js';
 import Dashboard from './app/containers/Dashboard';
 
 //icons
@@ -32,72 +34,15 @@ import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import PhotoFilterIcon from '@material-ui/icons/PhotoFilter';
-//import TreeMenu from '@bb-tech/ra-treemenu';
+import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
+import ListIcon from '@material-ui/icons/List';
+import CreateIcon from '@material-ui/icons/Create';
+import RateReviewIcon from '@material-ui/icons/RateReview';
 
+import TreeMenu from '@bb-tech/ra-treemenu';
 //todo: import login page
-//import LoginPage from 'path'; 
-
-
-// fake data base for testing
-const dataProvider = fakeDataProvider({
-  Exponate: [
-    {
-      ObjektID: 0,
-      Kategorie: 'Art',
-      Subkategorie: 'Paintings',
-      Titel: 'Mona Lisa',
-      Jahr: '1503-1506',
-      Bild: 'Mona Lisa',
-      Kunsttyp: 'portrait',
-      Ersteller: 'Leonardo da Vinci',
-      Material: 'Oil on poplar panel',
-      Größe: '77 x 53cm',
-      Ort: 'Louvre, Paris',
-      Beschreibung: '...',
-      Interdisziplinärkontext: '...',
-      Bildverknüpfung: 'vorhanden',
-    },
-  ],
-  Touren: [
-    {
-      ID: '0',
-      Name: 'Museum erkunden',
-      Titel: 'Ein Blick in die Geschichte',
-      Beschreibung: '...',
-      Status: 'freigegeben',
-      Fragen: [
-        {Frage: 'Frage 1', Option_1: 'true', Option_2: 'false', Option_3:'true'},
-        {Frage: 'Frage 2', Option_1: 'false', Option_2: 'true', Option_3:'false'},
-      ]
-    },
-  ],
-  Benutzer: [
-    {
-      Name: 'Jane Doe',
-      Email: 'abc@gmail.com',
-      Passwort: 'abc123',
-      Code: 'x74jss53',
-      Adminrechte: 'true',
-    },
-    {
-      Name: 'Max Mustermann',
-      Email: 'hallowelt@gmail.com',
-      Passwort: 'einszweidrei',
-      Code: 'xfd34d',
-      Adminrechte: 'false',
-    },
-  ],
-
-  Abzeichen: [
-    {
-      AbzeichenID: '#1' /* 
-      Url: '/app/components/Media/1.png', */,
-      Bild:
-        'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
-      Beschreibung: 'test',
-    },
-  ],
-});
+//import LoginPage from 'path';
+import dataProvider from './app/containers/dataProvider.js';
 
 export default function App() {
   return (
@@ -113,10 +58,11 @@ export default function App() {
         // custom dashboard page
         dashboard={Dashboard}
         // custom theme
-        theme={theme}
+        theme={theme} 
+        // TODO: add a tree menu to show all resources
+        layout={(props) => <Layout {...props} menu={TreeMenu} />}
       >
         <Resource
-          // todo: replace the default name: remove 's' on the ending
           name='Exponate'
           options= {{label: 'Exponate'}}
           list={ExponateList}
@@ -134,12 +80,32 @@ export default function App() {
           options={{ label: 'Touren' }}
         />
         <Resource
+          name='Benutzer_overview'
+          icon={SupervisorAccountIcon}
+          options={{ label: 'Benutzer', isMenuParent: true }}
+        />
+        <Resource
           name='Benutzer'
           list={UserList}
           edit={AccountEdit}
           create={UserCreate}
-          icon={SupervisorAccountIcon}
-          options={{ label: 'Benutzer' }}
+          icon={ListIcon}
+          options={{ label: 'Übersicht', menuParent: 'Benutzer_overview' }}
+        />
+        <Resource
+          name='Codes'
+          list={CodeList}
+          create={CodeCreate}
+          icon={CreateIcon}
+          options={{
+            label: 'Code Erstellen',
+            menuParent: 'Benutzer_overview',
+          }}
+        />
+        <Resource
+          name='Bilder_overview'
+          icon={AddPhotoAlternateIcon}
+          options={{ label: 'Bildverknüpfungen', isMenuParent: true }}
         />
         <Resource
           name='Abzeichen'
@@ -147,7 +113,21 @@ export default function App() {
           edit={AbzeichenEdit}
           create={AbzeichenCreate}
           icon={PhotoFilterIcon}
-          options={{ label: 'Abzeichen' }}
+          options={{ label: 'Abzeichen', menuParent: 'Bilder_overview' }}
+        />
+        <Resource
+          name='ProfilePicture'
+          list={PictureList}
+          edit={PictureEdit}
+          create={PictureCreate}
+          icon={AddPhotoAlternateIcon}
+          options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
+        />
+        <Resource
+          name='Feedback'
+          list={FeedbackList}
+          icon={RateReviewIcon}
+          options={{ label: 'Feedback' }}
         />
       </Admin>
     </div>
