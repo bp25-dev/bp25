@@ -43,18 +43,21 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import TreeMenu from '@bb-tech/ra-treemenu';
 //todo: import login page
 import MyAppBar from './app/components/MyAppBar.js';
-import ProfileEdit from './app/components/ProfileEdit.js';
+import {ProfileEdit, ProfileProvider } from './app/components/profile.js';
 import profile from './app/components/profile.js';
-//import LoginPage from 'path';
+import LoginPage from './app/containers/LoginPage.js';
 import dataProvider from './app/containers/dataProvider.js';
+import MyLayout from './app/components/MyLayout.js';
 
 export default function App() {
   return (
     <div>
       <Admin
         title='Hessisches Landesmuseum'
+
         //can be replaced with the real data provider
         dataProvider={dataProvider}
+
         // todo: User authentification
         // authProdiver={authProvider}
 
@@ -68,17 +71,15 @@ export default function App() {
 
 
         // can be enabled/replaced if we have designed a custom LoginPage
-        // loginPage={LoginPage}
+        loginPage={LoginPage}
+
         // custom dashboard page
         dashboard={Dashboard}
         // custom theme
         theme={theme} 
         // TODO: add a tree menu to show all resources
         // Layout auslagern?
-        layout={(props) => <Layout {...props}
-         appBar={MyAppBar}
-         menu={TreeMenu} 
-        />}
+        layout={MyLayout}
       >
         <Resource
           name='Exponate'
