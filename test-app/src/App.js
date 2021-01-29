@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from "react-router";
 import { Admin, Resource, Layout } from 'react-admin';
 import { theme } from './app/components/Style/Theme.js';
 // site components
@@ -41,6 +42,9 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 
 import TreeMenu from '@bb-tech/ra-treemenu';
 //todo: import login page
+import MyAppBar from './app/components/MyAppBar.js';
+import ProfileEdit from './app/components/ProfileEdit.js';
+import profile from './app/components/profile.js';
 //import LoginPage from 'path';
 import dataProvider from './app/containers/dataProvider.js';
 
@@ -53,6 +57,16 @@ export default function App() {
         dataProvider={dataProvider}
         // todo: User authentification
         // authProdiver={authProvider}
+
+        customRoutes={[
+          <Route
+            key="my-profile"
+            path="/my-profile"
+            render={() => <ProfileEdit />}
+          />
+        ]}
+
+
         // can be enabled/replaced if we have designed a custom LoginPage
         // loginPage={LoginPage}
         // custom dashboard page
@@ -60,7 +74,11 @@ export default function App() {
         // custom theme
         theme={theme} 
         // TODO: add a tree menu to show all resources
-        layout={(props) => <Layout {...props} menu={TreeMenu} />}
+        // Layout auslagern?
+        layout={(props) => <Layout {...props}
+         appBar={MyAppBar}
+         menu={TreeMenu} 
+        />}
       >
         <Resource
           name='Exponate'
