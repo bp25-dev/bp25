@@ -47,6 +47,7 @@ import ProfileEdit from './app/components/ProfileEdit.js';
 import profile from './app/components/profile.js';
 //import LoginPage from 'path';
 import dataProvider from './app/containers/dataProvider.js';
+import customRoutes from './app/components/CustomRoutes';
 
 export default function App() {
   return (
@@ -57,14 +58,7 @@ export default function App() {
         dataProvider={dataProvider}
         // todo: User authentification
         // authProdiver={authProvider}
-
-        customRoutes={[
-          <Route
-            key="my-profile"
-            path="/my-profile"
-            render={() => <ProfileEdit />}
-          />
-        ]}
+        customRoutes={customRoutes}
 
 
         // can be enabled/replaced if we have designed a custom LoginPage
