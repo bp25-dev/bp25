@@ -3,31 +3,29 @@ import { Route } from "react-router";
 import { Admin, Resource, Layout } from 'react-admin';
 import { theme } from './app/components/Style/Theme.js';
 // site components
-import {
-  ExponateList,
-  ExponateEdit,
-  ExponateCreate,
-} from './app/components/Exponate.js';
-import {
-  TourenList,
-  TourenEdit,
-  TourenCreate,
-} from './app/components/Touren.js';
-import {
-  FeedbackList
-} from './app/components/Tour_Feedback.js';
-import { UserList, AccountEdit, UserCreate } from './app/components/User.js';
-import { CodeList, CodeCreate } from './app/components/Codes.js';
-import {
-  AbzeichenList,
-  AbzeichenEdit,
-  AbzeichenCreate,
-} from './app/components/Abzeichen.js';
-import {
-  PictureList,
-  PictureEdit,
-  PictureCreate,
-} from './app/components/ProfilePicutre.js';
+//Exponate
+import {ExponateCreate} from './app/components/Exponate/ExponateCreate.js';
+import {ExponateEdit} from './app/components/Exponate/ExponateEdit.js';
+import {ExponateList} from './app/components/Exponate/ExponateList.js';
+//Touren
+import {TourenList} from './app/components/Touren/ListTouren.js';
+import {TourenCreate} from './app/components/Touren/CreateTouren.js';
+import {TourenEdit} from './app/components/Touren/EditTouren.js';
+import { FeedbackList} from './app/components/Touren/Tour_Feedback.js';
+//Benutzer
+import {UserList} from './app/components/User/UserList.js';
+import {AccountEdit} from './app/components/User/AccountEdit.js';
+import {UserCreate} from './app/components/User/UserCreate.js';
+import {CodeList} from './app/components/User/Code/CodeList.js';
+import {CodeCreate} from './app/components/User/Code/CodeCreate.js';
+//Bildverknüpfungen-Abzeichen
+import {AbzeichenList} from './app/components/Abzeichen/AbzeichenList.js';
+import {AbzeichenEdit} from './app/components/Abzeichen/AbzeichenEdit.js';
+import {AbzeichenCreate} from './app/components/Abzeichen/AbzeichenCreate.js';
+//Bildverknüpfungen-Profilbilder
+import {PictureList} from './app/components/Profilbilder/PictureList.js';
+import {PictureEdit} from './app/components/Profilbilder/PictureEdit.js';
+import {PictureCreate} from './app/components/Profilbilder/PictureCreate.js';
 import Dashboard from './app/containers/Dashboard';
 
 //icons
@@ -42,31 +40,26 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 
 import TreeMenu from '@bb-tech/ra-treemenu';
 //todo: import login page
-import MyAppBar from './app/components/MyAppBar.js';
-import {ProfileEdit, ProfileProvider } from './app/components/profile.js';
-import profile from './app/components/profile.js';
+//import MyAppBar from './app/components/MyAppBar.js';
 import LoginPage from './app/containers/LoginPage.js';
 import dataProvider from './app/containers/dataProvider.js';
-<<<<<<< HEAD
 import customRoutes from './app/components/CustomRoutes';
-=======
 import MyLayout from './app/components/MyLayout.js';
->>>>>>> fenja_dev
+
+
 
 export default function App() {
   return (
     <div>
       <Admin
-        title='Hessisches Landesmuseum'
+        title='Hessisches Landesmuseumgit '
 
         //can be replaced with the real data provider
         dataProvider={dataProvider}
-
         // todo: User authentification
         // authProdiver={authProvider}
         customRoutes={customRoutes}
-
-
+        
         // can be enabled/replaced if we have designed a custom LoginPage
         loginPage={LoginPage}
 

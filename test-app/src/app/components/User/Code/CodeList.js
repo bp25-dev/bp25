@@ -1,18 +1,11 @@
 import React from 'react';
 import {
   List,
-  Edit,
-  Create,
   Datagrid,
-  SimpleForm,
   TextField,
-  TextInput,
-  BooleanField
 } from 'react-admin';
 // material UI imports
 import Typography from '@material-ui/core/Typography';
-import DoneIcon from '@material-ui/icons/Done';
-import ClearIcon from '@material-ui/icons/Clear';
 
 
 const Aside = (props) => (
@@ -40,12 +33,4 @@ export const CodeList = (props) => (
       /> */}
       </Datagrid>
     </List>
-  );
-  
-  export const CodeCreate = (props) => (
-    <Create {...props}>
-      <SimpleForm>
-        <TextInput source='Code' />
-      </SimpleForm>
-    </Create>
   );

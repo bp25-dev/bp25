@@ -1,13 +1,9 @@
 import React from 'react';
 import {
   List,
-  Edit,
-  Create,
   Datagrid,
-  SimpleForm,
   SingleFieldList,
   //options
-  SimpleFormIterator,
   Filter,
   EditButton,
   Show,
@@ -34,16 +30,10 @@ import {
   UrlField,
   //inputs
   SelectInput,
-  ImageInput,
-  ReferenceArrayInput,
-  SelectArrayInput,
   SearchInput,
   ReferenceInput,
   NumberInput,
-  ArrayInput,
-  BooleanInput,
   DateInput,
-  TextInput,
 } from 'react-admin';
 // material UI styles
 import { Button } from '@material-ui/core';
@@ -230,111 +220,3 @@ export const TourenList = (props) => {
   );
 };
 
-// edit a tour
-export const TourenEdit = (props) => (
-  <Edit title='Bearbeite Touren' {...props}>
-    <SimpleForm warnWhenUnsavedChanges>
-      <TextInput disabled source='ID' />
-      <TextInput source='name' label='Titel' />
-      <TextInput source='description' label='Beschreibung' />
-      <ReferenceInput source='user' reference='Benutzer' label='Ersteller'>
-        <SelectInput optionText='username' />
-      </ReferenceInput>
-      <ReferenceArrayInput source='user' reference='Benutzer'>
-        <SelectArrayInput optionText='username' />
-      </ReferenceArrayInput>
-      <TextInput source='search_id' label='Touren Code' />
-      <TextInput source='session_id' label='Passwort' />
-      <DateInput
-        source='lastEdit'
-        label='letzte Bearbeitung'
-        options={{ format: 'DD/MM/YYYY' }}
-      />
-      <NumberInput
-        source='difficulty'
-        label='Schwierigkeitsgrad'
-        validate={validateDifficulty}
-      />
-      <SelectInput
-        source='Status'
-        choices={[
-          { id: 'freigegeben', name: 'freigegeben' },
-          { id: 'ausstehend', name: 'ausstehend' },
-          { id: 'privat', name: 'privat' },
-        ]}
-      />
-      {/*  TODO: model the different stations and translate them into edit Inputs*/}
-      <ArrayInput source='Stationen'>
-        <SimpleFormIterator>
-          <TextField source='Objekt' />
-          <BooleanInput source='Foto' />
-          <BooleanInput source='Text' />
-          <BooleanInput source='Details' />
-          <TextInput source='Textfeld' />
-          <ArrayInput source='Fragen'>
-            <SimpleFormIterator>
-              <TextInput source='Antwort' />
-              <BooleanInput source='Antwort' />
-            </SimpleFormIterator>
-          </ArrayInput>
-          <ImageInput source='Bild' />
-        </SimpleFormIterator>
-      </ArrayInput>
-    </SimpleForm>
-  </Edit>
-);
-
-// create a new tour
-// todo: ID should not be created manually but automatically (distinct id)
-export const TourenCreate = (props) => (
-  <Create title='Erstelle Touren' {...props}>
-    <SimpleForm warnWhenUnsavedChanges>
-      <TextInput disabled source='ID' />
-      <TextInput source='name' label='Titel' />
-      <TextInput source='description' label='Beschreibung' />
-      <ReferenceInput source='user' reference='Benutzer' label='Ersteller'>
-        <SelectInput optionText='username' />
-      </ReferenceInput>
-      <ReferenceArrayInput source='user' reference='Benutzer'>
-        <SelectArrayInput optionText='username' />
-      </ReferenceArrayInput>
-      <TextInput source='search_id' label='Touren Code' />
-      <TextInput source='session_id' label='Passwort' />
-      <DateInput
-        source='lastEdit'
-        label='letzte Bearbeitung'
-        options={{ format: 'DD/MM/YYYY' }}
-      />
-      <NumberInput
-        source='difficulty'
-        label='Schwierigkeitsgrad'
-        validate={validateDifficulty}
-      />
-      <SelectInput
-        source='Status'
-        choices={[
-          { id: 'freigegeben', name: 'freigegeben' },
-          { id: 'ausstehend', name: 'ausstehend' },
-          { id: 'privat', name: 'privat' },
-        ]}
-      />
-      {/*  TODO: model the different stations and translate them into edit Inputs*/}
-      <ArrayInput source='Stationen'>
-        <SimpleFormIterator>
-          <TextField source='Objekt' />
-          <BooleanInput source='Foto' />
-          <BooleanInput source='Text' />
-          <BooleanInput source='Details' />
-          <TextInput source='Textfeld' />
-          <ArrayInput source='Fragen'>
-            <SimpleFormIterator>
-              <TextInput source='Antwort' />
-              <BooleanInput source='Antwort' />
-            </SimpleFormIterator>
-          </ArrayInput>
-          <ImageInput source='Bild' />
-        </SimpleFormIterator>
-      </ArrayInput>
-    </SimpleForm>
-  </Create>
-);
