@@ -68,8 +68,7 @@ export default function App() {
             render={() => <ProfileEdit />}
           />
         ]}
-
-
+        
         // can be enabled/replaced if we have designed a custom LoginPage
         loginPage={LoginPage}
 
