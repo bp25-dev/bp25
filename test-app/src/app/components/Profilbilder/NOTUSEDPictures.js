@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import {
   List,
   Datagrid,
@@ -17,7 +17,7 @@ import {
 const ImageShow = (props) => (
   <Show
     {...props}
-    /* disable the app title change when shown */
+    /* disable the app title change when shown 
     title=' '
   >
     <SimpleShowLayout>
@@ -60,3 +60,4 @@ export const PictureCreate = (props) => (
     </SimpleForm>
   </Create>
 );
+*/

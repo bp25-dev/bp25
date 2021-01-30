@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import {ProfileEdit} from './profile.js';
+import {ProfileEdit} from './MyProfile/profile.js';
 
 export default [
   <Route

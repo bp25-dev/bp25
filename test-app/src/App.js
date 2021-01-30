@@ -41,10 +41,10 @@ import RateReviewIcon from '@material-ui/icons/RateReview';
 import TreeMenu from '@bb-tech/ra-treemenu';
 //todo: import login page
 //import MyAppBar from './app/components/MyAppBar.js';
-import LoginPage from './app/containers/LoginPage.js';
+import LoginPage from './app/components/Login/LoginPage.js';
 import dataProvider from './app/containers/dataProvider.js';
 import customRoutes from './app/components/CustomRoutes';
-import MyLayout from './app/components/MyLayout.js';
+import MyLayout from './app/components/MyProfile/MyLayout.js';
 
 
 
@@ -91,7 +91,7 @@ export default function App() {
         <Resource
           name='Benutzer_overview'
           icon={SupervisorAccountIcon}
-          options={{ label: 'Benutzer', isMenuParent: true }}
+          options={{ label: 'Benutzer*innen', isMenuParent: true }}
         />
         <Resource
           name='Benutzer'
