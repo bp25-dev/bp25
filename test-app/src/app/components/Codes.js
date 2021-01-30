@@ -31,7 +31,7 @@ export const CodeList = (props) => (
         <TextField source='id' label='ID' />
         <TextField source='Code' />
        {/*  reference to users */}
-       <TextField source='username' />
+       <TextField source='Benutzername' />
        {/* <BooleanField
         source='producer'
         label='Ersteller'
