@@ -100,7 +100,7 @@ export default function App() {
         <Resource
           name='Benutzer_overview'
           icon={SupervisorAccountIcon}
-          options={{ label: 'Benutzer', isMenuParent: true }}
+          options={{ label: 'Benutzer*innen', isMenuParent: true }}
         />
         <Resource
           name='Benutzer'

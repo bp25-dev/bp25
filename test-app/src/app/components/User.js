@@ -22,7 +22,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 
 // show eixsting users
 export const UserList = (props) => (
-  <List {...props} title='Benutzer'>
+  <List {...props} title='Benutzer*innen'>
     <Datagrid>
       {/*  TODO: get real primary key of user ID (username?) */}
       <TextField source='id' label='ID' />
@@ -98,7 +98,7 @@ export const AccountEdit = (props) => (
 
 // create a new user
 export const UserCreate = (props) => (
-  <Create title='Erstelle Admin' {...props}>
+  <Create title='Erstelle Benutzer*innen' {...props}>
     <SimpleForm>
       <TextInput source='username' label='Benutzername' />
       <PasswordInput source='password' label='Passwort' />

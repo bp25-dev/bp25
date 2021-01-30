@@ -17,6 +17,7 @@ import React, {
     TextInput,
     ImageInput,
     ImageField,
+    PasswordInput,
     SimpleForm,
     required,
     useDataProvider,
@@ -102,8 +103,9 @@ import React, {
       <SaveContextProvider value={saveContext}>
         <SimpleForm save={handleSave} record={identity ? identity : {}}>
           <TextInput source="Benutzername" validate={required()} />
-          <TextInput source="altes Passwort" validate={required()}/>
-          <TextInput source="neues Passwort" validate={required()}/>
+          <PasswordInput source="altes Passwort" validate={required()} label="altes Passwort"/>
+          <PasswordInput source="neues Passwort" validate={required()} label="neues Passwort"/>
+          <PasswordInput source="neues Passwort" validate={required()} label="neues Passwort wiederholen"/>
         </SimpleForm>
       </SaveContextProvider>
     );
