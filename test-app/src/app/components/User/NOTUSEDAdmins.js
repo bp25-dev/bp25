@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import {
     List,
     Edit,
@@ -47,7 +47,7 @@ export const UserList = (props) => (
         <TextField source='Passwort' />
         <TextField source='Code' />
         <BooleanField source='Adminrechte' label='Adminrechte' TrueIcon={DoneIcon} FalseIcon={ClearIcon} />
-        <EditButton /* basePath='./app/components/Admin.js' */ />
+        <EditButton /* basePath='./app/components/Admin.js'  />
       </Datagrid>
     </List>
   );
@@ -59,7 +59,7 @@ export const UserList = (props) => (
         <TextInput disabled source='Email' />
         <PasswordInput source='Passwort' />
         <BooleanInput source='Adminrechte' label="Adminrechte erlauben?" />
-        {/* <TextInput disabled source='Code' /> */}
+        {/* <TextInput disabled source='Code' /> }
       </SimpleForm>
     </Edit>
   );
@@ -115,3 +115,4 @@ export default class Admins extends React.Component {
     }
 }
 
+*/
