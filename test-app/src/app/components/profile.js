@@ -17,6 +17,7 @@ import React, {
     TextInput,
     ImageInput,
     ImageField,
+    PasswordInput,
     SimpleForm,
     required,
     useDataProvider,
@@ -64,8 +65,8 @@ import React, {
           {
             onSuccess: ({ data }) => {
               setSaving(false);
-              notify("Your profile has been updated", "info", {
-                _: "Your profile has been updated"
+              notify("Dein Profil wurde aktualisiert", "info", {
+                _: "Dein Profil wurde aktualisiert"
               });
               refreshProfile();
             },
@@ -101,10 +102,10 @@ import React, {
     return (
       <SaveContextProvider value={saveContext}>
         <SimpleForm save={handleSave} record={identity ? identity : {}}>
-          <TextInput source="fullName" validate={required()} />
-          <ImageInput source="avatar" validate={required()}>
-            <ImageField />
-          </ImageInput>
+          <TextInput source="Benutzername" validate={required()} />
+          <PasswordInput source="altes Passwort" validate={required()} label="altes Passwort"/>
+          <PasswordInput source="neues Passwort" validate={required()} label="neues Passwort"/>
+          <PasswordInput source="neues Passwort" validate={required()} label="neues Passwort wiederholen"/>
         </SimpleForm>
       </SaveContextProvider>
     );
