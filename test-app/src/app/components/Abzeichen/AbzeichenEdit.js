@@ -7,13 +7,36 @@ import {
   SelectInput,
   Edit,
   SimpleForm,
-  TextInput
+  TextInput, 
+  Toolbar,
+  SaveButton,
+  SimpleShowLayout,
+  TextField,
 } from 'react-admin';
+
+import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
+
+const UserEditToolbar = props => (
+  <Toolbar {...props} >
+      <SaveButton />
+  </Toolbar>
+);
+
+const DeleteConfirmTitle = 'Sind Sie sicher, dass Sie dieses ABzeichen löschen wollen?';
+
+const DeleteConfirmContent = props => {
+  return (
+    <SimpleShowLayout {...props} >
+      <TextField disabled source='id' label='ID' />
+      <TextField source='name' label='Name' />
+    </SimpleShowLayout>
+  );
+};
 
 // edit badges
 export const AbzeichenEdit = (props) => (
     <Edit title='Verändere Verknüpfung' {...props}>
-      <SimpleForm>
+      <SimpleForm toolbar={<UserEditToolbar />} >
         <TextInput disabled source='id' label='ID' fullWidth />
         <TextInput source='name' label='Name' fullWidth/>
         {/* Select a new picture for the badge*/}
@@ -30,6 +53,12 @@ export const AbzeichenEdit = (props) => (
           <SelectInput source='picture' />
         </ReferenceInput>
         <NumberInput source='cost' label='Kosten' />
+        <DeleteWithCustomConfirmButton
+          title={DeleteConfirmTitle}      
+          content={DeleteConfirmContent}  
+          label='Löschen'                 
+          cancel='Abbrechen'                 
+        />
       </SimpleForm>
     </Edit>
   );

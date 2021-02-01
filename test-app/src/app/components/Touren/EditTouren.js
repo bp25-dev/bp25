@@ -21,7 +21,32 @@ import {
   BooleanInput,
   DateInput,
   TextInput,
+
+  Toolbar,
+  SaveButton,
+  SimpleShowLayout,
+  BooleanField,
 } from 'react-admin';
+import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
+
+const UserEditToolbar = props => (
+  <Toolbar {...props} >
+      <SaveButton />
+  </Toolbar>
+);
+
+const DeleteConfirmTitle = 'Sind Sie sicher, dass Sie diese Tour löschen wollen?';
+
+const DeleteConfirmContent = props => {
+  return (
+    <SimpleShowLayout {...props} >
+      <TextField disabled source='ID' label='ID' fullWidth/>
+      <TextField source='name' label='Titel' fullWidth/>
+      <TextField source='description' label='Beschreibung' fullWidth/>
+      <TextField source='search_id' label='Touren Code' fullWidth/>
+    </SimpleShowLayout>
+  );
+};
 
 // create a range withing the Difficulty can be selected
 const validateDifficulty = [number(), minValue(1), maxValue(5)];
@@ -29,7 +54,7 @@ const validateDifficulty = [number(), minValue(1), maxValue(5)];
 // edit a tour
 export const TourenEdit = (props) => (
     <Edit title='Bearbeite Touren' {...props}>
-      <SimpleForm warnWhenUnsavedChanges>
+      <SimpleForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
         <TextInput disabled source='ID' label='ID' fullWidth/>
         <TextInput source='name' label='Titel' fullWidth/>
         <TextInput source='description' label='Beschreibung' fullWidth/>
@@ -60,7 +85,7 @@ export const TourenEdit = (props) => (
           ]}
         />
         {/*  TODO: model the different stations and translate them into edit Inputs*/}
-        <ArrayInput source='Stationen'>
+        <ArrayInput source='Stationen' fullWidth>
           <SimpleFormIterator>
             <TextField source='Objekt' />
             <BooleanInput source='Foto' />
@@ -76,6 +101,12 @@ export const TourenEdit = (props) => (
             <ImageInput source='Bild' />
           </SimpleFormIterator>
         </ArrayInput>
+        <DeleteWithCustomConfirmButton
+          title={DeleteConfirmTitle}      
+          content={DeleteConfirmContent}  
+          label='Löschen'                 
+          cancel='Abbrechen'                 
+        />
       </SimpleForm>
     </Edit>
   );

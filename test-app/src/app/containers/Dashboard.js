@@ -97,7 +97,7 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
               <Typography className={classes.subtitle}>{subtitle}</Typography>
               <CardActions>
                 <Link to={path}>
-                  <Button renderAs='button'>Klicke hier</Button>
+                  <Button variant="contained" color="primary" renderAs='button'>Klicke hier</Button>
                 </Link>
               </CardActions>
             </div>
@@ -117,7 +117,7 @@ function Copyright() {
       align="center"
     >
       {"Copyright © "}
-      <Link color="inherit" >
+      <Link to="/" color="inherit" >
       Projekt Geschichte vernetzt
       </Link>{" "}
       {new Date().getFullYear()}
@@ -142,7 +142,7 @@ export default function Dashboard() {
      
       
     >
-      <Title title='Hessisches Landesmusuem' />
+      <Title title='Geschichte vernetzt - Vergangenes interdisziplinär erforschen und vermitteln | TU Darmstadt' />
       <Grid item md>
         <CustomCard
           classes={cardStyles}
@@ -169,8 +169,8 @@ export default function Dashboard() {
         />
         <CustomCard
           classes={cardStyles}
-          title={'Abzeichen'}
-          subtitle={'Füge neue Abzeichen hinzu'}
+          title={'Bildverknüpfungen'}
+          subtitle={'Füge neue Bildverknüpfungen hinzu'}
           image={badges}
           path='/Abzeichen'
         />
