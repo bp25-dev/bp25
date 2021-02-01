@@ -134,7 +134,7 @@ export default function Dashboard() {
       className={gridStyles.gridContainer}
       justify='center'
     >
-      <Title title='Hessisches Landesmusuem' />
+      <Title title='Geschichte vernetzt - Vergangenes interdisziplinär erforschen und vermitteln | TU Darmstadt ' />
       <Grid item md>
         <CustomCard
           classes={cardStyles}

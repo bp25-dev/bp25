@@ -151,8 +151,16 @@ const dataProvider = fakeDataProvider({
       tour: {
         $oid: '600024333c43791d7831f306',
       },
-      rating: 4,
-      review: 'bad tour',
+      rating: 8,
+      review: 'great tour!',
+    },
+    {
+      _id: 1,
+      tour: {
+        name: 'abc',
+      },
+      rating: 6,
+      review: 'Ich würde noch...',
     },
   ],
 });

@@ -28,6 +28,9 @@ import {
   PictureCreate,
 } from './app/components/ProfilePicutre.js';
 import Dashboard from './app/containers/Dashboard';
+import MyLayout from './app/components/MyProfile/MyLayout.js';
+import LoginPage from './app/containers/LoginPage.js';
+import dataProvider from './app/containers/dataProvider.js';
 
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
@@ -39,11 +42,6 @@ import ListIcon from '@material-ui/icons/List';
 import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 
-import TreeMenu from '@bb-tech/ra-treemenu';
-//todo: import login page
-//import LoginPage from 'path';
-import dataProvider from './app/containers/dataProvider.js';
-
 export default function App() {
   return (
     <div>
@@ -54,13 +52,13 @@ export default function App() {
         // todo: User authentification
         // authProdiver={authProvider}
         // can be enabled/replaced if we have designed a custom LoginPage
-        // loginPage={LoginPage}
+        loginPage={LoginPage}
         // custom dashboard page
         dashboard={Dashboard}
         // custom theme
         theme={theme} 
         // TODO: add a tree menu to show all resources
-        layout={(props) => <Layout {...props} menu={TreeMenu} />}
+        layout={MyLayout}
       >
         <Resource
           name='Exponate'
@@ -81,7 +79,7 @@ export default function App() {
         <Resource
           name='Benutzer_overview'
           icon={SupervisorAccountIcon}
-          options={{ label: 'Benutzer', isMenuParent: true }}
+          options={{ label: 'Benutzer*innen', isMenuParent: true }}
         />
         <Resource
           name='Benutzer'

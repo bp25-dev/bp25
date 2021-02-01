@@ -22,7 +22,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 
 // show eixsting users
 export const UserList = (props) => (
-  <List {...props} title='Benutzer'>
+  <List {...props} title='Benutzer*innen'>
     <Datagrid>
       {/*  TODO: get real primary key of user ID (username?) */}
       <TextField source='id' label='ID' />

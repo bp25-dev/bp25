@@ -36,11 +36,12 @@ import {
   CardContent,
   withStyles,
   makeStyles,
-  minWidth
+  minWidth,
 } from '@material-ui/core';
 //icons
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';
+import Typography from '@material-ui/core/Typography';
 
 // filter sidebar styling
 const Card = withStyles((theme) => ({
@@ -67,28 +68,48 @@ const HasImageFilter = () => (
 );
 
 // TODO: map each existing category into a Filter List Item Label
-const KategorieFilter = () => (
+const MapFilter = ({record}) => (
   <FilterList label='Kategorie' icon={<ClassIcon />}>
-    {/*  {category.map(category => (
-          <FilterListItem
-               label={category.name}
-              key={category.name}
-          />
-      )) }  */}
+    {record && (
+       <FilterListItem
+       label={record.name}
+       key={record.id} 
+       value={{ groups: record.id }}
+   />
+    )}
   </FilterList>
 );
 
+// test: map post category to side
+const Aside = ({ record }) => (
+  <div style={{ width: 200, margin: '1em' }}>
+    <Typography variant='h6'>Tokenize</Typography>
+    {record && (
+      <Typography variant='body2'>
+        Kunsttyp: {record.art_type.split(';')}
+      </Typography>
+    )}
+    {record && (
+      <Typography variant='body2'>
+        Kategorie: {record.category.split('und')}
+      </Typography>
+    )}
+  </div>
+);
+
+// tokenize record divided by semicolon: record.art_type.split("; ")
+// ref: render function <FunctionField label="Name" render={record => `${record.first_name} ${record.last_name}`} />
+
 // sidebar functionality
-const FilterSidebar = () => (
-  <Card>
+const FilterSidebar = (props) => (
+  <Card {...props}>
     <CardContent>
       <FilterLiveSearch source='full_name' />
       <HasImageFilter />
-      <KategorieFilter />
+      <MapFilter source='category' />
     </CardContent>
   </Card>
 );
-
 
 // edit expand component
 const ImageShow = (props) => {
@@ -97,6 +118,7 @@ const ImageShow = (props) => {
       {...props}
       /* disable the app title change when shown */
       title=' '
+      aside={<Aside />}
     >
       <SimpleShowLayout>
         <TextField source='art_type' label='Kunsttyp' />
@@ -124,7 +146,7 @@ const ImageShow = (props) => {
 // list the exhibits
 export const ExponateList = (props) => {
   return (
-    <List {...props} title='Exponate' aside={<FilterSidebar /> }>
+    <List {...props} title='Exponate' aside={<FilterSidebar />}>
       <Datagrid expand={<ImageShow />}>
         {/* todo: use ObjectID as primary key 
       instead of <TextField source='ID' /> */}
@@ -135,7 +157,7 @@ export const ExponateList = (props) => {
         <TextField source='sub_category' label='Subkategorie' />
         <TextField
           source='interdisciplinary_context'
-          label='Interdisziplinärkontext'
+          label='Interdisziplinäre Bezüge'
         />
         {/* should be true if there is an linked picture */}
         <ReferenceField
@@ -176,7 +198,7 @@ export const ExponateEdit = (props) => {
           <TextInput source='sub_category' label='Subkategorie' fullWidth />
           <TextInput
             source='interdisciplinary_context'
-            label='Interdisziplinärkontext'
+            label='Interdisziplinäre Bezüge'
             fullWidth
           />
         </FormTab>
@@ -224,7 +246,7 @@ export const ExponateCreate = (props) => {
           <TextInput source='sub_category' label='Subkategorie' fullWidth />
           <TextInput
             source='interdisciplinary_context'
-            label='Interdisziplinärkontext'
+            label='Interdisziplinäre Bezüge'
             fullWidth
           />
         </FormTab>
