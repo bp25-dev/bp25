@@ -1,19 +1,13 @@
 import React from 'react';
 import {
   List,
-  Edit,
-  Create,
   Datagrid,
   SingleFieldList,
-  SimpleForm,
   EditButton,
   TextField,
   ChipField,
   FunctionField,
   BooleanField,
-  PasswordInput,
-  TextInput,
-  BooleanInput,
   ReferenceManyField,
 } from 'react-admin';
 // material UI imports
@@ -84,25 +78,3 @@ const optionRenderer = (choice) => `${choice.picture}`;
     </TabbedForm>
   </Edit>
 ); */
-
-export const AccountEdit = (props) => (
-  <Edit title='Accountdaten ändern' {...props}>
-    <SimpleForm>
-      <TextInput disabled source='id' label='ID' />
-      <TextInput source='username' label='Benutzername' />
-      <PasswordInput source='password' label='Passwort' />
-      <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
-    </SimpleForm>
-  </Edit>
-);
-
-// create a new user
-export const UserCreate = (props) => (
-  <Create title='Erstelle Admin' {...props}>
-    <SimpleForm>
-      <TextInput source='username' label='Benutzername' />
-      <PasswordInput source='password' label='Passwort' />
-      <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
-    </SimpleForm>
-  </Create>
-);
