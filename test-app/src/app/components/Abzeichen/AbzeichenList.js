@@ -4,13 +4,27 @@ import {
   Datagrid,
   TextField,
   ImageField,
+  UrlField,
   NumberField,
   EditButton,
   SimpleShowLayout,
-  Show
+  Show,
 } from 'react-admin';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  imgContainer: {
+    '& img': {
+      height: 50,
+      width: 50,
+      objectFit: 'contain',
+    },
+  },
+});
 
 // edit expand component
+/* TODO: Link to actual picture table to display connectes profile pictures 
+      show as a list, if there is more than one profile picture for one badge? */
 const ImageShow = (props) => (
   <Show
     {...props}
@@ -18,17 +32,10 @@ const ImageShow = (props) => (
     title=' '
   >
     <SimpleShowLayout>
-      {/* TODO: Show URL & image of related picture*/}
-      <ImageField source='picture' label='Abzeichen Bild' />
       <ImageField
         source='unlocked_picture'
         label='freigeschaltete Profilbilder'
       />
-      {/* TODO: Link to actual picture table to display connectes profile pictures 
-      show as a list, if there is more than one profile picture for one badge?
-      <UrlField source='picture' label='Url' />
-      */}
-
       {/*viljas change*/}
       {/*<ImageField source='picture.url' label='Bild' />
       <UrlField source='picture.url' label='Url' />
@@ -48,15 +55,21 @@ const ImageShow = (props) => (
 );
 
 // list existing badges
-export const AbzeichenList = (props) => (
+export const AbzeichenList = (props) => {
+  const classes = useStyles();
+  return (
     <List {...props} title='Abzeichen'>
       <Datagrid expand={<ImageShow />}>
         <TextField source='id' label='ID' />
         <TextField source='name' label='Name' />
-        <TextField source='picture' />
+        <ImageField
+          className={classes.imgContainer}
+          source='picture'
+          label='Bild'
+        />
         <NumberField source='cost' label='Kosten' />
         <EditButton />
       </Datagrid>
     </List>
   );
-  
+};

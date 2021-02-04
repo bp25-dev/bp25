@@ -125,6 +125,7 @@ const ImageShow = (props) => {
         <TextField source='art_type' label='Kunsttyp' />
         <TextField source='description' label='Beschreibung' />
         <TextField source='additionfal_inf' label='Weitere Informationen' />
+        <ImageField source='picture' label='Bild'/>
         {/* add new table with images and reference them here*/}
         <ReferenceArrayField
           label='Bildverknüpfungen'

@@ -4,6 +4,22 @@ import fakeDataProvider from 'ra-data-fakerest';
 
 //dataProvider={jsonServerProvider('mongodb://127.0.0.1:27017')}
 
+// images for user study
+//objetcs
+import goldfibel from './fake_data/pictures/38-image0.jpg';
+import ortenberger from './fake_data/pictures/127-image0.jpg';
+import morgensonne from './fake_data/pictures/163-image0.jpg';
+import gestade from './fake_data/pictures/161-image0.jpg';
+//badges
+import tour_silver from './fake_data/badges/Erstellte_Rundgaenge_silber.jpg';
+import object_bronze from './fake_data/badges/Betrachtete_Artefakte_bronze.jpg';
+//profile pictures
+import joseph from './fake_data/profilepictures/free/Joseph.jpg';
+import iphigenie from './fake_data/profilepictures/free/Iphigenie.jpg';
+import reward_tour_silver from './fake_data/profilepictures/locked/Erstellte_Rundgaenge_silber.jpg';
+import reward_object_bronze from './fake_data/profilepictures/locked/Betrachtete_Artefakte_bronze.jpg';
+
+
 // fake data base for testing
 const dataProvider = fakeDataProvider({
   Exponate: [
@@ -16,7 +32,7 @@ const dataProvider = fakeDataProvider({
         {
           $oid: '5ff98892ccd2776f571d6c1a',
         },
-      ],
+      ], 
       description:
         'Stilistisch datieren vor allem die Goldfiligranarbeiten in den Flächen der Vierpassform die Prunkfibel in die Zeit um 630/640–680 n. Chr. und legen eine Herstellung im westfränkischen Raum (Burgund?) nahe. Der zentral angebrachte Kameo – ein erhaben geschnittener Achat in Form eines Gorgonenhauptes – wurde von dem Goldschmiedemeister sicherlich in dem Wissen, dass es sich hierbei um ein antikes Kleinod aus hellenistischer Zeit handelte, wiederverwendet. Heute scheint es sehr wahrscheinlich, dass er aus derselben alexandrinischen Steinschneidewerkstatt stammt, aus der als bestes Vergleichsstück die bekannte Tazza Farnese, heute im Museo Archeologico Nationale in Neapel, mit einem ebenso ausgezeichnet geschnittenen Kameo hervorgegangen ist. (A. Z.)',
       additional_information:
@@ -252,34 +268,31 @@ const dataProvider = fakeDataProvider({
     {
       _id: 'Erstellte_Rundgaenge_silber',
       name: 'Erstellte Rundgaenge silber',
-      picture: {
+      picture: tour_silver,
+      unlocked_picture: reward_tour_silver,
+     /*  picture: {
         $oid: '5ff98919cdd36137740fc368',
-      },
+      },       
       unlocked_picture: {
         $oid: '5ff98919cdd36137740fc367',
-      },
+      },*/
       cost: 10,
     },
     {
       _id: 'Betrachtete_Artefakte_bronze',
       name: 'Betrachtete Artefakte bronze',
-      picture: {
+      picture: object_bronze,
+      unlocked_picture: reward_object_bronze,
+     /*  picture: {
         $oid: '5ff98919cdd36137740fc36d',
       },
       unlocked_picture: {
         $oid: '5ff98919cdd36137740fc36c',
-      },
+      }, */
       cost: 3,
     },
-    // {
-    //   AbzeichenID: '#1' /*
-    //   Url: '/app/components/Media/1.png', */,
-    //   Bild:
-    //     'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
-    //   Beschreibung: 'test',
-    // },
   ],
-  ProfilePicture: [
+  /* ProfilePicture: [
     {
       _id: {
         $oid: '5ff9889f4028d9e0ea9cc52d',
@@ -289,15 +302,24 @@ const dataProvider = fakeDataProvider({
       },
       locked: false,
     },
-  ],
-  Pictures: [
+  ], */
+  // only for testing 
+  ProfilePicture: [
     {
-      _id: {
-        $oid: '5ff98892ccd2776f571d6c1a',
-      },
-      picture: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
-      description: 'abc',
+      picture: iphigenie,
       locked: false,
+    },
+    {
+      picture: joseph,
+      locked: false,
+    },
+    {
+      picture: reward_object_bronze,
+      locked: true,
+    },
+    {
+      picture: reward_tour_silver,
+      locked: true,
     },
   ],
   Codes: [
