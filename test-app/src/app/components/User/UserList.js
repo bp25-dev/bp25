@@ -9,6 +9,7 @@ import {
   FunctionField,
   BooleanField,
   ReferenceManyField,
+  ReferenceField,
 } from 'react-admin';
 // material UI imports
 import DoneIcon from '@material-ui/icons/Done';
@@ -36,16 +37,18 @@ export const UserList = (props) => (
         label='Erstellte Touren'
         reference='Touren'
         // match user.username with Touren.owner.username
-        source='username'
-        target='owner.username'
+        source='owner.username'
+        target='username'
       >
         <SingleFieldList>
-          <ChipField 
-          // display the name of the tour
-          source='name' />
+          <ChipField
+          //select any field in 'Touren' ref 
+            // display the name of the tour
+            source='name'
+          />
         </SingleFieldList>
-      </ReferenceManyField> 
-      <EditButton />
+      </ReferenceManyField>{' '}
+      *
     </Datagrid>
   </List>
 );

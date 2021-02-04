@@ -12,6 +12,8 @@ import {
   SimpleShowLayout,
   Show,
 } from 'react-admin';
+import PictureGrid from './PictureGrid';
+
 
 // edit expand component
 const ImageShow = (props) => (
@@ -30,10 +32,11 @@ const ImageShow = (props) => (
 // list existing badges
 export const PictureList = (props) => (
   <List {...props} title='Picture'>
-    <Datagrid expand={<ImageShow />}>
+    {/* <Datagrid expand={<ImageShow />}>
       <TextField source='description' label='Beschreibung' />
       <EditButton />
-    </Datagrid>
+    </Datagrid> */}
+    <PictureGrid/>
   </List>
 );
 

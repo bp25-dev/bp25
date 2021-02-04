@@ -5,9 +5,11 @@ import {
   RichTextField,
   NumberField,
   List,
+  Link, 
   useListContext,
 } from 'react-admin';
 import { Card, CardContent, CardHeader } from '@material-ui/core';
+import Icon from '@material-ui/icons/Stars';
 
 const cardStyle = {
   width: 300,
@@ -17,6 +19,16 @@ const cardStyle = {
   verticalAlign: 'top',
 };
 
+const StarRatingField = ({ record }) => (
+  <span>
+    {Array(record.rating)
+      .fill(true)
+      .map((_, i) => (
+        <Icon key={i} style={{ opacity: 0.87, width: 20, height: 20 }} />
+      ))}
+  </span>
+);
+
 const FeedbackGrid = () => {
   const { ids, data, basePath } = useListContext();
   return (
@@ -25,24 +37,43 @@ const FeedbackGrid = () => {
         <Card key={id} style={cardStyle}>
           <CardHeader
             title={
-              <ReferenceField
-                label='Tour'
-                resource='Feedback'
-                record={data[id]}
-                source='tour'
-                reference='Touren'
-                basePath={basePath}
-              >
+              <ReferenceField reference='Touren' source='tour.$oid' label='Tourname'>
                 <TextField source='name' />
-              </ReferenceField>
+              </ReferenceField> 
+
             }
-            /*  subheader={<DateField record={data[id]} source="created_at" />}
-                  avatar={<Avatar icon={<PersonIcon />} />} */
-          /> 
-          <CardContent>  Bewertung:&nbsp;
+            /*subheader={...}
+             avatar={<Avatar icon={<PersonIcon />} />}   */
+          />
+          <CardContent>
+            {' '}
+            Bewertung:&nbsp;
             <NumberField record={data[id]} source='rating' label='Bewertung' />
+            /10 <br />
+            <StarRatingField
+              record={data[id]}
+              source='rating'
+              label='Bewertung'
+            />
           </CardContent>
-          <CardContent> Feedback:&nbsp;
+
+          <CardContent>
+            {' '}
+            Test:&nbsp;
+            <TextField record={data[id]} source='tour.$oid' /> 
+          </CardContent>
+
+          {/* <CardContent>
+            {' '}
+            TestRef:&nbsp;
+            <ReferenceField record={data[id]} source='tour.$oid' reference='Touren' label='Tourname'>
+                <TextField record={data[id]} source='name' />
+              </ReferenceField> 
+          </CardContent> */}
+
+          <CardContent>
+            {' '}
+            Feedback:&nbsp;
             <RichTextField
               record={data[id]}
               source='review'
@@ -57,6 +88,6 @@ const FeedbackGrid = () => {
 
 export const FeedbackList = (props) => (
   <List {...props} title='Feedback'>
-    <FeedbackGrid />
+        <FeedbackGrid />
   </List>
 );

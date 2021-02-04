@@ -125,9 +125,7 @@ const dataProvider = fakeDataProvider({
   ],
   Touren: [
     {
-      _id: {
-        $oid: '600024333c43791d7831f306',
-      },
+      _id: 0,
       name: 'Tour1',
       name: 'Amphibien Tour',
       search_id: 'xxxxx',
@@ -243,7 +241,7 @@ const dataProvider = fakeDataProvider({
       Adminrechte: false,
     },
     {
-      username: 'Lilli',
+      username: 'Lena',
       password: 'geschichte',
       Adminrechte: false,
     },
@@ -298,6 +296,7 @@ const dataProvider = fakeDataProvider({
         $oid: '5ff98892ccd2776f571d6c1a',
       },
       picture: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
+      description: 'abc',
       locked: false,
     },
   ],
@@ -310,7 +309,7 @@ const dataProvider = fakeDataProvider({
     {
       _id: 0,
       tour: {
-        $oid: '600024333c43791d7831f306',
+        $oid: 0,
       },
       rating: 8,
       review: 'great tour!',
@@ -318,7 +317,7 @@ const dataProvider = fakeDataProvider({
     {
       _id: 1,
       tour: {
-        name: 'abc',
+        $oid: '600024333c43791d7831f306',
       },
       rating: 6,
       review: 'Ich würde noch...',

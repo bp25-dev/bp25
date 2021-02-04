@@ -22,6 +22,7 @@ import {
   TextField,
   ReferenceField,
   ReferenceArrayField,
+  ReferenceManyField,
   DateField,
   NumberField,
   ChipField,
@@ -39,6 +40,7 @@ import {
 import { Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles } from '@material-ui/core/styles';
+
 
 // filter the tours (search for text)
 // TODO: filter Ersteller der Tour
@@ -199,7 +201,7 @@ export const TourenList = (props) => {
         <ReferenceArrayField
           label='Benutzer'
           reference='Benutzer'
-          source='user'
+          source='user.username'
         >
           <SingleFieldList>
             <ChipField source='username' />

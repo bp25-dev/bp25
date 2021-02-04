@@ -67,7 +67,7 @@ const useStyles = makeStyles({
             <TextInput source='sub_category' label='Subkategorie' fullWidth />
             <TextInput
               source='interdisciplinary_context'
-              label='Interdisziplinärkontext'
+              label='Interdisziplinäre Bezüge'
               fullWidth
             />
           </FormTab>
