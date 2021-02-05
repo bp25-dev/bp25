@@ -45,8 +45,8 @@ const Card = withStyles((theme) => ({
 // check if picture object is not empty (create boolean)
 const HasImageFilter = () => (
   <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
-    <FilterListItem label='vorhanden' value={{ picture: true }} />
-    <FilterListItem label='nicht vorhanden' value={{ picture: null }} />
+    <FilterListItem label='vorhanden' value={{ img: true }} />
+    <FilterListItem label='nicht vorhanden' value={{ img: null }} />
   </FilterList>
 );
 
@@ -101,7 +101,7 @@ const ImageShow = (props) => {
         <TextField source='art_type' label='Kunsttyp' />
         <TextField source='description' label='Beschreibung' />
         <TextField source='additionfal_inf' label='Weitere Informationen' />
-        <ImageField source='picture' label='Bild' />
+        <ImageField source='img' label='Bild' />
         {/* add new table with images and reference them here*/}
         <ReferenceArrayField
           label='Bildverknüpfungen'
@@ -109,7 +109,7 @@ const ImageShow = (props) => {
           source='picture.$oid'
         >
           <SingleFieldList>
-            <ImageField source='picture. $oid' />
+            <ImageField source='picture.$oid' />
           </SingleFieldList>
         </ReferenceArrayField>
         <TextField source='year' label='Jahr' />
@@ -137,14 +137,16 @@ export const ExponateList = (props) => {
           source='interdisciplinary_context'
           label='Interdisziplinäre Bezüge'
         />
-        {/* should be true if there is an linked picture */}
+        {/*TODO: remove direct fields after user study */}
+        <TextField source='img' label='Bild' />
+        {/* should be true if there is an linked picture 
         <ReferenceField
           label='Bildverknüpfung'
           source='picture.$oid'
           reference='Pictures'
         >
           <BooleanField source='picture.$oid' />
-        </ReferenceField>
+        </ReferenceField>*/}
         <EditButton />
       </Datagrid>
     </List>

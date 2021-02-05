@@ -4,6 +4,9 @@ import {
   Datagrid,
   SingleFieldList,
   EditButton,
+  Filter,
+  SearchInput,
+  NullableBooleanInput,
   TextField,
   ChipField,
   FunctionField,
@@ -15,12 +18,31 @@ import {
 import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
 
+
+const FilterBar = (props) => (
+  <div>
+    <Filter {...props} >
+      <SearchInput source='q' alwaysOn />
+      <NullableBooleanInput
+        label='Benutzertyp'
+        source='Adminrechte'
+        nullLabel='alle Benutzer'
+        falseLabel='Benutzer'
+        trueLabel='Administator'
+        alwaysOn
+      />
+    </Filter>
+  </div>
+);
+
 // show eixsting users
 export const UserList = (props) => (
-  <List {...props} title='Benutzer*innen'>
+  <List {...props} title='Benutzer*innen'
+  filters={<FilterBar />}>
     <Datagrid>
-      {/*  TODO: get real primary key of user ID (username?) */}
-      <TextField source='id' label='ID' />
+      {/*  TODO: get real primary key of user ID (username?) 
+      dont show id for user study
+      <TextField source='id' label='ID' /> */}
       <TextField source='username' label='Benutzername' />
       <FunctionField
         source='password'

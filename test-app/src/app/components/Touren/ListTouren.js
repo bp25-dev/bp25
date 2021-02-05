@@ -190,8 +190,9 @@ export const TourenList = (props) => {
       classes={{ main: classes.main }}
     >
       <Datagrid /* expand={<StationShow />} */>
-        {/* TODO: Whats the primaery key? replace Titel for pk or use built in  */}
-        <TextField source='_id' label='ID' />
+        {/* TODO: Whats the primaery key? replace Titel for pk or use built in  
+        dont show id for user study 
+        <TextField source='_id' label='ID' />*/}
         <TextField source='name' label='Titel' />
         <TextField source='description' label='Beschreibung' />
         {/* refField: source=field in this table, reference=Name of reference Table  */}

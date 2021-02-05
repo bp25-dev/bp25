@@ -22,12 +22,15 @@ import reward_object_bronze from './fake_data/profilepictures/locked/Betrachtete
 
 // fake data base for testing
 const dataProvider = fakeDataProvider({
+  
   Exponate: [
     {
       _id: 'Kg 31:21',
       category: 'Kunst und Kulturgeschichte',
       sub_category: 'Archäologie/Vor- und Frühgeschichte',
       title: 'Goldfibel von Mölsheim',
+      // inserted img for user study
+      img: goldfibel,
       picture: [
         {
           $oid: '5ff98892ccd2776f571d6c1a',
@@ -51,6 +54,7 @@ const dataProvider = fakeDataProvider({
       category: 'Kunst und Kulturgeschichte',
       sub_category: 'Gotik',
       title: 'Ortenberger Altar - Heilige Sippe',
+      img: ortenberger,
       picture: [
         {
           $oid: '5ff95692dcf3447f57146c1s',
@@ -74,6 +78,7 @@ const dataProvider = fakeDataProvider({
       category: 'Kunst und Kulturgeschichte',
       sub_category: 'Expressionsimus',
       title: 'Morgensonne',
+      img: morgensonne,
       picture: [
         {
           $oid: '5ffe569ssd2dcf3447f5714561s',
@@ -97,6 +102,7 @@ const dataProvider = fakeDataProvider({
       category: 'Kunst und Kulturgeschichte',
       sub_category: 'Realismus',
       title: 'Abendstimmung in der Campagna',
+      img: null, 
       picture: [
         {
           $oid: '5ffe569ssfesrsd447f5714561s',
@@ -120,6 +126,7 @@ const dataProvider = fakeDataProvider({
       category: 'Kunst und Kulturgeschichte',
       sub_category: 'Symbolismus',
       title: 'Gestade der Vergessenheit',
+      img: gestade,
       picture: [
         {
           $oid: '8sd95564dcf3675f57146gaw',
