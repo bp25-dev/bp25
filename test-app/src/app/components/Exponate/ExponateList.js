@@ -20,16 +20,11 @@ import {
   ReferenceArrayField,
 } from 'react-admin';
 // material UI styling
-import {
-  Card as MuiCard,
-  CardContent,
-  withStyles,
-} from '@material-ui/core';
+import { Card as MuiCard, CardContent, withStyles } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 //icons
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';
-
 
 // filter sidebar styling
 const Card = withStyles((theme) => ({
@@ -55,62 +50,44 @@ const HasImageFilter = () => (
   </FilterList>
 );
 
-// test: map post category to side
-const Aside = ({ record }) => (
-  <div style={{ width: 200, margin: '1em' }}>
-    <Typography variant='h6'>Tokenize</Typography>
-    {record && (
-      <Typography variant='body2'>
-        Kunsttyp: {record.art_type.split(';')}
-      </Typography>
-    )}
-    {record && (
-      <Typography variant='body2'>
-        Kategorie: {record.category.split('und')}
-      </Typography>
-    )}
-  </div>
-);
-// ref: render function <FunctionField label="Name" render={record => `${record.first_name} ${record.last_name}`} />
-
-// TODO: map each existing category into a Filter List Item Label
-const MapFilter = ({ record }) => (
-  <FilterList label='Kategorie' icon={<ClassIcon />}>
-    {record && (
-      <FilterListItem>
-        label={record.category}
-        key={record._id}
-        value={{ groups: record._id }}
-
-      </FilterListItem>
-    )}
-  </FilterList>
-);
-
+// .filter((a,b) => ids.indexOf(a) === b))
 
 // sidebar functionality
 const FilterSidebar = () => {
   const { ids, data } = useListContext();
-  return(
-      <Card>
-        <CardContent>
-          <FilterLiveSearch />
-          <HasImageFilter />
-          <FilterList label='Kategorie' icon={<ClassIcon />}>
+  return (
+    <Card>
+      <CardContent>
+        <FilterLiveSearch />
+        <HasImageFilter />
+        <FilterList label='Subkategorie' icon={<ClassIcon />}>
           {ids.map((id) => (
-            <FilterListItem>
-            label={data[id].sub_category}
-            value={data[id]._id}
-          </FilterListItem>
+            <FilterListItem
+              label={data[id].sub_category}
+              value={data[id]._id}
+            />
           ))}
-          </FilterList>
+        </FilterList>
+        <FilterList label='Ersteller' icon={<ClassIcon />}>
           {ids.map((id) => (
-            <TextField record={data[id]} source='sub_category' label='Kategorie' />
+            <FilterListItem label={data[id].creator} value={data[id]._id} />
           ))}
-          </CardContent>
-      </Card>
-);
-}; 
+        </FilterList>
+        {/*  <FilterList label='Interdisziplinäre Bezüge' icon={<ClassIcon />}>
+          {
+            ids.map((id) => (
+              <FilterListItem
+                label={data[id].interdisciplinary_context.split('Themen:')}
+                value={data[id]._id}
+              />
+            ))
+            .filter((a,b) => ids.indexOf(a) === b)
+          }
+        </FilterList>  */}
+      </CardContent>
+    </Card>
+  );
+};
 
 // edit expand component
 const ImageShow = (props) => {
@@ -119,13 +96,12 @@ const ImageShow = (props) => {
       {...props}
       /* disable the app title change when shown */
       title=' '
-      aside={<Aside />}
     >
       <SimpleShowLayout>
         <TextField source='art_type' label='Kunsttyp' />
         <TextField source='description' label='Beschreibung' />
         <TextField source='additionfal_inf' label='Weitere Informationen' />
-        <ImageField source='picture' label='Bild'/>
+        <ImageField source='picture' label='Bild' />
         {/* add new table with images and reference them here*/}
         <ReferenceArrayField
           label='Bildverknüpfungen'
@@ -133,7 +109,7 @@ const ImageShow = (props) => {
           source='picture.$oid'
         >
           <SingleFieldList>
-            <ImageField source='picture.$oid' />
+            <ImageField source='picture. $oid' />
           </SingleFieldList>
         </ReferenceArrayField>
         <TextField source='year' label='Jahr' />
@@ -147,7 +123,7 @@ const ImageShow = (props) => {
 
 // list the exhibits
 export const ExponateList = (props) => {
-    return (
+  return (
     <List {...props} title='Exponate' aside={<FilterSidebar />}>
       <Datagrid expand={<ImageShow />}>
         {/* todo: use ObjectID as primary key 
@@ -164,10 +140,10 @@ export const ExponateList = (props) => {
         {/* should be true if there is an linked picture */}
         <ReferenceField
           label='Bildverknüpfung'
-          source='picture'
+          source='picture.$oid'
           reference='Pictures'
         >
-          <BooleanField source='picture' />
+          <BooleanField source='picture.$oid' />
         </ReferenceField>
         <EditButton />
       </Datagrid>

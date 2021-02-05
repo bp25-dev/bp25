@@ -322,6 +322,24 @@ const dataProvider = fakeDataProvider({
       locked: true,
     },
   ],
+  Pictures: [
+    {
+      $oid: '5ff98892ccd2776f571d6c1a',
+      picture: goldfibel
+    },
+    {
+      $oid: '5ff95692dcf3447f57146c1s',
+      picture: ortenberger
+    },
+    {
+      $oid: '5ffe569ssd2dcf3447f5714561s',
+      picture: morgensonne
+    },
+    {
+      $oid: '8sd95564dcf3675f57146gaw',
+      picture: gestade
+    },
+  ],
   Codes: [
     {
       code: 'abc'
