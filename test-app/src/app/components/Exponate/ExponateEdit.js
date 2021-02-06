@@ -89,7 +89,7 @@ const useStyles = makeStyles({
           </FormTab>
           <FormTab label='Bildverknüpfungen'>
           <ReferenceInput source='pictures' reference='Pictures' label='Bild'>
-              <ImageInput source='picture' placeholder={<p>Füge hier Bilder von dem Exponat hinzu</p>} fullWidth />
+              <ImageInput source='picture' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
             </ReferenceInput>
           </FormTab>
           <DeleteWithCustomConfirmButton

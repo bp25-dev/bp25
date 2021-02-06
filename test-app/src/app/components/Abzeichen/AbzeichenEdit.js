@@ -33,6 +33,13 @@ const DeleteConfirmContent = props => {
   );
 };
 
+// create a range withing the costs can be selected
+const validateCost = [
+  number(),
+  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 10'),
+  maxValue(10, 'Bitte wähle eine Zahl zwischen 1 und 10'),
+];
+
 // edit badges
 export const AbzeichenEdit = (props) => (
     <Edit title='Verändere Verknüpfung' {...props}>
@@ -40,7 +47,7 @@ export const AbzeichenEdit = (props) => (
         <TextInput disabled source='id' label='ID' fullWidth />
         <TextInput source='name' label='Name' fullWidth/>
         {/* Select a new picture for the badge*/}
-        <ImageInput source='Abzeichen' accept='image/*' placeholder={<p>Füge hier ein Bild von dem Abzeichen hinzu</p>}>
+        <ImageInput source='Abzeichen' accept='image/*' placeholder={<p>Klicke hier, um das Bild für das Abzeichen zu ändern</p>}>
           <ImageField source='picture' />
         </ImageInput>
         {/* TODO: Link to connected profile pictures and select by existing name/picture
@@ -52,7 +59,7 @@ export const AbzeichenEdit = (props) => (
         >
           <SelectInput source='picture' />
         </ReferenceInput>
-        <NumberInput source='cost' label='Kosten' />
+        <NumberInput source='cost' label='Kosten' validate={validateCost}/>
         <DeleteWithCustomConfirmButton
           title={DeleteConfirmTitle}      
           content={DeleteConfirmContent}  

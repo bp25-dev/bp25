@@ -10,6 +10,12 @@ import {
   Create
 } from 'react-admin';
 
+// create a range withing the costs can be selected
+const validateCost = [
+  number(),
+  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 10'),
+  maxValue(10, 'Bitte wähle eine Zahl zwischen 1 und 10'),
+];
 
 // create a new badge
 export const AbzeichenCreate = (props) => (
@@ -17,7 +23,7 @@ export const AbzeichenCreate = (props) => (
     <SimpleForm>
       <TextInput disabled source='id' label='ID' fullWidth/>
       <TextInput source='name' label='Name' fullWidth />
-      <ImageInput source='Badge' accept='image/*'>
+      <ImageInput source='Badge' accept='image/*'placeholder={<p>Klicke hier, um ein Bild von dem Abzeichen hinzuzufügen</p>}>
         <ImageField source='picture' />
       </ImageInput>
       {/* TODO: Link to connected profile pictures and select by existing name/picture
@@ -29,7 +35,7 @@ export const AbzeichenCreate = (props) => (
       >
         <SelectInput source='$oid' />
       </ReferenceInput>
-      <NumberInput source='cost' label='Kosten' />
+      <NumberInput source='cost' label='Kosten' validate={validateCost} />
     </SimpleForm>
   </Create>
 );
