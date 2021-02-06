@@ -71,7 +71,7 @@ const FilterBar = (props) => (
         alwaysOn
       >
         <SelectInput optionText='username' />
-      </ReferenceInput>
+      </ReferenceInput> 
       <NumberInput
         source='difficulty'
         label='Schwierigkeitsgrad'
@@ -198,11 +198,7 @@ export const TourenList = (props) => {
         <TextField source='_id' label='ID' />*/}
         <TextField source='name' label='Titel' />
         <TextField source='description' label='Beschreibung' />
-        {/* refField: source=field in this table, reference=Name of reference Table  */}
-        <ReferenceField source='owner' reference='Benutzer' label='Ersteller'>
-          <ChipField source='username' />
-        </ReferenceField>
-        <ReferenceArrayField
+        {/* <ReferenceArrayField
           label='Benutzer'
           reference='Benutzer'
           source='user.username'
@@ -211,6 +207,17 @@ export const TourenList = (props) => {
             <ChipField source='username' />
           </SingleFieldList>
         </ReferenceArrayField>
+        <ReferenceField source='owner' reference='Benutzer' label='Ersteller'>
+          <ChipField source='username' />
+        </ReferenceField> */}
+        {/* created fields for user study */}
+        <TextField source='owner.username' label='Ersteller' />
+        <ArrayField source='user' label='beteiligte Benutzer'>
+          <SingleFieldList>
+            <ChipField source='username' />
+          </SingleFieldList>
+        </ArrayField>
+        {/* end of created fields for user study */}
         <TextField source='search_id' label='Touren Code' />
         <TextField source='session_id' label='Passwort' />
         <DateField

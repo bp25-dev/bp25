@@ -57,10 +57,10 @@ export const TourenEdit = (props) => (
         <TextInput disabled source='ID' label='ID' fullWidth/>
         <TextInput source='name' label='Titel' fullWidth/>
         <TextInput source='description' label='Beschreibung' fullWidth/>
-        <ReferenceInput source='user' reference='Benutzer' label='Ersteller' fullWidth>
+        <ReferenceInput disabled source='user' reference='Benutzer' label='Ersteller' fullWidth>
           <SelectInput optionText='username' />
         </ReferenceInput>
-        <ReferenceArrayInput source='user' reference='Benutzer' fullWidth>
+        <ReferenceArrayInput disabled source='user' reference='Benutzer' fullWidth>
           <SelectArrayInput optionText='username' />
         </ReferenceArrayInput>
         <TextInput source='search_id' label='Touren Code' fullWidth/>
@@ -84,7 +84,7 @@ export const TourenEdit = (props) => (
           ]}
         />
         {/*  TODO: model the different stations and translate them into edit Inputs*/}
-        <ArrayInput source='Stationen' fullWidth>
+        <ArrayInput disabled source='Stationen' fullWidth>
           <SimpleFormIterator>
             <TextField source='Objekt' />
             <BooleanInput source='Foto' />

@@ -44,6 +44,7 @@ const validateCost = [
   maxValue(100, 'Bitte wähle eine Zahl zwischen 1 und 100'),
 ];
 
+
 // edit badges
 export const AbzeichenEdit = (props) => (
     <Edit title='Verändere Verknüpfung' {...props}>
@@ -61,7 +62,7 @@ export const AbzeichenEdit = (props) => (
           reference='ProfilePicture'
           label='freigeschaltete Profilbilder'
         >
-          <SelectInput source='picture' />
+          <SelectInput optionText='picture' optionValue='picture' />
         </ReferenceInput>
         <NumberInput source='cost' label='Kosten' validate={validateCost}/>
         <DeleteWithCustomConfirmButton

@@ -25,6 +25,8 @@ import Typography from '@material-ui/core/Typography';
 //icons
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';
+import PersonIcon from '@material-ui/icons/Person';
+import SchoolIcon from '@material-ui/icons/School';
 
 // filter sidebar styling
 const Card = withStyles((theme) => ({
@@ -59,6 +61,9 @@ const FilterSidebar = () => {
     <Card>
       <CardContent>
         <FilterLiveSearch />
+        <Typography variant="subtitle1" color='error' gutterBottom>
+        Entwurf: Bitte klicke auf keine von den unteren Kategorien 
+      </Typography>
         <HasImageFilter />
         <FilterList label='Subkategorie' icon={<ClassIcon />}>
           {ids.map((id) => (
@@ -69,7 +74,7 @@ const FilterSidebar = () => {
             />
           ))}
         </FilterList>
-        <FilterList label='Ersteller' icon={<ClassIcon />}>
+        <FilterList label='Ersteller' icon={<PersonIcon />}>
           {ids.map((id) => (
             <FilterListItem
               label={data[id].creator}
@@ -78,8 +83,8 @@ const FilterSidebar = () => {
             />
           ))}
         </FilterList>
-        {/*  <FilterList label='Interdisziplinäre Bezüge' icon={<ClassIcon />}>
-          {
+        <FilterList label='Interdisziplinäre Bezüge' icon={<SchoolIcon />}>
+         {/*  {
             ids.map((id) => (
               <FilterListItem
                 label={data[id].interdisciplinary_context.split('Themen:')}
@@ -87,8 +92,8 @@ const FilterSidebar = () => {
               />
             ))
             .filter((a,b) => ids.indexOf(a) === b)
-          }
-        </FilterList>  */}
+          } */}
+        </FilterList>
       </CardContent>
     </Card>
   );
