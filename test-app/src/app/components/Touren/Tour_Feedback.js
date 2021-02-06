@@ -71,7 +71,7 @@ const FeedbackGrid = () => {
     <div className={classes.div}>
       {ids.map((id) => (
         <Card key={id} className={classes.card}>
-          <CardHeader
+          <CardHeader 
             title={
               <ReferenceField
                 source='tour.$oid'
@@ -80,7 +80,8 @@ const FeedbackGrid = () => {
               >
                 <TextField source='name' />
               </ReferenceField>
-            }
+            } 
+            title='Tour Referenz'
           />
           <CardContent>
             Bewertung:&nbsp;
@@ -91,7 +92,7 @@ const FeedbackGrid = () => {
               source='rating'
               label='Bewertung'
             />
-          </CardContent>
+            </CardContent>
           {/* <CardContent>
             TestRef:&nbsp;
             <ReferenceField record={data[id]} source='tour.$oid' reference='Touren' label='Tourname'>

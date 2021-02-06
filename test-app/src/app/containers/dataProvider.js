@@ -359,7 +359,7 @@ const dataProvider = fakeDataProvider({
         $oid: 0,
       },
       rating: 8,
-      review: 'great tour!',
+      review: 'Mir hat diese Tour sehr gut gefallen! Ich würde sie besonders Leuten mit Kindern weiterempfehlen, da die Inhalte spielerisch vermittelt werden',
     },
     {
       _id: 1,
@@ -367,7 +367,7 @@ const dataProvider = fakeDataProvider({
         $oid: '600024333c43791d7831f306',
       },
       rating: 6,
-      review: 'Ich würde noch...',
+      review: 'Die Tour war an sich ganz okay, für einen kurzen Museumsbesuch dauert sie allerdings etwas zu lange. Wenn man also nur einen kurzen Besuch geplant hat, sollte man vielleicht eine andere Tour wählen',
     },
   ],
 });
