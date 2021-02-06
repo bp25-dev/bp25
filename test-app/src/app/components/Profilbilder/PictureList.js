@@ -8,31 +8,57 @@ import {
   ImageField,
   BooleanField,
   useListContext,
+  EditButton,
+  //edit
+  NumberInput,
+  TextInput,
+  ReferenceInput,
+  Edit,
+  SimpleForm,
+  SelectInput,
 } from 'react-admin';
-import { Card, CardContent, CardHeader } from '@material-ui/core';
+import { Card, CardContent, CardHeader, CardActions, CardActionArea } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { linkToRecord } from 'ra-core';
+import { Link } from 'react-router-dom';
 
 // style of different card entries
-const cardStyle = {
-  width: 300,
-  minHeight: 300,
-  margin: '0.5em',
-  display: 'inline-block',
-  verticalAlign: 'top',
-};
+const useStyles = makeStyles({
+  div: {
+    margin: '1em',
+  },
+  card: {
+    width: 300,
+    height: 500,
+    margin: '0.5em',
+    display: 'inline-block',
+    verticalAlign: 'top',
+  },
+  link: {
+    minHeight: 45,
+    fontSize: 12,
+  },
+  actions: {
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+  },
+});
 
 // show the pictures on a grid
 const PictureGrid = () => {
   const { ids, data, basePath } = useListContext();
+  const classes = useStyles();
   return (
-    <div style={{ margin: '1em' }}>
+    <div className={classes.div}>
       {ids.map((id) => (
-        <Card key={id} style={cardStyle}>
+        <Card key={id} className={classes.card}>
+          <CardActionArea>
           <CardHeader />
           <CardContent>
             Profilbild:&nbsp;
             <ImageField record={data[id]} source='picture' />
           </CardContent>
-          <CardContent>
+          <CardContent className={classes.link}>
             Link:&nbsp;
             <UrlField record={data[id]} source='picture' />
           </CardContent>
@@ -40,6 +66,15 @@ const PictureGrid = () => {
             Status:&nbsp;
             <BooleanField record={data[id]} source='locked' />
           </CardContent>
+          </CardActionArea>
+          <CardActions className={classes.actions}>
+            <EditButton
+              to={linkToRecord(basePath, data[id].id)}
+              component={Link}
+              variant='outlined'
+              color='primary'
+            />
+          </CardActions>
         </Card>
       ))}
     </div>

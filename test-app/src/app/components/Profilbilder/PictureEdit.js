@@ -38,7 +38,7 @@ export const PictureEdit = (props) => (
   <Edit title='Verändere Profilbilder' {...props}>
     <SimpleForm toolbar={<UserEditToolbar />}>
       <TextInput source='name' label='Name' fullWidth />
-      <ImageInput source='ProfilePicture' accept='image/*'>
+      <ImageInput source='ProfilePicture' accept='image/*' placeholder={<p>Klicke hier, um ein Profilbild hinzuzufügen</p>} fullWidth>
         <ImageField source='picture' />
       </ImageInput>
       <BooleanInput label='gesperrt' source='locked' />

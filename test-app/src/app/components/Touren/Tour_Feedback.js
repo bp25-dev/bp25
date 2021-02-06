@@ -34,7 +34,7 @@ const useStyles = makeStyles({
   },
   card: {
     width: 300,
-    minHeight: 350,
+    height: 350,
     margin: '0.5em',
     display: 'inline-block',
     verticalAlign: 'top',
