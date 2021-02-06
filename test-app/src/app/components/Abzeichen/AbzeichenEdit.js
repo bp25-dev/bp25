@@ -12,6 +12,10 @@ import {
   SaveButton,
   SimpleShowLayout,
   TextField,
+  //validation
+  minValue,
+  maxValue,
+  number,
 } from 'react-admin';
 
 import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
@@ -36,8 +40,8 @@ const DeleteConfirmContent = props => {
 // create a range withing the costs can be selected
 const validateCost = [
   number(),
-  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 10'),
-  maxValue(10, 'Bitte wähle eine Zahl zwischen 1 und 10'),
+  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 100'),
+  maxValue(100, 'Bitte wähle eine Zahl zwischen 1 und 100'),
 ];
 
 // edit badges

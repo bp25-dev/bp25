@@ -7,14 +7,18 @@ import {
   SelectInput,
   SimpleForm,
   TextInput,
-  Create
+  Create,
+  //validation
+  minValue,
+  maxValue,
+  number,
 } from 'react-admin';
 
 // create a range withing the costs can be selected
 const validateCost = [
   number(),
-  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 10'),
-  maxValue(10, 'Bitte wähle eine Zahl zwischen 1 und 10'),
+  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 100'),
+  maxValue(100, 'Bitte wähle eine Zahl zwischen 1 und 100'),
 ];
 
 // create a new badge
