@@ -40,7 +40,7 @@ export const AbzeichenEdit = (props) => (
         <TextInput disabled source='id' label='ID' fullWidth />
         <TextInput source='name' label='Name' fullWidth/>
         {/* Select a new picture for the badge*/}
-        <ImageInput source='Abzeichen' accept='image/*'>
+        <ImageInput source='Abzeichen' accept='image/*' placeholder={<p>Füge hier ein Bild von dem Abzeichen hinzu</p>}>
           <ImageField source='picture' />
         </ImageInput>
         {/* TODO: Link to connected profile pictures and select by existing name/picture

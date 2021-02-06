@@ -41,6 +41,12 @@ import { Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles } from '@material-ui/core/styles';
 
+// create a range withing the Difficulty can be selected
+const validateDifficulty = [
+  number(),
+  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 5'),
+  maxValue(5, 'Bitte wähle eine Zahl zwischen 1 und 5'),
+];
 
 // filter the tours (search for text)
 // TODO: filter Ersteller der Tour
@@ -175,9 +181,6 @@ const useStyles = makeStyles({
   },
 });
 
-// create a range withing the Difficulty can be selected
-const validateDifficulty = [number(), minValue(1), maxValue(5)];
-
 // list existing tours
 export const TourenList = (props) => {
   const classes = useStyles(props);
@@ -222,4 +225,3 @@ export const TourenList = (props) => {
     </List>
   );
 };
-

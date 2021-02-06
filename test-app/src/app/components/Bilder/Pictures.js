@@ -44,8 +44,8 @@ export const PictureList = (props) => (
 export const PictureEdit = (props) => (
   <Edit title='Verändere Profilbilder' {...props}>
     <SimpleForm>
-      <ImageInput source='Picture' accept='image/*'>
-        <ImageField source='picture' />
+      <ImageInput source='Picture' accept='image/*' placeholder={<p>Füge hier neue Profilbilder hinzu</p>}>
+        <ImageField source='picture'/>
       </ImageInput>
       <TextInput label='Beschreibung' source='description' />
     </SimpleForm>
@@ -56,7 +56,7 @@ export const PictureEdit = (props) => (
 export const PictureCreate = (props) => (
   <Create title='Lade Profilbilder hoch' {...props}>
     <SimpleForm>
-      <ImageInput source='Picture' accept='image/*'>
+      <ImageInput source='Picture' accept='image/*' placeholder={<p>Füge hier neue Profilbilder hinzu</p>}>
         <ImageField source='picture' />
       </ImageInput>
       <TextInput label='Beschreibung' source='description' />

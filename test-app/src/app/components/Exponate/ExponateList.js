@@ -64,13 +64,18 @@ const FilterSidebar = () => {
           {ids.map((id) => (
             <FilterListItem
               label={data[id].sub_category}
-              value={data[id]._id}
+              key={data[id].id}
+              value={{ groups: data[id].id }}
             />
           ))}
         </FilterList>
         <FilterList label='Ersteller' icon={<ClassIcon />}>
           {ids.map((id) => (
-            <FilterListItem label={data[id].creator} value={data[id]._id} />
+            <FilterListItem
+              label={data[id].creator}
+              key={data[id]._id}
+              value={{ groups: data[id]._id }}
+            />
           ))}
         </FilterList>
         {/*  <FilterList label='Interdisziplinäre Bezüge' icon={<ClassIcon />}>

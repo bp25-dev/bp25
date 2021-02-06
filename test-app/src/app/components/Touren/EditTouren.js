@@ -21,7 +21,6 @@ import {
   BooleanInput,
   DateInput,
   TextInput,
-
   Toolbar,
   SaveButton,
   SimpleShowLayout,
@@ -49,7 +48,7 @@ const DeleteConfirmContent = props => {
 };
 
 // create a range withing the Difficulty can be selected
-const validateDifficulty = [number(), minValue(1), maxValue(5)];
+const validateDifficulty = [number(), minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 5'), maxValue(5, 'Bitte wähle eine Zahl zwischen 1 und 5')];
 
 // edit a tour
 export const TourenEdit = (props) => (

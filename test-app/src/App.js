@@ -11,7 +11,7 @@ import {ExponateList} from './app/components/Exponate/ExponateList.js';
 import {TourenList} from './app/components/Touren/ListTouren.js';
 import {TourenCreate} from './app/components/Touren/CreateTouren.js';
 import {TourenEdit} from './app/components/Touren/EditTouren.js';
-import { FeedbackList} from './app/components/Touren/Tour_Feedback.js';
+import {FeedbackList, FeedbackEdit} from './app/components/Touren/Tour_Feedback.js';
 //Benutzer
 import {UserList} from './app/components/User/UserList.js';
 import {AccountEdit} from './app/components/User/AccountEdit.js';
@@ -27,6 +27,7 @@ import {PictureList} from './app/components/Profilbilder/PictureList.js';
 import {PictureEdit} from './app/components/Profilbilder/PictureEdit.js';
 import {PictureCreate} from './app/components/Profilbilder/PictureCreate.js';
 import Dashboard from './app/containers/Dashboard';
+import customRoutes from './app/components/CustomRoutes';
 import MyLayout from './app/components/MyProfile/MyLayout.js';
 import LoginPage from './app/containers/LoginPage.js';
 import dataProvider from './app/containers/dataProvider.js';
@@ -52,14 +53,11 @@ export default function App() {
         dataProvider={dataProvider}
         // todo: User authentification
         authProdiver={authProvider}
-        // can be enabled/replaced if we have designed a custom LoginPage
         loginPage={LoginPage}
-        // custom dashboard page
         dashboard={Dashboard}
-        // custom theme
         theme={theme} 
-        // TODO: add a tree menu to show all resources
         layout={MyLayout}
+        customRoutes={customRoutes}
       >
         <Resource
           name='Exponate'
@@ -124,6 +122,7 @@ export default function App() {
         <Resource
           name='Feedback'
           list={FeedbackList}
+          edit={FeedbackEdit}
           icon={RateReviewIcon}
           options={{ label: 'Feedback' }}
         />
