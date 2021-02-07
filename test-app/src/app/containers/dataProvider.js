@@ -157,7 +157,6 @@ const dataProvider = fakeDataProvider({
       session_id: 420,
       owner: {
         username: 'Anna',
-        username: 'Marie',
       },
       user: [
         {
@@ -349,7 +348,8 @@ const dataProvider = fakeDataProvider({
   ],
   Codes: [
     {
-      code: 'abc'
+      code: 'abh5k',
+      username: 4,
     },
   ],
   Feedback: [

@@ -12,16 +12,44 @@ import {
   FunctionField,
   BooleanField,
   ReferenceManyField,
+  ReferenceInput,
+  SelectInput,
   ReferenceField,
 } from 'react-admin';
 // material UI imports
 import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
+import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'nowrap',
+    alignItems: 'center',
+  },
+  avatar: {
+    marginRight: theme.spacing(1),
+  },
+}));
+
+const CustomerField = ({ record }) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <Avatar
+        className={classes.avatar}
+        record={record}
+        style={{ width: 25, height: 25 }}
+      />
+      {record.username}
+    </div>
+  );
+};
 
 const FilterBar = (props) => (
   <div>
-    <Filter {...props} >
+    <Filter {...props}>
       <SearchInput source='q' alwaysOn />
       <NullableBooleanInput
         label='Benutzertyp'
@@ -31,23 +59,32 @@ const FilterBar = (props) => (
         trueLabel='Administator'
         alwaysOn
       />
+      <ReferenceInput
+        source='username'
+        label='Erstellte Touren'
+        reference='Touren'
+        allowEmpty
+        alwaysOn
+      >
+        <SelectInput optionText='name' />
+      </ReferenceInput>
     </Filter>
   </div>
 );
 
 // show eixsting users
 export const UserList = (props) => (
-  <List {...props} title='Benutzer*innen'
-  filters={<FilterBar />}>
+  <List {...props} title='Benutzer*innen' filters={<FilterBar />}>
     <Datagrid>
       {/*  TODO: get real primary key of user ID (username?) 
       dont show id for user study
       <TextField source='id' label='ID' /> */}
-      <TextField source='username' label='Benutzername' />
+      <CustomerField source='username' label='Benutzername' />
       <FunctionField
         source='password'
         label='Passwort'
-        render={(record) => `**********`}
+        /* map all characters into a * using regexp */
+        render={(record) => record.password.replace(/./g, '*')}
       />
       <BooleanField
         source='Adminrechte'
@@ -58,19 +95,14 @@ export const UserList = (props) => (
       <ReferenceManyField
         label='Erstellte Touren'
         reference='Touren'
-        // match user.username with Touren.owner.username
-        source='owner.username'
-        target='username'
+        source='username'
+        target='owner.username'
       >
         <SingleFieldList>
-          <ChipField
-          //select any field in 'Touren' ref 
-            // display the name of the tour
-            source='name'
-          />
+          <ChipField source='name' />
         </SingleFieldList>
-      </ReferenceManyField>{' '}
-      *
+      </ReferenceManyField>
+      <EditButton />
     </Datagrid>
   </List>
 );
