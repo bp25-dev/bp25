@@ -1,6 +1,6 @@
 import React from 'react';
 import { Admin, Resource, Layout } from 'react-admin';
-import { theme } from './app/components/Style/Theme.js';
+import { theme } from './app/containers/Style/Theme.js';
 // site components
 // site components
 //Exponate
@@ -27,12 +27,11 @@ import {PictureList} from './app/components/Profilbilder/PictureList.js';
 import {PictureEdit} from './app/components/Profilbilder/PictureEdit.js';
 import {PictureCreate} from './app/components/Profilbilder/PictureCreate.js';
 import Dashboard from './app/containers/Dashboard';
-import customRoutes from './app/components/CustomRoutes';
-import MyLayout from './app/components/MyProfile/MyLayout.js';
-import LoginPage from './app/containers/LoginPage.js';
+import customRoutes from './app/containers/MyProfile/CustomRoutes.js';
+import MyLayout from './app/containers/MyProfile/MyLayout.js';
+import LoginPage from './app/containers/Login/LoginPage.js';
 import dataProvider from './app/containers/dataProvider.js';
 import authProvider from './app/containers/authProvider.js';
-
 
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
