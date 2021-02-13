@@ -36,6 +36,7 @@ import {
   NumberInput,
   DateInput,
 } from 'react-admin';
+import {QuestionField, AnswerField, MultipleChoiceQuestionField, MultipleChoiceAnswerField} from './Stationen';
 // material UI styles
 import { Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -131,43 +132,7 @@ const StationShow = (props) => (
     <SimpleShowLayout>
       <ArrayField source='Stationen'>
         <Datagrid>
-          {/*  if no object is there it is an individual slide and foto, text, details should be deactivated */}
-          <TextField source='Objekt' />
-          <TextField source='Foto' />
-          <TextField source='Text' />
-          <TextField source='Details' />
-          <TextField source='Textfeld' />
-          <UrlField source='Bild' />
-          {/*  model a question */}
-          <ArrayField source='???' label='Fragen'>
-            <Datagrid>
-              <TextField source='question' label='Frage' />
-              <ReferenceArrayField
-                label='verlinkte Objekte'
-                reference='Exponate'
-                source='linked_objects'
-              >
-                <SingleFieldList>
-                  <ChipField source='title' label='Name' />
-                </SingleFieldList>
-              </ReferenceArrayField>
-            </Datagrid>
-          </ArrayField>
-          {/*  model an answer */}
-          <ArrayField source='???' label='Antworten'>
-            <Datagrid>
-              <TextField source='answer' label='Antwort' />
-              <ReferenceArrayField
-                label='verlinkte User'
-                reference='User'
-                source='user'
-              >
-                <SingleFieldList>
-                  <ChipField source='username' label='Benutzer' />
-                </SingleFieldList>
-              </ReferenceArrayField>
-            </Datagrid>
-          </ArrayField>
+          <QuestionField/>
         </Datagrid>
       </ArrayField>
     </SimpleShowLayout>
@@ -192,7 +157,7 @@ export const TourenList = (props) => {
       actions={<ListActions />}
       classes={{ main: classes.main }}
     >
-      <Datagrid /* expand={<StationShow />} */>
+      <Datagrid expand={<StationShow />} >
         {/* TODO: Whats the primaery key? replace Titel for pk or use built in  
         dont show id for user study 
         <TextField source='_id' label='ID' />*/}
