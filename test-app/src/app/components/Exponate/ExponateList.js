@@ -12,7 +12,7 @@ import {
   ImageField,
   ReferenceArrayField,
 } from 'react-admin';
-import {FilterSidebar} from './ExponateFilterSidebar.js'
+import {FilterSidebar} from './ExponateFilterSidebar.js';
 
 // edit expand component
 const ImageShow = (props) => {
