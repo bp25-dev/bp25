@@ -11,7 +11,7 @@ import {ExponateList} from './app/components/Exponate/ExponateList.js';
 import {TourenList} from './app/components/Touren/ListTouren.js';
 import {TourenCreate} from './app/components/Touren/CreateTouren.js';
 import {TourenEdit} from './app/components/Touren/EditTouren.js';
-import {FeedbackList, FeedbackEdit} from './app/components/Touren/Tour_Feedback.js';
+import {FeedbackList, FeedbackEdit} from './app/components/Touren/TourenFeedback.js';
 //Benutzer
 import {UserList} from './app/components/User/UserList.js';
 import {AccountEdit} from './app/components/User/AccountEdit.js';

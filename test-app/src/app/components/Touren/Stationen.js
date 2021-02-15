@@ -20,24 +20,23 @@ import {
   ReferenceInput,
   BooleanInput,
   SelectInput,
-  NumberInput
+  NumberInput,
 } from 'react-admin';
 
-{/* TODO: create a Stationen field component that combines all checkpoints of a tour*/}
-
-{/* TODO: create a Stationen input component that combines all checkpoints of a tour as array inputs*/}
+// TODO: create a Stationen field component that combines all checkpoints of a tour
+// TODO: create a Stationen input component that combines all checkpoints of a tour as array inputs
 
 export const CheckpointField = ({ record }) => {
   return (
     <Datagrid>
-    <ReferenceField source='tour' reference='Touren'>
+      <ReferenceField source='tour' reference='Touren'>
         <ChipField source='name' />
       </ReferenceField>
-      <TextField source='text'/>
-      <NumberField source='index'/>
-      <BooleanField source='show_text'/>
-      <BooleanField source='show_picture'/>
-      <BooleanField source='show_details'/>
+      <TextField source='text' />
+      <NumberField source='index' />
+      <BooleanField source='show_text' />
+      <BooleanField source='show_picture' />
+      <BooleanField source='show_details' />
       {/* TODO: render fields from the obejcts below for the corresponding checkpoint type
       e.g. map function for rendering each image etc.
       pass the checkpoint type as a parameter */}
@@ -48,14 +47,14 @@ export const CheckpointField = ({ record }) => {
 export const CheckpointInput = ({ record }) => {
   return (
     <Datagrid>
-    <ReferenceInput source='tour' reference='Touren'>
+      <ReferenceInput source='tour' reference='Touren'>
         <SelectInput optionText='name' />
       </ReferenceInput>
-      <TextInput source='text'/>
-      <NumberInput disabled source='index'/>
-      <BooleanInput source='show_text'/>
-      <BooleanInput source='show_picture'/>
-      <BooleanInput source='show_details'/>
+      <TextInput source='text' />
+      <NumberInput disabled source='index' />
+      <BooleanInput source='show_text' />
+      <BooleanInput source='show_picture' />
+      <BooleanInput source='show_details' />
       {/* TODO: render input from the obejcts below for the corresponding checkpoint type
       e.g. map function for rendering each image etc.
       pass the checkpoint type as a parameter */}
@@ -63,36 +62,36 @@ export const CheckpointInput = ({ record }) => {
   );
 };
 
-// model the different checkpoint objects 
+// model the different checkpoint objects
 export const ObjectField = ({ record }) => {
   return (
     <ReferenceField source='museum_object' reference='Exponate'>
-        <ChipField source='title' />
-      </ReferenceField>
+      <ChipField source='title' />
+    </ReferenceField>
   );
 };
 
 export const ObjectInput = ({ record }) => {
   return (
     <ReferenceInput source='museum_object' reference='Exponate'>
-        <SelectInput optionText='title' />
-      </ReferenceInput>
+      <SelectInput optionText='title' />
+    </ReferenceInput>
   );
 };
 
 export const PictureField = ({ record }) => {
   return (
     <ReferenceField source='picture' reference='Pictures'>
-        <ImageField source='picture' />
-      </ReferenceField>
+      <ImageField source='picture' />
+    </ReferenceField>
   );
 };
 
 export const PictureInput = ({ record }) => {
   return (
     <ReferenceInput source='picture' reference='Pictures'>
-        <SelectInput optionText='picture' />
-      </ReferenceInput>
+      <SelectInput optionText='picture' />
+    </ReferenceInput>
   );
 };
 
