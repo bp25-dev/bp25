@@ -37,6 +37,7 @@ import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import ListIcon from '@material-ui/icons/List';
 import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
+import HelpIcon from '@material-ui/icons/Help';
 
 import TreeMenu from '@bb-tech/ra-treemenu';
 //todo: import login page
@@ -138,6 +139,13 @@ export default function App() {
           icon={RateReviewIcon}
           options={{ label: 'Feedback' }}
         />
+        <Resource
+          name='faq'
+          list={FeedbackList}
+          icon={HelpIcon}
+          options={{ label: 'FAQ' }}
+        />
+        
       </Admin>
     </div>
   );
