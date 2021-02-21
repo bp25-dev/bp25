@@ -47,13 +47,6 @@ export const AccountEdit = (props) => (
           label='Löschen'                 
           cancel='Abbrechen'                 
         />
-        <ReferenceInput
-        source='username'
-        label='Erstellte Touren'
-        reference='Touren'
-      >
-        <SelectInput optionText='name' />
-      </ReferenceInput> 
       </SimpleForm>
     </Edit>
   );

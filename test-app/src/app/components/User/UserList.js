@@ -83,8 +83,10 @@ export const UserList = (props) => (
       <FunctionField
         source='password'
         label='Passwort'
-        /* map all characters into a * using regexp */
+        /* map all characters into a * using regexp 
         render={(record) => record.password.replace(/./g, '*')}
+        */
+       render = {(record) => '********'}
       />
       <BooleanField
         source='Adminrechte'

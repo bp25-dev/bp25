@@ -89,7 +89,7 @@ export const TourenList = (props) => {
       actions={<CustomListActions />}
       classes={{ main: classes.main }}
     >
-      <Datagrid expand={<StationShow />}>
+      <Datagrid rowClick='expand' expand={<StationShow />}>
         {/* TODO: Whats the primaery key? replace Titel for pk or use built in  
         dont show id for user study 
         <TextField source='_id' label='ID' />*/}

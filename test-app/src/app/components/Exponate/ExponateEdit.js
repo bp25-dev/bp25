@@ -16,7 +16,7 @@ import {
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 // material UI styling
-import { Card as MuiCard, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
 
 const UserEditToolbar = (props) => (
@@ -49,7 +49,6 @@ const useStyles = makeStyles({
 // edit an exhibit
 export const ExponateEdit = (props) => {
   const classes = useStyles();
-
   return (
     <Edit {...props} title='Bearbeite Exponate'>
       <TabbedForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
