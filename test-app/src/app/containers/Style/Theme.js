@@ -8,7 +8,7 @@ export const theme = createMuiTheme(
     palette: {
       // adding a dark type theme 
       // type: 'dark',
-      // Write the following code to have an blue navigation bar
+      // Write the following code to have an blue navigation bar      
       secondary: {
         main: "#003473", // official colour code blue from hlmd
       },

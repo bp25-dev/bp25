@@ -90,7 +90,7 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
               <Typography className={classes.subtitle}>{subtitle}</Typography>
               <CardActions>
                 <Link to={path}>
-                  <Button variant='contained' color='primary' renderAs='button'>
+                  <Button  color='secondary' variant='contained' renderAs='button'>
                     Klicke hier
                   </Button>
                 </Link>
