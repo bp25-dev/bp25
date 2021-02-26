@@ -78,6 +78,11 @@ const useStyles = makeStyles({
   },
 });
 
+// change each second row to light blue
+const postRowStyle = (record, index) => ({
+  backgroundColor: index % 2 ? 1 : '#dbe5f1',
+});
+
 // list existing tours
 export const TourenList = (props) => {
   const classes = useStyles(props);
@@ -89,7 +94,11 @@ export const TourenList = (props) => {
       actions={<CustomListActions />}
       classes={{ main: classes.main }}
     >
-      <Datagrid rowClick='expand' expand={<StationShow />}>
+      <Datagrid
+        rowClick='expand'
+        expand={<StationShow />}
+        rowStyle={postRowStyle}
+      >
         {/* TODO: Whats the primaery key? replace Titel for pk or use built in  
         dont show id for user study 
         <TextField source='_id' label='ID' />*/}

@@ -10,9 +10,14 @@ const Aside = (props) => (
   </div>
 );
 
+// change each second row to light blue
+const postRowStyle = (record, index) => ({
+  backgroundColor: index % 2 ? 1 : '#dbe5f1',
+});
+
 export const CodeList = (props) => (
   <List {...props} title='Ersteller Codes' aside={<Aside />}>
-    <Datagrid>
+    <Datagrid rowStyle={postRowStyle}>
       <TextField source='id' label='ID' />
       <TextField source='code' label='Code' />
       {/*  reference to users */}

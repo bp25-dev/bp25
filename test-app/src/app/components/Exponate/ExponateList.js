@@ -19,6 +19,15 @@ const useStyles = makeStyles({
   field: {
     maxWidth: 1200,
   },
+  rowCell: {
+    padding: '0px',
+    backgroundColor: '#aec3dd',
+  },
+});
+
+// change each second row to light blue
+const postRowStyle = (record, index) => ({
+  backgroundColor: index % 2 ? 1 : '#dbe5f1',
 });
 
 // edit expand component
@@ -60,9 +69,14 @@ const ImageShow = (props) => {
 
 // list the exhibits
 export const ExponateList = (props) => {
+  const classes = useStyles(props);
   return (
     <List {...props} title='Exponate' aside={<FilterSidebar />}>
-      <Datagrid rowClick='expand' expand={<ImageShow />}>
+      <Datagrid
+        rowClick='expand'
+        expand={<ImageShow />}
+        rowStyle={postRowStyle}
+      >
         {/* todo: use ObjectID as primary key 
         instead of <TextField source='ID' /> */}
         <TextField source='_id' label='ObjektID' />

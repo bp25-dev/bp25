@@ -23,6 +23,8 @@ const useCardStyles = makeStyles(() => ({
     transition: '0.3s',
     color: '#000',
     backgroundColor: 'transparent',
+    // light blue
+    // backgroundColor: '#dbe5f1',
   },
   media: {
     height: 0,

@@ -28,10 +28,11 @@ import { Link } from 'react-router-dom';
 import Icon from '@material-ui/icons/Stars';
 
 const useStyles = makeStyles({
-  // card Styles 
+  // card field Styles 
   div: {
     margin: '1em',
   },
+  // card styles
   card: {
     width: 300,
     height: 350,

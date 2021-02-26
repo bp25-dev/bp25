@@ -72,10 +72,15 @@ const FilterBar = (props) => (
   </div>
 );
 
+// change each second row to light blue
+const postRowStyle = (record, index) => ({
+  backgroundColor: index % 2 ? 1 : '#dbe5f1',
+});
+
 // show eixsting users
 export const UserList = (props) => (
   <List {...props} title='Benutzer*innen' filters={<FilterBar />}>
-    <Datagrid>
+    <Datagrid rowStyle={postRowStyle}>
       {/*  TODO: get real primary key of user ID (username?) 
       dont show id for user study
       <TextField source='id' label='ID' /> */}
