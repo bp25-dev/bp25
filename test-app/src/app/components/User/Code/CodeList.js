@@ -2,6 +2,7 @@ import React from 'react';
 import { List, Datagrid, TextField, ReferenceField } from 'react-admin';
 // material UI imports
 import Typography from '@material-ui/core/Typography';
+import { CustomListActions } from '../../CustomListActions.js';
 
 const Aside = (props) => (
   <div style={{ width: 200, margin: '1em' }}>
@@ -16,7 +17,12 @@ const postRowStyle = (record, index) => ({
 });
 
 export const CodeList = (props) => (
-  <List {...props} title='Ersteller Codes' aside={<Aside />}>
+  <List
+    {...props}
+    title='Ersteller Codes'
+    aside={<Aside />}
+    actions={<CustomListActions />}
+  >
     <Datagrid rowStyle={postRowStyle}>
       <TextField source='id' label='ID' />
       <TextField source='code' label='Code' />

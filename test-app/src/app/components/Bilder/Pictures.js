@@ -13,6 +13,7 @@ import {
   Show,
 } from 'react-admin';
 import PictureGrid from './PictureGrid';
+import {CustomListActions} from '../CustomListActions.js';
 
 
 // edit expand component
@@ -31,7 +32,7 @@ const ImageShow = (props) => (
 
 // list existing badges
 export const PictureList = (props) => (
-  <List {...props} title='Picture'>
+  <List {...props} title='Picture' actions={<CustomListActions />}>
     {/* <Datagrid expand={<ImageShow />}>
       <TextField source='description' label='Beschreibung' />
       <EditButton />

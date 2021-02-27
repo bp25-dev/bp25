@@ -10,6 +10,7 @@ import {
   Show,
 } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
+import {CustomListActions} from '../CustomListActions.js';
 
 const useStyles = makeStyles({
   card: {
@@ -32,6 +33,7 @@ const ImageShow = (props) => (
     {...props}
     /* disable the app title change when shown */
     title=' '
+    actions={false}
   >
     <SimpleShowLayout>
       <ImageField
@@ -60,7 +62,7 @@ const ImageShow = (props) => (
 export const AbzeichenList = (props) => {
   const classes = useStyles();
   return (
-    <List {...props} title='Abzeichen'>
+    <List {...props} title='Abzeichen' actions={<CustomListActions />}>
       <Datagrid expand={<ImageShow />} rowClick='expand'>
         <TextField source='id' label='ID' />
         <TextField source='name' label='Name' />
@@ -70,7 +72,7 @@ export const AbzeichenList = (props) => {
           label='Bild'
         />
         <NumberField source='cost' label='Kosten' />
-        <EditButton />
+        <EditButton label='Editieren'/>
       </Datagrid>
     </List>
   );

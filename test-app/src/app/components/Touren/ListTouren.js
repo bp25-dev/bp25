@@ -7,12 +7,6 @@ import {
   EditButton,
   Show,
   SimpleShowLayout,
-  //actions
-  useListContext,
-  TopToolbar,
-  CreateButton,
-  ExportButton,
-  sanitizeListRestProps,
   //fields
   TextField,
   DateField,
@@ -28,30 +22,8 @@ import {
 } from './Stationen';
 import { FilterBar } from './TourenFilter';
 import { makeStyles } from '@material-ui/core/styles';
+import {CustomListActions} from '../CustomListActions.js';
 
-//solution for removing reset button from action bar (doesnt have functionality there)
-const CustomListActions = (props) => {
-  const { className, exporter, filters, maxResults, ...rest } = props;
-  const {
-    currentSort,
-    resource,
-    filterValues,
-    basePath,
-    total,
-  } = useListContext();
-  return (
-    <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
-      <CreateButton basePath={basePath} />
-      <ExportButton
-        disabled={total === 0}
-        resource={resource}
-        sort={currentSort}
-        filterValues={filterValues}
-        maxResults={maxResults}
-      />
-    </TopToolbar>
-  );
-};
 
 //edit expand component
 //TODO: get information about stations (from the video) and model them
@@ -59,7 +31,8 @@ const StationShow = (props) => (
   <Show
     {...props}
     /* disable the app title change when shown */
-    title=' '
+    title = ''
+    actions={false}
   >
     <SimpleShowLayout>
       <ArrayField source='Stationen'>
@@ -133,7 +106,7 @@ export const TourenList = (props) => {
         />
         <NumberField source='difficulty' label='Schwierigkeitsgrad' />
         <ChipField source='status' label='Status' />
-        <EditButton />
+        <EditButton label='Editieren'/>
       </Datagrid>
     </List>
   );

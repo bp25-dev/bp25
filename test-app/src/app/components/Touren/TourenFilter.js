@@ -26,7 +26,7 @@ const validateDifficulty = [
 export const FilterBar = (props) => (
   <div>
     <Filter {...props}>
-      <SearchInput source='q' alwaysOn />
+      <SearchInput source='q' alwaysOn  placeholder="Suche"/>
       <SelectInput
         source='status'
         choices={[

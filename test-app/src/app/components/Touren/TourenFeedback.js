@@ -1,12 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import {
-  TextField,
-  ReferenceField,
-  RichTextField,
-  NumberField,
   List,
-  useListContext,
-  EditButton,
   //edit
   NumberInput,
   TextInput,
@@ -18,117 +12,50 @@ import {
   minValue,
   maxValue,
   number,
+  // custom actions
+  useListContext,
+  TopToolbar,
+  ExportButton,
+  sanitizeListRestProps,
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
-import { Card, CardContent, CardHeader, CardActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { linkToRecord } from 'ra-core';
-import { Link } from 'react-router-dom';
+import { FeedbackGrid } from './FeedbackGrid';
 
-import Icon from '@material-ui/icons/Stars';
 
 const useStyles = makeStyles({
   content: {
     backgroundColor: '#e4edf8', // background color of container
   },
-  div: {
-    margin: '1em', // spacing between cards
-  },
-  // card styles
-  card: {
-    width: 300,
-    height: 350,
-    margin: '0.5em',
-    display: 'inline-block',
-    verticalAlign: 'top',
-    textDecoration: 'none',
-  },
-  actions: {
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-  },
-  // styling for custom star field
-  icon: {
-    opacity: 0.87,
-    width: 20,
-    height: 20,
-  },
 });
 
-const StarRatingField = ({ record }) => {
-  const classes = useStyles();
+//translate text into german 
+export const CustomListActions = (props) => {
+  const { className, exporter, filters, maxResults, ...rest } = props;
+  const {
+    currentSort,
+    resource,
+    filterValues,
+    total,
+  } = useListContext();
   return (
-    <span>
-      {Array(record.rating)
-        .fill(true)
-        .map((_, i) => (
-          <Icon key={i} className={classes.icon} />
-        ))}
-    </span>
-  );
-};
-
-const FeedbackGrid = () => {
-  const { ids, data, basePath } = useListContext();
-  const classes = useStyles();
-  return (
-    <div className={classes.div}>
-      {ids.map((id) => (
-        <Card key={id} className={classes.card}>
-          <CardHeader
-            title={
-              <ReferenceField
-                source='tour.$oid'
-                reference='Touren'
-                label='Tourname'
-              >
-                <TextField source='name' />
-              </ReferenceField>
-            }
-            title='Tour Referenz'
-          />
-          <CardContent>
-            Bewertung:&nbsp;
-            <NumberField record={data[id]} source='rating' label='Bewertung' />
-            /10 <br />
-            <StarRatingField
-              record={data[id]}
-              source='rating'
-              label='Bewertung'
-            />
-          </CardContent>
-          {/* <CardContent>
-            TestRef:&nbsp;
-            <ReferenceField record={data[id]} source='tour.$oid' reference='Touren' label='Tourname'>
-                <TextField source='name' />
-              </ReferenceField> 
-          </CardContent> */}
-          <CardContent>
-            Feedback:&nbsp;
-            <RichTextField
-              record={data[id]}
-              source='review'
-              label='Rezension'
-            />
-          </CardContent>
-          <CardActions className={classes.actions}>
-            <EditButton
-              to={linkToRecord(basePath, data[id].id)}
-              component={Link}
-              variant='outlined'
-              color='primary'
-            />
-          </CardActions>
-        </Card>
-      ))}
-    </div>
+    <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
+      <ExportButton
+        disabled={total === 0}
+        resource={resource}
+        sort={currentSort}
+        filterValues={filterValues}
+        maxResults={maxResults}
+        label="Daten exportieren"
+      />
+    </TopToolbar>
   );
 };
 
 export const FeedbackList = (props) => {
   const classes = useStyles();
   return (
-    <List {...props} title='Feedback' classes={{ content: classes.content }}>
+    <List {...props} title='Feedback' classes={{ content: classes.content }} actions={<CustomListActions />}>
       <FeedbackGrid />
     </List>
   );

@@ -21,8 +21,10 @@ import {
   DateInput,
   TextInput,
   Toolbar,
-  SaveButton,
   SimpleShowLayout,
+  // custom buttons
+  SaveButton,
+  EditButton
 } from 'react-admin';
 import {
   QuestionInput,
@@ -62,7 +64,7 @@ const validateDifficulty = [
 
 // edit a tour
 export const TourenEdit = (props) => (
-  <Edit title='Bearbeite Touren' {...props}>
+  <Edit title='Bearbeite Touren' {...props} successMessage="Die Änderungen wurden gespeichert" >
     <TabbedForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
       <FormTab label='Informationen'>
         <TextInput disabled source='ID' label='ID' fullWidth />

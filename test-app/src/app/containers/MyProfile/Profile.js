@@ -15,8 +15,6 @@ import React, {
   } from "react";
   import {
     TextInput,
-    ImageInput,
-    ImageField,
     PasswordInput,
     SimpleForm,
     required,

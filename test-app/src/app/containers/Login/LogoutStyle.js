@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
-import AcUnitIcon from '@material-ui/icons/AcUnit';
+import React from 'react'
 import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { CssBaseline } from '@material-ui/core';
 
 const StyledMenu = withStyles()
   ((props) => (

@@ -14,6 +14,7 @@ import {
 } from 'react-admin';
 import { FilterSidebar } from './ExponateFilterSidebar.js';
 import { makeStyles } from '@material-ui/core/styles';
+import {CustomListActions} from '../CustomListActions.js';
 
 const useStyles = makeStyles({
   field: {
@@ -33,7 +34,11 @@ const postRowStyle = (record, index) => ({
 const ImageShow = (props) => {
   const classes = useStyles(props);
   return (
-    <Show {...props} title=' ' /* disable the app title change when shown */>
+    <Show
+      {...props}
+      title=' ' /* disable the app title change when shown */
+      actions={false}
+    >
       <SimpleShowLayout>
         <TextField source='art_type' label='Kunsttyp' />
         <TextField
@@ -70,7 +75,12 @@ const ImageShow = (props) => {
 export const ExponateList = (props) => {
   const classes = useStyles(props);
   return (
-    <List {...props} title='Exponate' aside={<FilterSidebar />}>
+    <List
+      {...props}
+      title='Exponate'
+      aside={<FilterSidebar />}
+      actions={<CustomListActions />}
+    >
       <Datagrid
         rowClick='expand'
         expand={<ImageShow />}
@@ -93,7 +103,7 @@ export const ExponateList = (props) => {
         >
           <BooleanField source='picture.$oid' />
         </ReferenceField>*/}
-        <EditButton />
+        <EditButton label='Editieren' />
       </Datagrid>
     </List>
   );
