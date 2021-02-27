@@ -26,7 +26,7 @@ import {PictureEdit} from './app/components/Profilbilder/PictureEdit.js';
 import {PictureCreate} from './app/components/Profilbilder/PictureCreate.js';
 //pages
 import Dashboard from './app/containers/Dashboard';
-import CustomRoutesProfile from './app/containers/MyProfile/CustomRoutesProfile.js';
+import CustomRoutesProfile from './app/containers/CustomRoutes.js';
 import MyLayout from './app/containers/MyLayout.js';
 import {MyTheme} from './app/containers/MyTheme.js';
 import LoginPage from './app/containers/Login/LoginPage.js';
@@ -41,6 +41,7 @@ import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate';
 import ListIcon from '@material-ui/icons/List';
 import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
+import HelpIcon from '@material-ui/icons/Help';
 
 export default function App() {
   return (
@@ -123,6 +124,12 @@ export default function App() {
           edit={FeedbackEdit}
           icon={RateReviewIcon}
           options={{ label: 'Feedback' }}
+        />
+         <Resource
+          name='faq'
+          list={FeedbackList}
+          icon={HelpIcon}
+          options={{ label: 'FAQ' }}
         />
       </Admin>
     </div>
