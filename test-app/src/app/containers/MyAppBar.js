@@ -7,5 +7,4 @@ const MyAppBar = props =>
     userMenu={<MyUserMenu />} 
 />;
 
-
 export default MyAppBar;

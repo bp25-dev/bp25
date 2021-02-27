@@ -4,7 +4,6 @@ import {
   Datagrid,
   TextField,
   ImageField,
-  UrlField,
   NumberField,
   EditButton,
   SimpleShowLayout,
@@ -13,6 +12,9 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
+  card: {
+    backgroundColor: '#e4edf8', // background color of container
+  },
   imgContainer: {
     '& img': {
       height: 50,
@@ -59,7 +61,7 @@ export const AbzeichenList = (props) => {
   const classes = useStyles();
   return (
     <List {...props} title='Abzeichen'>
-      <Datagrid expand={<ImageShow />}>
+      <Datagrid expand={<ImageShow />} rowClick='expand'>
         <TextField source='id' label='ID' />
         <TextField source='name' label='Name' />
         <ImageField

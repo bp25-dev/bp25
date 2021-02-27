@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { Title } from 'react-admin';
 //material UI imports
 import Card from '@material-ui/core/Card';
-import { Container, Grid, Paper, Typography } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
-import badges from './images/Badges.png';
-import exponate from './images/Exponate.png';
-import tours from './images/Tours.png';
-import user from './images/User.png';
+import badges from '../data/images/Badges.png';
+import exponate from '../data/images/Exponate.png';
+import tours from '../data/images/Tours.png';
+import user from '../data/images/User.png';
 
 // style for the cards
 const useCardStyles = makeStyles(() => ({
@@ -23,8 +23,6 @@ const useCardStyles = makeStyles(() => ({
     transition: '0.3s',
     color: '#000',
     backgroundColor: 'transparent',
-    // light blue
-    // backgroundColor: '#dbe5f1',
   },
   media: {
     height: 0,

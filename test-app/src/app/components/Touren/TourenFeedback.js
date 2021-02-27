@@ -28,9 +28,11 @@ import { Link } from 'react-router-dom';
 import Icon from '@material-ui/icons/Stars';
 
 const useStyles = makeStyles({
-  // card field Styles 
+  content: {
+    backgroundColor: '#e4edf8', // background color of container
+  },
   div: {
-    margin: '1em',
+    margin: '1em', // spacing between cards
   },
   // card styles
   card: {
@@ -45,25 +47,26 @@ const useStyles = makeStyles({
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
   },
-  // styling for custom star field 
+  // styling for custom star field
   icon: {
-    opacity: 0.87, 
-    width: 20, 
+    opacity: 0.87,
+    width: 20,
     height: 20,
   },
 });
 
 const StarRatingField = ({ record }) => {
   const classes = useStyles();
-  return(
-  <span>
-    {Array(record.rating)
-      .fill(true)
-      .map((_, i) => (
-        <Icon key={i} className={classes.icon} />
-      ))}
-  </span>
-)};
+  return (
+    <span>
+      {Array(record.rating)
+        .fill(true)
+        .map((_, i) => (
+          <Icon key={i} className={classes.icon} />
+        ))}
+    </span>
+  );
+};
 
 const FeedbackGrid = () => {
   const { ids, data, basePath } = useListContext();
@@ -72,7 +75,7 @@ const FeedbackGrid = () => {
     <div className={classes.div}>
       {ids.map((id) => (
         <Card key={id} className={classes.card}>
-          <CardHeader 
+          <CardHeader
             title={
               <ReferenceField
                 source='tour.$oid'
@@ -81,7 +84,7 @@ const FeedbackGrid = () => {
               >
                 <TextField source='name' />
               </ReferenceField>
-            } 
+            }
             title='Tour Referenz'
           />
           <CardContent>
@@ -93,7 +96,7 @@ const FeedbackGrid = () => {
               source='rating'
               label='Bewertung'
             />
-            </CardContent>
+          </CardContent>
           {/* <CardContent>
             TestRef:&nbsp;
             <ReferenceField record={data[id]} source='tour.$oid' reference='Touren' label='Tourname'>
@@ -122,11 +125,14 @@ const FeedbackGrid = () => {
   );
 };
 
-export const FeedbackList = (props) => (
-  <List {...props} title='Feedback'>
-    <FeedbackGrid />
-  </List>
-);
+export const FeedbackList = (props) => {
+  const classes = useStyles();
+  return (
+    <List {...props} title='Feedback' classes={{ content: classes.content }}>
+      <FeedbackGrid />
+    </List>
+  );
+};
 
 // create a range withing the rating can be selected
 const validateRating = [

@@ -1,8 +1,6 @@
 import React from 'react';
-import { Admin, Resource, Layout } from 'react-admin';
-import { theme } from './app/containers/Style/Theme.js';
-// site components
-// site components
+import { Admin, Resource} from 'react-admin';
+//components
 //Exponate
 import {ExponateCreate} from './app/components/Exponate/ExponateCreate.js';
 import {ExponateEdit} from './app/components/Exponate/ExponateEdit.js';
@@ -26,13 +24,14 @@ import {AbzeichenCreate} from './app/components/Abzeichen/AbzeichenCreate.js';
 import {PictureList} from './app/components/Profilbilder/PictureList.js';
 import {PictureEdit} from './app/components/Profilbilder/PictureEdit.js';
 import {PictureCreate} from './app/components/Profilbilder/PictureCreate.js';
+//pages
 import Dashboard from './app/containers/Dashboard';
-import customRoutes from './app/containers/MyProfile/CustomRoutes.js';
-import MyLayout from './app/containers/MyProfile/MyLayout.js';
+import CustomRoutesProfile from './app/containers/MyProfile/CustomRoutesProfile.js';
+import MyLayout from './app/containers/MyLayout.js';
+import {MyTheme} from './app/containers/MyTheme.js';
 import LoginPage from './app/containers/Login/LoginPage.js';
-import dataProvider from './app/containers/dataProvider.js';
-import authProvider from './app/containers/authProvider.js';
-
+import authProvider from './app/containers/Login/authProvider.js';
+import dataProvider from './app/data/fakeDataProvider.js';
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
@@ -54,9 +53,9 @@ export default function App() {
         authProdiver={authProvider}
         loginPage={LoginPage}
         dashboard={Dashboard}
-        theme={theme} 
+        theme={MyTheme} 
         layout={MyLayout}
-        customRoutes={customRoutes}
+        customRoutes={CustomRoutesProfile}
       >
         <Resource
           name='Exponate'

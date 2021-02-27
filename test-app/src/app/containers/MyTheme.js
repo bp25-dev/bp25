@@ -3,7 +3,7 @@ import { defaultTheme } from "react-admin";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import merge from "lodash/merge";
 
-export const theme = createMuiTheme(
+export const MyTheme = createMuiTheme(
   merge({}, defaultTheme, {
     palette: {
       // adding a dark type theme 

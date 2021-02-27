@@ -73,11 +73,11 @@ import React, {
             onFailure: () => {
               setSaving(false);
               notify(
-                "A technical error occured while updating your profile. Please try later.",
-                "warning",
+                "Ein technischer Fehler ist während der Aktualisierung deines Profils aufgetreten. Bitte probiere es später erneut.",
+                "Warnung",
                 {
                   _:
-                    "A technical error occured while updating your profile. Please try later."
+                    "Ein technischer Fehler ist während der Aktualisierung deines Profils aufgetreten. Bitte probiere es später erneut"
                 }
               );
             }
@@ -101,7 +101,7 @@ import React, {
   
     return (
       <SaveContextProvider value={saveContext}>
-        <SimpleForm save={handleSave} record={identity ? identity : {}}>
+        <SimpleForm save={handleSave} record={identity ? identity : {}} >
           <TextInput source="Benutzername" validate={required()} fullWidth/>
           <PasswordInput source="altes Passwort" validate={required()} label="altes Passwort" fullWidth/>
           <PasswordInput source="neues Passwort" validate={required()} label="neues Passwort" fullWidth/>

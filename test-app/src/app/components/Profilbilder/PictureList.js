@@ -22,10 +22,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import { linkToRecord } from 'ra-core';
 import { Link } from 'react-router-dom';
 
-// style of different card entries
+
 const useStyles = makeStyles({
+  content: {
+    backgroundColor: '#e4edf8', // background color of container
+  },
   div: {
-    margin: '1em',
+    margin: '1em', // spacing between cards
   },
   card: {
     width: 300,
@@ -97,10 +100,14 @@ const FilterBar = (props) => (
   </div>
 );
 // list existing badges
-export const PictureList = (props) => (
+export const PictureList = (props) => {
+  const classes = useStyles();
+  return(
   <List {...props} 
   title='Abzeichen' 
-  filters={<FilterBar />} >
+  filters={<FilterBar />} 
+  classes={{ content: classes.content }}>
     <PictureGrid />
   </List>
 );
+  }

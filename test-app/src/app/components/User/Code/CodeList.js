@@ -12,7 +12,7 @@ const Aside = (props) => (
 
 // change each second row to light blue
 const postRowStyle = (record, index) => ({
-  backgroundColor: index % 2 ? 1 : '#dbe5f1',
+  backgroundColor: index % 2 ? 1 : '#e4edf8',
 });
 
 export const CodeList = (props) => (

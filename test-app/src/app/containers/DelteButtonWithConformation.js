@@ -31,7 +31,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 
-import { SimpleForm, Button, DeleteButton, TextInput, LongTextInput, required } from 'react-admin';
+import {Button} from 'react-admin';
 
 const styles = (theme) => ({
   deleteButton: {

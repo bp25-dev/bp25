@@ -21,13 +21,12 @@ const useStyles = makeStyles({
   },
   rowCell: {
     padding: '0px',
-    backgroundColor: '#aec3dd',
   },
 });
 
 // change each second row to light blue
 const postRowStyle = (record, index) => ({
-  backgroundColor: index % 2 ? 1 : '#dbe5f1',
+  backgroundColor: index % 2 ? 1 : '#e4edf8',
 });
 
 // edit expand component
