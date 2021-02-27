@@ -21,7 +21,7 @@ import {
 import RichTextInput from 'ra-input-rich-text';
 import { makeStyles } from '@material-ui/core/styles';
 import { FeedbackGrid } from './FeedbackGrid';
-
+import { CustomBulkActions } from '../CustomBulkActions.js';
 
 const useStyles = makeStyles({
   content: {
@@ -29,15 +29,10 @@ const useStyles = makeStyles({
   },
 });
 
-//translate text into german 
+//translate text into german
 export const CustomListActions = (props) => {
   const { className, exporter, filters, maxResults, ...rest } = props;
-  const {
-    currentSort,
-    resource,
-    filterValues,
-    total,
-  } = useListContext();
+  const { currentSort, resource, filterValues, total } = useListContext();
   return (
     <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
       <ExportButton
@@ -46,7 +41,7 @@ export const CustomListActions = (props) => {
         sort={currentSort}
         filterValues={filterValues}
         maxResults={maxResults}
-        label="Daten exportieren"
+        label='Daten exportieren'
       />
     </TopToolbar>
   );
@@ -55,7 +50,13 @@ export const CustomListActions = (props) => {
 export const FeedbackList = (props) => {
   const classes = useStyles();
   return (
-    <List {...props} title='Feedback' classes={{ content: classes.content }} actions={<CustomListActions />}>
+    <List
+      {...props}
+      title='Feedback'
+      classes={{ content: classes.content }}
+      actions={<CustomListActions />}
+      bulkActionButtons={<CustomBulkActions />}
+    >
       <FeedbackGrid />
     </List>
   );

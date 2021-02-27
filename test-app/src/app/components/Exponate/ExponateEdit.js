@@ -25,9 +25,6 @@ const UserEditToolbar = (props) => (
   </Toolbar>
 );
 
-const DeleteConfirmTitle =
-  'Sind Sie sicher, dass Sie dieses Exponat löschen wollen?';
-
 const DeleteConfirmContent = (props) => {
   return (
     <SimpleShowLayout {...props}>
@@ -93,7 +90,7 @@ export const ExponateEdit = (props) => {
             <ImageInput source='img' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
         </FormTab>
         <DeleteWithCustomConfirmButton
-          title={DeleteConfirmTitle}
+          title={ 'Sind Sie sicher, dass Sie dieses Exponat löschen wollen?'}
           content={DeleteConfirmContent}
           label='Löschen'
           cancel='Abbrechen'

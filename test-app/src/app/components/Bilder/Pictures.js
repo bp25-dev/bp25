@@ -13,8 +13,8 @@ import {
   Show,
 } from 'react-admin';
 import PictureGrid from './PictureGrid';
-import {CustomListActions} from '../CustomListActions.js';
-
+import { CustomListActions } from '../CustomListActions.js';
+import { CustomBulkActions } from '../CustomBulkActions.js';
 
 // edit expand component
 const ImageShow = (props) => (
@@ -32,12 +32,17 @@ const ImageShow = (props) => (
 
 // list existing badges
 export const PictureList = (props) => (
-  <List {...props} title='Picture' actions={<CustomListActions />}>
+  <List
+    {...props}
+    title='Picture'
+    actions={<CustomListActions />}
+    bulkActionButtons={<CustomBulkActions />}
+  >
     {/* <Datagrid expand={<ImageShow />}>
       <TextField source='description' label='Beschreibung' />
       <EditButton />
     </Datagrid> */}
-    <PictureGrid/>
+    <PictureGrid />
   </List>
 );
 
@@ -45,8 +50,12 @@ export const PictureList = (props) => (
 export const PictureEdit = (props) => (
   <Edit title='Verändere Profilbilder' {...props}>
     <SimpleForm>
-      <ImageInput source='Picture' accept='image/*' placeholder={<p>Füge hier neue Profilbilder hinzu</p>}>
-        <ImageField source='picture'/>
+      <ImageInput
+        source='Picture'
+        accept='image/*'
+        placeholder={<p>Füge hier neue Profilbilder hinzu</p>}
+      >
+        <ImageField source='picture' />
       </ImageInput>
       <TextInput label='Beschreibung' source='description' />
     </SimpleForm>
@@ -57,7 +66,11 @@ export const PictureEdit = (props) => (
 export const PictureCreate = (props) => (
   <Create title='Lade Profilbilder hoch' {...props}>
     <SimpleForm>
-      <ImageInput source='Picture' accept='image/*' placeholder={<p>Füge hier neue Profilbilder hinzu</p>}>
+      <ImageInput
+        source='Picture'
+        accept='image/*'
+        placeholder={<p>Füge hier neue Profilbilder hinzu</p>}
+      >
         <ImageField source='picture' />
       </ImageInput>
       <TextInput label='Beschreibung' source='description' />

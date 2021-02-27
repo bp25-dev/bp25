@@ -15,6 +15,7 @@ import ClearIcon from '@material-ui/icons/Clear';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import { CustomListActions } from '../CustomListActions.js';
+import { CustomBulkActions } from '../CustomBulkActions.js';
 import { UserFilterBar } from './UserFilter';
 
 const useStyles = makeStyles((theme) => ({
@@ -54,6 +55,7 @@ export const UserList = (props) => (
     title='Benutzer*innen'
     filters={<UserFilterBar />}
     actions={<CustomListActions />}
+    bulkActionButtons={<CustomBulkActions />}
   >
     <Datagrid rowStyle={postRowStyle}>
       {/*  TODO: get real primary key of user ID (username?) 

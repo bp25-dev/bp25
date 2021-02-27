@@ -3,6 +3,7 @@ import { List, Datagrid, TextField, ReferenceField } from 'react-admin';
 // material UI imports
 import Typography from '@material-ui/core/Typography';
 import { CustomListActions } from '../../CustomListActions.js';
+import { CustomBulkActions } from '../../CustomBulkActions.js';
 
 const Aside = (props) => (
   <div style={{ width: 200, margin: '1em' }}>
@@ -22,6 +23,7 @@ export const CodeList = (props) => (
     title='Ersteller Codes'
     aside={<Aside />}
     actions={<CustomListActions />}
+    bulkActionButtons={<CustomBulkActions />}
   >
     <Datagrid rowStyle={postRowStyle}>
       <TextField source='id' label='ID' />

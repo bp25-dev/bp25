@@ -78,8 +78,8 @@ class DeleteButtonWithConfirmation extends Component {
         <Button onClick={this.handleClick} label={label} className={classnames('ra-delete-button', classes.deleteButton, className)} key="button">
           <ActionDelete />
         </Button>
-        <Dialog fullWidth open={showDialog} onClose={this.handleCloseClick} aria-label="Are you sure?">
-          <DialogTitle>Are you sure you want to delete this entity?</DialogTitle>
+        <Dialog fullWidth open={showDialog} onClose={this.handleCloseClick} aria-label="Sind Sie sicher?">
+          <DialogTitle>Sind Sie sich sicher, dass sie diesen Eintrag löschen möchten?</DialogTitle>
           <DialogContent>
             <div>
               Your actions will be logged.

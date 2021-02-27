@@ -10,7 +10,8 @@ import {
   Show,
 } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
-import {CustomListActions} from '../CustomListActions.js';
+import { CustomListActions } from '../CustomListActions.js';
+import { CustomBulkActions } from '../CustomBulkActions.js';
 
 const useStyles = makeStyles({
   card: {
@@ -62,7 +63,12 @@ const ImageShow = (props) => (
 export const AbzeichenList = (props) => {
   const classes = useStyles();
   return (
-    <List {...props} title='Abzeichen' actions={<CustomListActions />}>
+    <List
+      {...props}
+      title='Abzeichen'
+      actions={<CustomListActions />}
+      bulkActionButtons={<CustomBulkActions />}
+    >
       <Datagrid expand={<ImageShow />} rowClick='expand'>
         <TextField source='id' label='ID' />
         <TextField source='name' label='Name' />
@@ -72,7 +78,7 @@ export const AbzeichenList = (props) => {
           label='Bild'
         />
         <NumberField source='cost' label='Kosten' />
-        <EditButton label='Editieren'/>
+        <EditButton label='Editieren' />
       </Datagrid>
     </List>
   );

@@ -15,6 +15,7 @@ import {
 import { FilterSidebar } from './ExponateFilterSidebar.js';
 import { makeStyles } from '@material-ui/core/styles';
 import {CustomListActions} from '../CustomListActions.js';
+import { CustomBulkActions } from '../CustomBulkActions.js';
 
 const useStyles = makeStyles({
   field: {
@@ -80,6 +81,7 @@ export const ExponateList = (props) => {
       title='Exponate'
       aside={<FilterSidebar />}
       actions={<CustomListActions />}
+      bulkActionButtons={<CustomBulkActions />}
     >
       <Datagrid
         rowClick='expand'

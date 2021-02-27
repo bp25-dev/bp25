@@ -22,8 +22,8 @@ import {
 } from './Stationen';
 import { FilterBar } from './TourenFilter';
 import { makeStyles } from '@material-ui/core/styles';
-import {CustomListActions} from '../CustomListActions.js';
-
+import { CustomListActions } from '../CustomListActions.js';
+import { CustomBulkActions } from '../CustomBulkActions.js';
 
 //edit expand component
 //TODO: get information about stations (from the video) and model them
@@ -31,7 +31,7 @@ const StationShow = (props) => (
   <Show
     {...props}
     /* disable the app title change when shown */
-    title = ''
+    title=''
     actions={false}
   >
     <SimpleShowLayout>
@@ -65,6 +65,7 @@ export const TourenList = (props) => {
       title='Touren'
       filters={<FilterBar />}
       actions={<CustomListActions />}
+      bulkActionButtons={<CustomBulkActions />}
       classes={{ main: classes.main }}
     >
       <Datagrid
@@ -106,7 +107,7 @@ export const TourenList = (props) => {
         />
         <NumberField source='difficulty' label='Schwierigkeitsgrad' />
         <ChipField source='status' label='Status' />
-        <EditButton label='Editieren'/>
+        <EditButton label='Editieren' />
       </Datagrid>
     </List>
   );
