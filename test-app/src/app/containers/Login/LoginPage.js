@@ -116,9 +116,11 @@ class Login extends Component {
             />
 
             <div className='Button'>
+              <Link to={''}>
               <Button variant='contained' color='primary' onClick={() => {}}>
                 ANMELDEN
               </Button>
+              </Link>
             </div>
           </div>
           <Dialog
