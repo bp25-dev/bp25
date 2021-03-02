@@ -14,7 +14,7 @@ import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
-import { CustomListActions } from '../CustomListActions.js';
+import { CustomListActionsExport } from '../CustomListActions.js';
 import { CustomBulkActions } from '../CustomBulkActions.js';
 import { UserFilterBar } from './UserFilter';
 
@@ -54,7 +54,7 @@ export const UserList = (props) => (
     {...props}
     title='Benutzer*innen'
     filters={<UserFilterBar />}
-    actions={<CustomListActions />}
+    actions={<CustomListActionsExport />}
     bulkActionButtons={<CustomBulkActions />}
   >
     <Datagrid rowStyle={postRowStyle}>

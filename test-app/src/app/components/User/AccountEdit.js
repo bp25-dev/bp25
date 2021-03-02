@@ -39,7 +39,7 @@ export const AccountEdit = (props) => (
       <SimpleForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
         <TextInput disabled source='id' label='ID' fullWidth />
         <TextInput source='username' label='Benutzername' fullWidth/>
-        <PasswordInput source='password' label='Passwort' fullWidth/>
+        <PasswordInput disabled source='password' label='Passwort' fullWidth/>
         <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
         <DeleteWithCustomConfirmButton
           title={DeleteConfirmTitle}      

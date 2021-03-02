@@ -12,7 +12,6 @@ import {TourenEdit} from './app/components/Touren/EditTouren.js';
 import {FeedbackList, FeedbackEdit} from './app/components/Touren/TourenFeedback.js';
 //Benutzer
 import {UserList} from './app/components/User/UserList.js';
-import {AccountEdit} from './app/components/User/AccountEdit.js';
 import {UserCreate} from './app/components/User/UserCreate.js';
 import {CodeList} from './app/components/User/Code/CodeList.js';
 import {CodeCreate} from './app/components/User/Code/CodeCreate.js';
@@ -82,7 +81,6 @@ export default function App() {
         <Resource
           name='Benutzer'
           list={UserList}
-          edit={AccountEdit}
           create={UserCreate}
           icon={ListIcon}
           options={{ label: 'Übersicht', menuParent: 'Benutzer_overview' }}
