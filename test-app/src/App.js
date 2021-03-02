@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Admin, Resource} from 'react-admin';
 //components
@@ -31,7 +32,9 @@ import MyLayout from './app/containers/MyLayout.js';
 import {MyTheme} from './app/containers/MyTheme.js';
 import LoginPage from './app/containers/Login/LoginPage.js';
 import authProvider from './app/containers/Login/authProvider.js';
-import dataProvider from './app/data/fakeDataProvider.js';
+//import dataProvider from './app/data/fakeDataProvider.js';
+import initialState from './app/containers/Login/initialState.js';
+
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
@@ -43,20 +46,114 @@ import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import HelpIcon from '@material-ui/icons/Help';
 
+import jsonServerProvider from 'ra-data-json-server'
+const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
+
+const App = () => (
+  <Admin  title='Hessisches Landesmuseum'
+          authProvider={authProvider}
+          dataProvider={dataProvider}
+          dashboard={Dashboard}
+        theme={MyTheme} 
+        layout={MyLayout}
+        customRoutes={CustomRoutesProfile}
+        initial={initialState}
+      >
+         
+          <Resource
+          name='Exponate'
+          list={ExponateList}
+          edit={ExponateEdit}
+          create={ExponateCreate}
+          icon={AccountBalanceIcon}
+          options={{ label: 'Exponate' }}
+        />
+        <Resource
+          name='Touren'
+          list={TourenList}
+          edit={TourenEdit}
+          create={TourenCreate}
+          icon={NavigationIcon}
+          options={{ label: 'Touren' }}
+        />
+        <Resource
+          name='Benutzer_overview'
+          icon={SupervisorAccountIcon}
+          options={{ label: 'Benutzer*innen', isMenuParent: true }}
+        />
+        <Resource
+          name='Benutzer'
+          list={UserList}
+          edit={AccountEdit}
+          create={UserCreate}
+          icon={ListIcon}
+          options={{ label: 'Übersicht', menuParent: 'Benutzer_overview' }}
+        />
+        <Resource
+          name='Codes'
+          list={CodeList}
+          create={CodeCreate}
+          icon={CreateIcon}
+          options={{
+            label: 'Code Erstellen',
+            menuParent: 'Benutzer_overview',
+          }}
+        />
+        <Resource
+          name='Bilder_overview'
+          icon={AddPhotoAlternateIcon}
+          options={{ label: 'Bildverknüpfungen', isMenuParent: true }}
+        />
+        <Resource
+          name='Abzeichen'
+          list={AbzeichenList}
+          edit={AbzeichenEdit}
+          create={AbzeichenCreate}
+          icon={PhotoFilterIcon}
+          options={{ label: 'Abzeichen', menuParent: 'Bilder_overview' }}
+        />
+        <Resource
+          name='ProfilePicture'
+          list={PictureList}
+          edit={PictureEdit}
+          create={PictureCreate}
+          icon={AddPhotoAlternateIcon}
+          options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
+        />
+        <Resource
+          name='Feedback'
+          list={FeedbackList}
+          edit={FeedbackEdit}
+          icon={RateReviewIcon}
+          options={{ label: 'Feedback' }}
+        />
+         <Resource
+          name='faq'
+          list={FeedbackList}
+          icon={HelpIcon}
+          options={{ label: 'FAQ' }}
+        />
+  </Admin>
+);  
+export default App;
+
+
+/**
 export default function App() {
   return (
     <div>
       <Admin
-        title='Hessisches Landesmuseum'
-        //can be replaced with the real data provider
-        dataProvider={dataProvider}
+       // title='Hessisches Landesmuseum'
         // todo: User authentification
         authProdiver={authProvider}
-        loginPage={LoginPage}
+        //can be replaced with the real data provider
+        dataProvider={dataProvider}
+        //loginPage={LoginPage}
         dashboard={Dashboard}
         theme={MyTheme} 
         layout={MyLayout}
         customRoutes={CustomRoutesProfile}
+        initial={initialState}
       >
         <Resource
           name='Exponate'
@@ -135,3 +232,4 @@ export default function App() {
     </div>
   );
 }
+*/

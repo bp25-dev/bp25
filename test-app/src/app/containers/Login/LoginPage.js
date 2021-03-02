@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { Field, Form } from 'react-final-form';
@@ -13,7 +14,7 @@ import LockIcon from '@material-ui/icons/Lock';
 import { useLogin } from 'react-admin';
 
 // site components
-//import authProvider from "./authProvider";
+import authProvider from "./authProvider";
 import './LoginPage.css';
 
 const FakeLogin = (props) => {
@@ -116,11 +117,11 @@ class Login extends Component {
             />
 
             <div className='Button'>
-              <Link to={''}>
+              
               <Button variant='contained' color='primary' onClick={() => {}}>
                 ANMELDEN
               </Button>
-              </Link>
+             
             </div>
           </div>
           <Dialog
