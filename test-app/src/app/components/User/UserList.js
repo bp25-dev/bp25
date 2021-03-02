@@ -86,7 +86,7 @@ export const UserList = (props) => (
           <ChipField source='name' />
         </SingleFieldList>
       </ReferenceManyField>
-      <EditButton />
+      <EditButton label="Editieren"/>
     </Datagrid>
   </List>
 );
