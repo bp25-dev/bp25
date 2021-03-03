@@ -14,7 +14,7 @@ import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
-import { CustomListActionsExport } from '../CustomListActions.js';
+import { CustomListActions } from '../CustomListActions.js';
 import { CustomBulkActions } from '../CustomBulkActions.js';
 import { UserFilterBar } from './UserFilter';
 
