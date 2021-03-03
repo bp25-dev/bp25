@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Admin, Resource} from 'react-admin';
+import { Admin, Resource, Login} from 'react-admin';
 //components
 //Exponate
 import {ExponateCreate} from './app/components/Exponate/ExponateCreate.js';
@@ -32,7 +32,7 @@ import MyLayout from './app/containers/MyLayout.js';
 import {MyTheme} from './app/containers/MyTheme.js';
 import LoginPage from './app/containers/Login/LoginPage.js';
 import authProvider from './app/containers/Login/authProvider.js';
-//import dataProvider from './app/data/fakeDataProvider.js';
+import dataProvider from './app/data/fakeDataProvider.js';
 import initialState from './app/containers/Login/initialState.js';
 
 //icons
@@ -46,18 +46,22 @@ import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import HelpIcon from '@material-ui/icons/Help';
 
-import jsonServerProvider from 'ra-data-json-server'
-const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
+const MyLoginPage = () => (
+  <Login
+      backgroundImage="https://www.hlmd.de/fileadmin/user_upload/haupthalle_enthuellung.jpg"
+  />
+); 
 
 const App = () => (
-  <Admin  title='Hessisches Landesmuseum'
+  <Admin 
+  initial={initialState}
           authProvider={authProvider}
           dataProvider={dataProvider}
+          loginPage={MyLoginPage}
           dashboard={Dashboard}
         theme={MyTheme} 
         layout={MyLayout}
         customRoutes={CustomRoutesProfile}
-        initial={initialState}
       >
          
           <Resource
