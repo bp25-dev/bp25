@@ -12,11 +12,6 @@ import {
   minValue,
   maxValue,
   number,
-  // custom actions
-  useListContext,
-  TopToolbar,
-  ExportButton,
-  sanitizeListRestProps,
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 import { makeStyles } from '@material-ui/core/styles';

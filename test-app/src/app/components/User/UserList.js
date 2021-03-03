@@ -54,7 +54,7 @@ export const UserList = (props) => (
     {...props}
     title='Benutzer*innen'
     filters={<UserFilterBar />}
-    actions={<CustomListActionsExport />}
+    actions={<CustomListActions />}
     bulkActionButtons={<CustomBulkActions />}
   >
     <Datagrid rowStyle={postRowStyle}>
@@ -65,9 +65,6 @@ export const UserList = (props) => (
       <FunctionField
         source='password'
         label='Passwort'
-        /* map all characters into a * using regexp 
-        render={(record) => record.password.replace(/./g, '*')}
-        */
         render={(record) => '********'}
       />
       <BooleanField

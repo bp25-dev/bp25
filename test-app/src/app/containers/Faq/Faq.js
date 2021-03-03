@@ -24,126 +24,142 @@ export default function SimpleAccordion() {
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls='panel1a-content'
+          id='panel1a-header'
         >
-          <Typography className={classes.heading} variant="h6">TOUREN - In welchem Wertebereich liegt der Schwierigkeitsgrad und kann dieser auch negativ sein?</Typography>
+          <Typography className={classes.heading} variant='h6'>
+            Fragen zu Touren
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Der Schwierigkeitsgrad einer Tour liegt immer zwischen 0 und 5 und kann somit nicht negativ sein. 
-            Dabei beschreibt 0 die geringste Schwierigkeit und 5 die höchste.
+            In welchem Wertebereich liegt der Schwierigkeitsgrad und kann dieser
+            auch negativ sein?
+            <br />
+            Der Schwierigkeitsgrad einer Tour liegt immer zwischen 0 und 5 und
+            kann somit nicht negativ sein. Dabei beschreibt 0 die geringste
+            Schwierigkeit und 5 die höchste.
+            <br />
+            <br />
+            Was ist der Unterschied zwischen Ersteller*in und Benutzer*innen?
+            <br />
+            Der/die Ersteller*in erstellt eine neue Tour und der/die
+            Benutzer*innen sind die Teilnehmenden dieser Tour.
+            <br />
+            <br />
+            Was ist das Passwort und was ist der Touren Code einer Tour?
+            <br />
+            Um an einer nicht öffentlichen Tour teilzunehmen, wird ein Passwort
+            benötigt. Der Touren Code einer Tour ist ...
           </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
+          aria-controls='panel2a-content'
+          id='panel2a-header'
         >
-          <Typography className={classes.heading} /*style={{ color: "#003473" }}*/ variant="h6">TOUREN - Was ist der Unterschied zwischen Ersteller*in und Benutzer*innen?</Typography>
+          <Typography className={classes.heading} variant='h6'>
+            Fragen zu Exponaten
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Der/die Ersteller*in erstellt eine neue Tour und der/die Benutzer*innen sind die Teilnehmenden dieser Tour.
+            Wie lösche ich ein Exponat?
+            <br />
+            Um ein Exponat zu löschen, muss man zunächst auf die Seite der
+            Exponate navigieren. Dort gibt es zwei Möglichkeiten ein Exponat zu
+            löschen. Entweder man wählt bei dem Exponat, das gelöscht werden
+            soll, erstmal den Edit-Button. Anschließend findet man dort neben
+            den Reitern "Übersicht", "Eckdaten" und "Bildverknüpfungen" einen
+            Löschen-Button. Andererseits kann man in der Tabelle mit allen
+            Exponaten das Exponat, welches gelöscht werden soll, direkt
+            auswählen. Dies geschieht, indem auf das Kästchen links neben der
+            ObjektID geklickt wird. Anschließend erscheint oben rechts über der
+            Tabelle ein Delete-Button.
+            <br />
+            <br />
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion >
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
+          aria-controls='panel5a-content'
+          id='panel5a-header'
         >
-          <Typography className={classes.heading} variant="h6">TOUREN - Was ist das Passwort und was ist die ID einer Tour?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography > 
-           Um an einer nicht öffentlichen Tour teilzunehmen, wird ein Passwort benötigt. 
-           Die ID einer Tour ist ...
+          <Typography className={classes.heading} variant='h6'>
+            Fragen zum Profil
           </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4a-content"
-          id="panel4a-header"
-        >
-          <Typography className={classes.heading}  variant="h6">EXPONATE - Wie lösche ich ein Exponat?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-           Um ein Exponat zu löschen, muss man zunächst auf die Seite der Exponate navigieren.
-           Dort gibt es zwei Möglichkeiten ein Exponat zu löschen.
-           Entweder man wählt bei dem Exponat, das gelöscht werden soll, erstmal den Edit-Button. Anschließend findet man dort neben den Reitern "Übersicht", "Eckdaten" und "Bildverknüpfungen" einen Löschen-Button.
-           Andererseits kann man in der Tabelle mit allen Exponaten das Exponat, welches gelöscht werden soll, direkt auswählen. Dies geschieht, indem auf das Kästchen links neben der ObjektID geklickt wird. 
-           Anschließend erscheint oben rechts über der Tabelle ein Delete-Button.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel5a-content"
-          id="panel5a-header"
-        >
-          <Typography className={classes.heading} variant="h6">PROFIL - Wie kann ich mein Passwort ändern?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-           Um das eigene Passwort zu ändern, navigiert man auf die sogenannte "Mein Profil"-Seite. 
-           Diese ist, wie der Logout-Button, oben rechts auf der Website zu finden.
-           Auf der "Mein Profil"-Seite kann man sein Passwort ändern, indem das alte Passwort sowie ein neues Passwort eingegeben und bestätigt wird.
+            Wie kann ich mein Passwort ändern?
+            <br />
+            Um das eigene Passwort zu ändern, navigiert man auf die sogenannte
+            "Mein Profil"-Seite. Diese ist, wie der Logout-Button, oben rechts
+            auf der Website zu finden. Auf der "Mein Profil"-Seite kann man sein
+            Passwort ändern, indem das alte Passwort sowie ein neues Passwort
+            eingegeben und bestätigt wird.
+            <br />
+            <br />
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion >
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel6a-content"
-          id="panel6a-header"
+          aria-controls='panel6a-content'
+          id='panel6a-header'
         >
-          <Typography className={classes.heading}  variant="h6">HANDYNUTZUNG - Warum passt sich das Layout der Website bei Handynutzung nicht an?</Typography>
+          <Typography className={classes.heading} variant='h6'>
+            Fragen zur Nutzung auf dem Handy
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-           Die Hauptnutzung der Website ist auf dem Computer oder Laptop gedacht, deshalb passt sich das Layout (noch) nicht automatisch bei Handynutzung an.
-           Alle Funktionen sind aber auch über das Handy ausführbar. 
+            Warum passt sich das Layout der Website bei Handynutzung nicht an?
+            <br />
+            Die Hauptnutzung der Website ist auf dem Computer oder Laptop
+            gedacht, deshalb passt sich das Layout (noch) nicht automatisch bei
+            Handynutzung an. Alle Funktionen sind aber auch über das Handy
+            ausführbar.
+            <br />
+            <br />
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion >
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel7a-content"
-          id="panel7a-header"
+          aria-controls='panel7a-content'
+          id='panel7a-header'
         >
-          <Typography className={classes.heading} variant="h6">ABZEICHEN - Was ist der Sinn und Zweck von Abzeichen?</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-           Durch verschiedene Aktivitäten, kann ein/e Nutzer*in sich Abzeichen verdienen. 
-           Somit motivieren Abzeichen zum regelmäßigen Besuch der App und dokumentieren den Fortschritt eines/einer Nutzer*in. 
-           Außerdem sollen durch verschiedene Abzeichen Profilbilder für den/die Nutzer*in freigeschaltet werden.
+          <Typography className={classes.heading} variant='h6'>
+            Fragen zu Abzeichen
           </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel4a-header"
-        >
-          <Typography className={classes.heading} variant="h6">ABZEICHEN - Was sind die Kosten für Abzeichen?</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Verschiedene Abzeichen haben unterschiedliche Kosten. Diese Kosten verdient man sich durch Ausführen verschiedener Funktionen der App. 
+            Was ist der Sinn und Zweck von Abzeichen?
+            <br />
+            Durch verschiedene Aktivitäten, kann ein/e Nutzer*in sich Abzeichen
+            verdienen. Somit motivieren Abzeichen zum regelmäßigen Besuch der
+            App und dokumentieren den Fortschritt eines/einer Nutzer*in.
+            Außerdem sollen durch verschiedene Abzeichen Profilbilder für
+            den/die Nutzer*in freigeschaltet werden.
+            <br />
+            <br />
+            Was sind die Kosten für Abzeichen?
+            <br />
+            Verschiedene Abzeichen haben unterschiedliche Kosten. Diese Kosten
+            verdient man sich durch Ausführen verschiedener Funktionen der App.
+            <br />
+            <br />
           </Typography>
         </AccordionDetails>
       </Accordion>
     </div>
   );
-  }
+}

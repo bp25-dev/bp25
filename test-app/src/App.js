@@ -13,6 +13,7 @@ import {FeedbackList, FeedbackEdit} from './app/components/Touren/TourenFeedback
 //Benutzer
 import {UserList} from './app/components/User/UserList.js';
 import {UserCreate} from './app/components/User/UserCreate.js';
+import {AccountEdit} from './app/components/User/AccountEdit.js';
 import {CodeList} from './app/components/User/Code/CodeList.js';
 import {CodeCreate} from './app/components/User/Code/CodeCreate.js';
 //Bildverknüpfungen-Abzeichen
@@ -27,6 +28,7 @@ import {PictureCreate} from './app/components/Profilbilder/PictureCreate.js';
 import Dashboard from './app/containers/Dashboard';
 import CustomRoutesProfile from './app/containers/CustomRoutes.js';
 import MyLayout from './app/containers/MyLayout.js';
+import Footer from './app/containers/Footer.js';
 import {MyTheme} from './app/containers/MyTheme.js';
 import LoginPage from './app/containers/Login/LoginPage.js';
 import authProvider from './app/containers/Login/authProvider.js';
@@ -81,6 +83,7 @@ export default function App() {
         <Resource
           name='Benutzer'
           list={UserList}
+          edit={AccountEdit}
           create={UserCreate}
           icon={ListIcon}
           options={{ label: 'Übersicht', menuParent: 'Benutzer_overview' }}
@@ -130,6 +133,7 @@ export default function App() {
           options={{ label: 'FAQ' }}
         />
       </Admin>
+      <Footer/>
     </div>
   );
 }

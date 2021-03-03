@@ -7,9 +7,7 @@ import {
   BooleanInput,
 } from 'react-admin';
 
-
-
-// create a new user
+// TODO: should be limited to admins 
 export const UserCreate = (props) => (
   <Create title='Erstelle Admin' {...props}>
     <SimpleForm>

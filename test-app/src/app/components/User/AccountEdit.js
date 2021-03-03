@@ -34,12 +34,13 @@ const DeleteConfirmContent = props => {
   );
 };
 
+// TODO: edit password should be restricted to users with admin status 
 export const AccountEdit = (props) => (
     <Edit title='Accountdaten ändern' {...props}>
       <SimpleForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
         <TextInput disabled source='id' label='ID' fullWidth />
         <TextInput source='username' label='Benutzername' fullWidth/>
-        <PasswordInput disabled source='password' label='Passwort' fullWidth/>
+        <PasswordInput source='password' label='Passwort' fullWidth/>
         <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
         <DeleteWithCustomConfirmButton
           title={DeleteConfirmTitle}      
