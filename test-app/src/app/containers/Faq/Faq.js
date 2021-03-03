@@ -166,7 +166,7 @@ export default function SimpleAccordion() {
            Wie kann ich mein Profil wieder löschen? Wer kann das Löschen außerdem vornehmen?<br /> 
            Sie können Ihr Profil ebenfalls auf der Seite „Mein Profil“, das Sie über den Button oben rechts auf der Website erreichen, löschen. 
            Außerdem kann auch die Administration der Website das Löschen Ihres Profils vornehmen, bspw. bei Verstoß gegen die geltenden Regeln der Website-Nutzung oder auf Wunsch von Seiten der Nutzer*innen.<br /> 
-           Kontakt:miriam.grabarits@tu-darmstadt.de
+           Kontakt: miriam.grabarits@tu-darmstadt.de
           </Typography>
         </AccordionDetails>
       </Accordion>

@@ -63,7 +63,7 @@ const App = () => (
         layout={MyLayout}
         customRoutes={CustomRoutesProfile}
       >
-         
+         {permissions => [
           <Resource
           name='Exponate'
           list={ExponateList}
@@ -71,7 +71,7 @@ const App = () => (
           create={ExponateCreate}
           icon={AccountBalanceIcon}
           options={{ label: 'Exponate' }}
-        />
+        />,
         <Resource
           name='Touren'
           list={TourenList}
@@ -79,12 +79,12 @@ const App = () => (
           create={TourenCreate}
           icon={NavigationIcon}
           options={{ label: 'Touren' }}
-        />
+        />,
         <Resource
           name='Benutzer_overview'
           icon={SupervisorAccountIcon}
           options={{ label: 'Benutzer*innen', isMenuParent: true }}
-        />
+        />,
         <Resource
           name='Benutzer'
           list={UserList}
@@ -92,7 +92,9 @@ const App = () => (
           create={UserCreate}
           icon={ListIcon}
           options={{ label: 'Übersicht', menuParent: 'Benutzer_overview' }}
-        />
+        />,
+        permissions === 'admin'
+            ?
         <Resource
           name='Codes'
           list={CodeList}
@@ -103,11 +105,12 @@ const App = () => (
             menuParent: 'Benutzer_overview',
           }}
         />
+        : null,
         <Resource
           name='Bilder_overview'
           icon={AddPhotoAlternateIcon}
           options={{ label: 'Bildverknüpfungen', isMenuParent: true }}
-        />
+        />,
         <Resource
           name='Abzeichen'
           list={AbzeichenList}
@@ -115,7 +118,7 @@ const App = () => (
           create={AbzeichenCreate}
           icon={PhotoFilterIcon}
           options={{ label: 'Abzeichen', menuParent: 'Bilder_overview' }}
-        />
+        />,
         <Resource
           name='ProfilePicture'
           list={PictureList}
@@ -123,20 +126,21 @@ const App = () => (
           create={PictureCreate}
           icon={AddPhotoAlternateIcon}
           options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
-        />
+        />,
         <Resource
           name='Feedback'
           list={FeedbackList}
           edit={FeedbackEdit}
           icon={RateReviewIcon}
           options={{ label: 'Feedback' }}
-        />
+        />,
          <Resource
           name='faq'
           list={FeedbackList}
           icon={HelpIcon}
           options={{ label: 'FAQ' }}
         />
+      ]}
   </Admin>
 );  
 export default App;

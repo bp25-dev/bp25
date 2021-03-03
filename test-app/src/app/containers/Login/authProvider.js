@@ -39,7 +39,7 @@ export default {
     login: ({ username, password }) => {
         if (username === 'admin' && password === 'password') {
             localStorage.removeItem('not_authenticated');
-            localStorage.removeItem('role');
+            localStorage.setItem('role', 'admin');
             localStorage.setItem('login', username);
             localStorage.setItem('user', username);
             return Promise.resolve();
