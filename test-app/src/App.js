@@ -49,19 +49,23 @@ import HelpIcon from '@material-ui/icons/Help';
 const MyLoginPage = () => (
   <Login
       backgroundImage="https://www.hlmd.de/fileadmin/user_upload/haupthalle_enthuellung.jpg"
+      style={{
+        backgroundPosition: 'center',
+      }
+      }
   />
 ); 
 
 const App = () => (
   <Admin 
-  initial={initialState}
+          initial={initialState}
           authProvider={authProvider}
           dataProvider={dataProvider}
           loginPage={MyLoginPage}
           dashboard={Dashboard}
-        theme={MyTheme} 
-        layout={MyLayout}
-        customRoutes={CustomRoutesProfile}
+          theme={MyTheme} 
+          layout={MyLayout}
+          customRoutes={CustomRoutesProfile}
       >
          {permissions => [
           <Resource
@@ -85,6 +89,8 @@ const App = () => (
           icon={SupervisorAccountIcon}
           options={{ label: 'Benutzer*innen', isMenuParent: true }}
         />,
+        permissions === 'admin'
+            ?
         <Resource
           name='Benutzer'
           list={UserList}
@@ -92,7 +98,8 @@ const App = () => (
           create={UserCreate}
           icon={ListIcon}
           options={{ label: 'Übersicht', menuParent: 'Benutzer_overview' }}
-        />,
+        />
+        : null,
         permissions === 'admin'
             ?
         <Resource

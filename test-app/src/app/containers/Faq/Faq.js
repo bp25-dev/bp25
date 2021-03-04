@@ -1,4 +1,5 @@
 import React from 'react';
+import { Title } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -27,6 +28,7 @@ export default function SimpleAccordion() {
           aria-controls="panel7a-content"
           id="panel7a-header"
         >
+          <Title title='FAQ' />
           <Typography className={classes.heading} variant="h6">Fragen zu "Abzeichen"</Typography>
         </AccordionSummary>
         <AccordionDetails>
