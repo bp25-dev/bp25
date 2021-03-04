@@ -65,9 +65,6 @@ export const UserList = (props) => (
       <FunctionField
         source='password'
         label='Passwort'
-        /* map all characters into a * using regexp 
-        render={(record) => record.password.replace(/./g, '*')}
-        */
         render={(record) => '********'}
       />
       <BooleanField
@@ -86,7 +83,7 @@ export const UserList = (props) => (
           <ChipField source='name' />
         </SingleFieldList>
       </ReferenceManyField>
-      <EditButton />
+      <EditButton label="Editieren"/>
     </Datagrid>
   </List>
 );

@@ -1,6 +1,6 @@
-
-import React from 'react';
-import { Admin, Resource, Login} from 'react-admin';
+import React, { Component } from 'react';
+import { Admin, Resource, Delete, Login} from 'react-admin';
+import buildGraphQLProvider from 'ra-data-graphql-simple';
 //components
 //Exponate
 import {ExponateCreate} from './app/components/Exponate/ExponateCreate.js';
@@ -13,8 +13,8 @@ import {TourenEdit} from './app/components/Touren/EditTouren.js';
 import {FeedbackList, FeedbackEdit} from './app/components/Touren/TourenFeedback.js';
 //Benutzer
 import {UserList} from './app/components/User/UserList.js';
-import {AccountEdit} from './app/components/User/AccountEdit.js';
 import {UserCreate} from './app/components/User/UserCreate.js';
+import {AccountEdit} from './app/components/User/AccountEdit.js';
 import {CodeList} from './app/components/User/Code/CodeList.js';
 import {CodeCreate} from './app/components/User/Code/CodeCreate.js';
 //Bildverknüpfungen-Abzeichen
@@ -29,6 +29,7 @@ import {PictureCreate} from './app/components/Profilbilder/PictureCreate.js';
 import Dashboard from './app/containers/Dashboard';
 import CustomRoutesProfile from './app/containers/CustomRoutes.js';
 import MyLayout from './app/containers/MyLayout.js';
+import Footer from './app/containers/Footer.js';
 import {MyTheme} from './app/containers/MyTheme.js';
 import LoginPage from './app/containers/Login/LoginPage.js';
 import authProvider from './app/containers/Login/authProvider.js';
@@ -56,105 +57,25 @@ const MyLoginPage = () => (
   />
 ); 
 
-const App = () => (
-  <Admin 
-          initial={initialState}
-          authProvider={authProvider}
-          dataProvider={dataProvider}
-          loginPage={MyLoginPage}
-          dashboard={Dashboard}
-          theme={MyTheme} 
-          layout={MyLayout}
-          customRoutes={CustomRoutesProfile}
-      >
-         {permissions => [
-          <Resource
-          name='Exponate'
-          list={ExponateList}
-          edit={ExponateEdit}
-          create={ExponateCreate}
-          icon={AccountBalanceIcon}
-          options={{ label: 'Exponate' }}
-        />,
-        <Resource
-          name='Touren'
-          list={TourenList}
-          edit={TourenEdit}
-          create={TourenCreate}
-          icon={NavigationIcon}
-          options={{ label: 'Touren' }}
-        />,
-        <Resource
-          name='Benutzer_overview'
-          icon={SupervisorAccountIcon}
-          options={{ label: 'Benutzer*innen', isMenuParent: true }}
-        />,
-        permissions === 'admin'
-            ?
-        <Resource
-          name='Benutzer'
-          list={UserList}
-          edit={AccountEdit}
-          create={UserCreate}
-          icon={ListIcon}
-          options={{ label: 'Übersicht', menuParent: 'Benutzer_overview' }}
-        />
-        : null,
-        permissions === 'admin'
-            ?
-        <Resource
-          name='Codes'
-          list={CodeList}
-          create={CodeCreate}
-          icon={CreateIcon}
-          options={{
-            label: 'Code Erstellen',
-            menuParent: 'Benutzer_overview',
-          }}
-        />
-        : null,
-        <Resource
-          name='Bilder_overview'
-          icon={AddPhotoAlternateIcon}
-          options={{ label: 'Bildverknüpfungen', isMenuParent: true }}
-        />,
-        <Resource
-          name='Abzeichen'
-          list={AbzeichenList}
-          edit={AbzeichenEdit}
-          create={AbzeichenCreate}
-          icon={PhotoFilterIcon}
-          options={{ label: 'Abzeichen', menuParent: 'Bilder_overview' }}
-        />,
-        <Resource
-          name='ProfilePicture'
-          list={PictureList}
-          edit={PictureEdit}
-          create={PictureCreate}
-          icon={AddPhotoAlternateIcon}
-          options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
-        />,
-        <Resource
-          name='Feedback'
-          list={FeedbackList}
-          edit={FeedbackEdit}
-          icon={RateReviewIcon}
-          options={{ label: 'Feedback' }}
-        />,
-         <Resource
-          name='faq'
-          list={FeedbackList}
-          icon={HelpIcon}
-          options={{ label: 'FAQ' }}
-        />
-      ]}
-  </Admin>
-);  
-export default App;
 
 
-/**
-export default function App() {
+class App extends Component {
+  /* constructor() {
+      super();
+      this.state = { dataProvider: null };
+  }
+
+  componentDidMount() {
+      buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
+          .then(dataProvider => this.setState({ dataProvider }));
+  } */
+
+  render() {
+    /* const { dataProvider } = this.state;
+
+        if (!dataProvider) {
+            return <div>Loading</div>;
+        } */
   return (
     <div>
       <Admin
@@ -244,7 +165,9 @@ export default function App() {
           options={{ label: 'FAQ' }}
         />
       </Admin>
+      <Footer/>
     </div>
   );
 }
-*/
+}
+export default App;

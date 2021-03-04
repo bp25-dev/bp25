@@ -12,40 +12,18 @@ import {
   minValue,
   maxValue,
   number,
-  // custom actions
-  useListContext,
-  TopToolbar,
-  ExportButton,
-  sanitizeListRestProps,
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 import { makeStyles } from '@material-ui/core/styles';
 import { FeedbackGrid } from './FeedbackGrid';
 import { CustomBulkActions } from '../CustomBulkActions.js';
+import { CustomListActionsExport } from '../CustomListActions.js';
 
 const useStyles = makeStyles({
   content: {
     backgroundColor: '#e4edf8', // background color of container
   },
 });
-
-//translate text into german
-export const CustomListActions = (props) => {
-  const { className, exporter, filters, maxResults, ...rest } = props;
-  const { currentSort, resource, filterValues, total } = useListContext();
-  return (
-    <TopToolbar className={className} {...sanitizeListRestProps(rest)}>
-      <ExportButton
-        disabled={total === 0}
-        resource={resource}
-        sort={currentSort}
-        filterValues={filterValues}
-        maxResults={maxResults}
-        label='Daten exportieren'
-      />
-    </TopToolbar>
-  );
-};
 
 export const FeedbackList = (props) => {
   const classes = useStyles();
@@ -54,7 +32,7 @@ export const FeedbackList = (props) => {
       {...props}
       title='Feedback'
       classes={{ content: classes.content }}
-      actions={<CustomListActions />}
+      actions={<CustomListActionsExport />}
       bulkActionButtons={<CustomBulkActions />}
     >
       <FeedbackGrid />

@@ -34,6 +34,7 @@ const DeleteConfirmContent = props => {
   );
 };
 
+// TODO: edit password should be restricted to users with admin status 
 export const AccountEdit = (props) => (
     <Edit title='Accountdaten ändern' {...props}>
       <SimpleForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
