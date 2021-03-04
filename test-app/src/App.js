@@ -1,5 +1,6 @@
-import React from 'react';
-import { Admin, Resource} from 'react-admin';
+import React, { Component } from 'react';
+import { Admin, Resource, Delete, Login} from 'react-admin';
+import buildGraphQLProvider from 'ra-data-graphql-simple';
 //components
 //Exponate
 import {ExponateCreate} from './app/components/Exponate/ExponateCreate.js';
@@ -44,7 +45,36 @@ import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import HelpIcon from '@material-ui/icons/Help';
 
-export default function App() {
+
+const MyLoginPage = () => (
+  <Login
+      backgroundImage="https://www.hlmd.de/fileadmin/user_upload/haupthalle_enthuellung.jpg"
+      style={{
+        backgroundPosition: 'center',
+      }
+      }
+  />
+); 
+
+
+
+class App extends Component {
+  /* constructor() {
+      super();
+      this.state = { dataProvider: null };
+  }
+
+  componentDidMount() {
+      buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
+          .then(dataProvider => this.setState({ dataProvider }));
+  } */
+
+  render() {
+    /* const { dataProvider } = this.state;
+
+        if (!dataProvider) {
+            return <div>Loading</div>;
+        } */
   return (
     <div>
       <Admin
@@ -137,3 +167,5 @@ export default function App() {
     </div>
   );
 }
+}
+export default App;
