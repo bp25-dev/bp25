@@ -3,36 +3,17 @@ import { Link } from 'react-router-dom';
 import { Title } from 'react-admin';
 //material UI imports
 import Card from '@material-ui/core/Card';
-<<<<<<< HEAD
-import { Container, Grid, Paper, Typography} from '@material-ui/core';
-=======
 import { Container, Grid, Typography } from '@material-ui/core';
->>>>>>> fenja_dev
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-import badges from './images/Badges.png'
-import exponate from './images/Exponate.png'
-import tours from './images/Tours.png'
-import user from './images/User.png'
-
-=======
-import badges from './images/Badges.png';
-import exponate from './images/Exponate.png';
-import tours from './images/Tours.png';
-import user from './images/User.png';
->>>>>>> anna_dev
-=======
 import badges from '../data/images/Badges.png';
 import exponate from '../data/images/Exponate.png';
 import tours from '../data/images/Tours.png';
 import user from '../data/images/User.png';
->>>>>>> fenja_dev
 
 // style for the cards
 const useCardStyles = makeStyles(() => ({
@@ -125,19 +106,6 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
 //Copyright
 function Copyright() {
   return (
-<<<<<<< HEAD
-    <Typography
-      variant="body2"
-      color="textSecondary"
-      align="center"
-    >
-      {"Copyright © "}
-      <Link color="inherit" >
-      Projekt Geschichte vernetzt
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-=======
     <Typography variant='body2' color='textSecondary' align='center'>
       {'Copyright © '}
       <Link to='/' color='inherit'>
@@ -145,7 +113,6 @@ function Copyright() {
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
->>>>>>> anna_dev
     </Typography>
   );
 }
@@ -157,52 +124,6 @@ export default function Dashboard() {
 
   return (
     <Container>
-<<<<<<< HEAD
-    <Grid
-      container
-      //  direction="row"
-      spacing={0}
-      className={gridStyles.gridContainer}
-      justify='center'
-     
-      
-    >
-      <Title title='Hessisches Landesmusuem' />
-      <Grid item md>
-        <CustomCard
-          classes={cardStyles}
-          title={'Benutzer*innen'}
-          subtitle={'Verwalte Benutzer*innen'}
-          image={user}
-          path='/Benutzer'
-        />
-        <CustomCard
-          classes={cardStyles}
-          title={'Touren'}
-          subtitle={'Erstelle Touren'}
-          image={tours}
-          path='/Touren'
-        />
-      </Grid>
-      <Grid item md>
-        <CustomCard
-          classes={cardStyles}
-          title={'Exponate'}
-          subtitle={'Bearbeite Exponate'}
-          image={exponate}
-          path='/Exponate'
-        />
-        <CustomCard
-          classes={cardStyles}
-          title={'Abzeichen'}
-          subtitle={'Füge neue Abzeichen hinzu'}
-          image={badges}
-          path='/Abzeichen'
-        />
-      </Grid>
-    </Grid>
-    <Copyright/>
-=======
       <Grid
         container
         spacing={0}
@@ -244,7 +165,6 @@ export default function Dashboard() {
         </Grid>
       </Grid>
       <Copyright />
->>>>>>> anna_dev
     </Container>
   );
 }

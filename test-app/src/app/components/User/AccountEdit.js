@@ -6,13 +6,6 @@ import {
   PasswordInput,
   TextInput,
   BooleanInput,
-<<<<<<< HEAD
-} from 'react-admin';
-
-export const AccountEdit = (props) => (
-    <Edit title='Accountdaten ändern' {...props}>
-      <SimpleForm>
-=======
   SimpleShowLayout,
   TextField,
   BooleanField,
@@ -44,30 +37,16 @@ const DeleteConfirmContent = props => {
 export const AccountEdit = (props) => (
     <Edit title='Accountdaten ändern' {...props}>
       <SimpleForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
->>>>>>> anna_dev
         <TextInput disabled source='id' label='ID' fullWidth />
         <TextInput source='username' label='Benutzername' fullWidth/>
         <PasswordInput source='password' label='Passwort' fullWidth/>
         <BooleanInput source='Adminrechte' label='Adminrechte erlauben?' />
-<<<<<<< HEAD
-=======
         <DeleteWithCustomConfirmButton
           title={DeleteConfirmTitle}      
           content={DeleteConfirmContent}  
           label='Löschen'                 
           cancel='Abbrechen'                 
         />
-<<<<<<< HEAD
-        <ReferenceInput
-        source='username'
-        label='Erstellte Touren'
-        reference='Touren'
-      >
-        <SelectInput optionText='name' />
-      </ReferenceInput> 
->>>>>>> anna_dev
-=======
->>>>>>> fenja_dev
       </SimpleForm>
     </Edit>
   );

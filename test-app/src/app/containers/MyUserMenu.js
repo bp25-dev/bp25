@@ -14,12 +14,4 @@ const MyUserMenu = (props) => {
   );
 };
 
-<<<<<<< HEAD:test-app/src/app/components/MyProfile/MyUserMenu.js
-<<<<<<< HEAD
 export default MyUserMenu;
-=======
-export default MyUserMenu;
->>>>>>> anna_dev
-=======
-export default MyUserMenu;
->>>>>>> fenja_dev:test-app/src/app/containers/MyUserMenu.js

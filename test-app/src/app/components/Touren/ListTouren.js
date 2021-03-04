@@ -112,7 +112,3 @@ export const TourenList = (props) => {
     </List>
   );
 };
-<<<<<<< HEAD:test-app/src/app/components/Touren/ListTouren.js
-
-=======
->>>>>>> anna_dev:test-app/src/app/components/Touren.js

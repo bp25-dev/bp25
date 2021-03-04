@@ -7,19 +7,6 @@ import {
   Edit,
   SimpleForm,
   TextInput,
-<<<<<<< HEAD
-} from 'react-admin';
-
-// edit badges
-export const PictureEdit = (props) => (
-  <Edit title='Verändere Profilbilder' {...props}>
-    <SimpleForm>
-      <TextInput source='name' label='Name' fullWidth />
-      <ImageInput source='ProfilePicture' accept='image/*'>
-        <ImageField source='picture' />
-      </ImageInput>
-      <BooleanInput label='gesperrt' source='locked' />
-=======
   Toolbar,
   SaveButton,
   SimpleShowLayout,
@@ -61,7 +48,6 @@ export const PictureEdit = (props) => (
           label='Löschen'                 
           cancel='Abbrechen'                 
         />
->>>>>>> anna_dev
     </SimpleForm>
   </Edit>
 );

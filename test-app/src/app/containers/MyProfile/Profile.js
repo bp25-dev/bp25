@@ -108,7 +108,3 @@ import React, {
       </SaveContextProvider>
     );
   };
-<<<<<<< HEAD
-  
-=======
->>>>>>> anna_dev

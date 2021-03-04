@@ -5,17 +5,6 @@ import {
   RichTextField,
   NumberField,
   useListContext,
-<<<<<<< HEAD:test-app/src/app/components/Touren/Tour_Feedback.js
-} from 'react-admin';
-import { Card, CardContent, CardHeader } from '@material-ui/core';
-
-const cardStyle = {
-  width: 300,
-  minHeight: 300,
-  margin: '0.5em',
-  display: 'inline-block',
-  verticalAlign: 'top',
-=======
   EditButton,
 } from 'react-admin';
 import { linkToRecord } from 'ra-core';
@@ -61,41 +50,25 @@ const StarRatingField = ({ record }) => {
         ))}
     </span>
   );
->>>>>>> fenja_dev:test-app/src/app/components/Touren/FeedbackGrid.js
 };
 
 export const FeedbackGrid = () => {
   const { ids, data, basePath } = useListContext();
+  const classes = useStyles();
   return (
-    <div style={{ margin: '1em' }}>
+    <div className={classes.div}>
       {ids.map((id) => (
-<<<<<<< HEAD:test-app/src/app/components/Touren/Tour_Feedback.js
-        <Card key={id} style={cardStyle}>
-=======
         <Card key={id} className={classes.card}>
->>>>>>> fenja_dev:test-app/src/app/components/Touren/FeedbackGrid.js
           <CardHeader
             title={
               <ReferenceField
-                label='Tour'
-                resource='Feedback'
-                record={data[id]}
-                source='tour'
+                source='tour.$oid'
                 reference='Touren'
-                basePath={basePath}
+                label='Tourname'
               >
                 <TextField source='name' />
               </ReferenceField>
             }
-<<<<<<< HEAD:test-app/src/app/components/Touren/Tour_Feedback.js
-            /*  subheader={<DateField record={data[id]} source="created_at" />}
-                  avatar={<Avatar icon={<PersonIcon />} />} */
-          /> 
-          <CardContent>  Bewertung:&nbsp;
-            <NumberField record={data[id]} source='rating' label='Bewertung' />
-          </CardContent>
-          <CardContent> Feedback:&nbsp;
-=======
             title='Tour Referenz'
           />
           <CardContent>
@@ -116,15 +89,12 @@ export const FeedbackGrid = () => {
             </CardContent> */}
           <CardContent>
             Feedback:&nbsp;
->>>>>>> fenja_dev:test-app/src/app/components/Touren/FeedbackGrid.js
             <RichTextField
               record={data[id]}
               source='review'
               label='Rezension'
             />
           </CardContent>
-<<<<<<< HEAD:test-app/src/app/components/Touren/Tour_Feedback.js
-=======
           <CardActions className={classes.actions}>
             <EditButton
               label = 'Editieren'
@@ -134,18 +104,8 @@ export const FeedbackGrid = () => {
               color='primary'
             />
           </CardActions>
->>>>>>> fenja_dev:test-app/src/app/components/Touren/FeedbackGrid.js
         </Card>
       ))}
     </div>
   );
 };
-<<<<<<< HEAD:test-app/src/app/components/Touren/Tour_Feedback.js
-
-export const FeedbackList = (props) => (
-  <List {...props} title='Feedback'>
-    <FeedbackGrid />
-  </List>
-);
-=======
->>>>>>> fenja_dev:test-app/src/app/components/Touren/FeedbackGrid.js

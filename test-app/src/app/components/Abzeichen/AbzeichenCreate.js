@@ -7,11 +7,6 @@ import {
   SelectInput,
   SimpleForm,
   TextInput,
-<<<<<<< HEAD
-  Create
-} from 'react-admin';
-
-=======
   Create,
   //validation
   minValue,
@@ -25,7 +20,6 @@ const validateCost = [
   minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 100'),
   maxValue(100, 'Bitte wähle eine Zahl zwischen 1 und 100'),
 ];
->>>>>>> anna_dev
 
 // create a new badge
 export const AbzeichenCreate = (props) => (
@@ -33,11 +27,7 @@ export const AbzeichenCreate = (props) => (
     <SimpleForm>
       <TextInput disabled source='id' label='ID' fullWidth/>
       <TextInput source='name' label='Name' fullWidth />
-<<<<<<< HEAD
-      <ImageInput source='Badge' accept='image/*'>
-=======
       <ImageInput source='Badge' accept='image/*'placeholder={<p>Klicke hier, um ein Bild von dem Abzeichen hinzuzufügen</p>}>
->>>>>>> anna_dev
         <ImageField source='picture' />
       </ImageInput>
       {/* TODO: Link to connected profile pictures and select by existing name/picture
@@ -49,11 +39,7 @@ export const AbzeichenCreate = (props) => (
       >
         <SelectInput source='$oid' />
       </ReferenceInput>
-<<<<<<< HEAD
-      <NumberInput source='cost' label='Kosten' />
-=======
       <NumberInput source='cost' label='Kosten' validate={validateCost} />
->>>>>>> anna_dev
     </SimpleForm>
   </Create>
 );

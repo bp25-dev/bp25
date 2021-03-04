@@ -50,14 +50,6 @@ const postRowStyle = (record, index) => ({
 
 // show eixsting users
 export const UserList = (props) => (
-<<<<<<< HEAD
-<<<<<<< HEAD:test-app/src/app/components/User/UserList.js
-  <List {...props} title='Benutzer*innen'>
-=======
-  <List {...props} title='Benutzer*innen' filters={<FilterBar />}>
->>>>>>> anna_dev:test-app/src/app/components/User.js
-    <Datagrid>
-=======
   <List
     {...props}
     title='Benutzer*innen'
@@ -66,7 +58,6 @@ export const UserList = (props) => (
     bulkActionButtons={<CustomBulkActions />}
   >
     <Datagrid rowStyle={postRowStyle}>
->>>>>>> fenja_dev
       {/*  TODO: get real primary key of user ID (username?) 
       dont show id for user study
       <TextField source='id' label='ID' /> */}
@@ -127,8 +118,4 @@ const optionRenderer = (choice) => `${choice.picture}`;
       )}
     </TabbedForm>
   </Edit>
-<<<<<<< HEAD:test-app/src/app/components/User/UserList.js
 ); */
-=======
-); */
->>>>>>> anna_dev:test-app/src/app/components/User.js

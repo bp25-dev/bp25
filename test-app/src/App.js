@@ -1,18 +1,7 @@
 
 import React from 'react';
-<<<<<<< HEAD
-import { Route } from "react-router";
-import { Admin, Resource, Layout } from 'react-admin';
-import { theme } from './app/components/Style/Theme.js';
-// site components
-<<<<<<< HEAD
-=======
-// site components
->>>>>>> anna_dev
-=======
 import { Admin, Resource, Login} from 'react-admin';
 //components
->>>>>>> fenja_dev
 //Exponate
 import {ExponateCreate} from './app/components/Exponate/ExponateCreate.js';
 import {ExponateEdit} from './app/components/Exponate/ExponateEdit.js';
@@ -21,15 +10,7 @@ import {ExponateList} from './app/components/Exponate/ExponateList.js';
 import {TourenList} from './app/components/Touren/ListTouren.js';
 import {TourenCreate} from './app/components/Touren/CreateTouren.js';
 import {TourenEdit} from './app/components/Touren/EditTouren.js';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { FeedbackList} from './app/components/Touren/Tour_Feedback.js';
-=======
-import {FeedbackList, FeedbackEdit} from './app/components/Touren/Tour_Feedback.js';
->>>>>>> anna_dev
-=======
 import {FeedbackList, FeedbackEdit} from './app/components/Touren/TourenFeedback.js';
->>>>>>> fenja_dev
 //Benutzer
 import {UserList} from './app/components/User/UserList.js';
 import {AccountEdit} from './app/components/User/AccountEdit.js';
@@ -75,21 +56,6 @@ const MyLoginPage = () => (
   />
 ); 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-import TreeMenu from '@bb-tech/ra-treemenu';
-//todo: import login page
-//import MyAppBar from './app/components/MyAppBar.js';
-import LoginPage from './app/components/Login/LoginPage.js';
-import dataProvider from './app/containers/dataProvider.js';
-import customRoutes from './app/components/CustomRoutes';
-import MyLayout from './app/components/MyProfile/MyLayout.js';
-
-
-
-=======
->>>>>>> anna_dev
-=======
 const App = () => (
   <Admin 
           initial={initialState}
@@ -188,44 +154,13 @@ export default App;
 
 
 /**
->>>>>>> fenja_dev
 export default function App() {
   return (
     <div>
       <Admin
-<<<<<<< HEAD
-        title='Hessisches Landesmuseumgit '
-
-        //can be replaced with the real data provider
-        dataProvider={dataProvider}
-=======
        // title='Hessisches Landesmuseum'
->>>>>>> fenja_dev
         // todo: User authentification
-<<<<<<< HEAD
-        // authProdiver={authProvider}
-        customRoutes={customRoutes}
-        
-        // can be enabled/replaced if we have designed a custom LoginPage
-        loginPage={LoginPage}
-
-        // custom dashboard page
-=======
         authProdiver={authProvider}
-<<<<<<< HEAD
-        loginPage={LoginPage}
->>>>>>> anna_dev
-        dashboard={Dashboard}
-        theme={theme} 
-<<<<<<< HEAD
-        // TODO: add a tree menu to show all resources
-        // Layout auslagern?
-        layout={MyLayout}
-=======
-        layout={MyLayout}
-        customRoutes={customRoutes}
->>>>>>> anna_dev
-=======
         //can be replaced with the real data provider
         dataProvider={dataProvider}
         //loginPage={LoginPage}
@@ -234,11 +169,9 @@ export default function App() {
         layout={MyLayout}
         customRoutes={CustomRoutesProfile}
         initial={initialState}
->>>>>>> fenja_dev
       >
         <Resource
           name='Exponate'
-          options= {{label: 'Exponate'}}
           list={ExponateList}
           edit={ExponateEdit}
           create={ExponateCreate}

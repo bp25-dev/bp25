@@ -263,12 +263,7 @@ const dataProvider = fakeDataProvider({
       unlocked_picture: reward_tour_silver,
       /*  picture: {
         $oid: '5ff98919cdd36137740fc368',
-<<<<<<< HEAD
-        url: 'https://image.shutterstock.com/image-vector/tickets-museum-history-icon-cartoon-600w-497081827.jpg',
-      },
-=======
       },       
->>>>>>> anna_dev
       unlocked_picture: {
         $oid: '5ff98919cdd36137740fc367',
       },*/
@@ -281,29 +276,21 @@ const dataProvider = fakeDataProvider({
       unlocked_picture: reward_object_bronze,
       /*  picture: {
         $oid: '5ff98919cdd36137740fc36d',
-        url:'https://image.shutterstock.com/image-vector/not-completed-red-stamp-text-600w-472077142.jpg',
       },
       unlocked_picture: {
         $oid: '5ff98919cdd36137740fc36c',
-<<<<<<< HEAD
-        url:'https://image.shutterstock.com/image-vector/completed-grunge-vintage-square-stamp-600w-506324629.jpg',
-      },
-=======
       }, */
->>>>>>> anna_dev
       cost: 3,
     },
   ],
   /* ProfilePicture: [
     {
-      name: 'Test',
       _id: {
         $oid: '5ff9889f4028d9e0ea9cc52d',
       },
-      /*picture: {
+      picture: {
         $oid: '5ff9889f4028d9e0ea9cc52a',
-      },*/
-      picture: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
+      },
       locked: false,
     },
   ], */
