@@ -3,6 +3,10 @@ import { Route } from "react-router";
 import { Admin, Resource, Layout } from 'react-admin';
 import { theme } from './app/components/Style/Theme.js';
 // site components
+<<<<<<< HEAD
+=======
+// site components
+>>>>>>> anna_dev
 //Exponate
 import {ExponateCreate} from './app/components/Exponate/ExponateCreate.js';
 import {ExponateEdit} from './app/components/Exponate/ExponateEdit.js';
@@ -11,7 +15,11 @@ import {ExponateList} from './app/components/Exponate/ExponateList.js';
 import {TourenList} from './app/components/Touren/ListTouren.js';
 import {TourenCreate} from './app/components/Touren/CreateTouren.js';
 import {TourenEdit} from './app/components/Touren/EditTouren.js';
+<<<<<<< HEAD
 import { FeedbackList} from './app/components/Touren/Tour_Feedback.js';
+=======
+import {FeedbackList, FeedbackEdit} from './app/components/Touren/Tour_Feedback.js';
+>>>>>>> anna_dev
 //Benutzer
 import {UserList} from './app/components/User/UserList.js';
 import {AccountEdit} from './app/components/User/AccountEdit.js';
@@ -27,6 +35,12 @@ import {PictureList} from './app/components/Profilbilder/PictureList.js';
 import {PictureEdit} from './app/components/Profilbilder/PictureEdit.js';
 import {PictureCreate} from './app/components/Profilbilder/PictureCreate.js';
 import Dashboard from './app/containers/Dashboard';
+import customRoutes from './app/components/CustomRoutes';
+import MyLayout from './app/components/MyProfile/MyLayout.js';
+import LoginPage from './app/containers/LoginPage.js';
+import dataProvider from './app/containers/dataProvider.js';
+import authProvider from './app/containers/authProvider.js';
+
 
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
@@ -38,6 +52,7 @@ import ListIcon from '@material-ui/icons/List';
 import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 
+<<<<<<< HEAD
 import TreeMenu from '@bb-tech/ra-treemenu';
 //todo: import login page
 //import MyAppBar from './app/components/MyAppBar.js';
@@ -48,6 +63,8 @@ import MyLayout from './app/components/MyProfile/MyLayout.js';
 
 
 
+=======
+>>>>>>> anna_dev
 export default function App() {
   return (
     <div>
@@ -57,6 +74,7 @@ export default function App() {
         //can be replaced with the real data provider
         dataProvider={dataProvider}
         // todo: User authentification
+<<<<<<< HEAD
         // authProdiver={authProvider}
         customRoutes={customRoutes}
         
@@ -64,12 +82,20 @@ export default function App() {
         loginPage={LoginPage}
 
         // custom dashboard page
+=======
+        authProdiver={authProvider}
+        loginPage={LoginPage}
+>>>>>>> anna_dev
         dashboard={Dashboard}
-        // custom theme
         theme={theme} 
+<<<<<<< HEAD
         // TODO: add a tree menu to show all resources
         // Layout auslagern?
         layout={MyLayout}
+=======
+        layout={MyLayout}
+        customRoutes={customRoutes}
+>>>>>>> anna_dev
       >
         <Resource
           name='Exponate'
@@ -135,6 +161,7 @@ export default function App() {
         <Resource
           name='Feedback'
           list={FeedbackList}
+          edit={FeedbackEdit}
           icon={RateReviewIcon}
           options={{ label: 'Feedback' }}
         />

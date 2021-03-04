@@ -18,4 +18,8 @@ const MyUserMenu = (props) => {
   );
 };
 
+<<<<<<< HEAD
 export default MyUserMenu;
+=======
+export default MyUserMenu;
+>>>>>>> anna_dev

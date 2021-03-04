@@ -22,6 +22,7 @@ import {
   TextField,
   ReferenceField,
   ReferenceArrayField,
+  ReferenceManyField,
   DateField,
   NumberField,
   ChipField,
@@ -39,6 +40,13 @@ import {
 import { Button } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles } from '@material-ui/core/styles';
+
+// create a range withing the Difficulty can be selected
+const validateDifficulty = [
+  number(),
+  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 5'),
+  maxValue(5, 'Bitte wähle eine Zahl zwischen 1 und 5'),
+];
 
 // filter the tours (search for text)
 // TODO: filter Ersteller der Tour
@@ -63,7 +71,7 @@ const FilterBar = (props) => (
         alwaysOn
       >
         <SelectInput optionText='username' />
-      </ReferenceInput>
+      </ReferenceInput> 
       <NumberInput
         source='difficulty'
         label='Schwierigkeitsgrad'
@@ -173,9 +181,6 @@ const useStyles = makeStyles({
   },
 });
 
-// create a range withing the Difficulty can be selected
-const validateDifficulty = [number(), minValue(1), maxValue(5)];
-
 // list existing tours
 export const TourenList = (props) => {
   const classes = useStyles(props);
@@ -187,24 +192,32 @@ export const TourenList = (props) => {
       actions={<ListActions />}
       classes={{ main: classes.main }}
     >
-      <Datagrid expand={<StationShow />}>
-        {/* TODO: Whats the primaery key? replace Titel for pk or use built in  */}
-        <TextField source='_id' label='ID' />
+      <Datagrid /* expand={<StationShow />} */>
+        {/* TODO: Whats the primaery key? replace Titel for pk or use built in  
+        dont show id for user study 
+        <TextField source='_id' label='ID' />*/}
         <TextField source='name' label='Titel' />
         <TextField source='description' label='Beschreibung' />
-        {/* refField: source=field in this table, reference=Name of reference Table  */}
-        <ReferenceField source='owner' reference='Benutzer' label='Ersteller'>
-          <ChipField source='username' />
-        </ReferenceField>
-        <ReferenceArrayField
+        {/* <ReferenceArrayField
           label='Benutzer'
           reference='Benutzer'
-          source='user'
+          source='user.username'
         >
           <SingleFieldList>
             <ChipField source='username' />
           </SingleFieldList>
         </ReferenceArrayField>
+        <ReferenceField source='owner' reference='Benutzer' label='Ersteller'>
+          <ChipField source='username' />
+        </ReferenceField> */}
+        {/* created fields for user study */}
+        <TextField source='owner.username' label='Ersteller' />
+        <ArrayField source='user' label='beteiligte Benutzer'>
+          <SingleFieldList>
+            <ChipField source='username' />
+          </SingleFieldList>
+        </ArrayField>
+        {/* end of created fields for user study */}
         <TextField source='search_id' label='Touren Code' />
         <TextField source='session_id' label='Passwort' />
         <DateField
@@ -219,4 +232,7 @@ export const TourenList = (props) => {
     </List>
   );
 };
+<<<<<<< HEAD:test-app/src/app/components/Touren/ListTouren.js
 
+=======
+>>>>>>> anna_dev:test-app/src/app/components/Touren.js

@@ -8,4 +8,8 @@ const MyAppBar = props =>
 />;
 
 
+<<<<<<< HEAD
 export default MyAppBar;
+=======
+export default MyAppBar;
+>>>>>>> anna_dev

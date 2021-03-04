@@ -2,28 +2,20 @@ import { AuthProvider } from 'react-admin';
 
 const authProvider = {
   // authentication
-  login: ({ username, password }) => {
-    /* ... */
-  },
+  login: ({ username }) => {
+    localStorage.setItem('username', username);
+    // accept all username/password combinations
+    return Promise.resolve();
+},
 
-  checkError: (error) => {
-    /* ... */
-  },
-
-  checkAuth: () => {
-    /* ... */
-  },
-
-  logout: () => {
-    /* ... */
-  },
-
-  getIdentity: () => {
-    /* ... */
-  },
-
-  // authorization
-  getPermissions: (params) => {
-    /* ... */
-  },
+logout: () => {
+  localStorage.removeItem('username');
+  return Promise.resolve();
+},
+checkError: () => Promise.resolve(),
+checkAuth: () =>
+  localStorage.getItem('username') ? Promise.resolve() : Promise.reject(),
+getPermissions: () => Promise.reject('Unknown method'),
 };
+
+export default authProvider;

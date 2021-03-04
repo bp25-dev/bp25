@@ -4,19 +4,38 @@ import fakeDataProvider from 'ra-data-fakerest';
 
 //dataProvider={jsonServerProvider('mongodb://127.0.0.1:27017')}
 
+// images for user study
+//objetcs
+import goldfibel from './fake_data/pictures/38-image0.jpg';
+import ortenberger from './fake_data/pictures/127-image0.jpg';
+import morgensonne from './fake_data/pictures/163-image0.jpg';
+import gestade from './fake_data/pictures/161-image0.jpg';
+//badges
+import tour_silver from './fake_data/badges/Erstellte_Rundgaenge_silber.jpg';
+import object_bronze from './fake_data/badges/Betrachtete_Artefakte_bronze.jpg';
+//profile pictures
+import joseph from './fake_data/profilepictures/free/Joseph.jpg';
+import iphigenie from './fake_data/profilepictures/free/Iphigenie.jpg';
+import reward_tour_silver from './fake_data/profilepictures/locked/Erstellte_Rundgaenge_silber.jpg';
+import reward_object_bronze from './fake_data/profilepictures/locked/Betrachtete_Artefakte_bronze.jpg';
+
+
 // fake data base for testing
 const dataProvider = fakeDataProvider({
+  
   Exponate: [
     {
       _id: 'Kg 31:21',
       category: 'Kunst und Kulturgeschichte',
       sub_category: 'Archäologie/Vor- und Frühgeschichte',
       title: 'Goldfibel von Mölsheim',
+      // inserted img for user study
+      img: goldfibel,
       picture: [
         {
           $oid: '5ff98892ccd2776f571d6c1a',
         },
-      ],
+      ], 
       description:
         'Stilistisch datieren vor allem die Goldfiligranarbeiten in den Flächen der Vierpassform die Prunkfibel in die Zeit um 630/640–680 n. Chr. und legen eine Herstellung im westfränkischen Raum (Burgund?) nahe. Der zentral angebrachte Kameo – ein erhaben geschnittener Achat in Form eines Gorgonenhauptes – wurde von dem Goldschmiedemeister sicherlich in dem Wissen, dass es sich hierbei um ein antikes Kleinod aus hellenistischer Zeit handelte, wiederverwendet. Heute scheint es sehr wahrscheinlich, dass er aus derselben alexandrinischen Steinschneidewerkstatt stammt, aus der als bestes Vergleichsstück die bekannte Tazza Farnese, heute im Museo Archeologico Nationale in Neapel, mit einem ebenso ausgezeichnet geschnittenen Kameo hervorgegangen ist. (A. Z.)',
       additional_information:
@@ -30,15 +49,111 @@ const dataProvider = fakeDataProvider({
       size_: 'Durchmesser: 8,3 cm',
       location: 'Fundort: Landkreis Alzey-Worms',
     },
+    {
+      _id: 'Kg 42:67',
+      category: 'Kunst und Kulturgeschichte',
+      sub_category: 'Gotik',
+      title: 'Ortenberger Altar - Heilige Sippe',
+      img: ortenberger,
+      picture: [
+        {
+          $oid: '5ff95692dcf3447f57146c1s',
+        },
+      ],
+      description:
+        'Tafelmalerei auf Tannenholz, mit Blattgold',
+      additional_information:
+        '',
+      interdisciplinary_context: 'Themen: Kunsthandwerk',
+      year: 'um 1430',
+      art_type: 'Gemälde',
+      creator: 'Meister des Ortenberger Altars',
+      material:
+        'Tannenholz, Leinwand, Tempera, Blattgold',
+      size_: '100,5 cm x 162,5 cm',
+      location: 'Ortenberg',
+    },
+    {
+      _id: 'Kg 2:95',
+      category: 'Kunst und Kulturgeschichte',
+      sub_category: 'Expressionsimus',
+      title: 'Morgensonne',
+      img: morgensonne,
+      picture: [
+        {
+          $oid: '5ffe569ssd2dcf3447f5714561s',
+        },
+      ],
+      description:
+        'Gemälde',
+      additional_information:
+        'Öl auf Leinwand',
+      interdisciplinary_context: 'Themen: Gemälde',
+      year: '1910',
+      art_type: 'Gemälde',
+      creator: 'Lovis Corinth',
+      material:
+        'Öl, Leinwand',
+      size_: '68,5 cm x 80,5 cm',
+      location: 'Ortenberg',
+    },
+    {
+      _id: 'Kg 34:12',
+      category: 'Kunst und Kulturgeschichte',
+      sub_category: 'Realismus',
+      title: 'Abendstimmung in der Campagna',
+      img: null, 
+      picture: [
+        {
+          $oid: '5ffe569ssfesrsd447f5714561s',
+        },
+      ],
+      description:
+        'Gemälde',
+      additional_information:
+        'Öl auf Leinwand',
+      interdisciplinary_context: 'Themen: Gemälde',
+      year: '1850',
+      art_type: 'Gemälde',
+      creator: 'Oswald Achenbach',
+      material:
+        'Öl, Leinwand',
+      size_: '98 cm x 134 cm',
+      location: 'Düsseldorf',
+    },
+    {
+      _id: 'Kg 8:27',
+      category: 'Kunst und Kulturgeschichte',
+      sub_category: 'Symbolismus',
+      title: 'Gestade der Vergessenheit',
+      img: gestade,
+      picture: [
+        {
+          $oid: '8sd95564dcf3675f57146gaw',
+        },
+      ],
+      description:
+        'Gestade der Vergessenheit (meist mit Artikel „Das…“, seltener „Die…“) ist ein Gemälde von Eugen Bracht. Zwischen 1889 und 1916 entstanden acht Fassungen. Von diesen sind mindestens zwei museal erhalten und werden permanent ausgestellt. Neben Arnold Böcklins Toteninsel gilt es als eines der bekanntesten Werke des Symbolismus.',
+      additional_information:
+        'Urversion',
+      interdisciplinary_context: 'Themen: Gemälde',
+      year: '1889',
+      art_type: 'Gemälde',
+      creator: 'Eugen Bracht',
+      material:
+        'Öl, Leinwand',
+      size_: '139 cm x 257 cm',
+      location: 'Hessen',
+    },
   ],
   Touren: [
     {
-      _id: {
-        $oid: '600024333c43791d7831f306',
-      },
+      _id: 0,
       name: 'Tour1',
+      name: 'Amphibien Tour',
       search_id: 'xxxxx',
       description: 'This is such an awesome tour',
+      description: 'Die Tour führt entlang der interessanter Exponate rund um Amphibien.',
       session_id: 420,
       owner: {
         username: 'Anna',
@@ -46,84 +161,155 @@ const dataProvider = fakeDataProvider({
       user: [
         {
           username: 'Vilja',
+          username: 'Tom',
         },
         {
           username: 'Cosima',
+          username: 'Lena',
         },
       ], 
       difficulty: 5,
       status: 'privat',
       lastEdit: '2020-01-01',
+      lastEdit: '2021-01-01',
+    },
+    {
+      _id: {
+        $oid: '600024333c67891h7831f659',
+      },
+      name: 'Zoologie Tour - Australien',
+      search_id: 'xxxxx',
+      description: 'Die Tiere aus Down Under lassen sich in dieser Tour bestaunen.',
+      session_id: 435,
+      owner: {
+        username: 'Lena',
+      },
+      user: [
+        {
+          username: 'Lukas',
+        },
+        {
+          username: 'Franziska',
+        },
+        {
+          username: 'Tom',
+        },
+      ], 
+      difficulty: 2,
+      status: 'freigegeben',
+      lastEdit: '2020-10-11',
+    },
+    {
+      _id: {
+        $oid: '660024555c67891l6731f789',
+      },
+      name: 'Urpferd 2.0',
+      search_id: 'xxxxx',
+      description: 'Diese Tour dreht sich um das »Wappentier« der Grube Messel, das Messeler Urpferd ',
+      session_id: 375,
+      owner: {
+        username: 'Frank',
+      },
+      user: [
+        {
+          username: 'Lukas',
+        },
+        {
+          username: 'Franziska',
+        },
+        {
+          username: 'Tobias',
+        },
+      ], 
+      difficulty: 4,
+      status: 'ausstehend',
+      lastEdit: '2020-08-18',
     },
   ],
   Benutzer: [
     {
-      username: 'Anna',
-      password: '***',
-      email: '',
+      username: 'Frank',
+      password: 'passwort',
       Adminrechte: true,
     },
     {
-      username: 'Vilja',
-      password: '***',
-      email: '',
-      Adminrechte: true,
-    },
-    {
-      username: 'Cosi',
-      password: '***',
-      email: '',
-      Adminrechte: true,
-    },
-    {
-      username: 'Xenia',
-      password: '***',
-      email: '',
+      username: 'Sabine',
+      password: 'MyPassword',
       Adminrechte: false,
     },
     {
-      username: 'Fenja',
-      password: '***',
-      email: '',
+      username: 'Simone',
+      password: 'hallo',
       Adminrechte: false,
     },
+    {
+      username: 'Carlo',
+      password: 'meinPasswort',
+      Adminrechte: false,
+    },
+    {
+      username: 'Tobias',
+      password: '4567',
+      Adminrechte: false,
+    },
+    {
+      username: 'Markus',
+      password: 'hihi',
+      Adminrechte: false,
+    },
+    {
+      username: 'Andreas',
+      password: 'hallsao',
+      Adminrechte: false,
+    },
+    {
+      username: 'Lena',
+      password: 'geschichte',
+      Adminrechte: false,
+    },
+
   ],
 
   Abzeichen: [
     {
       _id: 'Erstellte_Rundgaenge_silber',
       name: 'Erstellte Rundgaenge silber',
-      picture: {
+      picture: tour_silver,
+      unlocked_picture: reward_tour_silver,
+     /*  picture: {
         $oid: '5ff98919cdd36137740fc368',
+<<<<<<< HEAD
         url: 'https://image.shutterstock.com/image-vector/tickets-museum-history-icon-cartoon-600w-497081827.jpg',
       },
+=======
+      },       
+>>>>>>> anna_dev
       unlocked_picture: {
         $oid: '5ff98919cdd36137740fc367',
-      },
+      },*/
       cost: 10,
     },
     {
       _id: 'Betrachtete_Artefakte_bronze',
       name: 'Betrachtete Artefakte bronze',
-      picture: {
+      picture: object_bronze,
+      unlocked_picture: reward_object_bronze,
+     /*  picture: {
         $oid: '5ff98919cdd36137740fc36d',
         url:'https://image.shutterstock.com/image-vector/not-completed-red-stamp-text-600w-472077142.jpg',
       },
       unlocked_picture: {
         $oid: '5ff98919cdd36137740fc36c',
+<<<<<<< HEAD
         url:'https://image.shutterstock.com/image-vector/completed-grunge-vintage-square-stamp-600w-506324629.jpg',
       },
+=======
+      }, */
+>>>>>>> anna_dev
       cost: 3,
     },
-    // {
-    //   AbzeichenID: '#1' /*
-    //   Url: '/app/components/Media/1.png', */,
-    //   Bild:
-    //     'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
-    //   Beschreibung: 'test',
-    // },
   ],
-  ProfilePicture: [
+  /* ProfilePicture: [
     {
       name: 'Test',
       _id: {
@@ -135,29 +321,66 @@ const dataProvider = fakeDataProvider({
       picture: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
       locked: false,
     },
+  ], */
+  // only for testing 
+  ProfilePicture: [
+    {
+      picture: iphigenie,
+      locked: false,
+    },
+    {
+      picture: joseph,
+      locked: false,
+    },
+    {
+      picture: reward_object_bronze,
+      locked: true,
+    },
+    {
+      picture: reward_tour_silver,
+      locked: true,
+    },
   ],
   Pictures: [
     {
-      _id: {
-        $oid: '5ff98892ccd2776f571d6c1a',
-      },
-      picture: 'https://blog.qwant.com/wp-content/uploads/sites/3/2016/01/test.jpg',
-      locked: false,
+      $oid: '5ff98892ccd2776f571d6c1a',
+      picture: goldfibel
+    },
+    {
+      $oid: '5ff95692dcf3447f57146c1s',
+      picture: ortenberger
+    },
+    {
+      $oid: '5ffe569ssd2dcf3447f5714561s',
+      picture: morgensonne
+    },
+    {
+      $oid: '8sd95564dcf3675f57146gaw',
+      picture: gestade
     },
   ],
   Codes: [
     {
-      code: 'abc'
+      code: 'abh5k',
+      username: 4,
     },
   ],
   Feedback: [
     {
       _id: 0,
       tour: {
+        $oid: 0,
+      },
+      rating: 8,
+      review: 'Mir hat diese Tour sehr gut gefallen! Ich würde sie besonders Leuten mit Kindern weiterempfehlen, da die Inhalte spielerisch vermittelt werden',
+    },
+    {
+      _id: 1,
+      tour: {
         $oid: '600024333c43791d7831f306',
       },
-      rating: 4,
-      review: 'bad tour',
+      rating: 6,
+      review: 'Die Tour war an sich ganz okay, für einen kurzen Museumsbesuch dauert sie allerdings etwas zu lange. Wenn man also nur einen kurzen Besuch geplant hat, sollte man vielleicht eine andere Tour wählen',
     },
   ],
 });

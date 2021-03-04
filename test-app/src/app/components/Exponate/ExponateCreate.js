@@ -42,7 +42,11 @@ export const ExponateCreate = (props) => {
           <TextInput source='sub_category' label='Subkategorie' fullWidth />
           <TextInput
             source='interdisciplinary_context'
+<<<<<<< HEAD
             label='Interdisziplinärkontext'
+=======
+            label='Interdisziplinäre Bezüge'
+>>>>>>> anna_dev
             fullWidth
           />
         </FormTab>

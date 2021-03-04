@@ -9,23 +9,28 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-import { ContactMail } from '@material-ui/icons';
 
+<<<<<<< HEAD
 import badges from './images/Badges.png'
 import exponate from './images/Exponate.png'
 import tours from './images/Tours.png'
 import user from './images/User.png'
 
+=======
+import badges from './images/Badges.png';
+import exponate from './images/Exponate.png';
+import tours from './images/Tours.png';
+import user from './images/User.png';
+>>>>>>> anna_dev
 
 // style for the cards
-const useStyles = makeStyles(() => ({
+const useCardStyles = makeStyles(() => ({
   card: {
     maxWidth: '100%',
     margin: 'auto',
     transition: '0.3s',
     color: '#000',
     backgroundColor: 'transparent',
-    //   boxShadow: 'none',
   },
   media: {
     height: 0,
@@ -58,9 +63,6 @@ const useStyles = makeStyles(() => ({
 const useGridStyles = makeStyles(({ breakpoints }) => ({
   gridContainer: {
     maxWidth: '100%',
-    //   paddingLeft: '40px',
-    //   paddingRight: '40px',
-    //  paddingTop: '0px',
     margin: 'auto',
     position: 'relative',
   },
@@ -68,7 +70,7 @@ const useGridStyles = makeStyles(({ breakpoints }) => ({
 
 // card components for different links
 const CustomCard = ({ classes, image, title, subtitle, path }) => {
-  const cardStyles = useStyles();
+  const cardStyles = useCardStyles();
   return (
     <Card className={classes.card}>
       <div className={classes.con}>
@@ -84,7 +86,6 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                //  transform: 'translateX(25%)'
               }}
             >
               <Typography
@@ -97,7 +98,9 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
               <Typography className={classes.subtitle}>{subtitle}</Typography>
               <CardActions>
                 <Link to={path}>
-                  <Button renderAs='button'>Klicke hier</Button>
+                  <Button variant='contained' color='primary' renderAs='button'>
+                    Klicke hier
+                  </Button>
                 </Link>
               </CardActions>
             </div>
@@ -111,6 +114,7 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
 //Copyright
 function Copyright() {
   return (
+<<<<<<< HEAD
     <Typography
       variant="body2"
       color="textSecondary"
@@ -122,17 +126,27 @@ function Copyright() {
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
+=======
+    <Typography variant='body2' color='textSecondary' align='center'>
+      {'Copyright © '}
+      <Link to='/' color='inherit'>
+        Projekt Geschichte vernetzt
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+>>>>>>> anna_dev
     </Typography>
   );
 }
 
 // place the card on a grid
 export default function Dashboard() {
-  const cardStyles = useStyles();
+  const cardStyles = useCardStyles();
   const gridStyles = useGridStyles();
 
   return (
     <Container>
+<<<<<<< HEAD
     <Grid
       container
       //  direction="row"
@@ -177,6 +191,49 @@ export default function Dashboard() {
       </Grid>
     </Grid>
     <Copyright/>
+=======
+      <Grid
+        container
+        spacing={0}
+        className={gridStyles.gridContainer}
+        justify='center'
+      >
+        <Title title='Geschichte vernetzt - Vergangenes interdisziplinär erforschen und vermitteln | TU Darmstadt' />
+        <Grid item md>
+          <CustomCard
+            classes={cardStyles}
+            title={'Benutzer*innen'}
+            subtitle={'Verwalte Benutzer*innen'}
+            image={user}
+            path='/Benutzer'
+          />
+          <CustomCard
+            classes={cardStyles}
+            title={'Touren'}
+            subtitle={'Erstelle Touren'}
+            image={tours}
+            path='/Touren'
+          />
+        </Grid>
+        <Grid item md>
+          <CustomCard
+            classes={cardStyles}
+            title={'Exponate'}
+            subtitle={'Bearbeite Exponate'}
+            image={exponate}
+            path='/Exponate'
+          />
+          <CustomCard
+            classes={cardStyles}
+            title={'Bildverknüpfungen'}
+            subtitle={'Füge neue Bildverknüpfungen hinzu'}
+            image={badges}
+            path='/Abzeichen'
+          />
+        </Grid>
+      </Grid>
+      <Copyright />
+>>>>>>> anna_dev
     </Container>
   );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { Field, Form } from 'react-final-form';
 import { Component } from 'react';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
@@ -9,10 +10,58 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import LockIcon from '@material-ui/icons/Lock';
+import { useLogin } from 'react-admin';
 
 // site components
 //import authProvider from "./authProvider";
 import './LoginPage.css';
+
+const FakeLogin = (props) => {
+  const login = useLogin();
+  const handleSubmit = auth => {
+    login(auth);
+  };
+  return (
+    <Form
+      onSubmit={handleSubmit}
+      render={({ handleSubmit }) => (
+        <form onSubmit={handleSubmit} noValidate>
+          <div className='App'>
+            <header className='App-header'>
+              <div className='Login'>
+                <Button>
+                  <LockIcon color='primary' fontSize='large' />
+                </Button>
+                <Field
+                  variant='standard'
+                  label='Benutzername'
+                  margin='normal'
+                />
+                <Field
+                  variant='standard'
+                  label='Passwort'
+                  margin='normal'
+                  type='password'
+                />
+
+                <div className='Button'>
+                  <Button
+                    variant='contained'
+                    type='submit'
+                    color='primary'
+                    onClick={() => {}}
+                  >
+                    ANMELDEN
+                  </Button>
+                </div>
+              </div>
+            </header>
+          </div>
+        </form>
+      )}
+    />
+  );
+};
 
 class Login extends Component {
   constructor(props) {
@@ -42,7 +91,6 @@ class Login extends Component {
       open: false,
     });
   };
-
   render() {
     return (
       <div className='App'>
