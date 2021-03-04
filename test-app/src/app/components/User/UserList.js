@@ -4,23 +4,19 @@ import {
   Datagrid,
   SingleFieldList,
   EditButton,
-  Filter,
-  SearchInput,
-  NullableBooleanInput,
-  TextField,
   ChipField,
   FunctionField,
   BooleanField,
   ReferenceManyField,
-  ReferenceInput,
-  SelectInput,
-  ReferenceField,
 } from 'react-admin';
 // material UI imports
 import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
+import { CustomListActions } from '../CustomListActions.js';
+import { CustomBulkActions } from '../CustomBulkActions.js';
+import { UserFilterBar } from './UserFilter';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,39 +43,30 @@ const CustomerField = ({ record }) => {
   );
 };
 
-const FilterBar = (props) => (
-  <div>
-    <Filter {...props}>
-      <SearchInput source='q' alwaysOn />
-      <NullableBooleanInput
-        label='Benutzertyp'
-        source='Adminrechte'
-        nullLabel='alle Benutzer'
-        falseLabel='Benutzer'
-        trueLabel='Administator'
-        alwaysOn
-      />
-      <ReferenceInput
-        source='username'
-        label='Erstellte Touren'
-        reference='Touren'
-        allowEmpty
-        alwaysOn
-      >
-        <SelectInput optionText='name' />
-      </ReferenceInput>
-    </Filter>
-  </div>
-);
+// change each second row to light blue
+const postRowStyle = (record, index) => ({
+  backgroundColor: index % 2 ? 1 : '#e4edf8',
+});
 
 // show eixsting users
 export const UserList = (props) => (
+<<<<<<< HEAD
 <<<<<<< HEAD:test-app/src/app/components/User/UserList.js
   <List {...props} title='Benutzer*innen'>
 =======
   <List {...props} title='Benutzer*innen' filters={<FilterBar />}>
 >>>>>>> anna_dev:test-app/src/app/components/User.js
     <Datagrid>
+=======
+  <List
+    {...props}
+    title='Benutzer*innen'
+    filters={<UserFilterBar />}
+    actions={<CustomListActions />}
+    bulkActionButtons={<CustomBulkActions />}
+  >
+    <Datagrid rowStyle={postRowStyle}>
+>>>>>>> fenja_dev
       {/*  TODO: get real primary key of user ID (username?) 
       dont show id for user study
       <TextField source='id' label='ID' /> */}
@@ -87,8 +74,10 @@ export const UserList = (props) => (
       <FunctionField
         source='password'
         label='Passwort'
-        /* map all characters into a * using regexp */
+        /* map all characters into a * using regexp 
         render={(record) => record.password.replace(/./g, '*')}
+        */
+        render={(record) => '********'}
       />
       <BooleanField
         source='Adminrechte'

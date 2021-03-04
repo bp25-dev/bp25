@@ -31,7 +31,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
 
-import { SimpleForm, Button, DeleteButton, TextInput, LongTextInput, required } from 'react-admin';
+import {Button} from 'react-admin';
 
 const styles = (theme) => ({
   deleteButton: {
@@ -78,8 +78,8 @@ class DeleteButtonWithConfirmation extends Component {
         <Button onClick={this.handleClick} label={label} className={classnames('ra-delete-button', classes.deleteButton, className)} key="button">
           <ActionDelete />
         </Button>
-        <Dialog fullWidth open={showDialog} onClose={this.handleCloseClick} aria-label="Are you sure?">
-          <DialogTitle>Are you sure you want to delete this entity?</DialogTitle>
+        <Dialog fullWidth open={showDialog} onClose={this.handleCloseClick} aria-label="Sind Sie sicher?">
+          <DialogTitle>Sind Sie sich sicher, dass sie diesen Eintrag löschen möchten?</DialogTitle>
           <DialogContent>
             <div>
               Your actions will be logged.

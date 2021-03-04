@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import {
   List,
 <<<<<<< HEAD
@@ -52,73 +53,24 @@ export const PictureList = (props) => (
   SelectInput,
 } from 'react-admin';
 import { Card, CardContent, CardHeader, CardActions, CardActionArea } from '@material-ui/core';
+=======
+import { List, Filter, SearchInput, NullableBooleanInput } from 'react-admin';
+>>>>>>> fenja_dev
 import { makeStyles } from '@material-ui/core/styles';
-import { linkToRecord } from 'ra-core';
-import { Link } from 'react-router-dom';
+import { CustomListActions } from '../CustomListActions.js';
+import { CustomBulkActions } from '../CustomBulkActions.js';
+import { ProfilePictureGrid } from './ProfilePictureGrid';
 
-// style of different card entries
 const useStyles = makeStyles({
-  div: {
-    margin: '1em',
-  },
-  card: {
-    width: 300,
-    height: 500,
-    margin: '0.5em',
-    display: 'inline-block',
-    verticalAlign: 'top',
-  },
-  link: {
-    minHeight: 45,
-    fontSize: 12,
-  },
-  actions: {
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
+  content: {
+    backgroundColor: '#e4edf8', // background color of container
   },
 });
 
-// show the pictures on a grid
-const PictureGrid = () => {
-  const { ids, data, basePath } = useListContext();
-  const classes = useStyles();
-  return (
-    <div className={classes.div}>
-      {ids.map((id) => (
-        <Card key={id} className={classes.card}>
-          <CardActionArea>
-          <CardHeader />
-          <CardContent>
-            Profilbild:&nbsp;
-            <ImageField record={data[id]} source='picture' />
-          </CardContent>
-          <CardContent className={classes.link}>
-            Link:&nbsp;
-            <UrlField record={data[id]} source='picture' />
-          </CardContent>
-          <CardContent>
-            Status:&nbsp;
-            <BooleanField record={data[id]} source='locked' />
-          </CardContent>
-          </CardActionArea>
-          <CardActions className={classes.actions}>
-            <EditButton
-              to={linkToRecord(basePath, data[id].id)}
-              component={Link}
-              variant='outlined'
-              color='primary'
-            />
-          </CardActions>
-        </Card>
-      ))}
-    </div>
-  );
-};
-
 const FilterBar = (props) => (
   <div>
-    <Filter {...props} >
-      <SearchInput source='q' alwaysOn />
+    <Filter {...props}>
+      <SearchInput source='q' alwaysOn placeholder='Suche' />
       <NullableBooleanInput
         label='Gesperrt'
         source='locked'
@@ -131,6 +83,7 @@ const FilterBar = (props) => (
   </div>
 );
 // list existing badges
+<<<<<<< HEAD
 export const PictureList = (props) => (
   <List {...props} 
   title='Abzeichen' 
@@ -139,3 +92,20 @@ export const PictureList = (props) => (
 >>>>>>> anna_dev
   </List>
 );
+=======
+export const PictureList = (props) => {
+  const classes = useStyles();
+  return (
+    <List
+      {...props}
+      title='Abzeichen'
+      filters={<FilterBar />}
+      classes={{ content: classes.content }}
+      actions={<CustomListActions />}
+      bulkActionButtons={<CustomBulkActions />}
+    >
+      <ProfilePictureGrid />
+    </List>
+  );
+};
+>>>>>>> fenja_dev

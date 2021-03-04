@@ -5,6 +5,7 @@ import {
   TextField,
   ImageField,
 <<<<<<< HEAD
+<<<<<<< HEAD
   NumberField,
   EditButton,
   SimpleShowLayout,
@@ -14,14 +15,21 @@ import {
 // edit expand component
 =======
   UrlField,
+=======
+>>>>>>> fenja_dev
   NumberField,
   EditButton,
   SimpleShowLayout,
   Show,
 } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
+import { CustomListActions } from '../CustomListActions.js';
+import { CustomBulkActions } from '../CustomBulkActions.js';
 
 const useStyles = makeStyles({
+  card: {
+    backgroundColor: '#e4edf8', // background color of container
+  },
   imgContainer: {
     '& img': {
       height: 50,
@@ -40,6 +48,7 @@ const ImageShow = (props) => (
     {...props}
     /* disable the app title change when shown */
     title=' '
+    actions={false}
   >
     <SimpleShowLayout>
 <<<<<<< HEAD
@@ -84,9 +93,19 @@ export const AbzeichenList = (props) => (
 export const AbzeichenList = (props) => {
   const classes = useStyles();
   return (
+<<<<<<< HEAD
 >>>>>>> anna_dev
     <List {...props} title='Abzeichen'>
       <Datagrid expand={<ImageShow />}>
+=======
+    <List
+      {...props}
+      title='Abzeichen'
+      actions={<CustomListActions />}
+      bulkActionButtons={<CustomBulkActions />}
+    >
+      <Datagrid expand={<ImageShow />} rowClick='expand'>
+>>>>>>> fenja_dev
         <TextField source='id' label='ID' />
         <TextField source='name' label='Name' />
 <<<<<<< HEAD
@@ -99,7 +118,7 @@ export const AbzeichenList = (props) => {
         />
 >>>>>>> anna_dev
         <NumberField source='cost' label='Kosten' />
-        <EditButton />
+        <EditButton label='Editieren' />
       </Datagrid>
     </List>
   );

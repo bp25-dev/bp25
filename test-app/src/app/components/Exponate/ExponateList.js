@@ -5,6 +5,7 @@ import {
   Datagrid,
   EditButton,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   useListContext,
 >>>>>>> anna_dev
@@ -12,16 +13,17 @@ import {
   FilterList,
   FilterListItem,
   FilterLiveSearch,
+=======
+>>>>>>> fenja_dev
   //Shows
   SimpleShowLayout,
   Show,
   //Fields
   TextField,
   ImageField,
-  BooleanField,
-  ReferenceField,
   ReferenceArrayField,
 } from 'react-admin';
+<<<<<<< HEAD
 // material UI styling
 <<<<<<< HEAD
 import {
@@ -150,89 +152,47 @@ import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';
 import PersonIcon from '@material-ui/icons/Person';
 import SchoolIcon from '@material-ui/icons/School';
+=======
+import { FilterSidebar } from './ExponateFilterSidebar.js';
+import { makeStyles } from '@material-ui/core/styles';
+import {CustomListActions} from '../CustomListActions.js';
+import { CustomBulkActions } from '../CustomBulkActions.js';
+>>>>>>> fenja_dev
 
-// filter sidebar styling
-const Card = withStyles((theme) => ({
-  root: {
-    [theme.breakpoints.up('sm')]: {
-      order: -1, // display on the left rather than on the right of the list
-      width: '15em',
-      minWidth: 250,
-      marginRight: '1em',
-    },
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
+const useStyles = makeStyles({
+  field: {
+    maxWidth: 1200,
   },
-}))(MuiCard);
+  rowCell: {
+    padding: '0px',
+  },
+});
 
-//TODO: more filters.. Subkategorie Mapping, Timeframes, Material, ...?
-// check if picture object is not empty (create boolean)
-const HasImageFilter = () => (
-  <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
-    <FilterListItem label='vorhanden' value={{ img: true }} />
-    <FilterListItem label='nicht vorhanden' value={{ img: null }} />
-  </FilterList>
-);
-
-// .filter((a,b) => ids.indexOf(a) === b))
-
-// sidebar functionality
-const FilterSidebar = () => {
-  const { ids, data } = useListContext();
-  return (
-    <Card>
-      <CardContent>
-        <FilterLiveSearch />
-        <Typography variant="subtitle1" color='error' gutterBottom>
-        Entwurf: Bitte klicke auf keine von den unteren Kategorien 
-      </Typography>
-        <HasImageFilter />
-        <FilterList label='Subkategorie' icon={<ClassIcon />}>
-          {ids.map((id) => (
-            <FilterListItem
-              label={data[id].sub_category}
-              key={data[id].id}
-              value={{ groups: data[id].id }}
-            />
-          ))}
-        </FilterList>
-        <FilterList label='Ersteller' icon={<PersonIcon />}>
-          {ids.map((id) => (
-            <FilterListItem
-              label={data[id].creator}
-              key={data[id]._id}
-              value={{ groups: data[id]._id }}
-            />
-          ))}
-        </FilterList>
-        <FilterList label='Interdisziplinäre Bezüge' icon={<SchoolIcon />}>
-         {/*  {
-            ids.map((id) => (
-              <FilterListItem
-                label={data[id].interdisciplinary_context.split('Themen:')}
-                value={data[id]._id}
-              />
-            ))
-            .filter((a,b) => ids.indexOf(a) === b)
-          } */}
-        </FilterList>
-      </CardContent>
-    </Card>
-  );
-};
+// change each second row to light blue
+const postRowStyle = (record, index) => ({
+  backgroundColor: index % 2 ? 1 : '#e4edf8',
+});
 
 // edit expand component
 const ImageShow = (props) => {
+  const classes = useStyles(props);
   return (
     <Show
       {...props}
-      /* disable the app title change when shown */
-      title=' '
+      title=' ' /* disable the app title change when shown */
+      actions={false}
     >
       <SimpleShowLayout>
         <TextField source='art_type' label='Kunsttyp' />
-        <TextField source='description' label='Beschreibung' />
+        <TextField
+          source='interdisciplinary_context'
+          label='Interdisziplinäre Bezüge'
+        />
+        <TextField
+          source='description'
+          label='Beschreibung'
+          className={classes.field}
+        />
         <TextField source='additionfal_inf' label='Weitere Informationen' />
         <ImageField source='img' label='Bild' />
         {/* add new table with images and reference them here*/}
@@ -256,9 +216,20 @@ const ImageShow = (props) => {
 
 // list the exhibits
 export const ExponateList = (props) => {
+  const classes = useStyles(props);
   return (
-    <List {...props} title='Exponate' aside={<FilterSidebar />}>
-      <Datagrid expand={<ImageShow />}>
+    <List
+      {...props}
+      title='Exponate'
+      aside={<FilterSidebar />}
+      actions={<CustomListActions />}
+      bulkActionButtons={<CustomBulkActions />}
+    >
+      <Datagrid
+        rowClick='expand'
+        expand={<ImageShow />}
+        rowStyle={postRowStyle}
+      >
         {/* todo: use ObjectID as primary key 
         instead of <TextField source='ID' /> */}
         <TextField source='_id' label='ObjektID' />
@@ -266,10 +237,6 @@ export const ExponateList = (props) => {
         <TextField source='creator' label='Ersteller' />
         <TextField source='category' label='Kategorie' />
         <TextField source='sub_category' label='Subkategorie' />
-        <TextField
-          source='interdisciplinary_context'
-          label='Interdisziplinäre Bezüge'
-        />
         {/*TODO: remove direct fields after user study */}
         <TextField source='img' label='Bild' />
         {/* should be true if there is an linked picture 
@@ -280,7 +247,7 @@ export const ExponateList = (props) => {
         >
           <BooleanField source='picture.$oid' />
         </ReferenceField>*/}
-        <EditButton />
+        <EditButton label='Editieren' />
       </Datagrid>
     </List>
   );

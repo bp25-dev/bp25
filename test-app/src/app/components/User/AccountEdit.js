@@ -57,6 +57,7 @@ export const AccountEdit = (props) => (
           label='Löschen'                 
           cancel='Abbrechen'                 
         />
+<<<<<<< HEAD
         <ReferenceInput
         source='username'
         label='Erstellte Touren'
@@ -65,6 +66,8 @@ export const AccountEdit = (props) => (
         <SelectInput optionText='name' />
       </ReferenceInput> 
 >>>>>>> anna_dev
+=======
+>>>>>>> fenja_dev
       </SimpleForm>
     </Edit>
   );

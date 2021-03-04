@@ -78,7 +78,7 @@ const useStyles = makeStyles({
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 // material UI styling
-import { Card as MuiCard, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
 
 const UserEditToolbar = (props) => (
@@ -86,9 +86,6 @@ const UserEditToolbar = (props) => (
     <SaveButton />
   </Toolbar>
 );
-
-const DeleteConfirmTitle =
-  'Sind Sie sicher, dass Sie dieses Exponat löschen wollen?';
 
 const DeleteConfirmContent = (props) => {
   return (
@@ -111,7 +108,6 @@ const useStyles = makeStyles({
 // edit an exhibit
 export const ExponateEdit = (props) => {
   const classes = useStyles();
-
   return (
     <Edit {...props} title='Bearbeite Exponate'>
       <TabbedForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
@@ -156,7 +152,7 @@ export const ExponateEdit = (props) => {
             <ImageInput source='img' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
         </FormTab>
         <DeleteWithCustomConfirmButton
-          title={DeleteConfirmTitle}
+          title={ 'Sind Sie sicher, dass Sie dieses Exponat löschen wollen?'}
           content={DeleteConfirmContent}
           label='Löschen'
           cancel='Abbrechen'

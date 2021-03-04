@@ -2,10 +2,6 @@ import React from 'react';
 import { UserMenu, MenuItemLink} from 'react-admin';
 import SettingsIcon from '@material-ui/icons/Settings';
 
-import { createMuiTheme } from '@material-ui/core/styles';
-
-
-
 const MyUserMenu = (props) => {
   return (
     <UserMenu  {...props}>
@@ -18,8 +14,12 @@ const MyUserMenu = (props) => {
   );
 };
 
+<<<<<<< HEAD:test-app/src/app/components/MyProfile/MyUserMenu.js
 <<<<<<< HEAD
 export default MyUserMenu;
 =======
 export default MyUserMenu;
 >>>>>>> anna_dev
+=======
+export default MyUserMenu;
+>>>>>>> fenja_dev:test-app/src/app/containers/MyUserMenu.js

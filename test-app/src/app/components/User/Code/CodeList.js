@@ -6,6 +6,8 @@ import {
 } from 'react-admin';
 // material UI imports
 import Typography from '@material-ui/core/Typography';
+import { CustomListActions } from '../../CustomListActions.js';
+import { CustomBulkActions } from '../../CustomBulkActions.js';
 
 
 const Aside = (props) => (
@@ -17,7 +19,13 @@ const Aside = (props) => (
 </div>
 );
 
+// change each second row to light blue
+const postRowStyle = (record, index) => ({
+  backgroundColor: index % 2 ? 1 : '#e4edf8',
+});
+
 export const CodeList = (props) => (
+<<<<<<< HEAD
 
     <List {...props} title='Ersteller Codes' aside={<Aside />}>
       <Datagrid>
@@ -34,3 +42,22 @@ export const CodeList = (props) => (
       </Datagrid>
     </List>
   );
+=======
+  <List
+    {...props}
+    title='Ersteller Codes'
+    aside={<Aside />}
+    actions={<CustomListActions />}
+    bulkActionButtons={<CustomBulkActions />}
+  >
+    <Datagrid rowStyle={postRowStyle}>
+      <TextField source='id' label='ID' />
+      <TextField source='code' label='Code' />
+      {/*  reference to users */}
+      <ReferenceField label='Username' source='username' reference='Benutzer'>
+        <TextField source='username' />
+      </ReferenceField>
+    </Datagrid>
+  </List>
+);
+>>>>>>> fenja_dev

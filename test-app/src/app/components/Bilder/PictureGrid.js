@@ -27,14 +27,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '1em',
   },
   link: {
-    color: '#fff',
+    color: '#003473',
   },
 }));
 
 export const PictureGrid = ({ ids, data, basePath }) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} >
       <MuiGridList cellHeight={180} cols={3} className={classes.gridList}>
           {/* get the content of a certain col val by data[id].field */}
         {ids.map((id) => (
