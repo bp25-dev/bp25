@@ -33,17 +33,17 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Wo finde ich die Abzeichen?<br />
+          <b>Wo finde ich die Abzeichen?</b><br />
           Abzeichen, die in der App angezeigt werden können, sind unter der Kategorie „Bildverknüpfungen“ gesammelt und können dort bearbeite werden.
           <br />
           <br />
-          Was ist der Sinn und Zweck von Abzeichen?<br />
+          <b>Was ist der Sinn und Zweck von Abzeichen?</b><br />
            Durch verschiedene Aktivitäten im Museum, kann ein/e Nutzer*in sich Abzeichen verdienen. 
            Somit motivieren Abzeichen zum regelmäßigen Nutzen der App und dokumentieren den Fortschritt eines/einer Nutzer*in. 
            Außerdem sollen durch verschiedene Abzeichen Profilbilder für den/die Nutzer*in freigeschaltet werden.
            <br />
            <br />
-           Wie kann ich Abzeichen erhalten?<br />
+           <b>Wie kann ich Abzeichen erhalten?</b><br />
            Ein/e Nutzer*in kann sich Abzeichen durch unterschiedliche Aktivitäten im Museum verdienen. 
            Hierzu zählen bspw. die Anzahl betrachteter Exponate, die Anzahl abgeschlossener Rundgänge oder die Bearbeitung von Aufgaben innerhalb von Rundgängen. 
            Grundsätzlich ist die App-Nutzung nicht mit tatsächlichen Geldaufwendungen verbunden.
@@ -63,7 +63,7 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Warum kann ich im Feld Benutzer*innen keine Änderungen vornehmen?<br />
+          <b>Warum kann ich im Feld Benutzer*innen keine Änderungen vornehmen?</b><br />
           Dieses Feld kann nur von der Administration der Website bearbeitet und eingesehen werden.
           </Typography>
         </AccordionDetails>
@@ -79,13 +79,13 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Was ist mit Bildverknüpfungen gemeint?<br />
+          <b>Was ist mit Bildverknüpfungen gemeint?</b><br />
           Hierunter fallen sowohl die Abzeichen und die Profilbilder. 
           Beide Elemente sind für die App-Nutzer*innen relevant. 
           Sie können durch die Verwendung der App Abzeichen und auch Profilbilder freischalten.
           <br />
           <br />
-          Was ist der Sinn und Zweck von Profilbildern?<br />
+          <b>Was ist der Sinn und Zweck von Profilbildern?</b><br />
           Um den eigenen Account als App-Nutzer*in zu individualisieren besteht die Möglichkeit, ein Profilbild aus ausgewählten Exponaten des Museums zu wählen. 
           Außerdem können durch das Verdienen von Abzeichen weitere Profilbilder freigeschaltet werden. 
           Im Bereich der „Bildverknüpfungen“ sollen die möglichen Profilbilder zur Verfügung gestellt und bearbeitet werden können.
@@ -103,13 +103,13 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Was ist ein Exponat?<br />
+          <b>Was ist ein Exponat?</b><br />
             „Exponant“ ist ein anderer Begriff für „(Austellungs-)Objekt“ im Museum. 
             Gemeint sind hier die gesammelten Objekte des Museums. Jedes Objekt hat in der über diese Website zugänglichen Datenbank einen eigenen Eintrag mit allen relevanten Informationen. 
             Unser Ziel ist es, möglichst viele Informationen über die unterschiedlichen Exponate zusammenzutragen.
             <br />
             <br />
-          Wie lösche ich ein Exponat?<br />
+            <b>Wie lösche ich ein Exponat?</b><br />
            Um ein Exponat zu löschen, muss zunächst die Seite der Exponate angewählt werden.
            Dort gibt es zwei Möglichkeiten, ein Exponat zu löschen.
            Im Bearbeitungsmodus (Edit-Button) findet sich dazu neben den Reitern "Übersicht", "Eckdaten" und "Bildverknüpfungen" ein Löschen-Button, der genutzt werden kann.
@@ -117,7 +117,7 @@ export default function SimpleAccordion() {
            Anschließend erscheint oben rechts über der Tabelle ein Delete-Button, der bestätigt werden kann.
            <br />
            <br />
-           Wer kann Exponate anlegen, bearbeiten oder löschen?<br />
+           <b>Wer kann Exponate anlegen, bearbeiten oder löschen?</b><br />
            Die Administration der Website kann alle angelegten Exponate bearbeiten und löschen. 
            Einfache Benutzer*innen der Website können selbst Exponate anlegen, allerdings nur die selbst angelegten Exponate auch bearbeiten oder löschen.
           </Typography>
@@ -134,7 +134,7 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Warum passt sich das Layout der Website bei der Handynutzung nicht an?<br />
+          <b>Warum passt sich das Layout der Website bei der Handynutzung nicht an?</b><br />
            Die Hauptnutzung der Website ist für den Computer oder Laptop gedacht, deshalb ist das Layout (noch) nicht für die Handynutzung angepasst.
            Alle Funktionen der Website sind aber auch über das Handy ausführbar. 
            <br />
@@ -153,19 +153,19 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          Wie kann ich mein Passwort ändern?<br />
+          <b>Wie kann ich mein Passwort ändern?</b><br />
            Um das eigene Passwort zu ändern, navigiert man auf die sogenannte "Mein Profil"-Seite. 
            Diese ist, wie der Logout-Button, oben rechts auf der Website zu finden.
            Auf der "Mein Profil"-Seite kann das Passwort geändert werden, indem zuerst erneut das alte Passwort sowie anschließend ein neues Passwort eingegeben werden. 
            Dies muss anschließend bestätigt werden.
            <br />
            <br />
-           Wer kann mein Profil einsehen?<br />
+           <b>Wer kann mein Profil einsehen?</b><br />
            Nur die Administration der Website kann alle Benutzer*innen der Website sehen.<br />
            Kontakt: miriam.grabarits@tu-darmstadt.de
            <br />
            <br />
-           Wie kann ich mein Profil wieder löschen? Wer kann das Löschen außerdem vornehmen?<br /> 
+           <b>Wie kann ich mein Profil wieder löschen? Wer kann das Löschen außerdem vornehmen?</b><br /> 
            Sie können Ihr Profil ebenfalls auf der Seite „Mein Profil“, das Sie über den Button oben rechts auf der Website erreichen, löschen. 
            Außerdem kann auch die Administration der Website das Löschen Ihres Profils vornehmen, bspw. bei Verstoß gegen die geltenden Regeln der Website-Nutzung oder auf Wunsch von Seiten der Nutzer*innen.<br /> 
            Kontakt: miriam.grabarits@tu-darmstadt.de
@@ -183,16 +183,16 @@ export default function SimpleAccordion() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-          In welchem Wertebereich liegt der Schwierigkeitsgrad und kann dieser auch negativ sein?<br />
+          <b>In welchem Wertebereich liegt der Schwierigkeitsgrad und kann dieser auch negativ sein?</b><br />
             Der Schwierigkeitsgrad einer Tour liegt immer zwischen 0 und 5 und kann somit nicht negativ sein. 
             Dabei beschreibt 0 die geringste Schwierigkeit und 5 die höchste.
             <br />
             <br />
-            Was ist der Unterschied zwischen Ersteller*in und Benutzer*innen?<br />
+            <b>Was ist der Unterschied zwischen Ersteller*in und Benutzer*innen?</b><br />
             Der/die Ersteller*in erstellt eine neue Tour und alle Benutzer*innen sind die Teilnehmenden dieser Tour. Diese Teilnehmenden sind App-Nutzer*innen.
             <br />
             <br />
-            Was ist das Passwort und was ist der Touren-Code einer Tour?<br />
+            <b>Was ist das Passwort und was ist der Touren-Code einer Tour?</b><br />
             Um an einer nicht-öffentlichen Tour teilzunehmen, ist die Eingabe eines Download-Codes nötig.
             Der Touren-Code einer Tour wird automatisch beim Erstellen einer Tour generiert und kann von der Person, die die Tour erstellt hat, weitergegeben werden. Dabei handelt es sich aber um nicht-öffentliche Touren. Nur die Administration der App und der Website kann eine Tour als öffentliche Tour für alle App-Nutzer*innen freigeben.
           </Typography>
