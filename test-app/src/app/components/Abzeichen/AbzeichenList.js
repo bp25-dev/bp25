@@ -8,6 +8,7 @@ import {
   EditButton,
   SimpleShowLayout,
   Show,
+  usePermissions
 } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
 import { CustomListActions } from '../CustomListActions.js';
@@ -62,6 +63,7 @@ const ImageShow = (props) => (
 // list existing badges
 export const AbzeichenList = (props) => {
   const classes = useStyles();
+  const {permissions} = usePermissions();
   return (
     <List
       {...props}
@@ -78,7 +80,9 @@ export const AbzeichenList = (props) => {
           label='Bild'
         />
         <NumberField source='cost' label='Kosten' />
+        {permissions === 'admin' &&
         <EditButton label='Editieren' />
+        }
       </Datagrid>
     </List>
   );

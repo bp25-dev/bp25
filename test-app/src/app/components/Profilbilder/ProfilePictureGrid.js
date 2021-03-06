@@ -5,6 +5,7 @@ import {
   BooleanField,
   useListContext,
   EditButton,
+  usePermissions
 } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, CardHeader, CardActions, CardActionArea } from '@material-ui/core';
@@ -36,6 +37,7 @@ const useStyles = makeStyles({
 export const ProfilePictureGrid = () => {
     const { ids, data, basePath } = useListContext();
     const classes = useStyles();
+    const {permissions} = usePermissions();
     return (
       <div className={classes.div}>
         {ids.map((id) => (
@@ -56,6 +58,7 @@ export const ProfilePictureGrid = () => {
             </CardContent>
             </CardActionArea>
             <CardActions className={classes.actions}>
+            {permissions === 'admin' &&
               <EditButton
                 label = 'Editieren'
                 to={linkToRecord(basePath, data[id].id)}
@@ -63,6 +66,7 @@ export const ProfilePictureGrid = () => {
                 variant='outlined'
                 color='primary'
               />
+              }
             </CardActions>
           </Card>
         ))}

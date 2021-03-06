@@ -53,21 +53,8 @@ export default function SimpleAccordion() {
         </AccordionDetails>
       </Accordion>
 
-      <Accordion >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel7a-content"
-          id="panel7a-header"
-        >
-          <Typography className={classes.heading} variant="h6">Fragen zu "Benutzer*innen"</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-          <b>Warum kann ich im Feld Benutzer*innen keine Änderungen vornehmen?</b><br />
-          Dieses Feld kann nur von der Administration der Website bearbeitet und eingesehen werden.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      
+
 
       <Accordion >
         <AccordionSummary
@@ -202,3 +189,21 @@ export default function SimpleAccordion() {
     </div>
   );
   }
+
+  /** falls Karte Benutzer*innen für user sichtbar sein soll, muss diese Frage mit rein:
+   <Accordion >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel7a-content"
+          id="panel7a-header"
+        >
+          <Typography className={classes.heading} variant="h6">Fragen zu "Benutzer*innen"</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+          <b>Warum kann ich im Feld Benutzer*innen keine Änderungen vornehmen?</b><br />
+          Dieses Feld kann nur von der Administration der Website bearbeitet und eingesehen werden.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+   */

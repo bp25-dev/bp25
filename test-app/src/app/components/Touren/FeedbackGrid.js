@@ -6,6 +6,7 @@ import {
   NumberField,
   useListContext,
   EditButton,
+  usePermissions
 } from 'react-admin';
 import { linkToRecord } from 'ra-core';
 import { Link } from 'react-router-dom';
@@ -55,6 +56,7 @@ const StarRatingField = ({ record }) => {
 export const FeedbackGrid = () => {
   const { ids, data, basePath } = useListContext();
   const classes = useStyles();
+  const {permissions} = usePermissions();
   return (
     <div className={classes.div}>
       {ids.map((id) => (
@@ -96,6 +98,7 @@ export const FeedbackGrid = () => {
             />
           </CardContent>
           <CardActions className={classes.actions}>
+          {permissions === 'admin' &&
             <EditButton
               label = 'Editieren'
               to={linkToRecord(basePath, data[id].id)}
@@ -103,6 +106,7 @@ export const FeedbackGrid = () => {
               variant='outlined'
               color='primary'
             />
+          }
           </CardActions>
         </Card>
       ))}

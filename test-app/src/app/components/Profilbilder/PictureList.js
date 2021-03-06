@@ -32,7 +32,7 @@ export const PictureList = (props) => {
   return (
     <List
       {...props}
-      title='Abzeichen'
+      title='Profilbilder'
       filters={<FilterBar />}
       classes={{ content: classes.content }}
       actions={<CustomListActions />}
