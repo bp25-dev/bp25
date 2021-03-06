@@ -1,7 +1,7 @@
 import React from 'react'
 import { gql, useQuery } from '@apollo/client'
 
-/* fetch('http://localhost:5000', {
+fetch('http://localhost:5000/web', {
   method: 'GET',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ query: `
@@ -20,8 +20,8 @@ import { gql, useQuery } from '@apollo/client'
     }` 
   }),
 })
-.then(res => res.json())
-.then(res => console.log(res.data)); */
+.then(response => response.json())
+.then(data => this.setState({ data }))
 
 
 const GET_ALL_BADGES = gql`
@@ -42,7 +42,7 @@ const GET_ALL_BADGES = gql`
 `;
 
 export const badges = () => {
-    const { loading, error, data } = useQuery( GET_ALL_BADGES);
+    const { loading, error, data } = useQuery(GET_ALL_BADGES);
   
     if (loading) return 'Loading...';
     if (error) return `Error! ${error.message}`;

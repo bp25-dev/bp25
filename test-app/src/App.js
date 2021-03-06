@@ -48,6 +48,7 @@ import buildGraphQLProvider from 'ra-data-graphql-simple';
 import dataProvider from './app/data/fakeDataProvider.js';
 //import dataProviderFactory from './app/data/dataProvider.js';
 import dataProviderFactory from './app/data/rest.js';
+import simpleRestProvider from 'ra-data-simple-rest';
 
 const MyLoginPage = () => (
   <Login
@@ -67,7 +68,11 @@ class App extends Component {
   }
   // second step: build up provider and set set 
   componentDidMount() {
-    const dataProvider =  buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
+    const dataProvider = simpleRestProvider('localhost:5000/web'); 
+    // const dataProvider =  buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
+    // const dataProvider = buildGraphQLProvider({ buildQuery });
+    /* const dataProvider = dataProviderFactory(
+      process.env.REACT_APP_DATA_PROVIDER);  */    
     this.setState({ dataProvider });
   }
   render() {
