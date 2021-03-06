@@ -136,7 +136,7 @@ class Login extends Component {
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={this.handleClose} color='primary'>
+              <Button onClick={this.handleClose} color='primary'> 
                 Okay
               </Button>
             </DialogActions>

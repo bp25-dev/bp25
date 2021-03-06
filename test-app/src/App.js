@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Admin, Resource, Delete, Login} from 'react-admin';
-import buildGraphQLProvider from 'ra-data-graphql-simple';
+import { Admin, Resource, Login} from 'react-admin';
 //components
 //Exponate
 import {ExponateCreate} from './app/components/Exponate/ExponateCreate.js';
@@ -33,7 +32,6 @@ import Footer from './app/containers/Footer.js';
 import {MyTheme} from './app/containers/MyTheme.js';
 import LoginPage from './app/containers/Login/LoginPage.js';
 import authProvider from './app/containers/Login/authProvider.js';
-import dataProvider from './app/data/fakeDataProvider.js';
 import initialState from './app/containers/Login/initialState.js';
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
@@ -45,7 +43,11 @@ import ListIcon from '@material-ui/icons/List';
 import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import HelpIcon from '@material-ui/icons/Help';
-
+// data
+import buildGraphQLProvider from 'ra-data-graphql-simple';
+import dataProvider from './app/data/fakeDataProvider.js';
+// import dataProviderFactory from './app/data/dataProvider.js';
+import dataProviderFactory from './app/data/rest.js';
 
 const MyLoginPage = () => (
   <Login
@@ -57,25 +59,25 @@ const MyLoginPage = () => (
   />
 ); 
 
-
-
 class App extends Component {
-  /* constructor() {
+  // first step: set initial state 
+   constructor() {
       super();
       this.state = { dataProvider: null };
   }
-
+  // second step: build up provider and set set 
   componentDidMount() {
-      buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
-          .then(dataProvider => this.setState({ dataProvider }));
-  } */
-
+    const dataProvider = dataProviderFactory(
+      process.env.REACT_APP_DATA_PROVIDER
+    );
+    // buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
+    this.setState({ dataProvider });
+  }
   render() {
-    /* const { dataProvider } = this.state;
-
+    const { dataProvider } = this.state;
         if (!dataProvider) {
             return <div>Loading</div>;
-        } */
+        }
   return (
     <div>
       <Admin 
