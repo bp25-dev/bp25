@@ -76,6 +76,8 @@ export default () => {
 };
 
 
+
+
 /* export const createBadge = (token, id, name, picture, unlocked_picture, description, cost) => {
     return `
 mutation {

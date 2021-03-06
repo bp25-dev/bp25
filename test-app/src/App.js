@@ -46,7 +46,7 @@ import HelpIcon from '@material-ui/icons/Help';
 // data
 import buildGraphQLProvider from 'ra-data-graphql-simple';
 import dataProvider from './app/data/fakeDataProvider.js';
-// import dataProviderFactory from './app/data/dataProvider.js';
+//import dataProviderFactory from './app/data/dataProvider.js';
 import dataProviderFactory from './app/data/rest.js';
 
 const MyLoginPage = () => (
@@ -67,10 +67,7 @@ class App extends Component {
   }
   // second step: build up provider and set set 
   componentDidMount() {
-    const dataProvider = dataProviderFactory(
-      process.env.REACT_APP_DATA_PROVIDER
-    );
-    // buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
+    const dataProvider =  buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
     this.setState({ dataProvider });
   }
   render() {

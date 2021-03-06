@@ -12,9 +12,9 @@ import {
   DELETE_MANY,
 } from 'react-admin';
 
-export default (httpClient = fetchUtils.fetchJson) => {
+export default (/* apiUrl, */ httpClient = fetchUtils.fetchJson) => {
     const apiUrl = 'localhost:5000/web';
-const convertDataRequestToHTTP = (type, resource, params) => {
+    const convertDataRequestToHTTP = (type, resource, params) => {
     let url = '';
     const options = {};
     switch (type) {
