@@ -6,7 +6,7 @@ import { DELETE } from 'ra-core';
 import gql from 'graphql-tag';
 import simpleRestProvider from 'ra-data-simple-rest';
 
-const apiUrl = 'localhost:5000/web';
+const apiUrl = 'http://127.0.0.1:5000/web';
 
 /* const restProvider = simpleRestProvider(apiUrl);
 

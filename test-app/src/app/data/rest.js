@@ -12,8 +12,12 @@ import {
   DELETE_MANY,
 } from 'react-admin';
 
+
+// TODO: 
+// localhost:5000/file/download?type=Badge&id=Gegangene_Rundgaenge_gold
+
 export default (/* apiUrl, */ httpClient = fetchUtils.fetchJson) => {
-    const apiUrl = 'http://localhost:5000/web';
+    const apiUrl = 'http://127.0.0.1:5000/web';
     const convertDataRequestToHTTP = (type, resource, params) => {
     let url = '';
     const options = {};
