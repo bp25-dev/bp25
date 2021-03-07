@@ -13,7 +13,7 @@ import {
 } from 'react-admin';
 
 
-// TODO: 
+// TODO:
 // localhost:5000/file/download?type=Badge&id=Gegangene_Rundgaenge_gold
 
 export default (/* apiUrl, */ httpClient = fetchUtils.fetchJson) => {
@@ -34,6 +34,7 @@ export default (/* apiUrl, */ httpClient = fetchUtils.fetchJson) => {
                 end: page * perPage,
             };
                 url = `${apiUrl}/${resource}?${stringify(query)}`;
+                // url = 'http://127.0.0.1:5000/web/?query=mutation%20create%20%7B%0A%20%20createAdmin(username%3A%22pa%22%2C%20password%3A%22d%22)%0A%20%20%7B%0A%20%20%20%20user%0A%20%20%20%20%7B%0A%20%20%20%20%20%20username%20%0A%20%20%20%20%7D%0A%20%20%20%20ok%20%20%0A%20%20%7D%0A%7D%0A%0Amutation%20login%20%7B%0A%20%20auth(password%3A%22d%22%2Cusername%3A%22pa%22)%0A%20%20%7B%0A%20%20%20%20accessToken%0A%20%20%7D%0A%7D%0A%0Aquery%20objectq%7B%0A%20%20museumObject(token%3A%22eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1MTM0NDA0LCJuYmYiOjE2MTUxMzQ0MDQsImp0aSI6ImIzNTY1ZGIxLTc4ZTQtNDc3My1iZjVkLTk1ZmJjZjNhOGRlZiIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTUxMzUzMDQsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.HmbalbcY50DJ27GnVtLy9tTzPD3EyC7EHrmskPylSTg%22)%0A%20%20%7B%0A%20%20%20%20objectId%0A%20%20%20%20title%0A%20%20%20%20category%0A%20%20%20%20subCategory%0A%20%20%20%20timeRange%0A%20%20%20%20creator%0A%20%20%20%20year%0A%20%20%20%20material%0A%20%20%20%20artType%0A%20%20%20%20location%0A%20%20%20%20description%0A%20%20%20%20interdisciplinaryContext%0A%20%20%20%20additionalInformation%0A%20%20%20%20size_%0A%20%20%7D%0A%7D&operationName=objectq'
             break;
         }
         case GET_ONE:

@@ -2,7 +2,7 @@ import buildGraphQLProvider from 'ra-data-graphql-simple';
 import buildApolloClient, {
     buildQuery as buildQueryFactory,
 } from 'ra-data-graphql-simple';
-import { DELETE } from 'ra-core';
+import { DELETE, GET_LIST, GET_MANY, GET_ONE } from 'ra-core';
 import gql from 'graphql-tag';
 import simpleRestProvider from 'ra-data-simple-rest';
 
@@ -21,7 +21,7 @@ const delayedDataProvider = new Proxy(restProvider, {
                           500
                       )
                   ),
-}); */
+}); 
 
 const getGqlResource = resource => {
     switch (resource) {
@@ -36,12 +36,42 @@ const getGqlResource = resource => {
     }
 };
 
-
+*/
 const customBuildQuery = introspectionResults => {
     const buildQuery = buildQueryFactory(introspectionResults);
 
     return (type, resource, params) => {
-        if (type === DELETE) {
+        if (type === GET_ONE) {
+            return {
+                query: gql`query ${resource}{
+                    ${resource}(token: $token)
+                }`,
+                variables: {token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1MTMzMjg1LCJuYmYiOjE2MTUxMzMyODUsImp0aSI6IjBkYTcyZjg5LTU2YjUtNDNkMC04Zjk3LWE2OWViNWNhNGE2NyIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTUxMzQxODUsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.5wg0y9C3gQmP0KmFMxRdZUtR_agFR-d1uKM4oNHmJwY"},
+                parseResponse: ({data}) => {
+                    if (data[`${resource}`]) {
+                        return {data: {id: params.objectID}};
+                    }
+
+                    throw new Error(`Could not find ${resource}`);
+                },
+            };
+        }
+        if (type === GET_LIST) {
+            return {
+                query: gql`query ${resource}{
+                    ${resource}(token: $token)
+                }`,
+                variables: {token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1MTMzMjg1LCJuYmYiOjE2MTUxMzMyODUsImp0aSI6IjBkYTcyZjg5LTU2YjUtNDNkMC04Zjk3LWE2OWViNWNhNGE2NyIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTUxMzQxODUsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.5wg0y9C3gQmP0KmFMxRdZUtR_agFR-d1uKM4oNHmJwY"},
+                parseResponse: ({data}) => {
+                    if (data[`${resource}`]) {
+                        return {data: {id: params.objectID}};
+                    }
+
+                    throw new Error(`Could not find ${resource}`);
+                },
+            };
+        }
+        /* if (type === DELETE) {
             return {
                 query: gql`mutation remove${resource}($id: ID!) {
                     remove${resource}(id: $id)
@@ -55,7 +85,7 @@ const customBuildQuery = introspectionResults => {
                     throw new Error(`Could not delete ${resource}`);
                 },
             };
-        }
+        } */
 
         return buildQuery(type, resource, params);
     };
@@ -68,12 +98,13 @@ export default () => {
         },
         introspection: {
             operationNames: {
-                [DELETE]: resource => `remove${resource.name}`,
+                [GET_ONE]: resource => `${resource.name}`,
+                [GET_LIST]: resource => `${resource.name}`,
         },
         },
         buildQuery: customBuildQuery,
     }).then(dataProvider => (type, resource, params) =>
-      dataProvider(type, getGqlResource(resource), params)
+      dataProvider(type, /* getGqlResource(resource) */ resource, params)
     );
 };
 
@@ -132,6 +163,3 @@ export const updateBadge = (token, id, name, picture, unlocked_picture, descript
             return import('./rest').then(provider => provider.default);
     }
 }; */
-
-// query tour: http://localhost:5000/web/?operationName=tour&query=query%20tour%20%7B%0A%20%20tour
-// (token%3A%22eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNTg1MTQzNTc5LCJuYmYiOjE1ODUxNDM1NzksImp0aSI6IjFjOTMyNDczLTRiYTAtNDYxNi1hYzc4LTQ1ZjBhYTQzYjhkMiIsImlkZW50aXR5IjoidGVzdCIsImV4cCI6MTU4NTE0NDQ3OSwidXNlcl9jbGFpbXMiOnsiYWRtaW4iOnRydWV9fQ.cKz7WyGODvfkOfT3UB2xCqVl4lU7McvEPOM-F9hvYP8%22%2CtourId%3A%225e7b5fa4aaaa08287c60a2a0%22)%0A%20%20%7B%0A%20%20%20%20name%0A%20%20%20%20id%0A%20%20%7D%0A%7D
