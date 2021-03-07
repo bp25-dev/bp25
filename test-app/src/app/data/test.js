@@ -30,10 +30,10 @@ const GET_ALL_BADGES = gql`
         _id
         name
         picture {
-            $oid
+            oid
         }
         unlocked_picture {
-            $oid
+            oid
         }
         test
 	}

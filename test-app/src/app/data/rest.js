@@ -13,11 +13,12 @@ import {
 } from 'react-admin';
 
 export default (/* apiUrl, */ httpClient = fetchUtils.fetchJson) => {
-    const apiUrl = 'localhost:5000/web';
+    const apiUrl = 'http://localhost:5000/web';
     const convertDataRequestToHTTP = (type, resource, params) => {
     let url = '';
     const options = {};
     switch (type) {
+        // part 1: REST calls 
         case GET_LIST: {
             const { page, perPage } = params.pagination;
             const { field, order } = params.sort;
@@ -48,6 +49,11 @@ export default (/* apiUrl, */ httpClient = fetchUtils.fetchJson) => {
             url = `${apiUrl}/${resource}?${stringify(query)}`;
             break;
         }
+        // part 2: requests
+        // TODO: via /file/{function} 
+        // function can be: download, upload, 
+        // call:  /file/<function>?parameter=value
+        // example: localhost:5000/file/download?type=ProfilePicture&id=5ee346d8661851bd412427ca 
         case UPDATE:
             url = `${apiUrl}/${resource}/${params.id}`;
             options.method = 'POST';

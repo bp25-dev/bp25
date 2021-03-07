@@ -47,8 +47,9 @@ import HelpIcon from '@material-ui/icons/Help';
 import buildGraphQLProvider from 'ra-data-graphql-simple';
 import dataProvider from './app/data/fakeDataProvider.js';
 //import dataProviderFactory from './app/data/dataProvider.js';
+// own json rest provider 
 import dataProviderFactory from './app/data/rest.js';
-import simpleRestProvider from 'ra-data-simple-rest';
+import {gqlDataProvider} from './app/data/test_2.js';
 
 const MyLoginPage = () => (
   <Login
@@ -68,11 +69,10 @@ class App extends Component {
   }
   // second step: build up provider and set set 
   componentDidMount() {
-    const dataProvider = simpleRestProvider('localhost:5000/web'); 
-    // const dataProvider =  buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
-    // const dataProvider = buildGraphQLProvider({ buildQuery });
+    // const dataProvider = simpleRestProvider('localhost:5000/web'); 
     /* const dataProvider = dataProviderFactory(
-      process.env.REACT_APP_DATA_PROVIDER);  */    
+      process.env.REACT_APP_DATA_PROVIDER);   */
+    const dataProvider = gqlDataProvider
     this.setState({ dataProvider });
   }
   render() {
@@ -94,7 +94,7 @@ class App extends Component {
       >
          {permissions => [
           <Resource
-          name='Exponate'
+          name='museumObject'
           list={ExponateList}
           edit={ExponateEdit}
           create={ExponateCreate}
@@ -102,7 +102,7 @@ class App extends Component {
           options={{ label: 'Exponate' }}
         />,
         <Resource
-          name='Touren'
+          name='tour'
           list={TourenList}
           edit={TourenEdit}
           create={TourenCreate}
@@ -117,7 +117,7 @@ class App extends Component {
         permissions === 'admin'
             ?
         <Resource
-          name='Benutzer'
+          name='user'
           list={UserList}
           edit={AccountEdit}
           create={UserCreate}
@@ -128,7 +128,7 @@ class App extends Component {
         permissions === 'admin'
             ?
         <Resource
-          name='Codes'
+          name='code'
           list={CodeList}
           create={CodeCreate}
           icon={CreateIcon}
@@ -144,7 +144,7 @@ class App extends Component {
           options={{ label: 'Bildverknüpfungen', isMenuParent: true }}
         />,
         <Resource
-          name='Abzeichen'
+          name='badge'
           list={AbzeichenList}
           edit={AbzeichenEdit}
           create={AbzeichenCreate}

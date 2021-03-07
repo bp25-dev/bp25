@@ -25,10 +25,12 @@ const delayedDataProvider = new Proxy(restProvider, {
 
 const getGqlResource = resource => {
     switch (resource) {
-        case 'badge':
-            return 'Abzeichen';
-        /* case 'user':
-            return 'Benutzer'; */
+        case 'object':
+            return 'Exponate';
+        case 'tour':
+            return 'Touren';
+        case 'user':
+            return 'Benutzer'; 
         default:
             throw new Error(`Unknown resource ${resource}`);
     }
@@ -130,3 +132,6 @@ export const updateBadge = (token, id, name, picture, unlocked_picture, descript
             return import('./rest').then(provider => provider.default);
     }
 }; */
+
+// query tour: http://localhost:5000/web/?operationName=tour&query=query%20tour%20%7B%0A%20%20tour
+// (token%3A%22eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNTg1MTQzNTc5LCJuYmYiOjE1ODUxNDM1NzksImp0aSI6IjFjOTMyNDczLTRiYTAtNDYxNi1hYzc4LTQ1ZjBhYTQzYjhkMiIsImlkZW50aXR5IjoidGVzdCIsImV4cCI6MTU4NTE0NDQ3OSwidXNlcl9jbGFpbXMiOnsiYWRtaW4iOnRydWV9fQ.cKz7WyGODvfkOfT3UB2xCqVl4lU7McvEPOM-F9hvYP8%22%2CtourId%3A%225e7b5fa4aaaa08287c60a2a0%22)%0A%20%20%7B%0A%20%20%20%20name%0A%20%20%20%20id%0A%20%20%7D%0A%7D
