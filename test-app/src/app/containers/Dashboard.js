@@ -90,11 +90,7 @@ const CustomCard = ({ classes, image, title, subtitle, path }) => {
               <Typography className={classes.subtitle}>{subtitle}</Typography>
               <CardActions>
                 <Link to={path}>
-                  <Button
-                    color='secondary'
-                    variant='contained'
-                    renderAs='button'
-                  >
+                  <Button  color='secondary' variant='contained' renderAs='button'>
                     Klicke hier
                   </Button>
                 </Link>
@@ -125,7 +121,7 @@ function Copyright() {
 export default function Dashboard() {
   const cardStyles = useCardStyles();
   const gridStyles = useGridStyles();
-  const { permissions } = usePermissions();
+  const {permissions} = usePermissions();
 
   return (
     <Container>
@@ -160,15 +156,17 @@ export default function Dashboard() {
             image={exponate}
             path='/Exponate'
           />
-          {permissions === 'admin' ? (
-            <CustomCard
-              classes={cardStyles}
-              title={'Benutzer*innen'}
-              subtitle={'Verwalte Benutzer*innen'}
-              image={user}
-              path='/Benutzer'
-            />
-          ) : null}
+          {permissions === 'admin' ?
+          <CustomCard
+            classes={cardStyles}
+            title={'Benutzer*innen'}
+            subtitle={'Verwalte Benutzer*innen'}
+            image={user}
+            path='/Benutzer'
+          />
+          :null
+          }
+          
         </Grid>
       </Grid>
       <Copyright />
