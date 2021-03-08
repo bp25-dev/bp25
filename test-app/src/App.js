@@ -105,11 +105,14 @@ class App extends Component {
           icon={NavigationIcon}
           options={{ label: 'Touren' }}
         />,
+        permissions === 'admin'
+            ?
         <Resource
           name='Benutzer_overview'
           icon={SupervisorAccountIcon}
           options={{ label: 'Benutzer*innen', isMenuParent: true }}
-        />,
+        />
+        : null,
         permissions === 'admin'
             ?
         <Resource
@@ -142,23 +145,23 @@ class App extends Component {
         <Resource
           name='Abzeichen'
           list={AbzeichenList}
-          edit={AbzeichenEdit}
-          create={AbzeichenCreate}
+          edit={permissions === 'admin' ? AbzeichenEdit : null}
+          create={permissions === 'admin' ? AbzeichenCreate : null}
           icon={PhotoFilterIcon}
           options={{ label: 'Abzeichen', menuParent: 'Bilder_overview' }}
         />,
         <Resource
           name='ProfilePicture'
           list={PictureList}
-          edit={PictureEdit}
-          create={PictureCreate}
+          edit={permissions === 'admin' ? PictureEdit : null}
+          create={permissions === 'admin' ? PictureCreate : null}
           icon={AddPhotoAlternateIcon}
           options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
         />,
         <Resource
           name='Feedback'
           list={FeedbackList}
-          edit={FeedbackEdit}
+          edit={permissions === 'admin' ? FeedbackEdit : null}
           icon={RateReviewIcon}
           options={{ label: 'Feedback' }}
         />,
