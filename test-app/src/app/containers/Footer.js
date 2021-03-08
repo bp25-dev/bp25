@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     heigth: 100,
     margin: 'auto',
     textAlign: 'left',
-    padding: 10,
+    padding: 20,
   },
   textWrapper: {
     color: 'textSecondary',
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     textAlign: 'left',
   },
   image: {
-    width: '15%',
+    width: '20%',
     height: 'auto',
     display: 'inline-block',
     vertical: 'middle',
