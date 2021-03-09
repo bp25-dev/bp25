@@ -1,13 +1,17 @@
 import React from 'react';
 import {
   List,
+  Edit,
+  SimpleForm,
+  Toolbar,
+  SaveButton,
+  SimpleShowLayout,
   //edit
   NumberInput,
   TextInput,
   ReferenceInput,
-  Edit,
-  SimpleForm,
   SelectInput,
+  TextField,
   //validation
   minValue,
   maxValue,
@@ -18,6 +22,26 @@ import { makeStyles } from '@material-ui/core/styles';
 import { FeedbackGrid } from './FeedbackGrid';
 import { CustomBulkActions } from '../CustomBulkActions.js';
 import { CustomListActionsExport } from '../CustomListActions.js';
+import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
+
+const UserEditToolbar = (props) => (
+  <Toolbar {...props}>
+    <SaveButton label='Speichern'/>
+  </Toolbar>
+);
+
+const DeleteConfirmContent = (props) => {
+  return (
+    <SimpleShowLayout {...props}>
+      <TextField source='_id' label='Objekt ID' />
+      <TextField source='title' label='Titel' />
+      <TextField source='category' label='Kategorie' />
+      <TextField source='year' label='Jahr' />
+      <TextField source='art_type' label='Kunsttyp' />
+      <TextField source='creator' label='Ersteller' />
+    </SimpleShowLayout>
+  );
+};
 
 const useStyles = makeStyles({
   content: {
@@ -49,7 +73,7 @@ const validateRating = [
 
 export const FeedbackEdit = (props) => (
   <Edit {...props} title='Bearbeite Feedback'>
-    <SimpleForm warnWhenUnsavedChanges>
+    <SimpleForm  toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
       <TextInput disabled source='ID' label='ID' />
       <ReferenceInput
         source='tour.$oid'
@@ -64,6 +88,12 @@ export const FeedbackEdit = (props) => (
         validate={validateRating}
       />
       <RichTextInput source='review' label='Rezension' />
+      <DeleteWithCustomConfirmButton
+          title={ 'Sind Sie sicher, dass Sie dieses Exponat löschen wollen?'}
+          content={DeleteConfirmContent}
+          label='Löschen'
+          cancel='Abbrechen'
+        />
     </SimpleForm>
   </Edit>
 );

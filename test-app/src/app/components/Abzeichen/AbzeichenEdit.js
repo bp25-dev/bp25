@@ -22,7 +22,7 @@ import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button'
 
 const UserEditToolbar = (props) => (
   <Toolbar {...props}>
-    <SaveButton />
+    <SaveButton label='Speichern'/>
   </Toolbar>
 );
 
@@ -50,11 +50,12 @@ export const AbzeichenEdit = (props) => (
       <TextInput source='name' label='Name' fullWidth />
       {/* Select a new picture for the badge*/}
       <ImageInput
-        source='Abzeichen'
+        source='Badge'
         accept='image/*'
         placeholder={
           <p>Klicke hier, um das Bild für das Abzeichen zu ändern</p>
         }
+        label='Abzeichen'
       >
         <ImageField source='picture' />
       </ImageInput>

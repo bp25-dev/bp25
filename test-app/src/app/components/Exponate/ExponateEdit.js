@@ -1,6 +1,9 @@
 import React from 'react';
 import {
   Edit,
+  Toolbar,
+  SaveButton,
+  SimpleShowLayout,
   //Forms
   TabbedForm,
   FormTab,
@@ -9,9 +12,6 @@ import {
   ImageInput,
   ReferenceInput,
   SelectInput,
-  Toolbar,
-  SaveButton,
-  SimpleShowLayout,
   TextField,
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
@@ -21,7 +21,7 @@ import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button'
 
 const UserEditToolbar = (props) => (
   <Toolbar {...props}>
-    <SaveButton />
+    <SaveButton label='Speichern'/>
   </Toolbar>
 );
 

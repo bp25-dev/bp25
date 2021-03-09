@@ -1,9 +1,10 @@
 import React from 'react';
 import {
   Edit,
-  SimpleForm,
   TabbedForm,
   FormTab,
+  Toolbar,
+  SimpleShowLayout,
   //validation
   minValue,
   maxValue,
@@ -17,14 +18,10 @@ import {
   SelectArrayInput,
   ReferenceInput,
   NumberInput,
-  ArrayInput,
   DateInput,
   TextInput,
-  Toolbar,
-  SimpleShowLayout,
   // custom buttons
   SaveButton,
-  EditButton
 } from 'react-admin';
 import {
   QuestionInput,
@@ -37,7 +34,7 @@ import { QuestionField } from './Stationen.js';
 
 const UserEditToolbar = (props) => (
   <Toolbar {...props}>
-    <SaveButton />
+    <SaveButton label='Speichern' />
   </Toolbar>
 );
 
