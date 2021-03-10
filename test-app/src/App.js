@@ -46,9 +46,9 @@ import HelpIcon from '@material-ui/icons/Help';
 // data
 import buildGraphQLProvider from 'ra-data-graphql-simple';
 import dataProvider from './app/data/fakeDataProvider.js';
-//import dataProviderFactory from './app/data/dataProvider.js';
+import dataProviderFactory from './app/data/dataProvider.js';
 // own json rest provider 
-import dataProviderFactory from './app/data/rest.js';
+//import dataProviderFactory from './app/data/rest.js';
 import {gqlDataProvider} from './app/data/test_2.js';
 import testprovider3 from './app/data/test_3.js';
 

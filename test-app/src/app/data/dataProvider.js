@@ -46,7 +46,7 @@ const customBuildQuery = introspectionResults => {
                 query: gql`query ${resource}{
                     ${resource}(token: $token)
                 }`,
-                variables: {token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1MTMzMjg1LCJuYmYiOjE2MTUxMzMyODUsImp0aSI6IjBkYTcyZjg5LTU2YjUtNDNkMC04Zjk3LWE2OWViNWNhNGE2NyIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTUxMzQxODUsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.5wg0y9C3gQmP0KmFMxRdZUtR_agFR-d1uKM4oNHmJwY"},
+                variables: {token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1MzY3NzA4LCJuYmYiOjE2MTUzNjc3MDgsImp0aSI6IjMzODMyMjgxLTgyZDctNDNiNS1iYjgwLWQxZDNiNDM1ODAzMiIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTUzNjg2MDgsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.Dta-ZFl1uwevtBSiec9sJ9fkRBUHdtqFC_lnsdDGmvI"},
                 parseResponse: ({data}) => {
                     if (data[`${resource}`]) {
                         return {data: {id: params.objectID}};
@@ -61,7 +61,7 @@ const customBuildQuery = introspectionResults => {
                 query: gql`query ${resource}{
                     ${resource}(token: $token)
                 }`,
-                variables: {token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1MTMzMjg1LCJuYmYiOjE2MTUxMzMyODUsImp0aSI6IjBkYTcyZjg5LTU2YjUtNDNkMC04Zjk3LWE2OWViNWNhNGE2NyIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTUxMzQxODUsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.5wg0y9C3gQmP0KmFMxRdZUtR_agFR-d1uKM4oNHmJwY"},
+                variables: {token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1MzY3NzA4LCJuYmYiOjE2MTUzNjc3MDgsImp0aSI6IjMzODMyMjgxLTgyZDctNDNiNS1iYjgwLWQxZDNiNDM1ODAzMiIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTUzNjg2MDgsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.Dta-ZFl1uwevtBSiec9sJ9fkRBUHdtqFC_lnsdDGmvI"},
                 parseResponse: ({data}) => {
                     if (data[`${resource}`]) {
                         return {data: {id: params.objectID}};
@@ -108,52 +108,6 @@ export default () => {
     );
 };
 
-
-
-
-/* export const createBadge = (token, id, name, picture, unlocked_picture, description, cost) => {
-    return `
-mutation {
-    createBadge(
-        token:"`+ token + `",
-        id:"`+ id + `" ,
-        name:"`+ name + `" ,
-        picture:"`+ picture + `",
-        unlocked_picture:"`+ unlocked_picture + `",
-        description:"`+ description + `",
-        cost:"`+ cost + `")
-    {
- badge
- {
-    id
-   name
- }
-    }
-    }
-`
-}
-
-export const updateBadge = (token, id, name, picture, unlocked_picture, description, cost) => {
-    console.log(token, id, name, picture, unlocked_picture, description, cost )
-    return ` mutation {
-    updateBadge(
-        id:"`+ id + `" ,
-        token:"`+ token + `" ,
-        name:"`+ name + `" ,
-        picture:"`+ picture + `",
-        unlocked_picture:"`+ unlocked_picture + `",
-        description:"`+ description + `",
-        cost:"`+ cost + `")
-    {
- badge
- {
-    id
-    name
-    }
-}
-}
-`
-} */
 
 /* export default type => {
     switch (type) {
