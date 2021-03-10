@@ -4,6 +4,7 @@ import buildApolloClient, {
 } from 'ra-data-graphql-simple';
 import { DELETE, GET_LIST, GET_MANY, GET_ONE } from 'ra-core';
 import gql from 'graphql-tag';
+import jwt from 'jsonwebtoken';
 import simpleRestProvider from 'ra-data-simple-rest';
 
 const apiUrl = 'http://127.0.0.1:5000/web';
