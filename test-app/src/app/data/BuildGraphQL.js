@@ -3,13 +3,15 @@ import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { RestLink } from 'apollo-link-rest';
 import simpleRestProvider from 'ra-data-simple-rest'
-import { AUTH_TOKEN } from './constants';
+
+// documentation: https://www.howtographql.com/react-apollo/5-authentication/ 
+// TODO: set auth token in login 
 
 const API_ENDPOINT = 'http://127.0.0.1:5000/web';
 const httpLink = new HttpLink({ uri: API_ENDPOINT });
 
 const authLink = setContext((_, { headers }) => {
-    const token = localStorage.getItem(AUTH_TOKEN);
+    const token = localStorage.getItem('token');
     return {
       headers: {
         ...headers,
