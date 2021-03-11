@@ -44,13 +44,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import HelpIcon from '@material-ui/icons/Help';
 // data
-import buildGraphQLProvider from 'ra-data-graphql-simple';
 import dataProvider from './app/data/fakeDataProvider.js';
-import dataProviderFactory from './app/data/testmethods/dataProviderApollo.js';
-// own json rest provider 
-//import dataProviderFactory from './app/data/rest.js';
-import {gqlDataProvider} from './app/data/testmethods/BuildGraphQL.js';
-import testprovider3 from './app/data/test_3.js';
 
 const MyLoginPage = () => (
   <Login
@@ -71,9 +65,7 @@ class App extends Component {
   // second step: build up provider and set set 
   componentDidMount() {
     const dataProvider = dataProviderFactory(
-      process.env.REACT_APP_DATA_PROVIDER);  
-    // const dataProvider = gqlDataProvider
-    // const dataProvider = testprovider
+      process.env.REACT_APP_DATA_PROVIDER); 
     this.setState({ dataProvider });
   }
   render() {

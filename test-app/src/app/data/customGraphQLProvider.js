@@ -1,6 +1,8 @@
 import buildGraphQLProvider from 'ra-data-graphql-simple';
 import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
+// custom queryBuilder 
+import {customBuildQuery} from './customQueryBuilder.js';
 // imports for setting up additional rest provider 
 import { RestLink } from 'apollo-link-rest';
 import simpleRestProvider from 'ra-data-simple-rest'
@@ -41,6 +43,7 @@ export const gqlDataProvider = buildGraphQLProvider({
         [UPDATE]: resource => `update${(resource.name).capitalize()}`,
         [DELETE]: resource => `delete${(resource.name).capitalize()}`,
       },
+      buildQuery: customBuildQuery 
     }
   });
 
