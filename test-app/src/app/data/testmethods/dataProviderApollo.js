@@ -72,6 +72,21 @@ const customBuildQuery = introspectionResults => {
                 },
             };
         }
+        if (type === POST) {
+            return {
+                query: gql`query create${resource}{
+                    create${resource}(token: $token)
+                }`,
+                variables: {token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1MzY3NzA4LCJuYmYiOjE2MTUzNjc3MDgsImp0aSI6IjMzODMyMjgxLTgyZDctNDNiNS1iYjgwLWQxZDNiNDM1ODAzMiIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTUzNjg2MDgsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.Dta-ZFl1uwevtBSiec9sJ9fkRBUHdtqFC_lnsdDGmvI"},
+                parseResponse: ({data}) => {
+                    if (data[`${resource}`]) {
+                        return {data: {id: params.objectID}};
+                    }
+
+                    throw new Error(`Could not find ${resource}`);
+                },
+            };
+        }
         /* if (type === DELETE) {
             return {
                 query: gql`mutation remove${resource}($id: ID!) {

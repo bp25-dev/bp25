@@ -1,6 +1,7 @@
 import buildGraphQLProvider from 'ra-data-graphql-simple';
 import { setContext } from '@apollo/client/link/context';
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
+// imports for setting up additional rest provider 
 import { RestLink } from 'apollo-link-rest';
 import simpleRestProvider from 'ra-data-simple-rest'
 
@@ -10,6 +11,7 @@ import simpleRestProvider from 'ra-data-simple-rest'
 const API_ENDPOINT = 'http://127.0.0.1:5000/web';
 const httpLink = new HttpLink({ uri: API_ENDPOINT });
 
+// initialize Bearer token authentification method 
 const authLink = setContext((_, { headers }) => {
     const token = localStorage.getItem('token');
     return {
@@ -20,14 +22,31 @@ const authLink = setContext((_, { headers }) => {
     }
   });
 
+// create a new Apollo Client 
 export const gqlClient = new ApolloClient({
     link: authLink.concat(httpLink),
     cache: new InMemoryCache()
   });
 
 export const gqlDataProvider = buildGraphQLProvider({
-    client: gqlClient
+    client: gqlClient,
+    // fit the introspection to the existing API naming scheme 
+    introspection: {
+      operationNames: {
+        [GET_LIST]: resource => `all${pluralize(resource.name).capitalize()}`,
+        [GET_ONE]: resource => `${resource.name}`,
+        [GET_MANY]: resource => `all${pluralize(resource.name).capitalize()}`,
+        [GET_MANY_REFERENCE]: resource => `all${pluralize(resource.name).capitalize()}`,
+        [CREATE]: resource => `create${(resource.name).capitalize()}`,
+        [UPDATE]: resource => `update${(resource.name).capitalize()}`,
+        [DELETE]: resource => `delete${(resource.name).capitalize()}`,
+      },
+    }
   });
+
+
+// import { useQuery, gql } from '@apollo/client';
+// const { data } = useQuery(FEED_QUERY);
 
 // setup for using multiple providers 
 /* export const restClient = new ApolloClient({
