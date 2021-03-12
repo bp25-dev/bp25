@@ -126,10 +126,6 @@ const Card = withStyles((theme) => ({
             label = "Kunsthandwerk; Fibel"
             value = {{ art_type : "Kunsthandwerk; Fibel" }}
           />
-          <FilterListItem
-            label = "Zeitmessung; Automat; Spielzeug"
-            value = {{ art_type : "Zeitmessung; Automat; Spielzeug" }}
-          />
       </FilterList>
     );
   };
