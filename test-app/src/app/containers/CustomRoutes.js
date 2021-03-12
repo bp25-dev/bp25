@@ -4,6 +4,7 @@ import {ProfileEdit} from './MyProfile/Profile.js';
 import SimpleAccordion from './Faq/Faq.js';
 
 export default [
+ 
   <Route
   key="my-profile"
   path="/my-profile"
