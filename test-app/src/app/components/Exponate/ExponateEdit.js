@@ -87,7 +87,7 @@ export const ExponateEdit = (props) => {
               <ImageInput source='picture' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
             </ReferenceInput>  */}
             {/* for user study */}
-            <ImageInput source='img' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
+            <ImageInput source='img' label="Bild" placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
         </FormTab>
         <DeleteWithCustomConfirmButton
           title={ 'Sind Sie sicher, dass Sie dieses Exponat löschen wollen?'}

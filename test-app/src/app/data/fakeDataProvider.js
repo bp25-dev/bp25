@@ -128,6 +128,22 @@ const dataProvider = fakeDataProvider({
       size_: '139 cm x 257 cm',
       location: 'Hessen',
     },
+    {
+      _id: 'Kg 63:301',
+      category: 'Kunst und Kulturgeschichte',
+      sub_category: 'Kunsthandwerk',
+      title: 'Schildkrötenautomat',
+      description:
+        'Auf dem vergoldeten Panzer sitzt ein aus Holz geschnitzter und farbig gefasster Reiter, der den Kopf der Schildkröte mit seinen Zügeln lenkt. Auf ihrem Rücken ist eine Uhr angebracht. Die Figurenuhr besitzt ein Geh-, Stundenschlag- und Laufwerk. Letzteres bewegt die Beine und den Kopf des Tieres sowie die Arme des Reiters. Die Schildkröte, die mit kriechenden Bewegungen über eine Fläche lief, ist hier als Symbol der klugen Bedachtsamkeit (»Eile mit Weil«), nicht der Langsamkeit zu verstehen. Automaten dieser Art, die versuchen, Leben nachzuahmen, waren als Kunstkammerstücke und Tafelzier ausgesprochen beliebt. Ein bis auf den Reiter identisches Objekt hat sich im Kunsthistorischen Museum Wien erhalten. Bisher wird der Darmstädter Schildkrötenautomat dem für den Prager Hof Kaiser Rudolfs II. tätigen Uhrmacher Georg Fronmiller zugeschrieben. Aber auch eine Urheberschaft durch dessen Bruder Hans kann nicht ausgeschlossen werden. (W. G.)',
+      additional_information: 'Der Schildkrötenautomat gehört zu den alten Beständen des Museums und stammt sicherlich aus landgräflichem Besitz. Möglicherweise gelangte er durch Erbschaft aus der Kunstkammer der Grafen von Hanau- Lichtenberg dorthin.',
+      interdisciplinary_context: 'Fachbezug: Physik;\nThemen: Allegorien, höfische Alltagskultur, Mechanik, Zeit',
+      year: 'um 1610',
+      art_type: 'Zeitmessung; Automat; Spielzeug',
+      creator: 'Georg Fronmiller',
+      material: 'Kupfer, vergoldet, Eisen, Messing,\nBronze, Holz, Silber, Email',
+      size_: 'Höhe: 15,5 cm, Breite: 12 cm, Länge: 27 cm',
+      location: 'Augsburg',
+    },
   ],
   Touren: [
     {

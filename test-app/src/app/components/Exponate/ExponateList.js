@@ -81,7 +81,7 @@ export const ExponateList = (props) => {
       title='Exponate'
       aside={<FilterSidebar />}
       actions={<CustomListActions />}
-      bulkActionButtons={<CustomBulkActions />}
+      bulkActionButtons={<CustomBulkActions/>}
     >
       <Datagrid
         rowClick='expand'

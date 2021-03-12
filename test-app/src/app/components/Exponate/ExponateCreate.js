@@ -11,6 +11,7 @@ import {
   SaveButton,
   SimpleShowLayout,
   TextField,
+  ImageField,
 } from 'react-admin';
 import RichTextInput from 'ra-input-rich-text';
 // material UI styling
@@ -90,7 +91,9 @@ export const ExponateCreate = (props) => {
               <ImageInput source='picture' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
             </ReferenceInput>  */}
             {/* for user study */}
-            <ImageInput source='img' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
+            <ImageInput  source='img' label="Bild" placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen</p>} fullWidth>
+              <ImageField source="src" title="images" />
+            </ImageInput>
         </FormTab>
         <DeleteWithCustomConfirmButton
           title={DeleteConfirmTitle}
