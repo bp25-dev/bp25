@@ -35,7 +35,6 @@ import LoginPage from './app/containers/Login/LoginPage.js';
 import authProvider from './app/containers/Login/authProvider.js';
 import dataProvider from './app/data/fakeDataProvider.js';
 import initialState from './app/containers/Login/initialState.js';
-
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
@@ -78,27 +77,25 @@ class App extends Component {
         } */
   return (
     <div>
-      <Admin
-       // title='Hessisches Landesmuseum'
-        // todo: User authentification
-        authProdiver={authProvider}
-        //can be replaced with the real data provider
-        dataProvider={dataProvider}
-        //loginPage={LoginPage}
-        dashboard={Dashboard}
-        theme={MyTheme} 
-        layout={MyLayout}
-        customRoutes={CustomRoutesProfile}
-        initial={initialState}
+      <Admin 
+          initial={initialState}
+          authProvider={authProvider}
+          dataProvider={dataProvider}
+          loginPage={MyLoginPage}
+          dashboard={Dashboard}
+          theme={MyTheme} 
+          layout={MyLayout}
+          customRoutes={CustomRoutesProfile}
       >
-        <Resource
+         {permissions => [
+          <Resource
           name='Exponate'
           list={ExponateList}
           edit={ExponateEdit}
           create={ExponateCreate}
           icon={AccountBalanceIcon}
           options={{ label: 'Exponate' }}
-        />
+        />,
         <Resource
           name='Touren'
           list={TourenList}
@@ -106,12 +103,17 @@ class App extends Component {
           create={TourenCreate}
           icon={NavigationIcon}
           options={{ label: 'Touren' }}
-        />
+        />,
+        permissions === 'admin'
+            ?
         <Resource
           name='Benutzer_overview'
           icon={SupervisorAccountIcon}
           options={{ label: 'Benutzer*innen', isMenuParent: true }}
         />
+        : null,
+        permissions === 'admin'
+            ?
         <Resource
           name='Benutzer'
           list={UserList}
@@ -120,6 +122,9 @@ class App extends Component {
           icon={ListIcon}
           options={{ label: 'Übersicht', menuParent: 'Benutzer_overview' }}
         />
+        : null,
+        permissions === 'admin'
+            ?
         <Resource
           name='Codes'
           list={CodeList}
@@ -130,41 +135,43 @@ class App extends Component {
             menuParent: 'Benutzer_overview',
           }}
         />
+        : null,
         <Resource
           name='Bilder_overview'
           icon={AddPhotoAlternateIcon}
           options={{ label: 'Bildverknüpfungen', isMenuParent: true }}
-        />
+        />,
         <Resource
           name='Abzeichen'
           list={AbzeichenList}
-          edit={AbzeichenEdit}
-          create={AbzeichenCreate}
+          edit={permissions === 'admin' ? AbzeichenEdit : null}
+          create={permissions === 'admin' ? AbzeichenCreate : null}
           icon={PhotoFilterIcon}
           options={{ label: 'Abzeichen', menuParent: 'Bilder_overview' }}
-        />
+        />,
         <Resource
           name='ProfilePicture'
           list={PictureList}
-          edit={PictureEdit}
-          create={PictureCreate}
+          edit={permissions === 'admin' ? PictureEdit : null}
+          create={permissions === 'admin' ? PictureCreate : null}
           icon={AddPhotoAlternateIcon}
           options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
-        />
+        />,
         <Resource
           name='Feedback'
           list={FeedbackList}
-          edit={FeedbackEdit}
+          edit={permissions === 'admin' ? FeedbackEdit : null}
           icon={RateReviewIcon}
           options={{ label: 'Feedback' }}
-        />
+        />,
          <Resource
           name='faq'
           list={FeedbackList}
           icon={HelpIcon}
           options={{ label: 'FAQ' }}
         />
-      </Admin>
+      ]}
+  </Admin>
       <Footer/>
     </div>
   );

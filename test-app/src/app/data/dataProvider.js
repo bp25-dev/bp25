@@ -1,4 +1,5 @@
 import jsonapiClient from 'ra-jsonapi-client';
+import buildGraphQLProvider from 'ra-data-graphql-simple';
 
 const apiUrl = 'localhost:5000/web';
 const dataProvider = jsonapiClient(apiUrl);

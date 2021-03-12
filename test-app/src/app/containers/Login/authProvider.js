@@ -36,57 +36,56 @@ export default (type, params) => {
 */
 
 export default {
-    login: ({ username, password }) => {
-        if (username === 'admin' && password === 'password') {
-            localStorage.removeItem('not_authenticated');
-            localStorage.setItem('role', 'admin');
-            localStorage.setItem('login', username);
-            localStorage.setItem('user', username);
-            return Promise.resolve();
-        }
-        if (username === 'user' && password === 'password') {
-            localStorage.setItem('role', 'user');
-            localStorage.removeItem('not_authenticated');
-            localStorage.setItem('login', username);
-            localStorage.setItem('user', username);
-            return Promise.resolve();
-        }
-        if (username === 'Simone' && password === 'password') {
-            localStorage.setItem('role', 'admin');
-            localStorage.removeItem('not_authenticated');
-            localStorage.setItem('login', username);
-            localStorage.setItem('user', username);
-            return Promise.resolve();
-        }
-        localStorage.setItem('not_authenticated', true);
-        return Promise.reject();
-    },
-    logout: () => {
-        localStorage.setItem('not_authenticated', true);
-        localStorage.removeItem('role');
-        localStorage.removeItem('login');
-        localStorage.removeItem('user');
-        return Promise.resolve();
-    },
-    checkError: ({ status }) => {
-        return status === 401 || status === 403
-            ? Promise.reject()
-            : Promise.resolve();
-    },
-    checkAuth: () => {
-        return localStorage.getItem('not_authenticated')
-            ? Promise.reject()
-            : Promise.resolve();
-    },
-    getPermissions: () => {
-        const role = localStorage.getItem('role');
-        return Promise.resolve(role);
-    },
-    getIdentity: () => {
-        return {
-            id: localStorage.getItem('login'),
-            fullName: localStorage.getItem('user'),
-        };
-    },
+  login: ({ username, password }) => {
+      if (username === 'admin' && password === 'password') {
+          localStorage.removeItem('not_authenticated');
+          localStorage.setItem('role', 'admin');
+          localStorage.setItem('login', username);
+          localStorage.setItem('user', username);
+          return Promise.resolve();
+      }
+      if (username === 'user' && password === 'password') {
+          localStorage.setItem('role', 'user');
+          localStorage.removeItem('not_authenticated');
+          localStorage.setItem('login', username);
+          localStorage.setItem('user', username);
+          return Promise.resolve();
+      }
+      if (username === 'Simone' && password === 'password') {
+          localStorage.setItem('role', 'admin');
+          localStorage.removeItem('not_authenticated');
+          localStorage.setItem('login', username);
+          localStorage.setItem('user', username);
+          return Promise.resolve();
+      }
+      localStorage.setItem('not_authenticated', true);
+      return Promise.reject();
+  },
+  logout: () => {
+      localStorage.setItem('not_authenticated', true);
+      localStorage.removeItem('role');
+      localStorage.removeItem('login');
+      localStorage.removeItem('user');
+      return Promise.resolve();
+  },
+  checkError: ({ status }) => {
+      return status === 401 || status === 403
+          ? Promise.reject()
+          : Promise.resolve();
+  },
+  checkAuth: () => {
+      return localStorage.getItem('not_authenticated')
+          ? Promise.reject()
+          : Promise.resolve();
+  },
+  getPermissions: () => {
+      const role = localStorage.getItem('role');
+      return Promise.resolve(role);
+  },
+  getIdentity: () => {
+      return {
+          id: localStorage.getItem('login'),
+          fullName: localStorage.getItem('user'),
+      };
+  },
 };
-

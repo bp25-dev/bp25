@@ -34,7 +34,7 @@ const Card = withStyles((theme) => ({
   const HasImageFilter = () => (
     <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
       <FilterListItem label='vorhanden' value={{ img: true }} />
-      <FilterListItem label='nicht vorhanden' value={{ img: null }} />
+      <FilterListItem label='nicht vorhanden' value={{ img: false }} />
     </FilterList>
   );
   
@@ -52,8 +52,9 @@ const Card = withStyles((theme) => ({
       </FilterList>
     );
   };
-  
-  const MapCreatorFilter = () => {
+
+ 
+ const MapCreatorFilter = () => {
     const { ids, data } = useListContext();
     return (
       <FilterList label='Ersteller' icon={<PersonIcon />}>

@@ -19,7 +19,7 @@ import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button'
 
 const UserEditToolbar = (props) => (
   <Toolbar {...props}>
-    <SaveButton />
+    <SaveButton label='Speichern' />
   </Toolbar>
 );
 

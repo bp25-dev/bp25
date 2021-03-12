@@ -8,10 +8,12 @@ import {
   EditButton,
   SimpleShowLayout,
   Show,
+  usePermissions,
 } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
 import { CustomListActions } from '../CustomListActions.js';
 import { CustomBulkActions } from '../CustomBulkActions.js';
+import {BadgeField} from './PictureField.js';
 
 const useStyles = makeStyles({
   card: {
@@ -27,13 +29,10 @@ const useStyles = makeStyles({
 });
 
 // edit expand component
-/* TODO: Link to actual picture table to display connectes profile pictures 
-      show as a list, if there is more than one profile picture for one badge? */
 const ImageShow = (props) => (
   <Show
     {...props}
-    /* disable the app title change when shown */
-    title=' '
+    title=' ' /* disable the app title change when shown */
     actions={false}
   >
     <SimpleShowLayout>
@@ -41,20 +40,14 @@ const ImageShow = (props) => (
         source='unlocked_picture'
         label='freigeschaltete Profilbilder'
       />
-      {/*viljas change*/}
-      {/*<ImageField source='picture.url' label='Bild' />
-      <UrlField source='picture.url' label='Url' />
-       TODO: Link to actual picture table to display connectes profile pictures 
+      {/*TODO: Link to actual picture table to display connectes profile pictures 
       show as a list, if there is more than one profile picture for one badge?
       <ReferenceField
-        label='freigeschaltete Profilbilder'
         source='unlocked_picture'
-        reference='Profilbild'
+        reference='ProfilePicture'
+        label='freigeschaltete Profilbilder'
       >
-        <ImageField source='unlocked_picture.url' />
-      </ReferenceField>
-      <ImageField label='freigeschaltetes Bild' source='unlocked_picture.url'/>
-    <UrlField source='unlocked_picture.url' label='Url' />*/}
+        <ImageField source='picture'/>*/}
     </SimpleShowLayout>
   </Show>
 );
@@ -62,6 +55,7 @@ const ImageShow = (props) => (
 // list existing badges
 export const AbzeichenList = (props) => {
   const classes = useStyles();
+  const { permissions } = usePermissions();
   return (
     <List
       {...props}
@@ -72,13 +66,15 @@ export const AbzeichenList = (props) => {
       <Datagrid expand={<ImageShow />} rowClick='expand'>
         <TextField source='id' label='ID' />
         <TextField source='name' label='Name' />
+        {/*TODO: Download picture of the corresponding badge here */}
         <ImageField
           className={classes.imgContainer}
           source='picture'
           label='Bild'
         />
+        {/* <BadgeField/> */}
         <NumberField source='cost' label='Kosten' />
-        <EditButton label='Editieren' />
+        {permissions === 'admin' && <EditButton label='Editieren' />}
       </Datagrid>
     </List>
   );

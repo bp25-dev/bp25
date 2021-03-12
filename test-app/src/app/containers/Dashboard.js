@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Title } from 'react-admin';
+import { Title, usePermissions } from 'react-admin';
 //material UI imports
 import Card from '@material-ui/core/Card';
 import { Container, Grid, Typography } from '@material-ui/core';
@@ -121,6 +121,7 @@ function Copyright() {
 export default function Dashboard() {
   const cardStyles = useCardStyles();
   const gridStyles = useGridStyles();
+  const {permissions} = usePermissions();
 
   return (
     <Container>
@@ -134,17 +135,17 @@ export default function Dashboard() {
         <Grid item md>
           <CustomCard
             classes={cardStyles}
-            title={'Benutzer*innen'}
-            subtitle={'Verwalte Benutzer*innen'}
-            image={user}
-            path='/Benutzer'
-          />
-          <CustomCard
-            classes={cardStyles}
             title={'Touren'}
             subtitle={'Erstelle Touren'}
             image={tours}
             path='/Touren'
+          />
+          <CustomCard
+            classes={cardStyles}
+            title={'Bildverknüpfungen'}
+            subtitle={'Füge neue Bildverknüpfungen hinzu'}
+            image={badges}
+            path='/Abzeichen'
           />
         </Grid>
         <Grid item md>
@@ -155,13 +156,17 @@ export default function Dashboard() {
             image={exponate}
             path='/Exponate'
           />
+          {permissions === 'admin' ?
           <CustomCard
             classes={cardStyles}
-            title={'Bildverknüpfungen'}
-            subtitle={'Füge neue Bildverknüpfungen hinzu'}
-            image={badges}
-            path='/Abzeichen'
+            title={'Benutzer*innen'}
+            subtitle={'Verwalte Benutzer*innen'}
+            image={user}
+            path='/Benutzer'
           />
+          :null
+          }
+          
         </Grid>
       </Grid>
       <Copyright />
