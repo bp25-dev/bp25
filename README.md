@@ -1,7 +1,7 @@
 **Admin Webapp Museum**
 
 
-Der Code hat 6 Seiten und befindet sich im Aufbau.
+Der Code hat 6 Seiten und muss noch mit dem Backend verknüpft werden.
 
 1. Seite ist die Tourseite zur Tourenerstellung und die Tourenbearbeitung.
 2. Seite ist die Exponatenseite zur  Exponatenerstellung und Exponatenbearbeitung.
