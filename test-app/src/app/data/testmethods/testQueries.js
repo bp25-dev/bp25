@@ -1,12 +1,20 @@
 import { gql, useQuery, useMutation } from '@apollo/client';
 
-export const AUTH = gql`
-  mutation createMuseumObject($username: String!, $password: String!) {
-    auth(username: $username, password: $password) {
-        id
-        accessToken
-        refreshToken
+export const SIGNUP = gql`
+  mutation createAdmin($username: String!, $password: String!) {
+    createAdmin(username: $username, password: $password) {
+        user {
+          username
+        }
         ok
+    }
+  }
+`;
+
+export const AUTH = gql`
+  mutation auth($username: String!, $password: String!) {
+    auth(username: $username, password: $password) {
+        accessToken
     }
   }
 `;
@@ -46,7 +54,7 @@ export const GET_ALL_OBJECTS = gql`
 
 // get object by id 
 export const GET_OBJECT = gql`
-  mutation museumobject($token: String!, objectId: String!) {
+  mutation museumobject($token: String!, $objectId: String!) {
     museumObject(token: $token, objectId: $objectId) {
         object_id
         category

@@ -1,54 +1,43 @@
 import gql from 'graphql-tag';
-import { buildQuery } from 'ra-data-graphql-simple';
+import { buildQuery as buildQueryFactory, } from 'ra-data-graphql-simple';
+import { GET_ONE, GET_LIST, DELETE } from 'react-admin';
 
-export const customBuildQuery = (introspectionResults) => (fetchType, resourceName, params ) => {
-  /* 
-    const resource = introspectionResults.resources.find(r => r.type.name === resourceName);
-    switch (fetchType) {
-        case 'GET_ONE':
-            return {
-                query: gql`query ${resource[fetchType].name}($token: String!) {
-                    data: ${resource[fetchType].name}(token: $token) {
-                        ${buildFieldList(introspectionResults, resource, fetchType)}
-                    }
-                }`,
-                variables: params, // params = { id: ... }
-                parseResponse: response => response.data,
-            }
-            break;
-    } 
-    */
-  const builtQuery = buildQuery(introspectionResults)(fetchType, resourceName, params);
-
-  if (resourceName === 'museumObject' && fetchType === 'GET_ONE') {
-    return {
-      // Use the default query variables and parseResponse
-      ...builtQuery,
-      // Override the query
-      query: gql`
-        query allObjects($token: String!) {
-          data: Command(token: $token) {
-            object_id
-            category
-            sub_category
-            title
-            time_range
-            year
-            picture {
-              id
-            }
-            art_type
-            creator
-            material
-            size_
-            location
-            description
-            additionalInformation
-            interdisciplinaryContext
-          }
-        }
-      `,
-    };
+export const customBuildQuery = introspection => {
+  const buildQuery = buildQueryFactory(introspection);
+  return (type, resource, params) => {
+    if (type === GET_ONE) {
+      return {
+          query: gql`query${resource}($token: String!, $objectId: String!) {
+              query${resource}(token: $token, objectId: $objectId)
+          }`,
+          variables: params,
+          parseResponse:response => response.data,
+      };
   }
-  return builtQuery;
-};
+  if (type === GET_LIST) {
+    return {
+        query: gql`query${resource}($token: String!) {
+            query${resource}(token: $token)
+        }`,
+        variables: params,
+        parseResponse:response => response.data,
+    };
+}
+  if (type === DELETE) {
+    return {
+        query: gql`mutation ${resource}($token: String!, $objectId: String!) {
+            ${resource}(token: $token, objectId: $objectId)
+        }`,
+        variables: {id: params.id},
+        parseResponse: ({data}) => {
+            if (data[`delete${resource}`]) {
+                return {data: {id: params.id}};
+            }
+
+            throw new Error(`Could not delete ${resource}`);
+        },
+    };
+}
+  return buildQuery(type, resource, params);
+  }
+}; 

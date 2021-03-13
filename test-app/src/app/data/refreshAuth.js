@@ -1,21 +1,10 @@
 import decodeJwt from 'jwt-decode';
-import {AUTH} from './testQueries.js';
+import {AUTH} from './testmethods/testQueries.js';
 
-// TODO: use auth mutation for login 
-/* const [login] = useMutation(AUTH, {
-    variables: {
-      username: formState.username,
-      password: formState.password
-    },
-    onCompleted: ({ login }) => {
-      localStorage.setItem('token', login.accessToken);
-      history.push('/');
-    }
-  }); */
-
+// authetification with jwt token 
 export default {
     login: ({ username, password }) => {
-        const request = new Request('http://127.0.0.1:5000/auth', {
+        const request = new Request('http://127.0.0.1:5000/web', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: new Headers({ 'Content-Type': 'application/json' }),

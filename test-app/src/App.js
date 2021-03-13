@@ -47,8 +47,12 @@ import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import HelpIcon from '@material-ui/icons/Help';
 // data
-import dataProvider from './app/data/fakeDataProvider.js';
+//import dataProvider from './app/data/fakeDataProvider.js';
 import gqlDataProvider from './app/data/customGraphQLProvider.js';
+import refreshAuth from './app/data/refreshAuth.js';
+import LoginNew from './app/data/refreshAuth.js';
+
+
 
 const MyLoginPage = () => (
   <Login

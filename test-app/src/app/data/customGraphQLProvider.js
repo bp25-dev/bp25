@@ -25,8 +25,11 @@ const httpLink = new HttpLink({ uri: API_ENDPOINT });
 
 // initialize Bearer token authentification method
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('token');
+  // get created jwt token in local storage
+  //const token = localStorage.getItem('token');
+  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1NjM1ODYwLCJuYmYiOjE2MTU2MzU4NjAsImp0aSI6ImE0MzQwZGQ4LTJkZGMtNDQ2OC04NmQ2LWZmNTc4ZWJkNTg4OSIsImlkZW50aXR5IjoicCIsImV4cCI6MTYxNTYzNjc2MCwidXNlcl9jbGFpbXMiOnsiYWRtaW4iOnRydWV9fQ.Vqa4CtVFW5HRpsLmC41Ra77D6TKMGpeHLbpwk61425s';
   return {
+    // set Authorization http headers
     headers: {
       ...headers,
       authorization: token ? `Bearer ${token}` : '',
@@ -54,8 +57,9 @@ export default buildGraphQLProvider({
       [UPDATE]: (resource) => `update${resource.name.capitalize()}`,
       [DELETE]: (resource) => `delete${resource.name.capitalize()}`,
     },
-    buildQuery: customBuildQuery,
   },
+  //add custom build query scheme
+  //buildQuery: customBuildQuery,
 });
 
 // import { useQuery, gql } from '@apollo/client';
