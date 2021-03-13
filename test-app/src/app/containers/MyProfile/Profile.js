@@ -103,7 +103,7 @@ import React, {
           <TextInput source="Benutzername" validate={required()} fullWidth/>
           <PasswordInput source="altes Passwort" validate={required()} label="altes Passwort" fullWidth/>
           <PasswordInput source="neues Passwort" validate={required()} label="neues Passwort" fullWidth/>
-          <PasswordInput source="neues Passwort" validate={required()} label="neues Passwort wiederholen" fullWidth/>
+          {/**<PasswordInput source="neues Passwort" validate={required()} label="neues Passwort wiederholen" fullWidth/>**/}
         </SimpleForm>
       </SaveContextProvider>
     );

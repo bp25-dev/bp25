@@ -34,8 +34,8 @@ const Card = withStyles((theme) => ({
   // check if picture object is not empty (create boolean)
   const HasImageFilter = () => (
     <FilterList label='Bildverknüpfung' icon={<ImageSearchIcon />}>
-      <FilterListItem label='vorhanden' value={{ img: true }} />
-      <FilterListItem label='nicht vorhanden' value={{ img: false }} />
+      <FilterListItem label='vorhanden' value={{ pic: true }} />
+      <FilterListItem label='nicht vorhanden' value={{ pic: false}} />
     </FilterList>
   );
   
@@ -125,10 +125,6 @@ const Card = withStyles((theme) => ({
           <FilterListItem
             label = "Kunsthandwerk; Fibel"
             value = {{ art_type : "Kunsthandwerk; Fibel" }}
-          />
-          <FilterListItem
-            label = "Zeitmessung; Automat; Spielzeug"
-            value = {{ art_type : "Zeitmessung; Automat; Spielzeug" }}
           />
       </FilterList>
     );

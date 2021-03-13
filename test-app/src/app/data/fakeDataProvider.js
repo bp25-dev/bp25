@@ -14,6 +14,7 @@ import joseph from './fake_data/profilepictures/free/Joseph.jpg';
 import iphigenie from './fake_data/profilepictures/free/Iphigenie.jpg';
 import reward_tour_silver from './fake_data/profilepictures/locked/Erstellte_Rundgaenge_silber.jpg';
 import reward_object_bronze from './fake_data/profilepictures/locked/Betrachtete_Artefakte_bronze.jpg';
+import { InsertPhotoOutlined } from '@material-ui/icons';
 
 // fake data base for testing
 const dataProvider = fakeDataProvider({
@@ -25,6 +26,7 @@ const dataProvider = fakeDataProvider({
       title: 'Goldfibel von Mölsheim',
       // inserted img for user study
       img: goldfibel,
+      pic: true,
       picture: [
         {
           $oid: '5ff98892ccd2776f571d6c1a',
@@ -49,6 +51,7 @@ const dataProvider = fakeDataProvider({
       sub_category: 'Gotik',
       title: 'Ortenberger Altar - Heilige Sippe',
       img: ortenberger,
+      pic: true,
       picture: [
         {
           $oid: '5ff95692dcf3447f57146c1s',
@@ -70,6 +73,7 @@ const dataProvider = fakeDataProvider({
       sub_category: 'Expressionsimus',
       title: 'Morgensonne',
       img: morgensonne,
+      pic: true,
       picture: [
         {
           $oid: '5ffe569ssd2dcf3447f5714561s',
@@ -91,6 +95,7 @@ const dataProvider = fakeDataProvider({
       sub_category: 'Realismus',
       title: 'Abendstimmung in der Campagna',
       img: null,
+      pic: false,
       picture: [
         {
           $oid: '5ffe569ssfesrsd447f5714561s',
@@ -112,6 +117,7 @@ const dataProvider = fakeDataProvider({
       sub_category: 'Symbolismus',
       title: 'Gestade der Vergessenheit',
       img: gestade,
+      pic: true,
       picture: [
         {
           $oid: '8sd95564dcf3675f57146gaw',
@@ -313,18 +319,22 @@ const dataProvider = fakeDataProvider({
   // only for testing
   ProfilePicture: [
     {
+      id: iphigenie,
       picture: iphigenie,
       locked: false,
     },
     {
+      id: joseph,
       picture: joseph,
       locked: false,
     },
     {
+      id: reward_object_bronze,
       picture: reward_object_bronze,
       locked: true,
     },
     {
+      id: reward_tour_silver,
       picture: reward_tour_silver,
       locked: true,
     },

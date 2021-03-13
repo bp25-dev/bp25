@@ -169,7 +169,6 @@ export default function Dashboard() {
           
         </Grid>
       </Grid>
-      <Copyright />
     </Container>
   );
 }
