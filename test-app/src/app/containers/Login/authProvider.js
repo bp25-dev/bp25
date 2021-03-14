@@ -37,21 +37,21 @@ export default (type, params) => {
 
 export default {
   login: ({ username, password }) => {
-      if (username === 'admin' && password === 'password') {
+      if (username === 'admin' && password === 'AGute#6') {
           localStorage.removeItem('not_authenticated');
           localStorage.setItem('role', 'admin');
           localStorage.setItem('login', username);
           localStorage.setItem('user', username);
           return Promise.resolve();
       }
-      if (username === 'user' && password === 'password') {
+      if (username === 'user' && password === 'UGute#6') {
           localStorage.setItem('role', 'user');
           localStorage.removeItem('not_authenticated');
           localStorage.setItem('login', username);
           localStorage.setItem('user', username);
           return Promise.resolve();
       }
-      if (username === 'Simone' && password === 'password') {
+      if (username === 'Simone' && password === 'SGute#6') {
           localStorage.setItem('role', 'admin');
           localStorage.removeItem('not_authenticated');
           localStorage.setItem('login', username);
