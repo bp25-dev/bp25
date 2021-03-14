@@ -2,7 +2,7 @@
 ## Installation
 ### Windows
 Installation von NodeJS und npm:  [https://nodejs.org](https://nodejs.org)
-- Wenn man Node.js herunterlädt, wird npm automatisch mitinstalliert
+- Wenn man NodeJS herunterlädt, wird npm automatisch mitinstalliert
 
 ### Debian/ Ubuntu
 Installation von NodeJS: \
@@ -14,7 +14,7 @@ Installation von npm: \
 --- 
  ## Getting started
  - Projekt clonen
- - In das lokale Verzeichnis wechseln, in dem der Code liegt
+ - In das lokale Verzeichnis wechseln, in dem der Code des Projekts liegt
  - `npm install` (einmalig)
  - `npm start`
  
@@ -32,9 +32,9 @@ Man installiert sie nach folgendem Schema: \
 ---
 ## Aufbau Admin Webapp
 
-Die Website besteht aus einer Login-Page einem Dashboard und neun weiteren Seiten.
+Die Website besteht aus einer Login-Page, einem Dashboard und neun weiteren Seiten.\
 Nachdem man sich erfolgreich eingeloggt hat, kommt man auf das Dashboard.
-Von hier hat man die Möglichkeit zu den vier Hauptseiten weiterzukommen:
+Von hier hat man die Möglichkeit zu den vier Hauptseiten zu navigieren:
 - Touren
 - Exponate
 - Bildverknüpfungen (Abzeichen)
@@ -47,5 +47,5 @@ Desweiteren gibt es folgende Seiten:
 - FAQ
 
 
-Administator*innen haben Zugriff auf alle Seiten, normale User nicht. \
+Admins haben Zugriff auf alle Seiten, normale User nicht. 
 (Details in der Dokumentation)
