@@ -26,8 +26,8 @@ const httpLink = new HttpLink({ uri: API_ENDPOINT });
 // initialize Bearer token authentification method
 const authLink = setContext((_, { headers }) => {
   // get created jwt token in local storage
-  //const token = localStorage.getItem('token');
-  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1NjM1ODYwLCJuYmYiOjE2MTU2MzU4NjAsImp0aSI6ImE0MzQwZGQ4LTJkZGMtNDQ2OC04NmQ2LWZmNTc4ZWJkNTg4OSIsImlkZW50aXR5IjoicCIsImV4cCI6MTYxNTYzNjc2MCwidXNlcl9jbGFpbXMiOnsiYWRtaW4iOnRydWV9fQ.Vqa4CtVFW5HRpsLmC41Ra77D6TKMGpeHLbpwk61425s';
+  const token = localStorage.getItem('token');
+  //const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1NjM1ODYwLCJuYmYiOjE2MTU2MzU4NjAsImp0aSI6ImE0MzQwZGQ4LTJkZGMtNDQ2OC04NmQ2LWZmNTc4ZWJkNTg4OSIsImlkZW50aXR5IjoicCIsImV4cCI6MTYxNTYzNjc2MCwidXNlcl9jbGFpbXMiOnsiYWRtaW4iOnRydWV9fQ.Vqa4CtVFW5HRpsLmC41Ra77D6TKMGpeHLbpwk61425s';
   return {
     // set Authorization http headers
     headers: {
