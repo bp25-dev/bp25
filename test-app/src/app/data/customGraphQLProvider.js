@@ -14,20 +14,20 @@ import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 // custom queryBuilder
 import { customBuildQuery } from './customQueryBuilder.js';
 // imports for setting up additional rest provider
-import { RestLink } from 'apollo-link-rest';
-import simpleRestProvider from 'ra-data-simple-rest';
+//import { RestLink } from 'apollo-link-rest';
+//import simpleRestProvider from 'ra-data-simple-rest';
 
 // documentation: https://www.howtographql.com/react-apollo/5-authentication/
 // TODO: set auth token in login
 
-const API_ENDPOINT = 'http://127.0.0.1:5000/web';
+const API_ENDPOINT = 'http://127.0.0.1:5000/web/';
 const httpLink = new HttpLink({ uri: API_ENDPOINT });
 
 // initialize Bearer token authentification method
 const authLink = setContext((_, { headers }) => {
   // get created jwt token in local storage
-  const token = localStorage.getItem('token');
-  //const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1NjM1ODYwLCJuYmYiOjE2MTU2MzU4NjAsImp0aSI6ImE0MzQwZGQ4LTJkZGMtNDQ2OC04NmQ2LWZmNTc4ZWJkNTg4OSIsImlkZW50aXR5IjoicCIsImV4cCI6MTYxNTYzNjc2MCwidXNlcl9jbGFpbXMiOnsiYWRtaW4iOnRydWV9fQ.Vqa4CtVFW5HRpsLmC41Ra77D6TKMGpeHLbpwk61425s';
+  //.const token = localStorage.getItem('token');
+  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1NzIxMjE2LCJuYmYiOjE2MTU3MjEyMTYsImp0aSI6ImI5ZWRjMWUxLWZlMmMtNDg3OC1hMTI5LWU5NTc2NTc3ZTFhMCIsImlkZW50aXR5IjoidGVzdCIsImV4cCI6MTYxNTcyMjExNiwidXNlcl9jbGFpbXMiOnsiYWRtaW4iOnRydWV9fQ.5Zd2sgxoNHwF8_7CI6IosLLhzNiAy93VJ2qymPf5DT8';
   return {
     // set Authorization http headers
     headers: {
@@ -59,7 +59,7 @@ export default buildGraphQLProvider({
     },
   },
   //add custom build query scheme
-  //buildQuery: customBuildQuery,
+  buildQuery: customBuildQuery,
 });
 
 // import { useQuery, gql } from '@apollo/client';

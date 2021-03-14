@@ -14,8 +14,8 @@ import {
 } from 'react-admin';
 import { FilterSidebar } from './ExponateFilterSidebar.js';
 import { makeStyles } from '@material-ui/core/styles';
-import {CustomListActions} from '../CustomListActions.js';
-import { CustomBulkActions } from '../CustomBulkActions.js';
+import { CustomListActions } from '../../containers/CustomActions/CustomListActions.js';
+import { CustomBulkActions } from '../../containers/CustomActions/CustomBulkActions.js';
 
 const useStyles = makeStyles({
   field: {

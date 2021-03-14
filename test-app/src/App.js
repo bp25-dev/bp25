@@ -12,7 +12,7 @@ import { TourenEdit } from './app/components/Touren/EditTouren.js';
 import {
   FeedbackList,
   FeedbackEdit,
-} from './app/components/Touren/TourenFeedback.js';
+} from './app/components/Feedback/TourenFeedback.js';
 //Benutzer
 import { UserList } from './app/components/User/UserList.js';
 import { UserCreate } from './app/components/User/UserCreate.js';
@@ -47,7 +47,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import HelpIcon from '@material-ui/icons/Help';
 // data
-//import dataProvider from './app/data/fakeDataProvider.js';
+//import dataProvider from './app/data/fake_data/fakeDataProvider.js';
 import gqlDataProvider from './app/data/customGraphQLProvider.js';
 import refreshAuth from './app/data/refreshAuth.js';
 import LoginNew from './app/data/refreshAuth.js';

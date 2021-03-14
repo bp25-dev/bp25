@@ -22,8 +22,8 @@ import {
 } from './Stationen';
 import { FilterBar } from './TourenFilter';
 import { makeStyles } from '@material-ui/core/styles';
-import { CustomListActions } from '../CustomListActions.js';
-import { CustomBulkActions } from '../CustomBulkActions.js';
+import { CustomListActions } from '../../containers/CustomActions/CustomListActions.js';
+import { CustomBulkActions } from '../../containers/CustomActions/CustomBulkActions.js';
 
 //edit expand component
 //TODO: get information about stations (from the video) and model them

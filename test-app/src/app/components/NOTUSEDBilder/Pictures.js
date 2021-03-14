@@ -13,8 +13,8 @@ import {
   Show,
 } from 'react-admin';
 import PictureGrid from './PictureGrid';
-import { CustomListActions } from '../CustomListActions.js';
-import { CustomBulkActions } from '../CustomBulkActions.js';
+import { CustomListActions } from '../../containers/CustomActions/CustomListActions.js';
+import { CustomBulkActions } from '../../containers/CustomActions/CustomBulkActions.js';
 
 // edit expand component
 const ImageShow = (props) => (

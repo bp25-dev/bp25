@@ -1,5 +1,5 @@
 import React from 'react';
-import { Create, SimpleForm, TextInput, SelectInput, ReferenceInput } from 'react-admin';
+import { Create, SimpleForm, SelectInput, ReferenceInput } from 'react-admin';
 
 const randomChoice = [{ code: Math.random().toString(36).substr(2, 5) }];
 

@@ -3,8 +3,8 @@ import { useHistory } from 'react-router';
 import {AUTH} from './testmethods/testQueries.js';
 import { useMutation, gql } from '@apollo/client';
 
-// TODO: use auth mutation for login 
-const [login] = useMutation(AUTH, {
+
+/* const [login] = useMutation(AUTH, {
     variables: {
       username: formState.username,
       password: formState.password
@@ -13,7 +13,7 @@ const [login] = useMutation(AUTH, {
       localStorage.setItem('token', login.accessToken);
       history.push('/');
     }
-  });
+  }); */
 
 const Login = () => {
   const history = useHistory();

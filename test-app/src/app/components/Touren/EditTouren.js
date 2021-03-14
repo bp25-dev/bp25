@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Edit,
-  SimpleForm,
   TabbedForm,
   FormTab,
   //validation
@@ -12,19 +11,16 @@ import {
   TextField,
   //inputs
   SelectInput,
-  ImageInput,
   ReferenceArrayInput,
   SelectArrayInput,
   ReferenceInput,
   NumberInput,
-  ArrayInput,
   DateInput,
   TextInput,
   Toolbar,
   SimpleShowLayout,
   // custom buttons
   SaveButton,
-  EditButton
 } from 'react-admin';
 import {
   QuestionInput,
@@ -32,8 +28,8 @@ import {
   MultipleChoiceQuestionInput,
   MultipleChoiceAnswerInput,
 } from './Stationen';
-import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
 import { QuestionField } from './Stationen.js';
+import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
 
 const UserEditToolbar = (props) => (
   <Toolbar {...props}>

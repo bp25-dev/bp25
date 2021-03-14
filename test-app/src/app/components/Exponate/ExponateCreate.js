@@ -12,9 +12,8 @@ import {
   SimpleShowLayout,
   TextField,
 } from 'react-admin';
-import RichTextInput from 'ra-input-rich-text';
-// material UI styling
 import { makeStyles } from '@material-ui/core';
+import RichTextInput from 'ra-input-rich-text';
 import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
 
 const UserEditToolbar = (props) => (
