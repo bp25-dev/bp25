@@ -1,4 +1,3 @@
-
 # Admin Webapp Museum
 ## Installation
 ### Windows
@@ -35,7 +34,7 @@ Man installiert sie nach folgendem Schema: \
 
 Die Website besteht aus einer Login-Page einem Dashboard und neun weiteren Seiten.
 Nachdem man sich erfolgreich eingeloggt hat, kommt man auf das Dashboard.
-VOn hier hat man die Möglichkeit zu den vier Hauptseiten weiterzukommen:
+Von hier hat man die Möglichkeit zu den vier Hauptseiten weiterzukommen:
 - Touren
 - Exponate
 - Bildverknüpfungen (Abzeichen)
