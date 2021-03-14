@@ -100,10 +100,10 @@ export const ExponateList = (props) => {
         {/* should be true if there is an linked picture 
         <ReferenceField
           label='Bildverknüpfung'
-          source='picture.$oid'
+          source='picture'
           reference='Pictures'
         >
-          <BooleanField source='picture.$oid' />
+          <BooleanField source='picture' />
         </ReferenceField>*/}
         <EditButton label='Editieren' />
       </Datagrid>

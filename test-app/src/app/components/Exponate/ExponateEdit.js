@@ -1,24 +1,27 @@
 import React from 'react';
 import {
   Edit,
+  Toolbar,
+  SaveButton,
+  SimpleShowLayout,
   //Forms
   TabbedForm,
   FormTab,
   //Inputs
   TextInput,
   ImageInput,
-  Toolbar,
-  SaveButton,
-  SimpleShowLayout,
+  ReferenceInput,
   TextField,
+  ImageField,
 } from 'react-admin';
-import { makeStyles } from '@material-ui/core';
 import RichTextInput from 'ra-input-rich-text';
+// material UI styling
+import { makeStyles } from '@material-ui/core';
 import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
 
 const UserEditToolbar = (props) => (
   <Toolbar {...props}>
-    <SaveButton />
+    <SaveButton label='Speichern' />
   </Toolbar>
 );
 
@@ -83,11 +86,26 @@ export const ExponateEdit = (props) => {
           {/* <ReferenceInput source='pictures' reference='Pictures' label='Bild'>
               <ImageInput source='picture' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
             </ReferenceInput>  */}
-            {/* for user study */}
-            <ImageInput source='img' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
+          {/* for user study */}
+          <ImageInput
+            source='img'
+            label='Bild'
+            placeholder={
+              <p>
+                Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das
+                vorhandene Bild zu ändern
+              </p>
+            }
+            fullWidth
+          >
+            <ImageField source='picture' />
+          </ImageInput>
+
+          <ImageField source='img' label='aktuelle Bildverknüpfung' />
+          <TextField source='img' label='' />
         </FormTab>
         <DeleteWithCustomConfirmButton
-          title={ 'Sind Sie sicher, dass Sie dieses Exponat löschen wollen?'}
+          title={'Sind Sie sicher, dass Sie dieses Exponat löschen wollen?'}
           content={DeleteConfirmContent}
           label='Löschen'
           cancel='Abbrechen'

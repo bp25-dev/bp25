@@ -27,15 +27,12 @@ import { AbzeichenCreate } from './app/components/Abzeichen/AbzeichenCreate.js';
 import { PictureList } from './app/components/Profilbilder/PictureList.js';
 import { PictureEdit } from './app/components/Profilbilder/PictureEdit.js';
 import { PictureCreate } from './app/components/Profilbilder/PictureCreate.js';
-//pages
+//pages and theming 
 import Dashboard from './app/containers/Dashboard';
 import CustomRoutesProfile from './app/containers/CustomRoutes.js';
 import MyLayout from './app/containers/MyLayout.js';
 import Footer from './app/containers/Footer.js';
 import { MyTheme } from './app/containers/MyTheme.js';
-import LoginPage from './app/containers/Login/LoginPage.js';
-import authProvider from './app/containers/Login/authProvider.js';
-import initialState from './app/containers/Login/initialState.js';
 //icons
 import NavigationIcon from '@material-ui/icons/Navigation';
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
@@ -46,7 +43,12 @@ import ListIcon from '@material-ui/icons/List';
 import CreateIcon from '@material-ui/icons/Create';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import HelpIcon from '@material-ui/icons/Help';
-// data
+// not used: login Page for fake data
+import LoginPage from './app/containers/Login/LoginPage.js';
+// authProvider, Login for fakeData
+import authProvider from './app/containers/Login/authProvider.js';
+import initialState from './app/containers/Login/initialState.js';
+// attempts fetching real data
 //import dataProvider from './app/data/fake_data/fakeDataProvider.js';
 import gqlDataProvider from './app/data/customGraphQLProvider.js';
 import refreshAuth from './app/data/refreshAuth.js';

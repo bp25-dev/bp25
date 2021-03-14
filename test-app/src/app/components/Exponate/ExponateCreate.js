@@ -11,14 +11,16 @@ import {
   SaveButton,
   SimpleShowLayout,
   TextField,
+  ImageField,
 } from 'react-admin';
-import { makeStyles } from '@material-ui/core';
 import RichTextInput from 'ra-input-rich-text';
+// material UI styling
+import { makeStyles } from '@material-ui/core';
 import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
 
 const UserEditToolbar = (props) => (
   <Toolbar {...props}>
-    <SaveButton />
+    <SaveButton label='Speichern' />
   </Toolbar>
 );
 
@@ -42,7 +44,6 @@ const DeleteConfirmContent = (props) => {
 const useStyles = makeStyles({
   inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
 });
-
 
 // create a new exhibit
 // todo: ID should not be created manually but automacially (distinct id)
@@ -88,8 +89,17 @@ export const ExponateCreate = (props) => {
           {/* <ReferenceInput source='pictures' reference='Pictures' label='Bild'>
               <ImageInput source='picture' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
             </ReferenceInput>  */}
-            {/* for user study */}
-            <ImageInput source='img' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
+          {/* for user study */}
+          <ImageInput
+            source='img'
+            label='Bild'
+            placeholder={
+              <p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen</p>
+            }
+            fullWidth
+          >
+            <ImageField source='src' title='images' />
+          </ImageInput>
         </FormTab>
         <DeleteWithCustomConfirmButton
           title={DeleteConfirmTitle}
