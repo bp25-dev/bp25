@@ -157,13 +157,16 @@ class App extends Component {
           icon={AddPhotoAlternateIcon}
           options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
         />,
+          permissions === 'admin'
+          ?
         <Resource
           name='Feedback'
           list={FeedbackList}
-          edit={permissions === 'admin' ? FeedbackEdit : null}
+          //edit={permissions === 'admin' ? FeedbackEdit : null}
           icon={RateReviewIcon}
           options={{ label: 'Feedback' }}
-        />,
+        />
+        :null,
          <Resource
           name='faq'
           list={FeedbackList}

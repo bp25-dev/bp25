@@ -89,7 +89,7 @@ export const FeedbackEdit = (props) => (
       />
       <RichTextInput source='review' label='Rezension' />
       <DeleteWithCustomConfirmButton
-          title={ 'Sind Sie sicher, dass Sie dieses Exponat löschen wollen?'}
+          title={ 'Sind Sie sicher, dass Sie dieses Feedback löschen wollen?'}
           content={DeleteConfirmContent}
           label='Löschen'
           cancel='Abbrechen'

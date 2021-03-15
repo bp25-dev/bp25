@@ -52,7 +52,8 @@ const ImageShow = (props) => {
           className={classes.field}
         />
         <TextField source='additionfal_inf' label='Weitere Informationen' />
-        <ImageField source='img' label='Bild' />
+        {/*<ImageField source="img" src="$oid" label='Bild'/>*/}
+        <ImageField source="img" src="$oid" label='Bild'/>
         {/* add new table with images and reference them here*/}
         <ReferenceArrayField
           label='Bildverknüpfungen'

@@ -14,6 +14,9 @@ import joseph from './fake_data/profilepictures/free/Joseph.jpg';
 import iphigenie from './fake_data/profilepictures/free/Iphigenie.jpg';
 import reward_tour_silver from './fake_data/profilepictures/locked/Erstellte_Rundgaenge_silber.jpg';
 import reward_object_bronze from './fake_data/profilepictures/locked/Betrachtete_Artefakte_bronze.jpg';
+import ortenberger2 from '../data/fake_data/pictures/ortenberger2.jpg'
+import ortenberger3 from '../data/fake_data/pictures/ortenberger3.jpg'
+import goldfibel2 from '../data/fake_data/pictures/Moelsheimer_Goldfibel.jpg';
 import { InsertPhotoOutlined } from '@material-ui/icons';
 
 // fake data base for testing
@@ -25,7 +28,10 @@ const dataProvider = fakeDataProvider({
       sub_category: 'Archäologie/Vor- und Frühgeschichte',
       title: 'Goldfibel von Mölsheim',
       // inserted img for user study
-      img: goldfibel,
+      img: [
+      { $oid: goldfibel }, 
+      { $oid: goldfibel2} ,
+      ] ,
       pic: true,
       picture: [
         {
@@ -50,7 +56,11 @@ const dataProvider = fakeDataProvider({
       category: 'Kunst und Kulturgeschichte',
       sub_category: 'Gotik',
       title: 'Ortenberger Altar - Heilige Sippe',
-      img: ortenberger,
+      img: [
+        {$oid: ortenberger},
+        {$oid: ortenberger2},
+        {$oid: ortenberger3},
+      ],
       pic: true,
       picture: [
         {
@@ -139,6 +149,7 @@ const dataProvider = fakeDataProvider({
       category: 'Kunst und Kulturgeschichte',
       sub_category: 'Kunsthandwerk',
       title: 'Schildkrötenautomat',
+      pic:false,
       description:
         'Auf dem vergoldeten Panzer sitzt ein aus Holz geschnitzter und farbig gefasster Reiter, der den Kopf der Schildkröte mit seinen Zügeln lenkt. Auf ihrem Rücken ist eine Uhr angebracht. Die Figurenuhr besitzt ein Geh-, Stundenschlag- und Laufwerk. Letzteres bewegt die Beine und den Kopf des Tieres sowie die Arme des Reiters. Die Schildkröte, die mit kriechenden Bewegungen über eine Fläche lief, ist hier als Symbol der klugen Bedachtsamkeit (»Eile mit Weil«), nicht der Langsamkeit zu verstehen. Automaten dieser Art, die versuchen, Leben nachzuahmen, waren als Kunstkammerstücke und Tafelzier ausgesprochen beliebt. Ein bis auf den Reiter identisches Objekt hat sich im Kunsthistorischen Museum Wien erhalten. Bisher wird der Darmstädter Schildkrötenautomat dem für den Prager Hof Kaiser Rudolfs II. tätigen Uhrmacher Georg Fronmiller zugeschrieben. Aber auch eine Urheberschaft durch dessen Bruder Hans kann nicht ausgeschlossen werden. (W. G.)',
       additional_information: 'Der Schildkrötenautomat gehört zu den alten Beständen des Museums und stammt sicherlich aus landgräflichem Besitz. Möglicherweise gelangte er durch Erbschaft aus der Kunstkammer der Grafen von Hanau- Lichtenberg dorthin.',

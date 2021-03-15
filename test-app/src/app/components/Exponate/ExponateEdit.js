@@ -87,11 +87,11 @@ export const ExponateEdit = (props) => {
               <ImageInput source='picture' placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth />
             </ReferenceInput>  */}
             {/* for user study */}
-            <ImageInput source='img' label="Bild" placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} fullWidth>
+            <ImageInput source='img' src='$oid' label="Bild" placeholder={<p>Klicke hier, um ein Bild von dem Exponat hinzuzufügen, oder das vorhandene Bild zu ändern</p>} multiple={true} fullWidth>
               <ImageField source='picture' />
             </ImageInput>
-            
-            <ImageField source='img' label='aktuelle Bildverknüpfung' />
+
+            <ImageField source='img' src='$oid' label='aktuelle Bildverknüpfung' />
             <TextField source='img' label ='' />
         </FormTab>
         <DeleteWithCustomConfirmButton

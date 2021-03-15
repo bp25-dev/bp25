@@ -98,15 +98,7 @@ export const FeedbackGrid = () => {
             />
           </CardContent>
           <CardActions className={classes.actions}>
-            {permissions === 'admin' && (
-              <EditButton
-                label='Editieren'
-                to={linkToRecord(basePath, data[id].id)}
-                component={Link}
-                variant='outlined'
-                color='primary'
-              />
-            )}
+           
           </CardActions>
         </Card>
       ))}
