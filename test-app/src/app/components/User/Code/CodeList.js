@@ -20,7 +20,7 @@ const postRowStyle = (record, index) => ({
 export const CodeList = (props) => (
   <List
     {...props}
-    title='Ersteller Codes'
+    title='Ersteller*innen-Codes'
     aside={<Aside />}
     actions={<CustomListActions />}
     bulkActionButtons={<CustomBulkActions />}

@@ -60,7 +60,7 @@ export const TourenCreate = (props) => (
           disabled
           source='user'
           reference='Benutzer'
-          label='Ersteller'
+          label='Ersteller*innen'
           fullWidth
         >
           <SelectInput optionText='username' />

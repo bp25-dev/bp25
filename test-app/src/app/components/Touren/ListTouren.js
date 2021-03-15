@@ -91,8 +91,8 @@ export const TourenList = (props) => {
           <ChipField source='username' />
         </ReferenceField> */}
         {/* created fields for user study */}
-        <TextField source='owner.username' label='Ersteller' />
-        <ArrayField source='user' label='beteiligte Benutzer'>
+        <TextField source='owner.username' label='Ersteller*innen' />
+        <ArrayField source='user' label='beteiligte Benutzer*innen'>
           <SingleFieldList>
             <ChipField source='username' />
           </SingleFieldList>

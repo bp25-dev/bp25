@@ -92,7 +92,7 @@ export const ExponateList = (props) => {
         instead of <TextField source='ID' /> */}
         <TextField source='_id' label='ObjektID' />
         <TextField source='title' label='Titel' />
-        <TextField source='creator' label='Ersteller' />
+        <TextField source='creator' label='Ersteller*in' />
         <TextField source='category' label='Kategorie' />
         <TextField source='sub_category' label='Subkategorie' />
         {/*TODO: remove direct fields after user study */}
