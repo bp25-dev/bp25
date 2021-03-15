@@ -1,11 +1,52 @@
-**Admin Webapp Museum**
+# Admin Webapp Museum
+## Installation
+### Windows
+Installation von NodeJS und npm:  [https://nodejs.org](https://nodejs.org)
+- Wenn man NodeJS herunterlädt, wird npm automatisch mitinstalliert
+
+### Debian/ Ubuntu
+Installation von NodeJS: \
+`sudo apt install nodejs ` \
+\
+Installation von npm: \
+`sudo apt install npm` 
+
+--- 
+ ## Getting started
+ - Projekt clonen
+ - In das lokale Verzeichnis wechseln, in dem der Code des Projekts liegt
+ - `npm install` (einmalig)
+ - `npm start`
+ 
+ Nun öffnet sich die Website in einem neuen Browser-Fenster. (läuft über _localhost_)
+
+ ### Installation von weiteren Packages
+Die benötigten Packages findet man in der _package.json_ Datei unter _dependencies_.
+Man installiert sie nach folgendem Schema: \
+`npm install [package-name]`
+
+### Für Build Production
+`npm run build`
 
 
-Der Code hat 6 Seiten und muss noch mit dem Backend verknüpft werden.
+---
+## Aufbau Admin Webapp
 
-1. Seite ist die Tourseite zur Tourenerstellung und die Tourenbearbeitung.
-2. Seite ist die Exponatenseite zur  Exponatenerstellung und Exponatenbearbeitung.
-3. Seite ist die Benutzer*innen-Seite, die zum Anlegen, Bearbeiten und Löschen dieser dient.
-4. Seite ist die Feedbackseite, auf welcher Feedback zu Touren angelegt ist.
-5. Seite sind die Bildverknüpfungen, zum Einsehen, Erstellen, Bearbeiten und Löschen von Abzeichen und Profilbildern.
-6. Seite ist die FAQ-Seite mit den wichtigsten Fragen und Antworten für Benutzer*innen der Website.  
+Die Website besteht aus einer Login-Page, einem Dashboard und neun weiteren Seiten.\
+Nachdem man sich erfolgreich eingeloggt hat, kommt man auf das Dashboard.
+Von hier hat man die Möglichkeit zu den vier Hauptseiten zu navigieren:
+- Touren
+- Exponate
+- Bildverknüpfungen (Abzeichen)
+- Benutzer*innen
+
+Desweiteren gibt es folgende Seiten:
+- Code erstellen 
+- Bildverknüpfungen (Profilbilder) 
+- Feedback
+- FAQ
+
+
+Admins haben Zugriff auf alle Seiten, normale User nicht. 
+(Details in der Dokumentation)
+
