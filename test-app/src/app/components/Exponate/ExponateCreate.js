@@ -35,7 +35,7 @@ const DeleteConfirmContent = (props) => {
       <TextField source='category' label='Kategorie' />
       <TextField source='year' label='Jahr' />
       <TextField source='art_type' label='Kunsttyp' />
-      <TextField source='creator' label='Ersteller' />
+      <TextField source='creator' label='Ersteller*in' />
     </SimpleShowLayout>
   );
 };
