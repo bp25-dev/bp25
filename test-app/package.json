@@ -15,6 +15,7 @@
     "apollo-link-rest": "^0.8.0-beta.0",
     "graphql": "^15.5.0",
     "graphql-anywhere": "^4.1.0",
+    "graphql-request": "^3.4.0",
     "mongoose": "^5.11.11",
     "ra-data-fakerest": "^3.9.3",
     "ra-data-graphcool": "^3.6.1",

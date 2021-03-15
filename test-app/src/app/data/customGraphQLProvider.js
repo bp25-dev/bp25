@@ -9,38 +9,23 @@ import {
   UPDATE,
   DELETE,
 } from 'ra-core';
-import { setContext } from '@apollo/client/link/context';
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 // custom queryBuilder
 import { customBuildQuery } from './customQueryBuilder.js';
+import { GraphQLClient, gql } from 'graphql-request'
+
 // imports for setting up additional rest provider
 //import { RestLink } from 'apollo-link-rest';
 //import simpleRestProvider from 'ra-data-simple-rest';
 
-// documentation: https://www.howtographql.com/react-apollo/5-authentication/
-// TODO: set auth token in login
 
 const API_ENDPOINT = 'http://127.0.0.1:5000/web/';
-const httpLink = new HttpLink({ uri: API_ENDPOINT });
+const token = localStorage.getItem('token');
 
-// initialize Bearer token authentification method
-const authLink = setContext((_, { headers }) => {
-  // get created jwt token in local storage
-  //.const token = localStorage.getItem('token');
-  const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1NzIxMjE2LCJuYmYiOjE2MTU3MjEyMTYsImp0aSI6ImI5ZWRjMWUxLWZlMmMtNDg3OC1hMTI5LWU5NTc2NTc3ZTFhMCIsImlkZW50aXR5IjoidGVzdCIsImV4cCI6MTYxNTcyMjExNiwidXNlcl9jbGFpbXMiOnsiYWRtaW4iOnRydWV9fQ.5Zd2sgxoNHwF8_7CI6IosLLhzNiAy93VJ2qymPf5DT8';
-  return {
-    // set Authorization http headers
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-// create a new Apollo Client
-const gqlClient = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+// create a new GraphQl Client 
+const gqlClient = new GraphQLClient(API_ENDPOINT, {
+  headers: {
+    authorization: token ? `Bearer ${token}` : '',
+  },
 });
 
 export default buildGraphQLProvider({
