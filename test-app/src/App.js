@@ -51,10 +51,7 @@ import initialState from './app/containers/Login/initialState.js';
 // attempts fetching real data
 //import dataProvider from './app/data/fake_data/fakeDataProvider.js';
 import gqlDataProvider from './app/data/customGraphQLProvider.js';
-import refreshAuth from './app/data/NOTUSEDrefreshAuth.js';
-import authNew from './app/data/NOTUSEDrefreshAuth.js';
-
-
+//import authNew from './app/data/authNew.js';
 
 const MyLoginPage = () => (
   <Login

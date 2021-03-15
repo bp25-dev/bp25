@@ -1,5 +1,5 @@
 import decodeJwt from 'jwt-decode';
-import {AUTH} from './NOTUSEDtestmethods/testQueries.js';
+import {AUTH} from './testQueries.js';
 
 // authetification with jwt token 
 export default {

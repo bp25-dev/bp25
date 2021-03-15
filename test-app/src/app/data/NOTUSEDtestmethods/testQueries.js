@@ -1,4 +1,5 @@
-import { gql, useQuery, useMutation } from '@apollo/client';
+//import { gql, useQuery, useMutation } from '@apollo/client';
+import { gql } from 'graphql-request'
 
 export const SIGNUP = gql`
   mutation createAdmin($username: String!, $password: String!) {

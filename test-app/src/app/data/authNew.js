@@ -1,31 +1,12 @@
-import {AUTH} from './testmethods/testQueries.js';
+import {signup, login } from './LoginActions.js';
 import { useMutation, gql } from '@apollo/client';
-
-
-const LOGIN = useMutation(AUTH, {
-    variables: {
-      username: formState.username,
-      password: formState.password
-    },
-    onCompleted: ({ login }) => {
-      localStorage.setItem('token', login.accessToken);
-      history.push('/');
-    }
-  }); 
-
-  const ME = `
-    query {
-        me {
-            username
-        }
-    }
-`;
-  
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_ERROR, AUTH_CHECK } from 'react-admin';
+ 
   export default (type, params) => {
 
     if (type === AUTH_LOGIN) {
         const { username, password } = params;
-        return graphql.request(LOGIN, { username, password }).then(data => {
+        return graphql.request(login, { username, password }).then(data => {
             const token = data.login.token;
             localStorage.setItem('token', token);
         });
@@ -40,7 +21,7 @@ const LOGIN = useMutation(AUTH, {
                 authorization: 'Bearer ' +  localStorage.getItem('token'),
             },
         })
-        return graphqlauth.request(ME).then(data => { return (data.me.username) ? Promise.resolve() : Promise.reject(); }).catch(e => {
+        return graphqlauth.request(signup).then(data => { return (data.me.username) ? Promise.resolve() : Promise.reject(); }).catch(e => {
             localStorage.removeItem('token');
         });
 

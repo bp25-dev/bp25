@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import { gql } from 'graphql-request'
 import { buildQuery as buildQueryFactory, } from 'ra-data-graphql-simple';
 import { GET_ONE, GET_LIST, DELETE } from 'react-admin';
 
@@ -43,3 +43,40 @@ export const customBuildQuery = introspection => {
   return buildQuery(type, resource, params);
   }
 }; 
+
+export const testQuery = introspection => (fetchType, resource, params) => {
+    console.log(introspection)
+    const builtQuery = buildQueryFactory(introspection)(fetchType, resource, params);
+    if (resource === 'museumObject' && fetchType === 'GET_LIST') {
+        return {
+            // Use the default query variables and parseResponse
+            ...builtQuery,
+            // Override the query
+            query: gql`
+            mutation allObjects($token: String!) {
+              allObjects(token: $token) {
+                  object_id
+                  category
+                  sub_category
+                  title
+                  time_range
+                  year
+                  picture {
+                    id
+                  }
+                  art_type
+                  creator
+                  material
+                  size_
+                  location
+                  description
+                  additionalInformation
+                  interdisciplinaryContext
+              }
+            }
+          `,
+        };
+    }
+    console.log(builtQuery)
+    return builtQuery;
+};
