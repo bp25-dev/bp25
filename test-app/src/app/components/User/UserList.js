@@ -61,7 +61,7 @@ export const UserList = (props) => (
       {/*  TODO: get real primary key of user ID (username?) 
       dont show id for user study
       <TextField source='id' label='ID' /> */}
-      <CustomerField source='username' label='Benutzername' />
+      <CustomerField source='username' label='Benutzer*innen-Name' />
       <FunctionField
         source='password'
         label='Passwort'
