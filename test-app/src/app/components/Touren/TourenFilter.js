@@ -39,7 +39,7 @@ export const FilterBar = (props) => (
       <ReferenceInput
         source='user'
         reference='Benutzer'
-        label='Ersteller'
+        label='Ersteller*innen'
         alwaysOn
       >
         <SelectInput optionText='username' />
