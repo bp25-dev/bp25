@@ -23,6 +23,7 @@ import {
 } from './Stationen';
 import { FilterBar } from './TourenFilter';
 import { makeStyles } from '@material-ui/core/styles';
+import { unparse as convertToCSV } from 'papaparse/papaparse.min';
 import { CustomListActions } from '../CustomListActions.js';
 import { CustomBulkActions } from '../CustomBulkActions.js';
 import { unparse as convertToCSV } from 'papaparse';
@@ -68,6 +69,14 @@ const postRowStyle = (record, index) => ({
   backgroundColor: index % 2 ? 1 : '#e4edf8',
 });
 
+const unicodeExporter = (data) => {
+  const csv = convertToCSV({
+    data,
+  });
+  const BOM = '\uFEFF';
+  downloadCSV(`${BOM} ${csv}`, 'Touren');
+};
+
 // list existing tours
 export const TourenList = (props) => {
   const classes = useStyles(props);
@@ -80,7 +89,6 @@ export const TourenList = (props) => {
       bulkActionButtons={<CustomBulkActions />}
       classes={{ main: classes.main }}
       exporter={unicodeExporter}
-
     >
       <Datagrid
         rowClick='expand'

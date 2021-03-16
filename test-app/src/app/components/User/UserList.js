@@ -8,6 +8,7 @@ import {
   BooleanField,
   downloadCSV,
   ReferenceManyField,
+  downloadCSV,
 } from 'react-admin';
 // material UI imports
 import DoneIcon from '@material-ui/icons/Done';
@@ -60,6 +61,15 @@ const postRowStyle = (record, index) => ({
   backgroundColor: index % 2 ? 1 : '#e4edf8',
 });
 
+const userExporter = (data) => {
+  const csv = convertToCSV({
+    data,
+    fields: ['id', 'username', 'Adminrechte'],
+  });
+  const BOM = '\uFEFF';
+  downloadCSV(`${BOM} ${csv}`, 'Benutzer');
+};
+
 // show eixsting users
 export const UserList = (props) => (
   <List
@@ -69,7 +79,6 @@ export const UserList = (props) => (
     actions={<CustomListActions />}
     bulkActionButtons={<CustomBulkActions />}
     exporter={userExporter}
-
   >
     <Datagrid rowStyle={postRowStyle}>
       {/*  TODO: get real primary key of user ID (username?) 
