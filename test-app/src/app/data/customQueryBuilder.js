@@ -3,7 +3,7 @@ import { buildQuery as buildQueryFactory, } from 'ra-data-graphql-simple';
 import { GET_ONE, GET_LIST, DELETE } from 'react-admin';
 
 export const customBuildQuery = introspection => {
-    console.log(introspection)
+  console.log(introspection)
   const buildQuery = buildQueryFactory(introspection);
   return (type, resource, params) => {
       console.log(type,resource, params)

@@ -15,14 +15,14 @@ import {
 import { ApolloClient } from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { customBuildQuery, testQuery } from '../customQueryBuilder.js';
+import { customBuildQuery, customBuildQuery2, testQuery } from './customQueryBuilder.js';
 
 
 const API_ENDPOINT = 'http://127.0.0.1:5000/web/';
 const httpLink = new HttpLink({ uri: API_ENDPOINT });
 
  //const token = localStorage.getItem('token');
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1ODgwMTE4LCJuYmYiOjE2MTU4ODAxMTgsImp0aSI6ImVmZDQ5YjQzLTE3ZDEtNDdjNS04YmFmLTA3YzQyYjMyZjMzMCIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTU4ODEwMTgsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.iPiD62rduNeUwH9WVPSGLTrFMCqDFqWkBTxx5y4YsUY';
+const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1ODgzMTU0LCJuYmYiOjE2MTU4ODMxNTQsImp0aSI6IjBhMTNmNGY5LWQwNmMtNGFjZi1iNzg4LTIxZTlmYzg0OTg0ZCIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTU4ODQwNTQsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.RGya5Wt2zsHa1Qbam1jQ48hSiN2UhrMbaTD9uzcpAlg';
 // initialize Bearer token authentification method 
 
 const apolloClient = new ApolloClient({
@@ -42,7 +42,7 @@ String.prototype.capitalize = function () {
 
 export default buildGraphQLProvider({
   client: apolloClient,
-  introspection: {
+  /* introspection: {
     operationNames: {
       [GET_LIST]: (resource) => `all${pluralize(resource.name).capitalize()}`,
       [GET_ONE]: (resource) => `${resource.name}`,
@@ -52,7 +52,7 @@ export default buildGraphQLProvider({
       [UPDATE]: (resource) => `update${resource.name.capitalize()}`,
       [DELETE]: (resource) => `delete${resource.name.capitalize()}`,
     },
-    },
+    },  */
   //add custom build query scheme
   buildQuery: customBuildQuery,
 });;

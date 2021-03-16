@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "aor-graphql-client-graphcool": "0.0.1",
     "apollo-boost": "^0.4.9",
     "apollo-client": "^2.5.1",
     "apollo-link-rest": "^0.8.0-beta.0",

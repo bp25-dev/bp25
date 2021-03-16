@@ -50,9 +50,10 @@ import authProvider from './app/containers/Login/authProvider.js';
 import initialState from './app/containers/Login/initialState.js';
 // attempts fetching real data
 //import dataProvider from './app/data/fake_data/fakeDataProvider.js';
-import gqlDataProvider from './app/data/customGraphQLProvider.js';
-//import authNew from './app/data/authNew.js';
-import ApolloGraphQLProvider from './app/data/NOTUSEDtestmethods/ApolloGraphQLProvider.js'
+import gqlDataProvider from './app/data/NOTUSEDtestmethods/customGraphQLProvider.js';
+import authNew from './app/data/authNew.js';
+import ApolloGraphQLProvider from './app/data/ApolloGraphQLProvider.js'
+import QueryBuilder  from './app/data/NOTUSEDtestmethods/QueryBuilder.js';
 
 const MyLoginPage = () => (
   <Login

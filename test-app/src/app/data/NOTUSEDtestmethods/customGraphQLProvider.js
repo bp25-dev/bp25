@@ -10,7 +10,7 @@ import {
   DELETE,
 } from 'ra-core';
 // custom queryBuilder
-import { customBuildQuery, testQuery } from './customQueryBuilder.js';
+import { customBuildQuery, testQuery } from '../customQueryBuilder.js';
 import { GraphQLClient, gql } from 'graphql-request'
 
 // imports for setting up additional rest provider
