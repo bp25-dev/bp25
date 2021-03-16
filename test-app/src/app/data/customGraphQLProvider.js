@@ -19,8 +19,8 @@ import { GraphQLClient, gql } from 'graphql-request'
 
 
 const API_ENDPOINT = 'http://127.0.0.1:5000/web/';
-//const token = localStorage.getItem('token');
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1ODI1NDEyLCJuYmYiOjE2MTU4MjU0MTIsImp0aSI6ImM4MjhiYjQ0LTYyZjctNGIwNC04MjU0LTVlMGNhZGM5M2E0NyIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTU4MjYzMTIsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.foqQV3SQ_s7roZhH35gr7-AXTXUpaTOsJ2o7TQffsrs';
+const token = localStorage.getItem('token');
+//const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1ODI1NDEyLCJuYmYiOjE2MTU4MjU0MTIsImp0aSI6ImM4MjhiYjQ0LTYyZjctNGIwNC04MjU0LTVlMGNhZGM5M2E0NyIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTU4MjYzMTIsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.foqQV3SQ_s7roZhH35gr7-AXTXUpaTOsJ2o7TQffsrs';
 
 // create a new GraphQl Client 
 const gqlClient = new GraphQLClient(API_ENDPOINT, {

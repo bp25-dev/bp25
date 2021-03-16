@@ -52,6 +52,7 @@ import initialState from './app/containers/Login/initialState.js';
 //import dataProvider from './app/data/fake_data/fakeDataProvider.js';
 import gqlDataProvider from './app/data/customGraphQLProvider.js';
 //import authNew from './app/data/authNew.js';
+import ApolloGraphQLProvider from './app/data/NOTUSEDtestmethods/ApolloGraphQLProvider.js'
 
 const MyLoginPage = () => (
   <Login
@@ -72,7 +73,7 @@ class App extends Component {
   componentDidMount() {
     /* const dataProvider = dataProviderFactory(
       process.env.REACT_APP_DATA_PROVIDER);  */
-    const dataProvider = gqlDataProvider;
+    const dataProvider = ApolloGraphQLProvider;
     this.setState({ dataProvider });
   }
   render() {

@@ -77,6 +77,6 @@ export const testQuery = introspection => (fetchType, resource, params) => {
           `,
         };
     }
-    console.log(builtQuery)
+    console.log(builtQuery, "test")
     return builtQuery;
 };
