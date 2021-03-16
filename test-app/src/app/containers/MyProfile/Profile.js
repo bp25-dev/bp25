@@ -100,7 +100,7 @@ import React, {
     return (
       <SaveContextProvider value={saveContext}>
         <SimpleForm save={handleSave} record={identity ? identity : {}} >
-          <TextInput source="Benutzername" validate={required()} fullWidth/>
+          <TextInput label="Benutzer*innenname" source="Benutzername" validate={required()} fullWidth/>
           <PasswordInput source="altes Passwort" validate={required()} label="altes Passwort" fullWidth/>
           <PasswordInput source="neues Passwort" validate={required()} label="neues Passwort" fullWidth/>
           {/**<PasswordInput source="neues Passwort" validate={required()} label="neues Passwort wiederholen" fullWidth/>**/}

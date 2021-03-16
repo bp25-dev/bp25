@@ -12,11 +12,11 @@ export const UserFilterBar = (props) => (
       <Filter {...props}>
         <SearchInput source='q' alwaysOn placeholder='Suche'/>
         <NullableBooleanInput
-          label='Benutzertyp'
+          label='Benutzer-Typ'
           source='Adminrechte'
-          nullLabel='alle Benutzer'
-          falseLabel='Benutzer'
-          trueLabel='Administator'
+          nullLabel='alle Benutzer*innen'
+          falseLabel='Benutzer*innem'
+          trueLabel='Administator*innen'
           alwaysOn
         />
         <ReferenceInput

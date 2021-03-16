@@ -35,7 +35,7 @@ const DeleteConfirmContent = (props) => {
       <TextField source='category' label='Kategorie' />
       <TextField source='year' label='Jahr' />
       <TextField source='art_type' label='Kunsttyp' />
-      <TextField source='creator' label='Ersteller' />
+      <TextField source='creator' label='Ersteller*in' />
     </SimpleShowLayout>
   );
 };
@@ -73,7 +73,7 @@ export const ExponateCreate = (props) => {
         <FormTab label='Eckdaten'>
           <TextInput source='year' label='Jahr' fullWidth />
           <TextInput source='art_type' label='Kunsttyp' fullWidth />
-          <TextInput source='creator' label='Ersteller' fullWidth />
+          <TextInput source='creator' label='Ersteller*in' fullWidth />
           <TextInput source='material' label='Material' fullWidth />
           <TextInput
             source='size_'

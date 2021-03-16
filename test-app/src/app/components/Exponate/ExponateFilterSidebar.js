@@ -87,7 +87,7 @@ const Card = withStyles((theme) => ({
  const MapCreatorFilter = () => {
     const { ids, data } = useListContext();
     return (
-      <FilterList label='Ersteller' icon={<PersonIcon />}>
+      <FilterList label='Ersteller*in' icon={<PersonIcon />}>
         {ids.map((id) => (
           <FilterListItem
             label={data[id].creator}

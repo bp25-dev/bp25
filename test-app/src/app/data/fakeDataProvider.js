@@ -174,7 +174,7 @@ const dataProvider = fakeDataProvider({
       session_id: 420,
       owner: {
         username: 'Anna',
-      },
+      },  
       user: [
         {
           username: 'Vilja',

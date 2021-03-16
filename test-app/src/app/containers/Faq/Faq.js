@@ -30,7 +30,7 @@ export default function SimpleAccordion() {
         >
           <Title title='FAQ' />
           <Typography className={classes.heading} variant='h6'>
-            Fragen zu "Abzeichen"
+            Fragen zu <b>Abzeichen</b>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -71,7 +71,7 @@ export default function SimpleAccordion() {
           id='panel7a-header'
         >
           <Typography className={classes.heading} variant='h6'>
-            Fragen zu "Bildverknüpfungen"
+            Fragen zu <b>Bildverknüpfungen</b>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -102,7 +102,7 @@ export default function SimpleAccordion() {
           id='panel2a-header'
         >
           <Typography className={classes.heading} variant='h6'>
-            Fragen zu "Exponaten"
+            Fragen zu <b>Exponaten</b>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -148,7 +148,7 @@ export default function SimpleAccordion() {
           id='panel6a-header'
         >
           <Typography className={classes.heading} variant='h6'>
-            Fragen zur Handynutzung
+            Fragen zur <b>Handynutzung</b>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -175,7 +175,7 @@ export default function SimpleAccordion() {
           id='panel5a-header'
         >
           <Typography className={classes.heading} variant='h6'>
-            Fragen zum "Profil-Bereich"
+            Fragen zum <b>Profil-Bereich</b>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
@@ -221,7 +221,7 @@ export default function SimpleAccordion() {
           id='panel1a-header'
         >
           <Typography className={classes.heading} variant='h6'>
-            Fragen zu "Touren"
+            Fragen zu <b>Touren</b>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>

@@ -14,7 +14,7 @@ export const CodeCreate = (props) => {
           optionText='code'
           optionValue='code'
         />
-        <ReferenceInput label='Benutzer' source='username' reference='Benutzer'>
+        <ReferenceInput label='Benutzer*in' source='username' reference='Benutzer'>
           <SelectInput optionText='username' />
         </ReferenceInput>
       </SimpleForm>
