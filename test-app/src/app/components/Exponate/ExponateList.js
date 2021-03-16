@@ -11,11 +11,14 @@ import {
   TextField,
   ImageField,
   ReferenceArrayField,
+  downloadCSV,
 } from 'react-admin';
 import { FilterSidebar } from './ExponateFilterSidebar.js';
 import { makeStyles } from '@material-ui/core/styles';
 import {CustomListActions} from '../CustomListActions.js';
 import { CustomBulkActions, CustomBulkActionsExponate } from '../CustomBulkActions.js';
+import { unparse as convertToCSV } from 'papaparse/papaparse.min';
+
 
 const useStyles = makeStyles({
   field: {
@@ -25,6 +28,16 @@ const useStyles = makeStyles({
     padding: '0px',
   },
 });
+
+const unicodeExporter = (data) => {
+  const csv = convertToCSV({
+    data,
+  });
+  const BOM = '\uFEFF';
+  downloadCSV(`${BOM} ${csv}`, 'Exponate');
+};
+
+
 
 // change each second row to light blue
 const postRowStyle = (record, index) => ({
@@ -83,6 +96,7 @@ export const ExponateList = (props) => {
       aside={<FilterSidebar />}
       actions={<CustomListActions />}
       bulkActionButtons={<CustomBulkActionsExponate/>}
+      exporter={unicodeExporter}
     >
       <Datagrid
         rowClick='expand'

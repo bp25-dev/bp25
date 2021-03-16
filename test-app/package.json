@@ -12,6 +12,7 @@
     "auth-provider": "^0.6.2",
     "graphql": "^15.5.0",
     "mongoose": "^5.11.11",
+    "papaparse": "^5.3.0",
     "ra-data-fakerest": "^3.9.3",
     "ra-data-graphcool": "^3.6.1",
     "ra-data-graphql-simple": "^3.11.4",

@@ -5,8 +5,8 @@ import {
   SingleFieldList,
   EditButton,
   ChipField,
-  FunctionField,
   BooleanField,
+  downloadCSV,
   ReferenceManyField,
 } from 'react-admin';
 // material UI imports
@@ -17,6 +17,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CustomListActions } from '../CustomListActions.js';
 import { CustomBulkActions } from '../CustomBulkActions.js';
 import { UserFilterBar } from './UserFilter';
+import { unparse as convertToCSV } from 'papaparse/papaparse.min';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,6 +44,17 @@ const CustomerField = ({ record }) => {
   );
 };
 
+const userExporter = (data) => {
+  const csv = convertToCSV({
+    data,
+    fields: ['id', 'username', 'Adminrechte'],
+  });
+  const BOM = '\uFEFF';
+  downloadCSV(`${BOM} ${csv}`, 'Benutzer');
+};
+
+
+
 // change each second row to light blue
 const postRowStyle = (record, index) => ({
   backgroundColor: index % 2 ? 1 : '#e4edf8',
@@ -56,17 +68,14 @@ export const UserList = (props) => (
     filters={<UserFilterBar />}
     actions={<CustomListActions />}
     bulkActionButtons={<CustomBulkActions />}
+    exporter={userExporter}
+
   >
     <Datagrid rowStyle={postRowStyle}>
       {/*  TODO: get real primary key of user ID (username?) 
       dont show id for user study
       <TextField source='id' label='ID' /> */}
       <CustomerField source='username' label='Benutzer*innen-Name' />
-      <FunctionField
-        source='password'
-        label='Passwort'
-        render={(record) => '********'}
-      />
       <BooleanField
         source='Adminrechte'
         label='Adminrechte'

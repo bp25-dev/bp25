@@ -7,6 +7,7 @@ import {
   EditButton,
   Show,
   SimpleShowLayout,
+  downloadCSV,
   //fields
   TextField,
   DateField,
@@ -24,6 +25,8 @@ import { FilterBar } from './TourenFilter';
 import { makeStyles } from '@material-ui/core/styles';
 import { CustomListActions } from '../CustomListActions.js';
 import { CustomBulkActions } from '../CustomBulkActions.js';
+import { unparse as convertToCSV } from 'papaparse';
+
 
 //edit expand component
 //TODO: get information about stations (from the video) and model them
@@ -43,6 +46,15 @@ const StationShow = (props) => (
     </SimpleShowLayout>
   </Show>
 );
+
+const unicodeExporter = (data) => {
+  const csv = convertToCSV({
+    data,
+  });
+  const BOM = '\uFEFF';
+  downloadCSV(`${BOM} ${csv}`, 'Touren');
+};
+
 
 // margin to divide filterBar from list
 const useStyles = makeStyles({
@@ -67,6 +79,8 @@ export const TourenList = (props) => {
       actions={<CustomListActions />}
       bulkActionButtons={<CustomBulkActions />}
       classes={{ main: classes.main }}
+      exporter={unicodeExporter}
+
     >
       <Datagrid
         rowClick='expand'
