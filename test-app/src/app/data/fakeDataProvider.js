@@ -170,7 +170,7 @@ const dataProvider = fakeDataProvider({
       search_id: 'xxxxx',
       description: 'This is such an awesome tour',
       description:
-        'Die Tour führt entlang der interessanter Exponate rund um Amphibien.',
+        'Die Tour führt entlang der interessanter Exponate rund um Amphibien!',
       session_id: 420,
       owner: {
         username: 'Anna',
