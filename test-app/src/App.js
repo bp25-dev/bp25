@@ -59,11 +59,11 @@ const MyLoginPage = () => (
 
 
 class App extends Component {
-  /* constructor() {
+  constructor() {
       super();
       this.state = { dataProvider: null };
   }
-
+ /*
   componentDidMount() {
       buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
           .then(dataProvider => this.setState({ dataProvider }));
