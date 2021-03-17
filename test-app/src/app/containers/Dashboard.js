@@ -15,6 +15,8 @@ import exponate from '../data/images/Exponate.png';
 import tours from '../data/images/Tours.png';
 import user from '../data/images/User.png';
 
+import { useAuthenticated } from 'react-admin';
+
 // style for the cards
 const useCardStyles = makeStyles(() => ({
   card: {
