@@ -8,17 +8,16 @@ import {
   BooleanField,
   downloadCSV,
   ReferenceManyField,
-  downloadCSV,
 } from 'react-admin';
 // material UI imports
 import DoneIcon from '@material-ui/icons/Done';
 import ClearIcon from '@material-ui/icons/Clear';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
-import { CustomListActions } from '../CustomListActions.js';
-import { CustomBulkActions } from '../CustomBulkActions.js';
+import { CustomListActions } from '../../containers/CustomActions/CustomListActions.js';
+import { CustomBulkActions } from '../../containers/CustomActions/CustomBulkActions.js';
 import { UserFilterBar } from './UserFilter';
-import { unparse as convertToCSV } from 'papaparse/papaparse.min';
+import { unparse as convertToCSV } from 'papaparse';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,15 +59,6 @@ const userExporter = (data) => {
 const postRowStyle = (record, index) => ({
   backgroundColor: index % 2 ? 1 : '#e4edf8',
 });
-
-const userExporter = (data) => {
-  const csv = convertToCSV({
-    data,
-    fields: ['id', 'username', 'Adminrechte'],
-  });
-  const BOM = '\uFEFF';
-  downloadCSV(`${BOM} ${csv}`, 'Benutzer');
-};
 
 // show eixsting users
 export const UserList = (props) => (

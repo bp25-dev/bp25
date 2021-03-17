@@ -11,9 +11,9 @@ import {
   usePermissions,
 } from 'react-admin';
 import { makeStyles } from '@material-ui/core/styles';
-import { CustomListActions } from '../CustomListActions.js';
-import { CustomBulkActions } from '../CustomBulkActions.js';
-import {BadgeField} from './PictureField.js';
+import { CustomListActions } from '../../containers/CustomActions/CustomListActions.js';
+import { CustomBulkActions } from '../../containers/CustomActions/CustomBulkActions.js';
+//import {BadgeField} from '../Bilder/PictureField.js';
 
 const useStyles = makeStyles({
   card: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Edit,
+  Create,
   TabbedForm,
   FormTab,
   Toolbar,
@@ -13,24 +13,16 @@ import {
   TextField,
   //inputs
   SelectInput,
-  ImageInput,
   ReferenceArrayInput,
   SelectArrayInput,
   ReferenceInput,
   NumberInput,
   DateInput,
   TextInput,
-  // custom buttons
-  SaveButton,
+  //etc
+  SaveButton
 } from 'react-admin';
-import {
-  QuestionInput,
-  AnswerInput,
-  MultipleChoiceQuestionInput,
-  MultipleChoiceAnswerInput,
-} from './Stationen';
 import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
-import { QuestionField } from './Stationen.js';
 
 const UserEditToolbar = (props) => (
   <Toolbar {...props}>
@@ -53,16 +45,12 @@ const DeleteConfirmContent = (props) => {
 };
 
 // create a range withing the Difficulty can be selected
-const validateDifficulty = [
-  number(),
-  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 5'),
-  maxValue(5, 'Bitte wähle eine Zahl zwischen 1 und 5'),
-];
+const validateDifficulty = [number(), minValue(1), maxValue(5)];
 
-// edit a tour
-export const TourenEdit = (props) => (
-  <Edit title='Bearbeite Touren' {...props} successMessage="Die Änderungen wurden gespeichert" >
-    <TabbedForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
+
+export const TourenCreate = (props) => (
+     <Create title='Erstelle Touren' {...props} successMessage="Die Tour wurde erstellt">
+       <TabbedForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
       <FormTab label='Informationen'>
         <TextInput disabled source='ID' label='ID' fullWidth />
         <TextInput source='name' label='Titel' fullWidth />
@@ -114,5 +102,6 @@ export const TourenEdit = (props) => (
           cancel='Abbrechen'
         />
     </TabbedForm>
-  </Edit>
-);
+    </Create>
+  );
+  

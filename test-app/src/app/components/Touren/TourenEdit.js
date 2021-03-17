@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Create,
+  Edit,
   TabbedForm,
   FormTab,
   Toolbar,
@@ -20,9 +20,15 @@ import {
   NumberInput,
   DateInput,
   TextInput,
-  //etc
-  SaveButton
+  // custom buttons
+  SaveButton,
 } from 'react-admin';
+/* import {
+  QuestionInput,
+  AnswerInput,
+  MultipleChoiceQuestionInput,
+  MultipleChoiceAnswerInput,
+} from './NOTUSEDStationen'; */
 import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
 
 const UserEditToolbar = (props) => (
@@ -46,12 +52,16 @@ const DeleteConfirmContent = (props) => {
 };
 
 // create a range withing the Difficulty can be selected
-const validateDifficulty = [number(), minValue(1), maxValue(5)];
+const validateDifficulty = [
+  number(),
+  minValue(1, 'Bitte wähle eine Zahl zwischen 1 und 5'),
+  maxValue(5, 'Bitte wähle eine Zahl zwischen 1 und 5'),
+];
 
-
-export const TourenCreate = (props) => (
-     <Create title='Erstelle Touren' {...props} successMessage="Die Tour wurde erstellt">
-       <TabbedForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
+// edit a tour
+export const TourenEdit = (props) => (
+  <Edit title='Bearbeite Touren' {...props} successMessage="Die Änderungen wurden gespeichert" >
+    <TabbedForm toolbar={<UserEditToolbar />} warnWhenUnsavedChanges>
       <FormTab label='Informationen'>
         <TextInput disabled source='ID' label='ID' fullWidth />
         <TextInput source='name' label='Titel' fullWidth />
@@ -103,6 +113,5 @@ export const TourenCreate = (props) => (
           cancel='Abbrechen'
         />
     </TabbedForm>
-    </Create>
-  );
-  
+  </Edit>
+);

@@ -10,7 +10,6 @@ import {
   //Inputs
   TextInput,
   ImageInput,
-  ReferenceInput,
   TextField,
   ImageField,
 } from 'react-admin';

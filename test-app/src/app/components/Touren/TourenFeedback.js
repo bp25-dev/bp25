@@ -20,8 +20,8 @@ import {
 import RichTextInput from 'ra-input-rich-text';
 import { makeStyles } from '@material-ui/core/styles';
 import { FeedbackGrid } from './FeedbackGrid';
-import { CustomBulkActions } from '../CustomBulkActions.js';
-import { CustomListActionsExport } from '../CustomListActions.js';
+import { CustomBulkActions } from '../../containers/CustomActions/CustomBulkActions.js';
+import { CustomListActionsExport } from '../../containers/CustomActions/CustomListActions.js';
 import DeleteWithCustomConfirmButton from 'ra-delete-with-custom-confirm-button';
 
 const UserEditToolbar = (props) => (

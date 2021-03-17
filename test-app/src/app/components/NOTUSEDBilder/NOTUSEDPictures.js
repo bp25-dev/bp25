@@ -13,9 +13,11 @@ import {
   Show,
 } from 'react-admin';
 import PictureGrid from './PictureGrid';
-import { CustomListActions } from '../CustomListActions.js';
-import { CustomBulkActions } from '../CustomBulkActions.js';
+import { CustomListActions } from '../../containers/CustomActions/CustomListActions.js';
+import { CustomBulkActions } from '../../containers/CustomActions/CustomBulkActions.js';
 
+// TODO: get connection via REST (download files of pictures)
+// pictures: Database for pictures of museum objects 
 // edit expand component
 const ImageShow = (props) => (
   <Show

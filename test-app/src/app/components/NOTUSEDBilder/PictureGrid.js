@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import { linkToRecord } from 'ra-core';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: '-2px',
@@ -31,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// picture grid for showing images
 export const PictureGrid = ({ ids, data, basePath }) => {
   const classes = useStyles();
   return (

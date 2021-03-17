@@ -15,23 +15,22 @@ import {
   ChipField,
   ArrayField,
 } from 'react-admin';
-import {
+// TODO: Stationen
+/* import {
   QuestionField,
   AnswerField,
   MultipleChoiceQuestionField,
   MultipleChoiceAnswerField,
-} from './Stationen';
+} from './NOTUSEDStationen'; */
 import { FilterBar } from './TourenFilter';
 import { makeStyles } from '@material-ui/core/styles';
-import { unparse as convertToCSV } from 'papaparse/papaparse.min';
-import { CustomListActions } from '../CustomListActions.js';
-import { CustomBulkActions } from '../CustomBulkActions.js';
+import { CustomListActions } from '../../containers/CustomActions/CustomListActions.js';
+import { CustomBulkActions } from '../../containers/CustomActions/CustomBulkActions.js';
 import { unparse as convertToCSV } from 'papaparse';
 
 
-//edit expand component
 //TODO: get information about stations (from the video) and model them
-const StationShow = (props) => (
+ const StationShow = (props) => (
   <Show
     {...props}
     /* disable the app title change when shown */
@@ -41,7 +40,7 @@ const StationShow = (props) => (
     <SimpleShowLayout>
       <ArrayField source='Stationen'>
         <Datagrid>
-          <QuestionField />
+          {/* <QuestionField /> */}
         </Datagrid>
       </ArrayField>
     </SimpleShowLayout>
@@ -68,14 +67,6 @@ const useStyles = makeStyles({
 const postRowStyle = (record, index) => ({
   backgroundColor: index % 2 ? 1 : '#e4edf8',
 });
-
-const unicodeExporter = (data) => {
-  const csv = convertToCSV({
-    data,
-  });
-  const BOM = '\uFEFF';
-  downloadCSV(`${BOM} ${csv}`, 'Touren');
-};
 
 // list existing tours
 export const TourenList = (props) => {

@@ -7,7 +7,6 @@ import {
 } from 'react-admin';
 // material UI styling
 import { Card as MuiCard, CardContent, withStyles } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
 //icons
 import ImageSearchIcon from '@material-ui/icons/ImageSearch';
 import ClassIcon from '@material-ui/icons/Class';

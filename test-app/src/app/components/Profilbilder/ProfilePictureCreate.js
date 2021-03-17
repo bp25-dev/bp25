@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   ImageField,
@@ -10,7 +9,7 @@ import {
 } from 'react-admin';
 
 // create a new badge
-export const PictureCreate = (props) => (
+export const ProfilePictureCreate = (props) => (
   <Create title='Lade Profilbilder hoch' {...props}>
     <SimpleForm>
       <TextInput source='name' label='Name' fullWidth />

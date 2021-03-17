@@ -34,7 +34,7 @@ const DeleteConfirmContent = props => {
 };
 
 // edit badges
-export const PictureEdit = (props) => (
+export const ProfilePictureEdit = (props) => (
   <Edit title='Verändere Profilbilder' {...props}>
     <SimpleForm toolbar={<UserEditToolbar />}>
       <TextInput source='name' label='Name' fullWidth />

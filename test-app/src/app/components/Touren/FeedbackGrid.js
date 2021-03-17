@@ -5,11 +5,8 @@ import {
   RichTextField,
   NumberField,
   useListContext,
-  EditButton,
   usePermissions,
 } from 'react-admin';
-import { linkToRecord } from 'ra-core';
-import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardActions } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Icon from '@material-ui/icons/Stars';

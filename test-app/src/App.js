@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { Admin, Resource, Delete, Login} from 'react-admin';
-import buildGraphQLProvider from 'ra-data-graphql-simple';
+import { Admin, Resource, Login} from 'react-admin';
 //components
 //Exponate
 import {ExponateCreate} from './app/components/Exponate/ExponateCreate.js';
 import {ExponateEdit} from './app/components/Exponate/ExponateEdit.js';
 import {ExponateList} from './app/components/Exponate/ExponateList.js';
 //Touren
-import {TourenList} from './app/components/Touren/ListTouren.js';
-import {TourenCreate} from './app/components/Touren/CreateTouren.js';
-import {TourenEdit} from './app/components/Touren/EditTouren.js';
+import {TourenList} from './app/components/Touren/TourenList.js';
+import {TourenCreate} from './app/components/Touren/TourenCreate.js';
+import {TourenEdit} from './app/components/Touren/TourenEdit.js';
 import {FeedbackList, FeedbackEdit} from './app/components/Touren/TourenFeedback.js';
 //Benutzer
 import {UserList} from './app/components/User/UserList.js';
@@ -22,16 +21,17 @@ import {AbzeichenList} from './app/components/Abzeichen/AbzeichenList.js';
 import {AbzeichenEdit} from './app/components/Abzeichen/AbzeichenEdit.js';
 import {AbzeichenCreate} from './app/components/Abzeichen/AbzeichenCreate.js';
 //Bildverknüpfungen-Profilbilder
-import {PictureList} from './app/components/Profilbilder/PictureList.js';
-import {PictureEdit} from './app/components/Profilbilder/PictureEdit.js';
-import {PictureCreate} from './app/components/Profilbilder/PictureCreate.js';
+import {ProfilePictureList} from './app/components/Profilbilder/ProfilePictureList.js';
+import {ProfilePictureEdit} from './app/components/Profilbilder/ProfilePictureEdit.js';
+import {ProfilePictureCreate} from './app/components/Profilbilder/ProfilePictureCreate.js';
 //pages
 import Dashboard from './app/containers/Dashboard';
 import CustomRoutesProfile from './app/containers/CustomRoutes.js';
-import MyLayout from './app/containers/MyLayout.js';
+import MyLayout from './app/containers/Layout/MyLayout.js';
 import Footer from './app/containers/Footer.js';
-import {MyTheme} from './app/containers/MyTheme.js';
-import LoginPage from './app/containers/Login/LoginPage.js';
+import {MyTheme} from './app/containers/Layout/MyTheme.js';
+// custom login page
+//import LoginPage from './app/containers/Login/LoginPage.js';
 import authProvider from './app/containers/Login/authProvider.js';
 import dataProvider from './app/data/fakeDataProvider.js';
 import initialState from './app/containers/Login/initialState.js';
@@ -68,7 +68,6 @@ class App extends Component {
       buildGraphQLProvider({ clientOptions: { uri: 'localhost:5000/web' }})
           .then(dataProvider => this.setState({ dataProvider }));
   } */
-
   render() {
     /* const { dataProvider } = this.state;
 
@@ -151,9 +150,9 @@ class App extends Component {
         />,
         <Resource
           name='ProfilePicture'
-          list={PictureList}
-          edit={permissions === 'admin' ? PictureEdit : null}
-          create={permissions === 'admin' ? PictureCreate : null}
+          list={ProfilePictureList}
+          edit={permissions === 'admin' ? ProfilePictureEdit : null}
+          create={permissions === 'admin' ? ProfilePictureCreate : null}
           icon={AddPhotoAlternateIcon}
           options={{ label: 'Profilbilder', menuParent: 'Bilder_overview' }}
         />,

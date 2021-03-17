@@ -15,9 +15,9 @@ import {
 } from 'react-admin';
 import { FilterSidebar } from './ExponateFilterSidebar.js';
 import { makeStyles } from '@material-ui/core/styles';
-import {CustomListActions} from '../CustomListActions.js';
-import { CustomBulkActions, CustomBulkActionsExponate } from '../CustomBulkActions.js';
-import { unparse as convertToCSV } from 'papaparse/papaparse.min';
+import {CustomListActions} from '../../containers/CustomActions/CustomListActions.js';
+import { CustomBulkActionsExponate } from '../../containers/CustomActions/CustomBulkActions.js';
+import { unparse as convertToCSV } from 'papaparse';
 
 
 const useStyles = makeStyles({
