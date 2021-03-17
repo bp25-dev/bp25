@@ -8,10 +8,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 const API_ENDPOINT = 'http://127.0.0.1:5000/web/';
 const httpLink = new HttpLink({ uri: API_ENDPOINT });
 
- //const token = localStorage.getItem('token');
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1ODg0MjAwLCJuYmYiOjE2MTU4ODQyMDAsImp0aSI6ImE5ZjdlNzYxLTZkZDgtNDAyNy1iNzJhLTQyMWE0ODA4NmRiMyIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTU4ODUxMDAsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.G8zkhV2YAoAWmhyYiAtLJCLclYECWlH8YCb1OHXCQ_k';
-// initialize Bearer token authentification method 
-
+const token = localStorage.getItem('token');
 const apolloClient = new ApolloClient({
   link: new HttpLink({
     uri: API_ENDPOINT
@@ -23,6 +20,7 @@ const apolloClient = new ApolloClient({
   },
 });
 
+// try query building scheme git getList instead of checking if === GET_LIST 
 export default {
     getList: (resource, params) => {
         const { page, perPage } = params.pagination;

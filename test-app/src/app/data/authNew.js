@@ -4,6 +4,8 @@ import { GraphQLClient } from 'graphql-request';
 import { gql, useMutation } from '@apollo/client';
 import graphql from './ApolloGraphQLProvider.js';
 
+
+//accessing existing mutations for logging in and create admin account
 const SIGNUP_MUTATION = gql`
     mutation signup(
         $username: String!
@@ -34,6 +36,7 @@ const LOGIN_MUTATION = gql`
     }
   }`;
  
+// use the existing mutations to set the token in the local storage 
   export default (type, params) => {
 
     if (type === AUTH_LOGIN) {

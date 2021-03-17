@@ -1,4 +1,5 @@
-
+// define schema of the database
+// used only for looking up
 export default `
 type museumObject {
     object_id: String!

@@ -2,6 +2,10 @@ import { gql } from 'graphql-request'
 import { buildQuery as buildQueryFactory, } from 'ra-data-graphql-simple';
 import { GET_ONE, GET_LIST, DELETE } from 'react-admin';
 
+// build custom query scheme 
+// testing: check results in logs
+// current progress: introspection is shown in logs with instrospection scheme of the real database
+// prerequisite: valid access token (e.g. created via graphiql)
 export const customBuildQuery = introspection => {
   console.log(introspection)
   const buildQuery = buildQueryFactory(introspection);
@@ -44,6 +48,7 @@ export const customBuildQuery = introspection => {
   }
 }; 
 
+// test query for accessing all museumObjects
 export const testQuery = introspection => (fetchType, resource, params) => {
     console.log(introspection)
     const builtQuery = buildQueryFactory(introspection)(fetchType, resource, params);

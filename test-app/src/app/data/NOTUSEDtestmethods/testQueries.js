@@ -1,6 +1,8 @@
 //import { gql, useQuery, useMutation } from '@apollo/client';
 import { gql } from 'graphql-request'
 
+
+// some possible test queries for checking connection
 export const SIGNUP = gql`
   mutation createAdmin($username: String!, $password: String!) {
     createAdmin(username: $username, password: $password) {

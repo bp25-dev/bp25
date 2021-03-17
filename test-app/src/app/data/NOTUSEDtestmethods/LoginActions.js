@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 
+// GQL Scheme for login queries
 const SIGNUP_MUTATION = gql`
     mutation signup (
         $username: String!
@@ -31,6 +32,7 @@ const LOGIN_MUTATION = gql`
     }
   }`;
   
+// get those actions somewhere into the auth provider
 /* 
 export const [login] = useMutation(LOGIN_MUTATION, {
     variables: {

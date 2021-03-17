@@ -2,6 +2,7 @@ import decodeJwt from 'jwt-decode';
 import {AUTH} from './testQueries.js';
 
 // authetification with jwt token 
+// trying to use refresh tokens
 export default {
     login: ({ username, password }) => {
         const request = new Request('http://127.0.0.1:5000/web', {

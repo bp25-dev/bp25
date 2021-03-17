@@ -21,10 +21,10 @@ import { customBuildQuery, customBuildQuery2, testQuery } from './customQueryBui
 const API_ENDPOINT = 'http://127.0.0.1:5000/web/';
 const httpLink = new HttpLink({ uri: API_ENDPOINT });
 
+// TODO: connect to authProvider to get local token instead of manual input 
  //const token = localStorage.getItem('token');
 const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNjE1ODgzMTU0LCJuYmYiOjE2MTU4ODMxNTQsImp0aSI6IjBhMTNmNGY5LWQwNmMtNGFjZi1iNzg4LTIxZTlmYzg0OTg0ZCIsImlkZW50aXR5IjoicGEiLCJleHAiOjE2MTU4ODQwNTQsInVzZXJfY2xhaW1zIjp7ImFkbWluIjp0cnVlfX0.RGya5Wt2zsHa1Qbam1jQ48hSiN2UhrMbaTD9uzcpAlg';
-// initialize Bearer token authentification method 
-
+// initialize Bearer token authentification method via http headers
 const apolloClient = new ApolloClient({
   link: new HttpLink({
     uri: API_ENDPOINT
@@ -40,6 +40,9 @@ String.prototype.capitalize = function () {
   return this.replace(/^\w/, (c) => c.toUpperCase());
 }
 
+
+// TODO: customBuildQuery is called, but necessarcy troubleshooting for error: getList is not a function 
+// operationNames: naming scheme for queries
 export default buildGraphQLProvider({
   client: apolloClient,
   /* introspection: {
